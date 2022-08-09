@@ -4,6 +4,7 @@ from kivy.uix.label import Label
 
 import os
 import requests
+import pdfplumber
 
 
 
