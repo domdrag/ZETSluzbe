@@ -42,14 +42,14 @@ text = re.split('\s|\n', text)
 y = (i for i,v in enumerate(text) if isFourDigit(v))
 x1 = next(y)
 x2 = next(y)
-print(text)
+#print(text)
 #x = text.find("02528")
 sifre = text[:x2]
 #text = text[5:]
 #sifre = text.split(' ');
 sifre.pop(0)
 
-print(sifre)
+#print(sifre)
 
 invoice = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20RD_internet%20od%2011.7.22..pdf'
 invoice_pdf = download_file(invoice)
@@ -71,7 +71,7 @@ vanjski = ""
 pdf = pdfplumber.open(invoice_pdf)
 for i in range(0, len(sifre), 1):
     if(sifre[i] == 'O' or sifre[i] == 'O\n'):
-        print(i)
+        #print(i)
         continue
     pocetak = 0
     stranica = 0
