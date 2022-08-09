@@ -99,7 +99,7 @@ for i in range(0, len(sifre), 1):
 
 class MyApp(App):
     def build(self):
-        return Label(text=vanjski)
+        return Label(text="Hello World")
 
 if __name__ == "__main__":
    MyApp().run()
