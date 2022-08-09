@@ -67,34 +67,6 @@ def isTwoOrThreeDigit(x):
 
 
 
-vanjski = ""
-pdf = pdfplumber.open(invoice_pdf)
-for i in range(0, len(sifre), 1):
-    if(sifre[i] == 'O' or sifre[i] == 'O\n'):
-        #print(i)
-        continue
-    pocetak = 0
-    stranica = 0
-    while(True):
-        page = pdf.pages[stranica]
-        text = page.extract_text()
-        pocetak = text.find(sifre[i])
-        if(pocetak != -1):
-            break
-        stranica += 1
-    
-    text = text[pocetak:]
-    text = re.split('\s|\n', text)
-    #print(text)
-    # l = ['707', '08.01', 'Draškovićeva', '', '17:24', '00:08', '7,90', '2,13', '4,60\nsmjer', 'Zapruđe', 'smjer', 'Mihaljevac\n108', '08.02', 'PTD', '04:11', '11:02', '8,02', '1,82', '408']
-    y = (i for i,v in enumerate(text) if isTwoOrThreeDigit(v))
-    x1 = next(y)
-    x2 = next(y)
-    #print(x1, x2)
-    text = text[:x2]
-    vanjski += ''.join(text)
-    #print(text)
-
 
 
 class MyApp(App):
