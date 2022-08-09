@@ -22,7 +22,7 @@ invoice_pdf = download_file(invoice)
 
 pdf = pdfplumber.open(invoice_pdf)
 page = pdf.pages[2]
-#print(page.extract_text())
+page.extract_text()
 
 
 
