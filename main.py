@@ -1,6 +1,7 @@
-import kivy
-from kivy.app import App
-from kivy.uix.label import Label
+#import kivy
+#from kivy.app import App
+#from kivy.uix.label import Label
+#from kivy.uix.gridlayout import GridLayout
 
 import os
 import requests
@@ -68,10 +69,14 @@ def isTwoOrThreeDigit(x):
 
 
 vanjski = ""
+dani = ['Ponedjeljak', 'Utorak', 'Srijeda',
+        'Cetvrtak', 'Petak', 'Subota', 'Nedjelja']
+sluzbe = []
 pdf = pdfplumber.open(invoice_pdf)
 for i in range(0, len(sifre), 1):
     if(sifre[i] == 'O' or sifre[i] == 'O\n'):
         #print(i)
+        sluzbe.append('O')
         continue
     pocetak = 0
     stranica = 0
@@ -92,14 +97,97 @@ for i in range(0, len(sifre), 1):
     x2 = next(y)
     #print(x1, x2)
     text = text[:x2]
-    vanjski += ''.join(text)
+    #vanjski += ''.join(text)
     #print(text)
+    firstOccrSmjer = text.index('smjer')
+    lastOccrSmjer = len(text) - 1 - text[::-1].index('smjer')
+    del text[firstOccrSmjer:lastOccrSmjer]
+    del text[3]
+    del text[5:8]
+    print(text)
+
+    temp = text[0]
+    text[0] = 'broj sluzbe: ' + text[0]
+    text[1] = 'vozni red: ' + text[1]
+    text[2] = text[3] + ', ' + text[2] + ' ' + text[5] + ' ' + ''.join(text[6:])
+    text[3] = text[4]
+    del text[4:]
+    
+    sluzbe.append(text)
+
+    
+
+    
 
 
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from kivy.lang import Builder
 
-class MyApp(App):
+#kv codes
+Builder.load_string('''
+<Sluzbe>:
+    id: main_win
+    RecycleView:
+        viewclass: 'CustomLabel'
+        id: table_floor
+        RecycleGridLayout:
+            id: table_floor_layout
+            cols: 5
+            default_size: (None,250)
+            default_size_hint: (1,None)
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: 5
+<CustomLabel@Label>:
+    bcolor: (1,1,1,1)
+    canvas.before:
+        Color:
+            rgba: root.bcolor
+        Rectangle:
+            size: self.size
+            pos: self.pos
+''')
+
+class Sluzbe(BoxLayout):
+    def __init__(self,table='', **kwargs):
+        super().__init__(**kwargs)
+
+        data = {
+            'Dan':{0:'Ponedjeljak',1:'Utorak',2:'Srijeda',3:'Cetvrtak',
+                 4: 'Petak', 5:'Subota',6:'Nedjelja'},
+            'Sluzba':{0:'\n'.join(sluzbe[0]),1:'\n'.join(sluzbe[1]),
+                 2:'\n'.join(sluzbe[2]),3:'\n'.join(sluzbe[3]),
+                 4:'\n'.join(sluzbe[4]),5:'\n'.join(sluzbe[5]),
+                 6:'\n'.join(sluzbe[6])},
+        } #data store
+
+        column_titles = [x for x in data.keys()]
+        rows_length = len(data[column_titles[0]])
+        self.columns = len(column_titles)
+
+        table_data = []
+        for y in column_titles:
+            table_data.append({'text':str(y),'size_hint_y':None,
+                               'height':30,'bcolor':(.05,.30,.80,1)}) #append the data
+
+        for z in range(rows_length):
+            for y in column_titles:
+                if(sluzbe[z]=='O'):
+                    table_data.append({'text':str(data[y][z]),'size_hint_y':None,
+                                   'height':100,'bcolor':(.10,.50,.150,1),
+                                   'halign':'center', 'valign':'top'}) #append the data
+                else:                   
+                    table_data.append({'text':str(data[y][z]),'size_hint_y':None,
+                                   'height':100,'bcolor':(.06,.25,.50,1),
+                                   'halign':'center', 'valign':'top'}) #append the data
+
+        self.ids.table_floor_layout.cols = self.columns #define value of cols to the value of self.columns
+        self.ids.table_floor.data = table_data #add table_data to data value
+
+class SluzbeApp(App):
     def build(self):
-        return Label(text=vanjski)
+        return Sluzbe()
 
-if __name__ == "__main__":
-   MyApp().run()
+if __name__=='__main__':
+    SluzbeApp().run()
