@@ -175,11 +175,11 @@ class Sluzbe(BoxLayout):
             for y in column_titles:
                 if(sluzbe[z]=='O'):
                     table_data.append({'text':str(data[y][z]),'size_hint_y':None,
-                                   'height':100,'bcolor':(.10,.50,.150,1),
+                                   'height':500,'bcolor':(.10,.50,.150,1),
                                    'halign':'center', 'valign':'top'}) #append the data
                 else:                   
                     table_data.append({'text':str(data[y][z]),'size_hint_y':None,
-                                   'height':100,'bcolor':(.06,.25,.50,1),
+                                   'height':500,'bcolor':(.06,.25,.50,1),
                                    'halign':'center', 'valign':'top'}) #append the data
 
         self.ids.table_floor_layout.cols = self.columns #define value of cols to the value of self.columns
