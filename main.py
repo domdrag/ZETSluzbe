@@ -145,7 +145,7 @@ Builder.load_string('''
         Color:
             rgba: root.bcolor
         Rectangle:
-            size: self.size
+            size: root.size
             pos: self.pos
 ''')
 
