@@ -171,7 +171,7 @@ Builder.load_string('''
             rgba: root.bcolor
         Rectangle:
             size: root.size
-            pos: root.pos
+            pos: self.pos
 ''')
 
 class Sluzbe(BoxLayout):
@@ -206,7 +206,7 @@ class Sluzbe(BoxLayout):
                                    'height':20,'bcolor':(.05,.30,.80,1),
                                    'halign':'center', 'valign':'top'}) #append the data
                 table_data.append({'text':str(data['Sluzba'][z]),'size_hint_y':None,
-                                   'height':100,'bcolor':(.10,.50,.150,1),
+                                   'height':500,'bcolor':(.10,.50,.150,1),
                                    'halign':'center', 'valign':'top'}) #append the data 
                 
             else:
@@ -214,7 +214,7 @@ class Sluzbe(BoxLayout):
                                    'height':20,'bcolor':(.05,.30,.80,1),
                                    'halign':'center', 'valign':'top'}) #append the data
                 table_data.append({'text':str(data['Sluzba'][z]),'size_hint_y':None,
-                                   'height':100,'bcolor':(.06,.25,.50,1),
+                                   'height':500,'bcolor':(.06,.25,.50,1),
                                    'halign':'center', 'valign':'top'}) #append the data 
 
         self.ids.table_floor_layout.cols = self.columns #define value of cols to the value of self.columns
