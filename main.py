@@ -60,15 +60,24 @@ workDayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Ogl
 saturdayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20RD_internet%20od%2011.7.22..pdf'
 sundayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20RD_internet%20od%2011.7.22..pdf'
 
+URL = workDayURL
+PDFFile = download_file(URL)
+PDF = pdfplumber.open(PDFFile)
 services = []
 for i in range(0, len(serviceNumbers), 1):
     if(serviceNumbers[i] == 'O' or serviceNumbers[i] == 'O\n'):
         services.append('O')
         continue
     
-    URL = saturdayURL if (i == 5) else (sundayURL if (i==6) else workDayURL)
-    PDFFile = download_file(URL)
-    PDF = pdfplumber.open(PDFFile)
+    if(i == 5):
+        URL = saturdayURL
+        PDFFile = download_file(URL)
+        PDF = pdfplumber.open(PDFFile)
+    if(i == 6):
+        URL = sundayURL
+        PDFFile = download_file(URL)
+        PDF = pdfplumber.open(PDFFile)
+
     
     for pageNum in range(len(PDF.pages)):
         page = PDF.pages[pageNum]
@@ -162,7 +171,7 @@ Builder.load_string('''
             rgba: root.bcolor
         Rectangle:
             size: root.size
-            pos: self.pos
+            pos: root.pos
 ''')
 
 class Sluzbe(BoxLayout):
