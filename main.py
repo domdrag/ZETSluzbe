@@ -196,9 +196,9 @@ class Sluzbe(BoxLayout):
         self.columns = 1
 
         table_data = []
-        for y in column_titles:
-            table_data.append({'text':str(y),'size_hint_y':None,
-                               'height':30,'bcolor':(.05,.30,.80,1)}) #append the data
+        #for y in column_titles:
+          #  table_data.append({'text':str(y),'size_hint_y':None,
+         #                      'height':30,'bcolor':(.05,.30,.80,1)}) #append the data
 
         for z in range(7):    
             if(services[z]=='O'):
