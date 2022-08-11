@@ -18,106 +18,122 @@ def download_file(url):
         
     return local_filename
 
-invoice = 'https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf'
-invoice_pdf = download_file(invoice)
-
-pdf = pdfplumber.open(invoice_pdf)
-page = pdf.pages[2]
-text = page.extract_text()
-#print(text)
-    
 def isFourDigit(x):
-    #print(x, '\n')
-    #if(not isinstance(x, int)):
     if(not x.isdigit()):
         return False
-    #print(x)
     x = int(x)
     if(x>=1000 and x<=9999):
         return True
     return False
-    
-x = text.find("2621")
-text = text[x:]
-text = re.split('\s|\n', text)
-y = (i for i,v in enumerate(text) if isFourDigit(v))
-x1 = next(y)
-x2 = next(y)
-#print(text)
-#x = text.find("02528")
-sifre = text[:x2]
-#text = text[5:]
-#sifre = text.split(' ');
-sifre.pop(0)
-
-#print(sifre)
-
-invoice = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20RD_internet%20od%2011.7.22..pdf'
-invoice_pdf = download_file(invoice)
 
 def isTwoOrThreeDigit(x):
-    #print(x, '\n')
-    #if(not isinstance(x, int)):
     if(not x.isdigit()):
         return False
-    #print(x)
     x = int(x)
     if(x>=10 and x<=999):
         return True
     return False
 
+# Pitaj medu za url-ove
+firstURL = 'https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf'
+PDFFile = download_file(firstURL)
+PDF = pdfplumber.open(PDFFile)
+offNum = '2621'
 
+for pageNum in range(len(PDF.pages)):
+    page = PDF.pages[pageNum]
+    textFirstPDF = page.extract_text()
+    indexOffNum = textFirstPDF.find(offNum)
+    if(indexOffNum != -1):
+        break
+    
+textCutLeft = textFirstPDF[indexOffNum:]
+listCutLeft = re.split('\s|\n', textCutLeft)
+nextOffNumGenerator = (i for i,v in enumerate(listCutLeft) if isFourDigit(v))
+tempThrow = next(nextOffNumGenerator)
+nextOffNum = next(nextOffNumGenerator)
+serviceNumbers = listCutLeft[1:nextOffNum]
 
-vanjski = ""
-dani = ['Ponedjeljak', 'Utorak', 'Srijeda',
-        'Cetvrtak', 'Petak', 'Subota', 'Nedjelja']
-sluzbe = []
-pdf = pdfplumber.open(invoice_pdf)
-for i in range(0, len(sifre), 1):
-    if(sifre[i] == 'O' or sifre[i] == 'O\n'):
-        #print(i)
-        sluzbe.append('O')
+#############################################
+
+workDayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20RD_internet%20od%2011.7.22..pdf'
+saturdayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20RD_internet%20od%2011.7.22..pdf'
+sundayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20RD_internet%20od%2011.7.22..pdf'
+
+services = []
+for i in range(0, len(serviceNumbers), 1):
+    if(serviceNumbers[i] == 'O' or serviceNumbers[i] == 'O\n'):
+        services.append('O')
         continue
-    pocetak = 0
-    stranica = 0
-    while(True):
-        page = pdf.pages[stranica]
-        text = page.extract_text()
-        pocetak = text.find(sifre[i])
-        if(pocetak != -1):
+    
+    URL = saturdayURL if (i == 5) else (sundayURL if (i==6) else workDayURL)
+    PDFFile = download_file(URL)
+    PDF = pdfplumber.open(PDFFile)
+    
+    for pageNum in range(len(PDF.pages)):
+        page = PDF.pages[pageNum]
+        textSecondPDF = page.extract_text()
+        start = textSecondPDF.find(serviceNumbers[i])
+        if(start != -1):
             break
-        stranica += 1
     
-    text = text[pocetak:]
-    text = re.split('\s|\n', text)
-    #print(text)
-    # l = ['707', '08.01', 'Draškovićeva', '', '17:24', '00:08', '7,90', '2,13', '4,60\nsmjer', 'Zapruđe', 'smjer', 'Mihaljevac\n108', '08.02', 'PTD', '04:11', '11:02', '8,02', '1,82', '408']
-    y = (i for i,v in enumerate(text) if isTwoOrThreeDigit(v))
-    x1 = next(y)
-    x2 = next(y)
-    #print(x1, x2)
-    text = text[:x2]
-    #vanjski += ''.join(text)
-    #print(text)
-    firstOccrSmjer = text.index('smjer')
-    lastOccrSmjer = len(text) - 1 - text[::-1].index('smjer')
-    del text[firstOccrSmjer:lastOccrSmjer]
-    del text[3]
-    del text[5:8]
-    print(text)
+    textCutLeft = textSecondPDF[start:]
+    listCutLeft = re.split('\s|\n', textCutLeft)
+    nextServiceGenerator = (i for i,v in enumerate(listCutLeft) if isTwoOrThreeDigit(v))
+    tempThrow = next(nextServiceGenerator)
+    nextService = next(nextServiceGenerator)
+    if(not 'smjer' in listCutLeft[:nextService]): # rana ili srednja
+        nextNextService = next(nextServiceGenerator)
+        temp = listCutLeft[:nextNextService]
+        tempFirstOccrSmjer = temp.index('smjer')
+        tempLastOccrSmjer = len(temp) - 1 - temp[::-1].index('smjer')
+        tempEmptySignIndex = nextService + temp[nextService:].index('')
+        service = listCutLeft[:nextService]
+        service = service + temp[tempFirstOccrSmjer:tempLastOccrSmjer]
+        
+        serviceNumber = service[0]
+        driveOrder = service[1]
 
-    temp = text[0]
-    text[0] = 'broj sluzbe: ' + text[0]
-    text[1] = 'vozni red: ' + text[1]
-    text[2] = text[3] + ', ' + text[2] + ' ' + text[5] + ' ' + ''.join(text[6:])
-    text[3] = text[4]
-    del text[4:]
-    
-    sluzbe.append(text)
+        emptySignIndex = service.index('')
+        occrSmjer = service.index('smjer')
+        
+        receptionPoint = []
+        receptionPoint = receptionPoint + service[2:emptySignIndex] + service[occrSmjer:]
+        receptionTime = service[emptySignIndex+1]
 
-    
+        releasePoint = []
+        releasePoint = releasePoint + temp[nextService+2:tempEmptySignIndex] + temp[tempLastOccrSmjer:]
+        releaseTime = service[emptySignIndex+2]
+    else:                                         # kasna
+        temp = listCutLeft[:nextService]
+        firstOccrSmjer = temp.index('smjer')
+        lastOccrSmjer = len(temp) - 1 - temp[::-1].index('smjer')
+        del temp[firstOccrSmjer:lastOccrSmjer]
+        service = temp
 
+        serviceNumber = service[0]
+        driveOrder = service[1]
+
+        emptySignIndex = service.index('')
+        occrSmjer = service.index('smjer')
+        
+        receptionPoint = []
+        receptionPoint = receptionPoint + service[2:emptySignIndex] + service[occrSmjer:]
+        receptionTime = service[emptySignIndex+1]
+
+        releasePoint = ['PTD']
+        releaseTime = service[emptySignIndex+2]
+        
+
+    #print(serviceReception)
+    # slaganje za layout
+    serviceLayout = []
+    serviceLayout.append('broj sluzbe: ' + serviceNumber)
+    serviceLayout.append('vozni red: ' + driveOrder)
+    serviceLayout.append(receptionTime + ', ' + ' '.join(receptionPoint))
+    serviceLayout.append(releaseTime + ', ' + ' '.join(releasePoint))
     
+    services.append(serviceLayout)
 
 
 from kivy.app import App
@@ -156,31 +172,41 @@ class Sluzbe(BoxLayout):
         data = {
             'Dan':{0:'Ponedjeljak',1:'Utorak',2:'Srijeda',3:'Cetvrtak',
                  4: 'Petak', 5:'Subota',6:'Nedjelja'},
-            'Sluzba':{0:'\n'.join(sluzbe[0]),1:'\n'.join(sluzbe[1]),
-                 2:'\n'.join(sluzbe[2]),3:'\n'.join(sluzbe[3]),
-                 4:'\n'.join(sluzbe[4]),5:'\n'.join(sluzbe[5]),
-                 6:'\n'.join(sluzbe[6])},
+            'Sluzba':{0:'\n'.join(services[0]),1:'\n'.join(services[1]),
+                 2:'\n'.join(services[2]),3:'\n'.join(services[3]),
+                 4:'\n'.join(services[4]),5:'\n'.join(services[5]),
+                 6:'\n'.join(services[6])},
         } #data store
 
-        column_titles = [x for x in data.keys()]
-        rows_length = len(data[column_titles[0]])
-        self.columns = len(column_titles)
+        #column_titles = [x for x in data.keys()]
+        #rows_length = len(data[column_titles[0]])
+        #self.columns = len(column_titles)
+
+        column_titles = ['Dan/Sluzba']
+        rows_length = 7*2
+        self.columns = 1
 
         table_data = []
         for y in column_titles:
             table_data.append({'text':str(y),'size_hint_y':None,
                                'height':30,'bcolor':(.05,.30,.80,1)}) #append the data
 
-        for z in range(rows_length):
-            for y in column_titles:
-                if(sluzbe[z]=='O'):
-                    table_data.append({'text':str(data[y][z]),'size_hint_y':None,
-                                   'height':500,'bcolor':(.10,.50,.150,1),
+        for z in range(7):    
+            if(services[z]=='O'):
+                table_data.append({'text':str(data['Dan'][z]),'size_hint_y':None,
+                                   'height':20,'bcolor':(.05,.30,.80,1),
                                    'halign':'center', 'valign':'top'}) #append the data
-                else:                   
-                    table_data.append({'text':str(data[y][z]),'size_hint_y':None,
-                                   'height':500,'bcolor':(.06,.25,.50,1),
+                table_data.append({'text':str(data['Sluzba'][z]),'size_hint_y':None,
+                                   'height':100,'bcolor':(.10,.50,.150,1),
+                                   'halign':'center', 'valign':'top'}) #append the data 
+                
+            else:
+                table_data.append({'text':str(data['Dan'][z]),'size_hint_y':None,
+                                   'height':20,'bcolor':(.05,.30,.80,1),
                                    'halign':'center', 'valign':'top'}) #append the data
+                table_data.append({'text':str(data['Sluzba'][z]),'size_hint_y':None,
+                                   'height':100,'bcolor':(.06,.25,.50,1),
+                                   'halign':'center', 'valign':'top'}) #append the data 
 
         self.ids.table_floor_layout.cols = self.columns #define value of cols to the value of self.columns
         self.ids.table_floor.data = table_data #add table_data to data value
