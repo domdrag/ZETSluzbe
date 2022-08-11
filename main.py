@@ -203,7 +203,7 @@ class Sluzbe(BoxLayout):
         for z in range(7):    
             if(services[z]=='O'):
                 table_data.append({'text':str(data['Dan'][z]),'size_hint_y':None,
-                                   'height':50,'bcolor':(.05,.30,.80,1),
+                                   'height':100,'bcolor':(.05,.30,.80,1),
                                    'halign':'center', 'valign':'top'}) #append the data
                 table_data.append({'text':str(data['Sluzba'][z]),'size_hint_y':None,
                                    'height':300,'bcolor':(.10,.50,.150,1),
@@ -211,7 +211,7 @@ class Sluzbe(BoxLayout):
                 
             else:
                 table_data.append({'text':str(data['Dan'][z]),'size_hint_y':None,
-                                   'height':50,'bcolor':(.05,.30,.80,1),
+                                   'height':100,'bcolor':(.05,.30,.80,1),
                                    'halign':'center', 'valign':'top'}) #append the data
                 table_data.append({'text':str(data['Sluzba'][z]),'size_hint_y':None,
                                    'height':300,'bcolor':(.06,.25,.50,1),
