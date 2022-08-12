@@ -76,10 +76,8 @@ URL = workDayURL
 PDFFile = download_file(URL)
 PDF = pdfplumber.open(PDFFile)
 services = []
-print('first')
 
 for i in range(0, len(serviceNumbers), 1):
-    print(i)
     if(serviceNumbers[i] == 'O' or serviceNumbers[i] == 'O\n'):
         services.append('O')
         continue
@@ -143,13 +141,13 @@ for i in range(0, len(serviceNumbers), 1):
 
 #print(services)
 
-'''
+
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 
 #kv codes
-Builder.load_string(''''''
+Builder.load_string('''
 <Sluzbe>:
     id: main_win
     RecycleView:
@@ -171,7 +169,7 @@ Builder.load_string(''''''
         Rectangle:
             size: root.size
             pos: self.pos
-'''''')
+''')
 
 class Sluzbe(BoxLayout):
     def __init__(self,table='', **kwargs):
@@ -225,4 +223,4 @@ class SluzbeApp(App):
 
 if __name__=='__main__':
     SluzbeApp().run()
-'''
+
