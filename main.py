@@ -7,6 +7,8 @@ import os
 import requests
 import pdfplumber
 import re
+import os.path
+import ast
 
 def download_file(url):
     local_filename = url.split('/')[-1]
@@ -48,17 +50,31 @@ def isAlphaWithSpaces(x):
 
 # Pitaj medu za url-ove
 firstURL = 'https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf'
-PDFFile = download_file(firstURL)
-PDF = pdfplumber.open(PDFFile)
-offNum = '2621'
+offNum = '2545'
 
-for pageNum in range(len(PDF.pages)):
-    page = PDF.pages[pageNum]
-    textFirstPDF = page.extract_text()
+################################################################
+
+filePath = 'firstPDF.txt'
+if(os.path.exists(filePath) and os.stat(filePath).st_size):
+    fileR = open(filePath, 'r', encoding='utf-8')
+    textFirstPDF = fileR.read()
     indexOffNum = textFirstPDF.find(offNum)
-    if(indexOffNum != -1):
-        break
+    fileR.close()
+else:
+    PDFFile = download_file(firstURL)
+    PDF = pdfplumber.open(PDFFile)
+    for pageNum in range(len(PDF.pages)):
+        page = PDF.pages[pageNum]
+        textFirstPDF = page.extract_text()
+        indexOffNum = textFirstPDF.find(offNum)
+        if(indexOffNum != -1):
+            break
+    fileW = open(filePath, 'w', encoding='utf-8')
+    fileW.writelines(textFirstPDF)
+    fileW.close()
     
+############################################################## 
+
 textCutLeft = textFirstPDF[indexOffNum:]
 listCutLeft = re.split(' |\n', textCutLeft)
 nextOffNumGenerator = (i for i,v in enumerate(listCutLeft) if isFourDigit(v))
@@ -72,9 +88,6 @@ workDayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Ogl
 saturdayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20SUB_internet%20od%2016.7.22..pdf'
 sundayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20NED_internet%20od%2026.6.22..pdf'
 
-URL = workDayURL
-PDFFile = download_file(URL)
-PDF = pdfplumber.open(PDFFile)
 services = []
 
 for i in range(0, len(serviceNumbers), 1):
@@ -84,14 +97,79 @@ for i in range(0, len(serviceNumbers), 1):
     
     if(i == 5):
         URL = saturdayURL
-        PDFFile = download_file(URL)
-        PDF = pdfplumber.open(PDFFile)
-    if(i == 6):
+        fileStart = 'saturdayPage'
+    elif(i == 6):
         URL = sundayURL
-        PDFFile = download_file(URL)
-        PDF = pdfplumber.open(PDFFile)
-
+        fileStart = 'sundayPage'
+    else:
+        URL = workDayURL
+        fileStart = 'workDayPage'
     
+    mPage = 0
+    while(True):
+        filePath = fileStart+str(mPage)+'PDF.txt'
+        if(os.path.exists(filePath) and os.stat(filePath).st_size):
+            fileR = open(filePath, 'r', encoding='utf-8')
+            mTextSecondPDF = fileR.read()
+            mStart = mTextSecondPDF.find(serviceNumbers[i])
+            if(mStart != -1):
+                fileR.close()
+                break
+            fileR.close()
+        else:
+            PDFFile = download_file(URL)
+            PDF = pdfplumber.open(PDFFile)
+            page = PDF.pages[mPage]
+            mTextSecondPDF = page.extract_text()
+            mStart = mTextSecondPDF.find(serviceNumbers[i])
+            fileW = open(filePath, 'w', encoding='utf-8')
+            fileW.writelines(mTextSecondPDF)
+            fileW.close()
+            if(mStart != -1):
+                break
+        mPage = mPage + 1
+
+    mTable = 0
+    while(True):
+        filePath = fileStart+str(mPage)+'Table'+str(mTable)+'PDF.txt'
+        # postoji opasnost da file nestane nakon cekiranja, pripazi !!
+        if(os.path.exists(filePath) and os.stat(filePath).st_size):
+            fileR = open(filePath, 'r', encoding='utf-8')
+            lines = fileR.readlines()
+            fileR.close()
+            lines = [line.rstrip() for line in lines]
+            found = False
+            for line in lines:
+                line = ast.literal_eval(line)
+                #print(line)
+                if(serviceNumbers[i] in line):
+                    found = True
+                    serviceLine = line
+                    break
+            if(found):
+                break
+            
+        else:
+            page = PDF.pages[mPage]
+            tables = page.find_tables()
+            table = tables[mTable].extract()
+            fileW = open(filePath, 'w', encoding='utf-8')
+            for mList in table:
+                fileW.write(f"{mList}\n")
+            fileW.close()
+            found = False
+            for serviceLine in table:
+                if(serviceNumbers[i] in serviceLine):
+                    found = True
+                    break
+            if(found):
+                break
+            
+        mTable = mTable + 1
+        
+    '''
+    PDFFile = download_file(URL)
+    PDF = pdfplumber.open(PDFFile)
     for pageNum in range(len(PDF.pages)):
         page = PDF.pages[pageNum]
         textSecondPDF = page.extract_text()
@@ -108,10 +186,13 @@ for i in range(0, len(serviceNumbers), 1):
                 found = True
                 break
         if(found):
-            break
-
+            break'''
+    #print(serviceLine)
+    #print(serviceNumbers[i])
     serviceStartIndex = serviceLine.index(serviceNumbers[i])
+    #print(serviceStartIndex)
     serviceNumber = serviceLine[serviceStartIndex]
+    #print(serviceNumber)
     driveOrder = serviceLine[serviceStartIndex+1]
     receptionPoint = serviceLine[serviceStartIndex+2].replace('\n','')
     receptionTime = serviceLine[serviceStartIndex+3]
@@ -119,14 +200,13 @@ for i in range(0, len(serviceNumbers), 1):
     if(receptionPoint == 'PTD' or receptionPoint == 'PTT'):
         driveOrder = 'PRIČUVA'
         releasePoint = receptionPoint
-        releaseTime = serviceLine[serviceStartIndex+4]
     else:
         releasePoint = 'PTD'
         for element in serviceLine[serviceStartIndex+3:]:
             if(isAlphaWithSpaces(element)):
                 releasePoint = element.replace('\n','')
             
-        releaseTime = serviceLine[serviceStartIndex+4]
+    releaseTime = serviceLine[serviceStartIndex+4]
         
     
     # slaganje za layout
@@ -139,7 +219,7 @@ for i in range(0, len(serviceNumbers), 1):
     services.append(serviceLayout)
 
 
-#print(services)
+print(services)
 
 
 from kivy.app import App
