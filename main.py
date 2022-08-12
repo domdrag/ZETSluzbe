@@ -34,6 +34,18 @@ def isTwoOrThreeDigit(x):
         return True
     return False
 
+def isAlphaWithSpaces(x):
+    if(x == ''):
+        return False
+    y = re.split('\n|\.| ',x)
+    for el in y:
+        if(el == ''):
+            continue
+        if(not el.isalpha()):
+            return False
+    return True
+
+
 # Pitaj medu za url-ove
 firstURL = 'https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf'
 PDFFile = download_file(firstURL)
@@ -48,7 +60,7 @@ for pageNum in range(len(PDF.pages)):
         break
     
 textCutLeft = textFirstPDF[indexOffNum:]
-listCutLeft = re.split('\s|\n', textCutLeft)
+listCutLeft = re.split(' |\n', textCutLeft)
 nextOffNumGenerator = (i for i,v in enumerate(listCutLeft) if isFourDigit(v))
 tempThrow = next(nextOffNumGenerator)
 nextOffNum = next(nextOffNumGenerator)
@@ -57,14 +69,17 @@ serviceNumbers = listCutLeft[1:nextOffNum]
 #############################################
 
 workDayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20RD_internet%20od%2011.7.22..pdf'
-saturdayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20RD_internet%20od%2011.7.22..pdf'
-sundayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20RD_internet%20od%2011.7.22..pdf'
+saturdayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20SUB_internet%20od%2016.7.22..pdf'
+sundayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20NED_internet%20od%2026.6.22..pdf'
 
 URL = workDayURL
 PDFFile = download_file(URL)
 PDF = pdfplumber.open(PDFFile)
 services = []
+print('first')
+
 for i in range(0, len(serviceNumbers), 1):
+    print(i)
     if(serviceNumbers[i] == 'O' or serviceNumbers[i] == 'O\n'):
         services.append('O')
         continue
@@ -85,72 +100,56 @@ for i in range(0, len(serviceNumbers), 1):
         start = textSecondPDF.find(serviceNumbers[i])
         if(start != -1):
             break
+
+    tables = page.find_tables()
+    for tableId in tables:
+        found = False
+        table = tableId.extract()
+        for serviceLine in table:
+            if(serviceNumbers[i] in serviceLine):
+                found = True
+                break
+        if(found):
+            break
+
+    serviceStartIndex = serviceLine.index(serviceNumbers[i])
+    serviceNumber = serviceLine[serviceStartIndex]
+    driveOrder = serviceLine[serviceStartIndex+1]
+    receptionPoint = serviceLine[serviceStartIndex+2].replace('\n','')
+    receptionTime = serviceLine[serviceStartIndex+3]
     
-    textCutLeft = textSecondPDF[start:]
-    listCutLeft = re.split('\s|\n', textCutLeft)
-    nextServiceGenerator = (i for i,v in enumerate(listCutLeft) if isTwoOrThreeDigit(v))
-    tempThrow = next(nextServiceGenerator)
-    nextService = next(nextServiceGenerator)
-    if(not 'smjer' in listCutLeft[:nextService]): # rana ili srednja
-        nextNextService = next(nextServiceGenerator)
-        temp = listCutLeft[:nextNextService]
-        tempFirstOccrSmjer = temp.index('smjer')
-        tempLastOccrSmjer = len(temp) - 1 - temp[::-1].index('smjer')
-        tempEmptySignIndex = nextService + temp[nextService:].index('')
-        service = listCutLeft[:nextService]
-        service = service + temp[tempFirstOccrSmjer:tempLastOccrSmjer]
+    if(receptionPoint == 'PTD' or receptionPoint == 'PTT'):
+        driveOrder = 'PRIČUVA'
+        releasePoint = receptionPoint
+        releaseTime = serviceLine[serviceStartIndex+4]
+    else:
+        releasePoint = 'PTD'
+        for element in serviceLine[serviceStartIndex+3:]:
+            if(isAlphaWithSpaces(element)):
+                releasePoint = element.replace('\n','')
+            
+        releaseTime = serviceLine[serviceStartIndex+4]
         
-        serviceNumber = service[0]
-        driveOrder = service[1]
-
-        emptySignIndex = service.index('')
-        occrSmjer = service.index('smjer')
-        
-        receptionPoint = []
-        receptionPoint = receptionPoint + service[2:emptySignIndex] + service[occrSmjer:]
-        receptionTime = service[emptySignIndex+1]
-
-        releasePoint = []
-        releasePoint = releasePoint + temp[nextService+2:tempEmptySignIndex] + temp[tempLastOccrSmjer:]
-        releaseTime = service[emptySignIndex+2]
-    else:                                         # kasna
-        temp = listCutLeft[:nextService]
-        firstOccrSmjer = temp.index('smjer')
-        lastOccrSmjer = len(temp) - 1 - temp[::-1].index('smjer')
-        del temp[firstOccrSmjer:lastOccrSmjer]
-        service = temp
-
-        serviceNumber = service[0]
-        driveOrder = service[1]
-
-        emptySignIndex = service.index('')
-        occrSmjer = service.index('smjer')
-        
-        receptionPoint = []
-        receptionPoint = receptionPoint + service[2:emptySignIndex] + service[occrSmjer:]
-        receptionTime = service[emptySignIndex+1]
-
-        releasePoint = ['PTD']
-        releaseTime = service[emptySignIndex+2]
-        
-
-    #print(serviceReception)
+    
     # slaganje za layout
     serviceLayout = []
     serviceLayout.append('broj sluzbe: ' + serviceNumber)
     serviceLayout.append('vozni red: ' + driveOrder)
-    serviceLayout.append(receptionTime + ', ' + ' '.join(receptionPoint))
-    serviceLayout.append(releaseTime + ', ' + ' '.join(releasePoint))
+    serviceLayout.append(receptionTime + ', ' + receptionPoint)
+    serviceLayout.append(releaseTime + ', ' + releasePoint)
     
     services.append(serviceLayout)
 
 
+#print(services)
+
+'''
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 
 #kv codes
-Builder.load_string('''
+Builder.load_string(''''''
 <Sluzbe>:
     id: main_win
     RecycleView:
@@ -172,7 +171,7 @@ Builder.load_string('''
         Rectangle:
             size: root.size
             pos: self.pos
-''')
+'''''')
 
 class Sluzbe(BoxLayout):
     def __init__(self,table='', **kwargs):
@@ -226,3 +225,4 @@ class SluzbeApp(App):
 
 if __name__=='__main__':
     SluzbeApp().run()
+'''
