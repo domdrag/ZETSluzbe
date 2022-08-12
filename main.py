@@ -49,11 +49,12 @@ def isAlphaWithSpaces(x):
 
 
 # Pitaj medu za url-ove
-firstURL = 'https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf'
 offNum = '2545'
+holidays2022 = ['15.8.','1.12.','18.11.','25.12.','26.12.']
 
 ################################################################
 
+firstURL = 'https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf'
 filePath = 'firstPDF.txt'
 if(os.path.exists(filePath) and os.stat(filePath).st_size):
     fileR = open(filePath, 'r', encoding='utf-8')
@@ -72,7 +73,26 @@ else:
     fileW = open(filePath, 'w', encoding='utf-8')
     fileW.writelines(textFirstPDF)
     fileW.close()
-    
+
+odIndex = textFirstPDF.find('od')
+stringForMonth = textFirstPDF[odIndex:odIndex+40]
+stringForMonthList = re.split(' |\.', stringForMonth)
+month = stringForMonthList[2]
+
+radnikIndex = textFirstPDF.find('Radnik')
+stringForDates = textFirstPDF[radnikIndex:radnikIndex+100]
+stringForDatesList = re.split(' |\n', stringForDates)
+ 
+monday = stringForDatesList[2] + '.' + month + '.'
+tuesday = stringForDatesList[3] + '.' + month + '.'
+wednesday = stringForDatesList[4] + '.' + month + '.'
+thursday = stringForDatesList[5] + '.' + month + '.'
+friday = stringForDatesList[6] + '.' + month + '.'
+saturday = stringForDatesList[7] + '.' + month + '.'
+sunday = stringForDatesList[8] + '.' + month + '.'
+
+days = [monday, tuesday, wednesday, thursday, friday, saturday, sunday]
+
 ############################################################## 
 
 textCutLeft = textFirstPDF[indexOffNum:]
@@ -91,11 +111,15 @@ sundayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Ogla
 services = []
 
 for i in range(0, len(serviceNumbers), 1):
+
     if(serviceNumbers[i] == 'O' or serviceNumbers[i] == 'O\n'):
         services.append('O')
         continue
     
-    if(i == 5):
+    if(days[i] in holidays2022):
+        URL = sundayURL
+        fileStart = 'sundayPage'
+    elif(i == 5):
         URL = saturdayURL
         fileStart = 'saturdayPage'
     elif(i == 6):
@@ -219,9 +243,6 @@ for i in range(0, len(serviceNumbers), 1):
     services.append(serviceLayout)
 
 
-print(services)
-
-
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
@@ -256,8 +277,10 @@ class Sluzbe(BoxLayout):
         super().__init__(**kwargs)
 
         data = {
-            'Dan':{0:'Ponedjeljak',1:'Utorak',2:'Srijeda',3:'Cetvrtak',
-                 4: 'Petak', 5:'Subota',6:'Nedjelja'},
+            'Dan':{0:'Ponedjeljak, ' + monday,1:'Utorak, ' + tuesday,
+                   2:'Srijeda, ' + wednesday,3:'Cetvrtak, ' + thursday,
+                   4:'Petak, ' + friday, 5:'Subota, ' + saturday,
+                   6:'Nedjelja, ' + sunday},
             'Sluzba':{0:'\n'.join(services[0]),1:'\n'.join(services[1]),
                  2:'\n'.join(services[2]),3:'\n'.join(services[3]),
                  4:'\n'.join(services[4]),5:'\n'.join(services[5]),
