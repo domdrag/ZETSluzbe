@@ -1,0 +1,19 @@
+firstURL = 'https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf'
+filePath = 'firstPDF.txt'
+if(os.path.exists(filePath) and os.stat(filePath).st_size):
+    fileR = open(filePath, 'r', encoding='utf-8')
+    textFirstPDF = fileR.read()
+    indexOffNum = textFirstPDF.find(offNum)
+    fileR.close()
+else:
+    PDFFile = download_file(firstURL)
+    PDF = pdfplumber.open(PDFFile)
+    for pageNum in range(len(PDF.pages)):
+        page = PDF.pages[pageNum]
+        textFirstPDF = page.extract_text()
+        indexOffNum = textFirstPDF.find(offNum)
+        if(indexOffNum != -1):
+            break
+    fileW = open(filePath, 'w', encoding='utf-8')
+    fileW.writelines(textFirstPDF)
+    fileW.close()
