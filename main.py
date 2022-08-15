@@ -64,7 +64,23 @@ def getServiceNumbers(offNum):
 
     return [textFirstPDF, indexOffNum]
 
-def readServices(offNum):
+def getTodayDate():
+    now = datetime.datetime.now()
+    todayDate = date(now.year, now.month, now.day)
+    return todayDate
+
+def getServiceDate(service):
+    serviceDate = (re.split(' ', service[0]))[1]
+    firstDot = serviceDate.index('.')
+    secondDot = firstDot+1 + serviceDate[firstDot+1:].index('.')
+    thirdDot = secondDot+1 + serviceDate[secondDot+1:].index('.')
+    day = int(serviceDate[0:firstDot])
+    month = int(serviceDate[firstDot+1:secondDot])
+    year = int(serviceDate[secondDot+1:thirdDot])
+    serviceRealDate = date(year, month, day)
+    return serviceRealDate
+
+def readServices(offNum, fridayFlag):
     holidays2022 = ['15.8.','1.12.','18.11.','25.12.','26.12.']
     
     servicesData = getServiceNumbers(offNum)
@@ -72,21 +88,22 @@ def readServices(offNum):
     indexOffNum = servicesData[1]
 
     odIndex = textFirstPDF.find('od')
-    stringForMonth = textFirstPDF[odIndex:odIndex+40]
+    stringForMonth = textFirstPDF[odIndex:odIndex+50]
     stringForMonthList = re.split(' |\.', stringForMonth)
     month = stringForMonthList[2]
+    year = stringForMonthList[3]
 
     radnikIndex = textFirstPDF.find('Radnik')
     stringForDates = textFirstPDF[radnikIndex:radnikIndex+100]
     stringForDatesList = re.split(' |\n', stringForDates)
  
-    monday = 'Ponedjeljak, ' + stringForDatesList[2] + '.' + month + '.'
-    tuesday = 'Utorak, ' + stringForDatesList[3] + '.' + month + '.'
-    wednesday = 'Srijeda, ' + stringForDatesList[4] + '.' + month + '.'
-    thursday = 'Cetvrtak, ' + stringForDatesList[5] + '.' + month + '.'
-    friday = 'Petak, ' + stringForDatesList[6] + '.' + month + '.'
-    saturday = 'Subota, ' + stringForDatesList[7] + '.' + month + '.'
-    sunday = 'Nedjelja, ' + stringForDatesList[8] + '.' + month + '.'
+    monday = 'Ponedjeljak, ' + stringForDatesList[2] + '.' + month + '.' + year + '.'
+    tuesday = 'Utorak, ' + stringForDatesList[3] + '.' + month + '.' + year + '.'
+    wednesday = 'Srijeda, ' + stringForDatesList[4] + '.' + month + '.' + year + '.'
+    thursday = 'Cetvrtak, ' + stringForDatesList[5] + '.' + month + '.' + year + '.'
+    friday = 'Petak, ' + stringForDatesList[6] + '.' + month + '.' + year + '.'
+    saturday = 'Subota, ' + stringForDatesList[7] + '.' + month + '.' + year + '.'
+    sunday = 'Nedjelja, ' + stringForDatesList[8] + '.' + month + '.' + year + '.'
 
     days = [monday, tuesday, wednesday, thursday, friday, saturday, sunday]
 
@@ -169,6 +186,21 @@ def readServices(offNum):
         serviceLayout.append(receptionTime + ', ' + receptionPoint)
         serviceLayout.append(releaseTime + ', ' + releasePoint)
 
+        # ako je petak i imamo subotu nedjelju tada ne radi nista ako nisu izasle odnosno ucitaj ako su izasle
+        currentWeekDay = datetime.datetime.today().weekday()
+        if(i == 0 and currentWeekDay == 4 and fridayFlag == True):
+            fileR = open(offNum + '.txt', 'r', encoding='utf-8')
+            lines = fileR.readlines()
+            fileR.close()
+            lastRecordedSundayService = ast.literal_eval(lines[len(lines)-1])
+
+            lastRecordedSundayDate = getServiceDate(lastRecordedSundayService)
+            pageMondayDate = getServiceDate(serviceLayout)
+            daysDiff = (pageMondayDate - lastRecordedSundayDate).days
+            if(daysDiff < 0):
+                return []
+            
+
         fileW = open(offNum + '.txt', 'a', encoding='utf-8')
         fileW.write(f"{serviceLayout}\n")
         fileW.close()
@@ -176,89 +208,127 @@ def readServices(offNum):
         services.append(serviceLayout)
     return services
 
+def getRequiredDaysDiff():
+    fileR = open(offNum + '.txt', 'r', encoding='utf-8')
+    lines = fileR.readlines()
+    fileR.close()
+    
+    lastRecordedSundayService = ast.literal_eval(lines[len(lines)-1])
+    lastRecordedSundayDate = getServiceDate(lastRecordedSundayService)
+
+    todayDate = getTodayDate()
+    dateDiff = todayDate - lastRecordedSundayDate
+    return dateDiff.days
+
+def checkAndDeleteServices(offNum):
+    fileR = open(offNum + '.txt', 'r', encoding='utf-8')
+    lines = fileR.readlines()
+    fileR.close()
+
+    if(len(lines) <= 11):
+        return
+    
+    fileW = open(offNum + '.txt', 'w', encoding='utf-8')
+    for i in range(len(lines)):
+        if(len(lines) - i > 11):
+            pass
+        else:
+            fileW.write(lines[i])
+    fileW.close()
+    
+
 ###################################################
 # Pitaj medu za url-ove
 
 offNum = '2621'
-now = datetime.datetime.now()
-currentTime = now.time()
-currentWeekDay = datetime.datetime.today().weekday()
-
-lastFriday = datetime.datetime.now() + relativedelta(weekday=FR(-1))
-lastFridayFileName = str(lastFriday.day) + '.' + str(lastFriday.month) + '.txt'
+loadServices = False
+fridayFlag = False
 
 if(not os.path.exists(offNum + '.txt')):
-    # brisemo sve .txt fileove
-    allFiles = os.listdir(os.curdir)
-    for file in allFiles:
-        if file.endswith('.txt'):
-            os.remove(file)
+    fileW = open(offNum + '.txt', 'w', encoding='utf-8').close()
+    loadServices = True
 
-elif(not os.path.exists(lastFridayFileName)):
+else:
+    daysDiff = getRequiredDaysDiff() # razlika danasnjeg datuma i zadnje recordane Nedjelje
 
-    fileR = open(offNum + '.txt', 'r', encoding='utf-8')
-    lines = fileR.readlines()
-    fileR.close()
-    lastRecordedFridayService = ast.literal_eval(lines[len(lines)-3])
-    lastRecordedFridayDate = (re.split(' ', lastRecordedFridayService[0]))[1]
-    firstDot = lastRecordedFridayDate.index('.')
-    secondDot = firstDot+1 + lastRecordedFridayDate[firstDot+1:].index('.')
-    lastRecordedFridayDay = int(lastRecordedFridayDate[0:firstDot])
-    lastRecordedFridayMonth = int(lastRecordedFridayDate[firstDot+1:secondDot])
-    lastRecordedFridayDate = date(now.year, lastRecordedFridayMonth, lastRecordedFridayDay)
-    todayDate = date(now.year, now.month, now.day)
+currentWeekDay = datetime.datetime.today().weekday()
 
-    daysDiff = todayDate - lastRecordedFridayDate
-    daysDiff = abs(daysDiff)
-    if(daysDiff.days < 7):
-        # ostavi petak,subota,nedjelja
-        fileRW = open(offNum + '.txt', 'r+', encoding='utf-8')
-        lines = fileRW.readlines()
-        fileRW.seek(0)
-        print(len(lines))
-        for i in range(len(lines)):
-            if(i >= len(lines) - 3):
-                fileRW.write(lines[i])
-            else:
-                pass
-        fileRW.truncate()
-        fileRW.close()
+if(loadServices == True):
+    pass
+
+elif(currentWeekDay == 0):
+    if(daysDiff >= 1):
+        loadServices = True
+
+elif(currentWeekDay == 1):
+    if(daysDiff >= 2):
+        loadServices = True
         
+elif(currentWeekDay == 2):
+    if(daysDiff >= 3):
+        loadServices = True
+        
+elif(currentWeekDay == 3):
+    if(daysDiff >= 4):
+        loadServices = True
     
-    elif(daysDiff.days == 7 and currentTime.hour < 12): #petak
-        # izbaci sluzbe (bit ce ili prosli ili dobar tjedan zavisno jesu li izasle)
-        open(offNum + '.txt', 'w', encoding='utf-8').close()
-        pass
-    
-    else:
-        # izbrisi sve
-        fileW = open(offNum + '.txt', 'w', encoding='utf-8').close()
+elif(currentWeekDay == 4):
+    if(daysDiff >= -2):
+        loadServices = True
+        if(daysDiff == -2):
+            fridayFlag = True
+        
+elif(currentWeekDay == 5):
+    if(daysDiff >= -1):
+        loadServices = True
+        
+else:
+    if(daysDiff >= 0):
+        loadServices = True
         
 
 services = []
-if(os.path.exists(lastFridayFileName) and os.path.exists(offNum + '.txt')):
+if(loadServices == True and os.path.exists(offNum + '.txt')):
     fileR = open(offNum + '.txt', 'r', encoding='utf-8')
     lines = fileR.readlines()
     fileR.close()
 
     for line in lines:
         service = ast.literal_eval(line)
-        services.append(service)
+        if(len(services) > 0):
+            services.append(service)
+            continue
+        
+        serviceDate = getServiceDate(service)
+        todayDate = getTodayDate()
+        daysDiff = (serviceDate - todayDate).days
+        if(daysDiff >= -1): # samo ponedjeljak, petak, subota ili nedjelja (ako zadovoljavaju) (algoritam.txt)
+            services.append(service)
+            
+    services = services + readServices(offNum, fridayFlag)
+    checkAndDeleteServices(offNum)
+    
+elif(loadServices == True):
+    services = readServices(offNum, fridayFlag)
 
 else:
-    if(os.path.exists(offNum + '.txt')):
-        fileR = open(offNum + '.txt', 'r', encoding='utf-8')
-        lines = fileR.readlines()
-        fileR.close()
+    fileR = open(offNum + '.txt', 'r', encoding='utf-8')
+    lines = fileR.readlines()
+    fileR.close()
 
-        for line in lines:
-            service = ast.literal_eval(line)
+    for line in lines:
+        service = ast.literal_eval(line)
+        if(len(services) > 0):
             services.append(service)
-    
-    services = services + readServices(offNum)
-    fileW = open(lastFridayFileName, 'w', encoding='utf-8').close()
+            continue
+        
+        serviceDate = getServiceDate(service)
+        todayDate = getTodayDate()
+        daysDiff = (serviceDate - todayDate).days
+        if(daysDiff >= -1):
+            services.append(service)
 
-
+###############################################################
 
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
