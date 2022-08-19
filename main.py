@@ -122,7 +122,7 @@ def readServices(offNum, fridayFlag):
 
     for i in range(0, len(serviceNumbers), 1):
         if(serviceNumbers[i] == 'O' or serviceNumbers[i] == 'O\n'):
-            fileW = open(offNum + '.txt', 'a', encoding='utf-8')
+            fileW = open(offNum + '.txt', 'a', encoding='utf-8')            
             fileW.write(f"{[days[i], 'O']}\n")
             fileW.close()
             services.append([days[i], 'O'])
@@ -199,7 +199,6 @@ def readServices(offNum, fridayFlag):
             daysDiff = (pageMondayDate - lastRecordedSundayDate).days
             if(daysDiff < 0):
                 return []
-            
 
         fileW = open(offNum + '.txt', 'a', encoding='utf-8')
         fileW.write(f"{serviceLayout}\n")
@@ -238,14 +237,12 @@ def checkAndDeleteServices(offNum):
     
 
 ###################################################
-# Pitaj medu za url-ove
 
 offNum = '2621'
 loadServices = False
 fridayFlag = False
 
 if(not os.path.exists(offNum + '.txt')):
-    fileW = open(offNum + '.txt', 'w', encoding='utf-8').close()
     loadServices = True
 
 else:
@@ -305,11 +302,27 @@ if(loadServices == True and os.path.exists(offNum + '.txt')):
         if(daysDiff >= -1): # samo ponedjeljak, petak, subota ili nedjelja (ako zadovoljavaju) (algoritam.txt)
             services.append(service)
             
-    services = services + readServices(offNum, fridayFlag)
+    servicesTemp = services + readServices(offNum, fridayFlag)
+    services = []
+    for service in servicesTemp:
+        serviceDate = getServiceDate(service)
+        todayDate = getTodayDate()
+        daysDiff = (serviceDate - todayDate).days
+        if(daysDiff >= -1):  
+            services.append(service)
+    
     checkAndDeleteServices(offNum)
     
 elif(loadServices == True):
-    services = readServices(offNum, fridayFlag)
+    fileW = open(offNum + '.txt', 'w', encoding='utf-8').close()
+    servicesTemp = readServices(offNum, fridayFlag)
+    services = []
+    for service in servicesTemp:
+        serviceDate = getServiceDate(service)
+        todayDate = getTodayDate()
+        daysDiff = (serviceDate - todayDate).days
+        if(daysDiff >= -1):  
+            services.append(service)
 
 else:
     fileR = open(offNum + '.txt', 'r', encoding='utf-8')
