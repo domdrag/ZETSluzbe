@@ -14,9 +14,11 @@ class LoginWindow(Screen):
 
     def loginBtn(self):
         offNum = self.offNum.text
-        services = servicesRun(offNum)
-        MainWindow.services = services
-        MainWindow.offNum = offNum
+        services = servicesRun(offNum, False)
+        mainWindow.services = []
+        self.services = services
+        mainWindow.services = services
+        mainWindow.offNum = offNum
         #self.reset()
         sm.current = "main"
         #print(MainWindow.services)
@@ -31,6 +33,9 @@ class MainWindow(Screen):
     fullServices = False
 
     def on_enter(self):
+        print(self.offNum)
+        print(self.services)
+        self.fullServices = False
         self.ids.offNumLabel.text = self.offNum
         table_data = []
         for i in range(len(self.services)):    
@@ -54,13 +59,42 @@ class MainWindow(Screen):
         self.ids.table_floor.data = table_data #add table_data to data value
         
     def logout(self):
-        #self.services = []
         sm.current = 'login'
 
     def changeServices(self):
         self.fullServices = not self.fullServices
-        #services = servicesRun(offNum, fullServices)
-        print(self.fullServices)
+        self.services = servicesRun(self.offNum, self.fullServices)
+        if(self.fullServices):
+            table_data = []
+
+            i = 0
+            while(i < len(self.services)):
+                if(self.services[i][1] == 'O'):
+                    for j in range(3):
+                        table_data.append({'text':self.services[i][0],'size_hint_y':None,
+                                           'height':100,'bcolor':(.05,.30,.80,1),
+                                           'halign':'center', 'valign':'top'}) #append the data
+                    for j in range(3):
+                        table_data.append({'text':'\n'.join(self.services[i][1:]),'size_hint_y':None,
+                                           'height':300,'bcolor':(.10,.50,.150,1),
+                                           'halign':'center', 'valign':'top'}) #append the data
+                    i = i + 1
+                    
+                else:
+                    for j in range(3):
+                        table_data.append({'text':self.services[i][0],'size_hint_y':None,
+                                           'height':100,'bcolor':(.05,.30,.80,1),
+                                           'halign':'center', 'valign':'top'}) #append the data
+                    for j in range(3):
+                        table_data.append({'text':'\n'.join(self.services[i+j][1:]),'size_hint_y':None,
+                                           'height':300,'bcolor':(.06,.25,.50,1),
+                                           'halign':'center', 'valign':'top'}) #append the data
+                    i = i + 3
+
+            self.ids.table_floor_layout.cols = 3 #define value of cols to the value of self.columns
+            self.ids.table_floor.data = table_data #add table_data to data value
+        else:
+            self.on_enter()
 
     def reset(self):
         pass
@@ -91,7 +125,9 @@ kv = Builder.load_file("my.kv")
 sm = WindowManager()
 #db = DataBase("users.txt")
 
-screens = [LoginWindow(name="login"), MainWindow(name="main")]
+loginWindow = LoginWindow(name="login")
+mainWindow = MainWindow(name="main")
+screens = [loginWindow, mainWindow]
 for screen in screens:
     sm.add_widget(screen)
 
