@@ -71,6 +71,61 @@ def getServiceNumbers(offNum):
 
     return [textFirstPDF, indexOffNum]
 
+def getDriverOffNumber(serviceNumber, day):
+    print(serviceNumber, day, 'HELO')
+    firstURL = 'https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf'
+
+    PDFFile = download_file(firstURL)
+    PDF = pdfplumber.open(PDFFile)
+    found = False
+    for pageNum in range(len(PDF.pages)):
+        print('PAGEN', pageNum)
+        page = PDF.pages[pageNum]
+        textFirstPDF = page.extract_text()
+        listFirstPDF = re.split(' |\n', textFirstPDF)
+        nextElementGenerator = (i for i,v in enumerate(listFirstPDF) if v == serviceNumber)
+        foundIndex = next(nextElementGenerator, -1)
+        while(foundIndex != -1):
+            index = foundIndex - day - 1
+            if(index < 0):
+                foundIndex = next(nextElementGenerator, -1)
+                continue
+            
+            wantedOffNum = listFirstPDF[index]
+            print(serviceNumber, wantedOffNum)
+            if(isFourDigit(wantedOffNum)):
+                print(1, wantedOffNum)
+                found = True
+                break
+            
+            foundIndex = next(nextElementGenerator, -1)
+        if(found):
+            print(2, wantedOffNum)
+            break
+    print(3, wantedOffNum)
+    if(not found):
+        return -1
+    else:
+        return wantedOffNum[1:]
+
+def getDriverInfo(offNum):
+    if(offNum == -1):
+        return ['ANON']
+    #print(offNum)
+    fileR = open('vozaci.txt', 'r', encoding='utf-8')
+    lines = fileR.readlines()
+    fileR.close()
+    for line in lines:
+        driverInfo = re.split(' ', line)
+        if(driverInfo[0] == offNum):
+            break
+
+    driverInfo.pop(0)
+    driverInfo.pop(0)
+    driverInfo[1] = driverInfo[1][:-1]
+    driverInfo.pop(2)
+    return driverInfo
+    
 def getTodayDate():
     now = datetime.datetime.now()
     todayDate = date(now.year, now.month, now.day)
@@ -131,10 +186,10 @@ def getSundayURL():
 
             if(check_file(url)):
                 return url
-                    
                 
                 
-def readServices(offNum, fridayFlag):
+def readServices(offNumFile, fridayFlag, fullServices):
+    offNum = offNumFile[:4]
     holidays2022 = ['15.8.','1.12.','18.11.','25.12.','26.12.']
     
     servicesData = getServiceNumbers(offNum)
@@ -168,43 +223,19 @@ def readServices(offNum, fridayFlag):
     nextOffNum = next(nextOffNumGenerator)
     serviceNumbers = listCutLeft[1:nextOffNum]
 
-    '''checkURLs = False
-    if(os.path.exists('workingLinks.txt')):
-        fileR = open('workingLinks.txt', 'r', encoding='utf-8')
-        lines = fileR.read().splitlines()
-        fileR.close()
+    #workDayURL = getWorkDayURL()
+    #saturdayURL = getSaturdayURL()
+    #sundayURL = getSundayURL()
 
-        if(len(lines) != 3):
-            pass
-        else:
-            workDayURL = lines[0]
-            saturdayURL = lines[1]
-            sundayURL = lines[2]
-
-            if(not check_file(workDayURL)):
-                checkURLs = False
-            elif(not check_file(saturdayURL)):
-                checkURLs = False
-            elif(not check_file(sundayURL)):
-                checkURLs = False
-            else:
-                checkURLs = True'''
-
-    #if(not checkURLs):
-    #fileW = open('workingLinks.txt', 'w', encoding='utf-8').close()
-    workDayURL = getWorkDayURL()
-    saturdayURL = getSaturdayURL()
-    sundayURL = getSundayURL()
-        
-    #workDayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20RD_internet%20od%2011.7.22..pdf'
-    #saturdayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20SUB_internet%20od%2016.7.22..pdf'
-    #sundayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20NED_internet%20od%2026.6.22..pdf'
+    workDayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20RD_internet%20od%2011.7.22..pdf'
+    saturdayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20SUB_internet%20od%2016.7.22..pdf'
+    sundayURL = 'https://www.zet.hr/interno/UserDocsImages/TP%20Raspored%20rada/Oglasne%20plo%C4%8De%20NED_internet%20od%2026.6.22..pdf'
 
     services = []
 
     for i in range(0, len(serviceNumbers), 1):
         if(serviceNumbers[i] == 'O' or serviceNumbers[i] == 'O\n'):
-            fileW = open(offNum + '.txt', 'a', encoding='utf-8')            
+            fileW = open(offNumFile, 'a', encoding='utf-8')            
             fileW.write(f"{[days[i], 'O']}\n")
             fileW.close()
             services.append([days[i], 'O'])
@@ -212,16 +243,12 @@ def readServices(offNum, fridayFlag):
         
         if(days[i] in holidays2022):
             URL = sundayURL
-            fileStart = 'sundayPage'
         elif(i == 5):
             URL = saturdayURL
-            fileStart = 'saturdayPage'
         elif(i == 6):
             URL = sundayURL
-            fileStart = 'sundayPage'
         else:
             URL = workDayURL
-            fileStart = 'workDayPage'
 
         PDFFile = download_file(URL)
         PDF = pdfplumber.open(PDFFile)
@@ -241,56 +268,73 @@ def readServices(offNum, fridayFlag):
                     break
             if(found):
                 break
-            
-        serviceStartIndex = serviceLine.index(serviceNumbers[i])
-        serviceNumber = serviceLine[serviceStartIndex]
-        driveOrder = serviceLine[serviceStartIndex+1]
-        receptionPoint = serviceLine[serviceStartIndex+2].replace('\n','')
-        receptionTime = serviceLine[serviceStartIndex+3]
-        
-        if(receptionPoint == 'PTD' or receptionPoint == 'PTT'):
-            driveOrder = 'PRIČUVA'
-            releasePoint = receptionPoint
+
+        if(fullServices):
+            numOfServices = 3
         else:
-            releasePoint = 'PTD'
-            for element in serviceLine[serviceStartIndex+3:]:
-                if(isAlphaWithSpaces(element)):
-                    releasePoint = element.replace('\n','')
-                
-        releaseTime = serviceLine[serviceStartIndex+4]
+            numOfServices = 1
+
+        for serviceStartIndex in [0,8,15]:
+            if(serviceStartIndex == 8 and numOfServices == 1):
+                break
+            # prva sluzba index 0
+            # druga sluzba index 8
+            # treca sluzba index 15
             
-        
-        # slaganje za layout
-        serviceLayout = []
-        serviceLayout.append(days[i])
-        serviceLayout.append('broj sluzbe: ' + serviceNumber)
-        serviceLayout.append('vozni red: ' + driveOrder)
-        serviceLayout.append(receptionTime + ', ' + receptionPoint)
-        serviceLayout.append(releaseTime + ', ' + releasePoint)
+            serviceNumber = serviceLine[serviceStartIndex]
+            driveOrder = serviceLine[serviceStartIndex+1]
+            receptionPoint = serviceLine[serviceStartIndex+2].replace('\n','')
+            receptionTime = serviceLine[serviceStartIndex+3]
+            
+            if(receptionPoint == 'PTD' or receptionPoint == 'PTT'):
+                driveOrder = 'PRIČUVA'
+                releasePoint = receptionPoint
+            else:
+                releasePoint = 'PTD'
+                for element in serviceLine[serviceStartIndex+3:]:
+                    if(isAlphaWithSpaces(element)):
+                        releasePoint = element.replace('\n','')
+                    
+            releaseTime = serviceLine[serviceStartIndex+4]
+            
+            # slaganje za layout
+            serviceLayout = []
+            serviceLayout.append(days[i])
+            serviceLayout.append('broj sluzbe: ' + serviceNumber)
+            serviceLayout.append('vozni red: ' + driveOrder)
+            serviceLayout.append(receptionTime + ', ' + receptionPoint)
+            serviceLayout.append(releaseTime + ', ' + releasePoint + ', ')
+            if(numOfServices == 3):
+                driverOffNumber = getDriverOffNumber(serviceNumber, i)
+                driverInfo = getDriverInfo(driverOffNumber)
+                driverInfo = ' '.join(driverInfo)
+                serviceLayout.append(driverInfo)
 
-        # ako je petak i imamo subotu nedjelju tada ne radi nista ako nisu izasle odnosno ucitaj ako su izasle
-        currentWeekDay = datetime.datetime.today().weekday()
-        if(i == 0 and currentWeekDay == 4 and fridayFlag == True):
-            fileR = open(offNum + '.txt', 'r', encoding='utf-8')
-            lines = fileR.readlines()
-            fileR.close()
-            lastRecordedSundayService = ast.literal_eval(lines[len(lines)-1])
+            # ako je petak i imamo subotu nedjelju tada ne radi
+            # nista ako nisu izasle odnosno ucitaj ako su izasle
+            currentWeekDay = datetime.datetime.today().weekday()
+            if(i == 0 and currentWeekDay == 4 and fridayFlag == True):
+                fileR = open(offNumFile, 'r', encoding='utf-8')
+                lines = fileR.readlines()
+                fileR.close()
+                lastRecordedSundayService = ast.literal_eval(lines[len(lines)-1])
 
-            lastRecordedSundayDate = getServiceDate(lastRecordedSundayService)
-            pageMondayDate = getServiceDate(serviceLayout)
-            daysDiff = (pageMondayDate - lastRecordedSundayDate).days
-            if(daysDiff < 0):
-                return []
+                lastRecordedSundayDate = getServiceDate(lastRecordedSundayService)
+                pageMondayDate = getServiceDate(serviceLayout)
+                daysDiff = (pageMondayDate - lastRecordedSundayDate).days
+                if(daysDiff < 0):
+                    return []
 
-        fileW = open(offNum + '.txt', 'a', encoding='utf-8')
-        fileW.write(f"{serviceLayout}\n")
-        fileW.close()
-        
-        services.append(serviceLayout)
+            fileW = open(offNumFile, 'a', encoding='utf-8')
+            fileW.write(f"{serviceLayout}\n")
+            fileW.close()
+            
+            services.append(serviceLayout)
+            
     return services
 
-def getRequiredDaysDiff(offNum):
-    fileR = open(offNum + '.txt', 'r', encoding='utf-8')
+def getRequiredDaysDiff(offNumFile):
+    fileR = open(offNumFile, 'r', encoding='utf-8')
     lines = fileR.readlines()
     fileR.close()
     
@@ -301,8 +345,8 @@ def getRequiredDaysDiff(offNum):
     dateDiff = todayDate - lastRecordedSundayDate
     return dateDiff.days
 
-def checkAndDeleteServices(offNum):
-    fileR = open(offNum + '.txt', 'r', encoding='utf-8')
+def checkAndDeleteServices(offNumFile):
+    fileR = open(offNumFile, 'r', encoding='utf-8')
     lines = fileR.readlines()
     fileR.close()
 
@@ -317,16 +361,21 @@ def checkAndDeleteServices(offNum):
             fileW.write(lines[i])
     fileW.close()
 
-def servicesRun(offNum):
+def servicesRun(offNum, fullServices):
     loadServices = False
     fridayFlag = False
+    offNumFile = offNum
+    if(fullServices):
+        offNumFile = offNumFile + 'FULL.txt'
+    else:
+        offNumFile = offNum + '.txt'
 
-    if(not os.path.exists(offNum + '.txt')):
+    if(not os.path.exists(offNumFile)):
         loadServices = True
 
     else:
         # razlika danasnjeg datuma i zadnje recordane Nedjelje
-        daysDiff = getRequiredDaysDiff(offNum) 
+        daysDiff = getRequiredDaysDiff(offNumFile) 
 
     currentWeekDay = datetime.datetime.today().weekday()
 
@@ -365,8 +414,8 @@ def servicesRun(offNum):
             
 
     services = []
-    if(loadServices == True and os.path.exists(offNum + '.txt')):
-        fileR = open(offNum + '.txt', 'r', encoding='utf-8')
+    if(loadServices == True and os.path.exists(offNumFile)):
+        fileR = open(offNumFile, 'r', encoding='utf-8')
         lines = fileR.readlines()
         fileR.close()
 
@@ -382,7 +431,7 @@ def servicesRun(offNum):
             if(daysDiff >= -1): # samo ponedjeljak, petak, subota ili nedjelja (ako zadovoljavaju) (algoritam.txt)
                 services.append(service)
                 
-        servicesTemp = services + readServices(offNum, fridayFlag)
+        servicesTemp = services + readServices(offNumFile, fridayFlag, fullServices)
         services = []
         for service in servicesTemp:
             serviceDate = getServiceDate(service)
@@ -391,11 +440,11 @@ def servicesRun(offNum):
             if(daysDiff >= -1):  
                 services.append(service)
         
-        checkAndDeleteServices(offNum)
+        checkAndDeleteServices(offNumFile)
         
     elif(loadServices == True):
-        fileW = open(offNum + '.txt', 'w', encoding='utf-8').close()
-        servicesTemp = readServices(offNum, fridayFlag)
+        fileW = open(offNumFile, 'w', encoding='utf-8').close()
+        servicesTemp = readServices(offNumFile, fridayFlag, fullServices)
         services = []
         for service in servicesTemp:
             serviceDate = getServiceDate(service)
@@ -405,7 +454,7 @@ def servicesRun(offNum):
                 services.append(service)
 
     else:
-        fileR = open(offNum + '.txt', 'r', encoding='utf-8')
+        fileR = open(offNumFile, 'r', encoding='utf-8')
         lines = fileR.readlines()
         fileR.close()
 
@@ -421,7 +470,6 @@ def servicesRun(offNum):
             if(daysDiff >= -1):
                 services.append(service)
     return services
-    
 
 ###################################################
 

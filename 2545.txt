@@ -1,7 +1,0 @@
-['Ponedjeljak, 22.8.2022.', 'broj sluzbe: 493', 'vozni red: 14.09', '11:12, Draškovićeva smjer Mihaljevac', '18:05, PTD']
-['Utorak, 23.8.2022.', 'O']
-['Srijeda, 24.8.2022.', 'broj sluzbe: 394', 'vozni red: 07.06', '11:28, Dubrava smjer Sav. most', '18:25, PTD']
-['Cetvrtak, 25.8.2022.', 'broj sluzbe: 344', 'vozni red: 04.05', '10:57, Glavni kolodvor smjer Sav. most', '17:55, Vodnikova smjer Dubec']
-['Petak, 26.8.2022.', 'broj sluzbe: 487', 'vozni red: 14.03', '10:49, Draškovićeva smjer Zapruđe', '17:47, Draškovićeva smjer Mihaljevac']
-['Subota, 27.8.2022.', 'broj sluzbe: 471', 'vozni red: 13.02', '10:53, Držićeva smjer Kvat. trg', '17:51, Držićeva smjer Žitnjak']
-['Nedjelja, 28.8.2022.', 'broj sluzbe: 373', 'vozni red: 06.05', '12:24, TBJJ smjer Sopot', '19:17, PTD']
