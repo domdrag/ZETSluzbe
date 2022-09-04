@@ -1,0 +1,163 @@
+<DailyShift>:
+    day: ''
+    firstShift: ''
+    secondShift: ''
+    thirdShift: ''
+    GridLayout:
+        rows: 2
+        Label:
+            text: root.day
+        GridLayout:
+            cols: 3
+            Label:
+                halign: 'center'
+                text: root.firstShift
+                canvas.before:
+                    Color:
+                        rgba: .5, .5, .5, 1
+                    Line:
+                        width: 2
+                        rectangle: root.x, root.y, root.width/3, root.height
+            Label:
+                halign: 'center'
+                text: root.secondShift
+                canvas.before:
+                    Color:
+                        rgba: .5, .5, .5, 1
+                    Line:
+                        width: 2
+                        rectangle: root.x, root.y, root.width*2/3, root.height
+            Label:
+                halign: 'center'
+                text: root.thirdShift
+                canvas.before:
+                    Color:
+                        rgba: .5, .5, .5, 1
+                    Line:
+                        width: 2
+                        rectangle: root.x, root.y, root.width, root.height
+
+<DailyService>:
+    day: ''
+    service: ''
+    GridLayout:
+        rows: 2
+        Label:
+            text: root.day
+            canvas.before:
+                Color:
+                    rgba: .5, .5, .5, 1
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+        Label:
+            halign: 'center'
+            text: root.service
+            canvas.before:
+                Color:
+                    rgba: .5, .5, .5, 1
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+                
+
+<ServiceScreen>:
+    RecycleView:
+        viewclass: 'DailyService'
+        id: serviceScreen
+        RecycleBoxLayout:
+            default_size: None, dp(200)
+            default_size_hint: 1, None
+            size_hint_y: None
+            height: self.minimum_height
+            orientation: 'vertical'
+    Button:
+        pos_hint:{"x":0.1,'bottom': 1}
+        size_hint: 0.4, 0.1
+        font_size: (root.width**2 + root.height**2) / 17**4
+        text: "Smjena"
+        on_release:
+            root.manager.transition.direction = 'left'
+            root.manager.current = 'service'
+            root.shiftBtn()
+    Button:
+        pos_hint:{"x":0.5,'bottom': 1}
+        size_hint: 0.4, 0.1
+        font_size: (root.width**2 + root.height**2) / 17**4
+        text: 'Logout'
+        on_release:
+            root.manager.transition.direction = 'up'
+            root.manager.current = 'login'
+
+<ShiftScreen>:
+    RecycleView:
+        viewclass: 'DailyShift'
+        id: shiftScreen
+        RecycleBoxLayout:
+            default_size: None, dp(200)
+            default_size_hint: 1, None
+            size_hint_y: None
+            height: self.minimum_height
+            orientation: 'vertical'
+    Button:
+        pos_hint:{"x":0.1,'bottom': 1}
+        size_hint: 0.4, 0.1
+        font_size: (root.width**2 + root.height**2) / 17**4
+        text: "Sluzbe"
+        on_release:
+            root.manager.transition.direction = 'right'
+            root.manager.current = 'service'
+            root.serviceBtn()
+    Button:
+        pos_hint:{"x":0.5,'bottom': 1}
+        size_hint: 0.4, 0.1
+        font_size: (root.width**2 + root.height**2) / 17**4
+        text: 'Logout'
+        on_release:
+            root.manager.transition.direction = 'up'
+            root.manager.current = 'login'
+
+<UpdatePopup>:
+    auto_dismiss: True
+	title: "Update Message"
+	size_hint: 0.6, 0.2
+	pos_hint: {'x': 0.2, 'top': 0.7}
+	text: ''
+	Label:
+		id: popupMsg
+		text: root.text
+			
+
+<LoginScreen>:
+    FloatLayout:
+        Label:
+            text:"Sluzbeni broj: "
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.1, "top":0.9}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+            id: offNum
+            text: '2545'
+            font_size: (root.width**2 + root.height**2) / 13**4
+            multiline: False
+            pos_hint: {"x": 0.45 , "top":0.9}
+            size_hint: 0.4, 0.15
+
+        Button:
+            pos_hint:{'x':0.1,'bottom': 1}
+            size_hint: 0.4, 0.2
+            font_size: (root.width**2 + root.height**2) / 13**4
+            text: "Login"
+            on_release:
+                root.manager.transition.direction = 'down'
+                root.manager.current = 'service'
+                root.loginBtn()
+		Button:
+            pos_hint:{'x': 0.5,'bottom': 1}
+            size_hint: 0.4, 0.2
+            font_size: (root.width**2 + root.height**2) / 13**4
+            text: "Update"
+            on_release:
+                root.updateBtn()
+				

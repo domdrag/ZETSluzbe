@@ -1,0 +1,7 @@
+['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 395', 'vozni red: 07.07', '12:27, Dubrava smjer Dubec', '19:21, PTD, ']
+['Utorak, 6.9.2022.', 'Oz']
+['Srijeda, 7.9.2022.', 'Oz']
+['Cetvrtak, 8.9.2022.', 'I-GO']
+['Petak, 9.9.2022.', 'I-GO']
+['Subota, 10.9.2022.', 'Og']
+['Nedjelja, 11.9.2022.', 'Og']

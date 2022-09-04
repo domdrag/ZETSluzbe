@@ -1,0 +1,32 @@
+def getServicesLayout(serviceLine):
+    serviceLayouts = []
+    for serviceStartIndex in [0,8,15]:
+        # prva sluzba index 0
+        # druga sluzba index 8
+        # treca sluzba index 15
+
+        serviceNumber = serviceLine[serviceStartIndex]
+        driveOrder = serviceLine[serviceStartIndex+1]
+        receptionPoint = serviceLine[serviceStartIndex+2].replace('\n','')
+        receptionTime = serviceLine[serviceStartIndex+3]
+            
+        if(receptionPoint == 'PTD' or receptionPoint == 'PTT'):
+            driveOrder = 'PRIČUVA'
+            releasePoint = receptionPoint
+        else:
+            releasePoint = 'PTD'
+            for element in serviceLine[serviceStartIndex+3:]:
+                if(isAlphaWithSpaces(element)):
+                    releasePoint = element.replace('\n','')
+                    
+        releaseTime = serviceLine[serviceStartIndex+4]
+            
+        # slaganje za layout
+        serviceLayout = []
+        serviceLayout.append(days[i])
+        serviceLayout.append('broj sluzbe: ' + serviceNumber)
+        serviceLayout.append('vozni red: ' + driveOrder)
+        serviceLayout.append(receptionTime + ', ' + receptionPoint)
+        serviceLayout.append(releaseTime + ', ' + releasePoint + ', ')
+        serviceLayouts.append(serviceLayout)
+    return serviceLayouts

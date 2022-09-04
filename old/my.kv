@@ -1,0 +1,84 @@
+<LoginWindow>:
+    name: "login"
+    offNum: offNum
+
+    FloatLayout:
+        Label:
+            text:"Sluzbeni broj: "
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.1, "top":0.9}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+            id: offNum
+			text: '2545'
+            font_size: (root.width**2 + root.height**2) / 13**4
+            multiline: False
+            pos_hint: {"x": 0.45 , "top":0.9}
+            size_hint: 0.4, 0.15
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.2
+            font_size: (root.width**2 + root.height**2) / 13**4
+            text: "Login"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.loginBtn()
+
+<CustomLabel@Label>:
+    bcolor: (1,1,1,1)
+    canvas.before:
+        Color:
+            rgba: root.bcolor
+        Rectangle:
+            size: root.size
+            pos: self.pos
+
+
+<MainWindow>:
+    RecycleView:
+        viewclass: 'CustomLabel'
+        id: table_floor
+        RecycleGridLayout:
+            id: table_floor_layout
+            cols: 5
+            default_size: (None,250)
+            default_size_hint: (1,None)
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: 5
+			
+	Label:
+		id: offNumLabel
+		text: ""
+        font_size: (root.width**2 + root.height**2) / 17**4
+	    pos_hint: {"right":1.0, "top":1.0}
+        size_hint: 0.1, 0.1
+		color: 1,0,1,1 
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+	
+	Button:
+		pos_hint:{"x":0.1,'bottom': 1}
+		size_hint: 0.4, 0.1
+		font_size: (root.width**2 + root.height**2) / 17**4
+		text: "Smjena"
+		on_release:
+			root.manager.transition.direction = "right"
+			root.changeServices()
+		
+	Button:
+		pos_hint:{"x":0.5,'bottom': 1}
+		size_hint: 0.4, 0.1
+		font_size: (root.width**2 + root.height**2) / 17**4
+		text: "Logout"
+		on_release:
+			root.manager.transition.direction = "right"
+			root.logout()
+
+				

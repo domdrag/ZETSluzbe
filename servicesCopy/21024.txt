@@ -1,0 +1,7 @@
+['Ponedjeljak, 5.9.2022.', 'I-GO']
+['Utorak, 6.9.2022.', 'I-GO']
+['Srijeda, 7.9.2022.', 'I-GO']
+['Cetvrtak, 8.9.2022.', 'broj sluzbe: 786', 'vozni red: 14.02', '17:43, Draškovićeva smjer Mihaljevac', '00:39, PTD, ']
+['Petak, 9.9.2022.', 'broj sluzbe: 697', 'vozni red: 07.09', '18:04, Sopot smjer Savski gaj', '01:02, PTD, ']
+['Subota, 10.9.2022.', 'broj sluzbe: 675', 'vozni red: 06.07', '17:59, Autobusni kol. smjer Sopot', '00:55, PTD, ']
+['Nedjelja, 11.9.2022.', 'O']

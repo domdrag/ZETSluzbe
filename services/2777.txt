@@ -1,0 +1,7 @@
+['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 739', 'vozni red: 11.10', '17:44, Kvaternikov trg smjer Črnomerec', '00:31, PTD, ']
+['Utorak, 6.9.2022.', 'broj sluzbe: 794', 'vozni red: 14.10', '17:55, TBJJ smjer Sav. most', '00:55, PTD, ']
+['Srijeda, 7.9.2022.', 'broj sluzbe: 743', 'vozni red: 11.14', '17:58, Dubrava smjer Črnomerec', '00:29, PTD, ']
+['Cetvrtak, 8.9.2022.', 'broj sluzbe: 711', 'vozni red: 08.05', '17:49, Draškovićeva smjer Zapruđe', '00:29, PTD, ']
+['Petak, 9.9.2022.', 'O']
+['Subota, 10.9.2022.', 'O']
+['Nedjelja, 11.9.2022.', 'broj sluzbe: 735', 'vozni red: 11.06', '17:42, Dubrava smjer Črnomerec', '00:32, PTD, ']

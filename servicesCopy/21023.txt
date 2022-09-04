@@ -1,0 +1,7 @@
+['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 45', 'vozni red: PRIČUVA', '06:39, PTD', '13:39, PTD, ']
+['Utorak, 6.9.2022.', 'broj sluzbe: 72', 'vozni red: PRIČUVA', '06:31, PTD', '13:31, PTD, ']
+['Srijeda, 7.9.2022.', 'broj sluzbe: 78', 'vozni red: PRIČUVA', '06:16, PTD', '13:04, PTD, ']
+['Cetvrtak, 8.9.2022.', 'Oz']
+['Petak, 9.9.2022.', 'Oz']
+['Subota, 10.9.2022.', 'broj sluzbe: 440', 'vozni red: PRIČUVA', '08:26, PTD', '15:26, PTD, ']
+['Nedjelja, 11.9.2022.', 'broj sluzbe: 341', 'vozni red: PRIČUVA', '08:12, PTD', '15:01, PTD, ']

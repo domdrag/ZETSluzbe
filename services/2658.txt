@@ -1,0 +1,7 @@
+['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 401', 'vozni red: 07.13', '11:27, Dubrava smjer Savski gaj', '18:00, PTD, ']
+['Utorak, 6.9.2022.', 'broj sluzbe: 399', 'vozni red: 07.11', '11:19, Dubrava smjer Savski gaj', '17:49, PTD, ']
+['Srijeda, 7.9.2022.', 'O']
+['Cetvrtak, 8.9.2022.', 'broj sluzbe: 443', 'vozni red: 11.14', '11:36, Draškovićeva smjer Dubec', '17:58, Dubrava smjer Črnomerec, ']
+['Petak, 9.9.2022.', 'broj sluzbe: 350', 'vozni red: 04.11', '11:27, Dubrava smjer Sav. most', '18:19, Glavni kolodvor smjer Sav. most, ']
+['Subota, 10.9.2022.', 'broj sluzbe: 346', 'vozni red: PRIČUVA', '10:41, PTD', '17:34, PTD, ']
+['Nedjelja, 11.9.2022.', 'O']
