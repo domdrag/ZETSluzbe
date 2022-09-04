@@ -37,6 +37,16 @@ def isFourDigit(x):
         return True
     return False
 
+def isLegitOffNum(x):
+    if(not x.isdigit()):
+        return False
+    x = int(x)
+    if(x>=1000 and x<=99999):
+        return True
+    if(x>3720304 and x<400000):
+        return True
+    return False
+
 def isTwoOrThreeDigit(x):
     if(not x.isdigit()):
         return False
@@ -93,7 +103,7 @@ def getDriverOffNumber(serviceNumber, day):
             
             wantedOffNum = listFirstPDF[index]
             print(serviceNumber, wantedOffNum)
-            if(isFourDigit(wantedOffNum)):
+            if(isLegitOffNum(wantedOffNum)):
                 print(1, wantedOffNum)
                 found = True
                 break
@@ -115,10 +125,16 @@ def getDriverInfo(offNum):
     fileR = open('vozaci.txt', 'r', encoding='utf-8')
     lines = fileR.readlines()
     fileR.close()
+
+    found = False
     for line in lines:
         driverInfo = re.split(' ', line)
         if(driverInfo[0] == offNum):
+            found = True
             break
+        
+    if(not found):
+        return ['ANON'] 
 
     driverInfo.pop(0)
     driverInfo.pop(0)
@@ -280,7 +296,7 @@ def readServices(offNumFile, fridayFlag, fullServices):
             # prva sluzba index 0
             # druga sluzba index 8
             # treca sluzba index 15
-            
+            print(serviceLine)
             serviceNumber = serviceLine[serviceStartIndex]
             driveOrder = serviceLine[serviceStartIndex+1]
             receptionPoint = serviceLine[serviceStartIndex+2].replace('\n','')
@@ -309,6 +325,7 @@ def readServices(offNumFile, fridayFlag, fullServices):
                 driverInfo = getDriverInfo(driverOffNumber)
                 driverInfo = ' '.join(driverInfo)
                 serviceLayout.append(driverInfo)
+            print(serviceLayout)
 
             # ako je petak i imamo subotu nedjelju tada ne radi
             # nista ako nisu izasle odnosno ucitaj ako su izasle
@@ -353,7 +370,7 @@ def checkAndDeleteServices(offNumFile):
     if(len(lines) <= 11):
         return
     
-    fileW = open(offNum + '.txt', 'w', encoding='utf-8')
+    fileW = open(offNumFile, 'w', encoding='utf-8')
     for i in range(len(lines)):
         if(len(lines) - i > 11):
             pass

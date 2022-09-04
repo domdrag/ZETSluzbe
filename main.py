@@ -1,143 +1,120 @@
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.properties import ObjectProperty
-from kivy.uix.popup import Popup
-from kivy.uix.label import Label
+from kivy.uix.recycleview import RecycleView
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.popup import Popup
+from kivy.properties import BooleanProperty
 
-from func import *
+from readServices import *
+from receiveServices import *
+from repair import *
 
+import threading
 
-class LoginWindow(Screen):
-    offNum = ObjectProperty(None)
-
-    def loginBtn(self):
-        offNum = self.offNum.text
-        services = servicesRun(offNum, False)
-        mainWindow.services = []
-        self.services = services
-        mainWindow.services = services
-        mainWindow.offNum = offNum
-        #self.reset()
-        sm.current = "main"
-        #print(MainWindow.services)
-
-    def reset(self):
-        pass
-
-
-class MainWindow(Screen):
-    services = []
-    offNum = ''
-    fullServices = False
-
-    def on_enter(self):
-        print(self.offNum)
-        print(self.services)
-        self.fullServices = False
-        self.ids.offNumLabel.text = self.offNum
-        table_data = []
-        for i in range(len(self.services)):    
-            if(self.services[i][1] == 'O'):
-                table_data.append({'text':self.services[i][0],'size_hint_y':None,
-                                   'height':100,'bcolor':(.05,.30,.80,1),
-                                   'halign':'center', 'valign':'top'}) #append the data
-                table_data.append({'text':'\n'.join(self.services[i][1:]),'size_hint_y':None,
-                                   'height':300,'bcolor':(.10,.50,.150,1),
-                                   'halign':'center', 'valign':'top'}) #append the data 
-                
-            else:
-                table_data.append({'text':self.services[i][0],'size_hint_y':None,
-                                   'height':100,'bcolor':(.05,.30,.80,1),
-                                   'halign':'center', 'valign':'top'}) #append the data
-                table_data.append({'text':'\n'.join(self.services[i][1:]),'size_hint_y':None,
-                                   'height':300,'bcolor':(.06,.25,.50,1),
-                                   'halign':'center', 'valign':'top'}) #append the data 
-
-        self.ids.table_floor_layout.cols = 1 #define value of cols to the value of self.columns
-        self.ids.table_floor.data = table_data #add table_data to data value
-        
-    def logout(self):
-        sm.current = 'login'
-
-    def changeServices(self):
-        self.fullServices = not self.fullServices
-        self.services = servicesRun(self.offNum, self.fullServices)
-        if(self.fullServices):
-            table_data = []
-
-            i = 0
-            while(i < len(self.services)):
-                if(self.services[i][1] == 'O'):
-                    for j in range(3):
-                        table_data.append({'text':self.services[i][0],'size_hint_y':None,
-                                           'height':100,'bcolor':(.05,.30,.80,1),
-                                           'halign':'center', 'valign':'top'}) #append the data
-                    for j in range(3):
-                        table_data.append({'text':'\n'.join(self.services[i][1:]),'size_hint_y':None,
-                                           'height':300,'bcolor':(.10,.50,.150,1),
-                                           'halign':'center', 'valign':'top'}) #append the data
-                    i = i + 1
-                    
-                else:
-                    for j in range(3):
-                        table_data.append({'text':self.services[i][0],'size_hint_y':None,
-                                           'height':100,'bcolor':(.05,.30,.80,1),
-                                           'halign':'center', 'valign':'top'}) #append the data
-                    for j in range(3):
-                        table_data.append({'text':'\n'.join(self.services[i+j][1:]),'size_hint_y':None,
-                                           'height':300,'bcolor':(.06,.25,.50,1),
-                                           'halign':'center', 'valign':'top'}) #append the data
-                    i = i + 3
-
-            self.ids.table_floor_layout.cols = 3 #define value of cols to the value of self.columns
-            self.ids.table_floor.data = table_data #add table_data to data value
-        else:
-            self.on_enter()
-
-    def reset(self):
-        pass
-        
-
-
-class WindowManager(ScreenManager):
+class DailyShift(BoxLayout):
+    pass
+class DailyService(BoxLayout):
     pass
 
 
-def invalidLogin():
-    pop = Popup(title='Invalid Login',
-                  content=Label(text='Invalid username or password.'),
-                  size_hint=(None, None), size=(400, 400))
-    pop.open()
+Builder.load_file('layout.kv')
+
+def show_popup(function):
+    def wrap(app, *args, **kwargs):
+        popup = UpdatePopup()  # Instantiate CustomPopup (could add some kwargs if you wish)
+        app.done = False  # Reset the app.done BooleanProperty
+        app.bind(done=popup.dismiss)  # When app.done is set to True, then popup.dismiss is fired
+        popup.open()  # Show popup
+        t = threading.Thread(target=function, args=[app, popup, *args], kwargs=kwargs)  # Create thread
+        t.start()  # Start thread
+        return t
+
+    return wrap
 
 
-def invalidForm():
-    pop = Popup(title='Invalid Form',
-                  content=Label(text='Please fill in all inputs with valid information.'),
-                  size_hint=(None, None), size=(400, 400))
-
-    pop.open()
 
 
-kv = Builder.load_file("my.kv")
-
-sm = WindowManager()
-#db = DataBase("users.txt")
-
-loginWindow = LoginWindow(name="login")
-mainWindow = MainWindow(name="main")
-screens = [loginWindow, mainWindow]
-for screen in screens:
-    sm.add_widget(screen)
-
-sm.current = "login"
+class UpdatePopup(Popup):
+    
+    def __init__(self, **kwargs):
+        super(Popup, self).__init__(**kwargs)
+        #self.ids.popupMsg.text = state
 
 
-class MyMainApp(App):
+class LoginScreen(Screen):
+    done = BooleanProperty(False)
+    
+    def __init__(self, **kwargs):
+        super(Screen, self).__init__(**kwargs)
+        
+    def loginBtn(self):
+        serviceScreen.offNum = self.ids.offNum.text
+        sm.current = 'service'
+
+    @show_popup
+    def updateBtn(self, popup):
+        popup.text = 'Waiting...'
+        updateResult = update(1)
+        
+        if(updateResult == 0):
+            # ALREADY UP TO DATE
+            #UpdatePopup('Already up to date!').open()
+            popup.text = 'Already up to date!'
+        elif(updateResult == 2):
+            # ERROR
+            #UpdatePopup('ERROR!').open()
+            popup.text = 'Already up to date!'
+            repairFiles()
+            print('FILES REPAIRED')
+        else:
+            # UPDATED
+            #UpdatePopup('Updated!').open()
+            popup.text = 'Already up to date!'
+            updateCopyDir()
+            print('COPY FILES UPDATED')
+
+
+class ServiceScreen(Screen):
+    offNum = ''
+    
+    def __init__(self, **kwargs):
+        super(Screen, self).__init__(**kwargs)
+        
+    def on_enter(self):
+        self.ids.serviceScreen.data = receiveServices(self.offNum)
+        
+    def shiftBtn(self):
+        shiftScreen.offNum = self.offNum
+        sm.current = 'shift'
+
+class ShiftScreen(Screen):
+    offNum = ''
+    #loaded = 0
+    
+    def __init__(self, **kwargs):
+        super(Screen, self).__init__(**kwargs)
+        
+    def on_enter(self):
+        self.ids.shiftScreen.data = receiveShifts(self.offNum)
+        #self.loaded = 1
+
+    def serviceBtn(self):
+        sm.current = 'service'
+
+    
+sm = ScreenManager()
+loginScreen = LoginScreen(name = 'login')
+serviceScreen = ServiceScreen(name = 'service')
+shiftScreen = ShiftScreen(name = 'shift')
+
+class TestApp(App):
     def build(self):
+        sm.add_widget(loginScreen)
+        sm.add_widget(serviceScreen)
+        sm.add_widget(shiftScreen)
         return sm
 
 
-if __name__ == "__main__":
-    MyMainApp().run()
+if __name__ == '__main__':
+    TestApp().run()
