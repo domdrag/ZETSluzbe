@@ -85,9 +85,24 @@ class ServiceScreen(Screen):
         self.ids.serviceScreen.data = receiveServices(self.offNum)
         
     def shiftBtn(self):
-        shiftScreen.offNum = self.offNum
-        sm.current = 'shift'
+        shiftScreenTemp.offNum = self.offNum
+        sm.current = 'shiftTemp'
 
+class ShiftScreenTemp(Screen):
+    offNum = ''
+    #loaded = 0
+    
+    def __init__(self, **kwargs):
+        super(Screen, self).__init__(**kwargs)
+        
+    def on_enter(self):
+        self.ids.shiftScreenTemp.data = receiveShiftsTemp(self.offNum)
+        #self.loaded = 1
+
+    def serviceBtn(self):
+        sm.current = 'service'
+
+'''
 class ShiftScreen(Screen):
     offNum = ''
     #loaded = 0
@@ -101,18 +116,20 @@ class ShiftScreen(Screen):
 
     def serviceBtn(self):
         sm.current = 'service'
-
+'''
     
 sm = ScreenManager()
 loginScreen = LoginScreen(name = 'login')
 serviceScreen = ServiceScreen(name = 'service')
-shiftScreen = ShiftScreen(name = 'shift')
+#shiftScreen = ShiftScreen(name = 'shift')
+shiftScreenTemp = ShiftScreenTemp(name = 'shiftTemp')
 
 class TestApp(App):
     def build(self):
         sm.add_widget(loginScreen)
         sm.add_widget(serviceScreen)
-        sm.add_widget(shiftScreen)
+        #sm.add_widget(shiftScreen)
+        sm.add_widget(shiftScreenTemp)
         return sm
 
 
