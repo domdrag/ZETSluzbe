@@ -41,6 +41,19 @@ def receiveServices(offNum):
         weekServicesData.append({'day': weekService[0], 'service': '\n'.join(weekService[1:])})
     return weekServicesData
 
+def receiveShiftsTemp(offNum):
+    fileR = open('shifts/' + offNum + '.txt', 'r', encoding='utf-8')
+    weekServices = fileR.readlines()
+    fileR.close()
+    weekServicesData = []
+    for weekServiceRawString in weekServices:
+        weekService = ast.literal_eval(weekServiceRawString)
+        if(not checkService(weekService)):
+           continue
+        weekServicesData.append({'day': weekService[0], 'service': '\n'.join(weekService[1:])})
+    return weekServicesData
+
+
 def receiveShifts(offNum):
     fileR = open('shifts/' + offNum + '.txt', 'r', encoding='utf-8')
     weekServices = fileR.readlines()
