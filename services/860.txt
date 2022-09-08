@@ -1,7 +1,0 @@
-['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 107', 'vozni red: PRIČUVA', '03:56, PTD', '10:52, PTD, ']
-['Utorak, 6.9.2022.', 'broj sluzbe: 107', 'vozni red: PRIČUVA', '03:56, PTD', '10:52, PTD, ']
-['Srijeda, 7.9.2022.', 'broj sluzbe: 49', 'vozni red: 04.10', '04:49  \n12:42, PTD      PTD', '0  8:58   \n16:33, Učit. fakultet smjer Dubec, ']
-['Cetvrtak, 8.9.2022.', 'broj sluzbe: 103', 'vozni red: PRIČUVA', '04:51, PTD', '11:07, PTD, ']
-['Petak, 9.9.2022.', 'broj sluzbe: 107', 'vozni red: PRIČUVA', '03:56, PTD', '10:52, PTD, ']
-['Subota, 10.9.2022.', 'O']
-['Nedjelja, 11.9.2022.', 'O']

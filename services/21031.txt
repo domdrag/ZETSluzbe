@@ -1,7 +1,0 @@
-['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 188', 'vozni red: 14.04', '06:08  \n13:05, PTD      PTD', '0  9:51   \n17:22, Zagrepčanka smjer Sav. most, ']
-['Utorak, 6.9.2022.', 'broj sluzbe: 188', 'vozni red: 14.04', '06:08  \n13:05, PTD      PTD', '0  9:51   \n17:22, Zagrepčanka smjer Sav. most, ']
-['Srijeda, 7.9.2022.', 'broj sluzbe: 188', 'vozni red: 14.04', '06:08  \n13:05, PTD      PTD', '0  9:51   \n17:22, Zagrepčanka smjer Sav. most, ']
-['Cetvrtak, 8.9.2022.', 'broj sluzbe: 188', 'vozni red: 14.04', '06:08  \n13:05, PTD      PTD', '0  9:51   \n17:22, Zagrepčanka smjer Sav. most, ']
-['Petak, 9.9.2022.', 'broj sluzbe: 188', 'vozni red: 14.04', '06:08  \n13:05, PTD      PTD', '0  9:51   \n17:22, Zagrepčanka smjer Sav. most, ']
-['Subota, 10.9.2022.', 'O']
-['Nedjelja, 11.9.2022.', 'O']

@@ -357,7 +357,7 @@ def writeShifts(days):
                 fileW.write(f"{serviceLayout}\n")
         fileW.close()
             
-def update(updateCheck):
+def updateBefore(updateCheck):
     days = []
 
     try:
@@ -388,4 +388,53 @@ def update(updateCheck):
         return 1
     except:
         return 2
+
+globalDays = []
+
+def update(updateLevel):
+    global globalDays
+    try:
+        if(updateLevel == 0):
+            searchLinks()
+            print('LINKS FOUND')
+            return 'Postavljanje datuma'
+        elif(updateLevel == 1):
+            if(not setDays(globalDays)):
+                return '0'
+            print('DAYS SET')
+            return 'Brisanje starih dokumenata'
+
+        elif(updateLevel == 2):           
+            deleteAllFiles()
+            print('DELETED ALL FILES')
+            return 'Citanje tjednih sluzbi'
+
+        elif(updateLevel == 3):
+            readWeekServices()
+            print('READ WEEK SERVICES DONE')
+            return 'Citanje svih sluzbi'
+
+        elif(updateLevel == 4):
+            readAllServices()
+            print('READ ALL SERVICES DONE')
+            return 'Zapisivanje tjednih sluzbi'
+        
+        elif(updateLevel == 5):
+            writeServices(globalDays)
+            print('WRITE WEEK SERVICES DONE')
+            return 'Zapisivanje tjednih smjena'
+        
+        elif(updateLevel == 6):
+            writeShifts(globalDays)
+            print('WRITE WEEK SHIFTS DONE')
+            return 'Postavljanje datuma zadnjeg azuriranja'
+
+        elif(updateLevel == 7):
+            setLastRecord()
+            print('LAST RECORD SET')
+            return 'Kopiranje sluzbi'
+        elif(updateLevel == 8):
+            return '1'
+    except:
+        return '2'
 

@@ -1,5 +1,6 @@
 import ast
 import re
+import os
 import datetime
 from datetime import date
 from dateutil.relativedelta import relativedelta, FR
@@ -30,7 +31,11 @@ def checkService(weekService):
         return False
 
 def receiveServices(offNum):
-    fileR = open('services/' + offNum + '.txt', 'r', encoding='utf-8')
+    filePath = 'services/' + offNum + '.txt'
+    if(not os.path.exists(filePath)):
+        return []
+    
+    fileR = open(filePath, 'r', encoding='utf-8')
     weekServices = fileR.readlines()
     fileR.close()
     weekServicesData = []

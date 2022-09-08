@@ -1,7 +1,0 @@
-['Ponedjeljak, 5.9.2022.', 'O']
-['Utorak, 6.9.2022.', 'broj sluzbe: 79', 'vozni red: PRIČUVA', '04:17, PTD', '11:02, PTD, ']
-['Srijeda, 7.9.2022.', 'broj sluzbe: 406', 'vozni red: 07.18', '11:59, Dubrava smjer Savski gaj', '18:35, PTD, ']
-['Cetvrtak, 8.9.2022.', 'broj sluzbe: 177', 'vozni red: PRIČUVA', '06:49, PTD', '13:44, PTD, ']
-['Petak, 9.9.2022.', 'O']
-['Subota, 10.9.2022.', 'broj sluzbe: 471', 'vozni red: PRIČUVA', '09:56, PTD', '16:55, PTD, ']
-['Nedjelja, 11.9.2022.', 'empty']
