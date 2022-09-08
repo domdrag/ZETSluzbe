@@ -100,7 +100,7 @@
         pos_hint:{"x":0.5,'bottom': 1}
         size_hint: 0.4, 0.1
         font_size: (root.width**2 + root.height**2) / 17**4
-        text: 'Logout'
+        text: 'Odjavi se'
         on_release:
             root.manager.transition.direction = 'up'
             root.manager.current = 'login'
@@ -128,7 +128,7 @@
         pos_hint:{"x":0.5,'bottom': 1}
         size_hint: 0.4, 0.1
         font_size: (root.width**2 + root.height**2) / 17**4
-        text: 'Logout'
+        text: 'Odjavi se'
         on_release:
             root.manager.transition.direction = 'up'
             root.manager.current = 'login'
@@ -163,10 +163,10 @@
 
 <UpdatePopup>:
     auto_dismiss: True
-	title: "Update Message"
+	title: "Status"
 	size_hint: 0.6, 0.2
 	pos_hint: {'x': 0.2, 'top': 0.7}
-	text: ''
+	text: 'Trazenje linkova'
 	Label:
 		id: popupMsg
 		text: root.text
@@ -179,7 +179,7 @@
             size_hint: 0.4, 0.1
 			font_size: (root.width**2 + root.height**2) / 17**4
             text:"Sluzbeni broj: "
-
+			
         TextInput:
 			pos_hint: {"x": 0.3 , "top":0.8}
 			size_hint: 0.4, 0.1
@@ -192,7 +192,7 @@
             pos_hint:{"x":0.1,'bottom': 1}
 			size_hint: 0.4, 0.1
 			font_size: (root.width**2 + root.height**2) / 17**4
-            text: "Login"
+            text: "Prijavi se"
             on_release:
                 root.manager.transition.direction = 'down'
                 root.manager.current = 'service'
@@ -201,7 +201,7 @@
             pos_hint:{"x":0.5,'bottom': 1}
 			size_hint: 0.4, 0.1
 			font_size: (root.width**2 + root.height**2) / 17**4
-            text: "Update"
+            text: "Azuriraj"
             on_release:
                 root.updateBtn()
 				

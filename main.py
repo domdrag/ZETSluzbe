@@ -11,6 +11,7 @@ from receiveServices import *
 from repair import *
 
 import threading
+from threading import Timer
 
 class DailyShift(BoxLayout):
     pass
@@ -20,13 +21,29 @@ class DailyService(BoxLayout):
 
 Builder.load_file('layout.kv')
 
+class RepeatTimer(Timer):
+    def run(self):
+        while not self.finished.wait(self.interval):
+            self.function(*self.args, **self.kwargs)
+
+def addDots():
+    if('...' in updatePopup.text):
+        updatePopup.text = updatePopup.text[:-3]
+    else:
+        updatePopup.text = updatePopup.text + '.'
+
 def show_popup(function):
     def wrap(app, *args, **kwargs):
-        popup = UpdatePopup()  # Instantiate CustomPopup (could add some kwargs if you wish)
+        global popupTimer
+        #popup = UpdatePopup()  # Instantiate CustomPopup (could add some kwargs if you wish)
+        updatePopup.auto_dismiss = False
         app.done = False  # Reset the app.done BooleanProperty
-        app.bind(done=popup.dismiss)  # When app.done is set to True, then popup.dismiss is fired
-        popup.open()  # Show popup
-        t = threading.Thread(target=function, args=[app, popup, *args], kwargs=kwargs)  # Create thread
+        app.bind(done=updatePopup.dismiss)  # When app.done is set to True, then popup.dismiss is fired
+        updatePopup.open()  # Show popup
+        t = threading.Thread(target=function, args=[app, updatePopup, *args], kwargs=kwargs)  # Create thread
+        #threading.Timer(1.0, addDots).start()
+        popupTimer = RepeatTimer(0.5, addDots)
+        popupTimer.start()
         t.start()  # Start thread
         return t
 
@@ -54,25 +71,34 @@ class LoginScreen(Screen):
 
     @show_popup
     def updateBtn(self, popup):
-        popup.text = 'Waiting...'
-        updateResult = update(1)
-        
-        if(updateResult == 0):
+        #updateResult = update(1)
+        numberOfLevels = 9 # 8+1
+
+        for i in range(numberOfLevels):
+            updateResult = update(i)
+            if(updateResult == '0'):
+                break
+            if(updateResult == '1'):
+                break
+            if(updateResult == '2'):
+                break
+            updatePopup.text = updateResult
+            
+        popupTimer.cancel()
+        if(updateResult == '0'):
             # ALREADY UP TO DATE
-            #UpdatePopup('Already up to date!').open()
-            popup.text = 'Already up to date!'
-        elif(updateResult == 2):
+            updatePopup.text = 'Sluzbe vec azurne!'
+        elif(updateResult == '2'):
             # ERROR
-            #UpdatePopup('ERROR!').open()
-            popup.text = 'Already up to date!'
             repairFiles()
+            updatePopup.text = 'GRESKA! Dokumenti popravljeni.'
             print('FILES REPAIRED')
         else:
             # UPDATED
-            #UpdatePopup('Updated!').open()
-            popup.text = 'Already up to date!'
             updateCopyDir()
+            updatePopup.text = 'Azurirano!'
             print('COPY FILES UPDATED')
+        updatePopup.auto_dismiss = True
 
 
 class ServiceScreen(Screen):
@@ -83,6 +109,10 @@ class ServiceScreen(Screen):
         
     def on_enter(self):
         self.ids.serviceScreen.data = receiveServices(self.offNum)
+        if(not self.ids.serviceScreen.data):
+            updatePopup.text = 'Service number not in database!'
+            updatePopup.open()
+            sm.current = 'login'
         
     def shiftBtn(self):
         shiftScreenTemp.offNum = self.offNum
@@ -123,8 +153,10 @@ loginScreen = LoginScreen(name = 'login')
 serviceScreen = ServiceScreen(name = 'service')
 #shiftScreen = ShiftScreen(name = 'shift')
 shiftScreenTemp = ShiftScreenTemp(name = 'shiftTemp')
+updatePopup = UpdatePopup()
+popupTimer = RepeatTimer(0.5, addDots)
 
-class TestApp(App):
+class SluzbeApp(App):
     def build(self):
         sm.add_widget(loginScreen)
         sm.add_widget(serviceScreen)
@@ -134,4 +166,4 @@ class TestApp(App):
 
 
 if __name__ == '__main__':
-    TestApp().run()
+    SluzbeApp().run()
