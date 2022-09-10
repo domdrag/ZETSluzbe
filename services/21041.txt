@@ -1,0 +1,7 @@
+['Ponedjeljak, 5.9.2022.', 'I-GO']
+['Utorak, 6.9.2022.', 'I-GO']
+['Srijeda, 7.9.2022.', 'I-GO']
+['Cetvrtak, 8.9.2022.', 'I-GO']
+['Petak, 9.9.2022.', 'O']
+['Subota, 10.9.2022.', 'broj sluzbe: 677', 'vozni red: 06.09', '17:33, TBJJ smjer Črnomerec', '00:31, PTD, ']
+['Nedjelja, 11.9.2022.', 'broj sluzbe: 774', 'vozni red: 13.05', '18:17, Glavni kolodvor smjer Kvat. trg', '00:27, PTD, ']

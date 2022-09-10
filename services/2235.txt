@@ -1,0 +1,7 @@
+['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 345', 'vozni red: 04.06', '13:39, Učit. fakultet smjer Dubec', '20:39, PTD, ']
+['Utorak, 6.9.2022.', 'empty']
+['Srijeda, 7.9.2022.', 'O']
+['Cetvrtak, 8.9.2022.', 'broj sluzbe: 572', 'vozni red: PRIČUVA', '13:30, PTD', '21:00, PTD, ']
+['Petak, 9.9.2022.', 'broj sluzbe: 474', 'vozni red: 13.05', '13:07, Držićeva smjer Žitnjak', '20:05, PTD, ']
+['Subota, 10.9.2022.', 'broj sluzbe: 347', 'vozni red: 04.08', '13:54, Glavni kolodvor smjer Dubec', '20:45, PTD, ']
+['Nedjelja, 11.9.2022.', 'O']

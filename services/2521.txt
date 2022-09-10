@@ -1,0 +1,7 @@
+['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 692', 'vozni red: 07.04', '17:51, Zapruđe smjer Dubec', '00:33, PTD, ']
+['Utorak, 6.9.2022.', 'broj sluzbe: 679', 'vozni red: 06.11', '17:45, SOPOT-TERMINAL', '00:39, PTD, ']
+['Srijeda, 7.9.2022.', 'O']
+['Cetvrtak, 8.9.2022.', 'broj sluzbe: 870', 'vozni red: PRIČUVA', '17:30, PTD', '01:00, PTD, ']
+['Petak, 9.9.2022.', 'broj sluzbe: 677', 'vozni red: 06.09', '17:31, SOPOT-TERMINAL', '00:27, PTD, ']
+['Subota, 10.9.2022.', 'broj sluzbe: 696', 'vozni red: 07.08', '18:11, Savski gaj smjer Savski gaj', '01:08, PTD, ']
+['Nedjelja, 11.9.2022.', 'Oz']

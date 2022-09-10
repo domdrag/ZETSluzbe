@@ -1,0 +1,7 @@
+['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 369', 'vozni red: 06.01', '10:47, Britanski trg smjer Črnomerec', '17:46, Britanski trg smjer Sopot, ']
+['Utorak, 6.9.2022.', 'broj sluzbe: 369', 'vozni red: 06.01', '10:47, Britanski trg smjer Črnomerec', '17:46, Britanski trg smjer Sopot, ']
+['Srijeda, 7.9.2022.', 'Oz']
+['Cetvrtak, 8.9.2022.', 'O']
+['Petak, 9.9.2022.', 'O']
+['Subota, 10.9.2022.', 'broj sluzbe: 372', 'vozni red: 06.04', '10:58, ČRNOMEREC', '17:46, PTD, ']
+['Nedjelja, 11.9.2022.', 'broj sluzbe: 374', 'vozni red: 06.06', '11:51, Autobusni kol. smjer Črnomerec', '18:01, ČRNOMEREC, ']

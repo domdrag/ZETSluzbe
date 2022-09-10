@@ -1,0 +1,7 @@
+['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 408', 'vozni red: 08.02', '11:06, Draškovićeva smjer Zapruđe', '17:46, Draškovićeva smjer Mihaljevac, ']
+['Utorak, 6.9.2022.', 'broj sluzbe: 408', 'vozni red: 08.02', '11:06, Draškovićeva smjer Zapruđe', '17:46, Draškovićeva smjer Mihaljevac, ']
+['Srijeda, 7.9.2022.', 'broj sluzbe: 408', 'vozni red: 08.02', '11:06, Draškovićeva smjer Zapruđe', '17:46, Draškovićeva smjer Mihaljevac, ']
+['Cetvrtak, 8.9.2022.', 'broj sluzbe: 408', 'vozni red: 08.02', '11:06, Draškovićeva smjer Zapruđe', '17:46, Draškovićeva smjer Mihaljevac, ']
+['Petak, 9.9.2022.', 'broj sluzbe: 408', 'vozni red: 08.02', '11:06, Draškovićeva smjer Zapruđe', '17:46, Draškovićeva smjer Mihaljevac, ']
+['Subota, 10.9.2022.', 'O']
+['Nedjelja, 11.9.2022.', 'O']
