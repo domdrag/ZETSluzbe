@@ -74,6 +74,7 @@ def receiveShifts(offNum):
         if(currServiceDate != nextServiceDate):
             weekServicesData.append({'firstItem': weekService[0],
                                      'secondItem': '\n'.join(weekService[1:]),
+                                     'bg_color1': (0,0,0,0),
                                      'bg_color2': (0.13, 0.55, 0.13, 1)})
             currWeekService = currWeekService + 1
         else:

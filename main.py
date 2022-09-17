@@ -4,6 +4,7 @@ from kivy.uix.recycleview import RecycleView
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.popup import Popup
+from kivy.uix.textinput import TextInput
 from kivy.properties import BooleanProperty
 
 from readServices import *
