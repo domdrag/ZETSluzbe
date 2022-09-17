@@ -76,6 +76,7 @@
                     width: 2
                     rectangle: self.x, self.y, self.width, self.height
         TextInput:
+			readonly: True
 			padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 			background_color: root.bg_color
 			foreground_color: 1, 1, 1, 1
@@ -96,6 +97,7 @@
     GridLayout:
         rows: 2
         TextInput:
+			readonly: True
 			padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 			background_color: root.bg_color1
             text: root.firstItem
@@ -108,6 +110,7 @@
                     width: 2
                     rectangle: self.x, self.y, self.width, self.height
         TextInput:
+			readonly: True
 			padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 			background_color: root.bg_color2
 			foreground_color: 1, 1, 1, 1
