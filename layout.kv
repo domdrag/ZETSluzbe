@@ -1,42 +1,3 @@
-<DailyShift>:
-    day: ''
-    firstShift: ''
-    secondShift: ''
-    thirdShift: ''
-    GridLayout:
-        rows: 2
-        Label:
-            text: root.day
-        GridLayout:
-            cols: 3
-            Label:
-                halign: 'center'
-                text: root.firstShift
-                canvas.before:
-                    Color:
-                        rgba: .5, .5, .5, 1
-                    Line:
-                        width: 2
-                        rectangle: root.x, root.y, root.width/3, root.height
-            Label:
-                halign: 'center'
-                text: root.secondShift
-                canvas.before:
-                    Color:
-                        rgba: .5, .5, .5, 1
-                    Line:
-                        width: 2
-                        rectangle: root.x, root.y, root.width*2/3, root.height
-            Label:
-                halign: 'center'
-                text: root.thirdShift
-                canvas.before:
-                    Color:
-                        rgba: .5, .5, .5, 1
-                    Line:
-                        width: 2
-                        rectangle: root.x, root.y, root.width, root.height
-
 <BackgroundColor@Widget>
     background_color: .5, .5, .5, 1
     canvas.before:
@@ -48,15 +9,65 @@
 
 <SpecialLabel@Label+BackgroundColor>
 	background_color: 1, 0.5, 0, 1
+	
+<DailyShiftOld>:
+    day: ''
+    firstShift: ''
+    secondShift: ''
+    thirdShift: ''
+	sizeHint: (1, 1) ### pokusaj micanja labela u shiftovima, trentuno useless
+	bg_color: (0,0,0,0) 
+    GridLayout:
+        rows: 2
+        Label:
+			size_hint: 1, .25
+            text: root.day
+        GridLayout:
+            rows: 3
+			size_hint: 1, .75
+			SpecialLabel:
+				background_color: root.bg_color
+				size_hint: root.sizeHint
+				color: 1, 1, 1, 1
+				halign: 'center'
+				text: root.firstShift
+				canvas.before:
+					Color:
+						rgba: .5, .5, .5, 1
+					Line:
+						width: 2
+						rectangle: self.x, self.y, self.width, self.height
+            SpecialLabel:
+				background_color: root.bg_color
+				color: 1, 1, 1, 1
+				halign: 'center'
+				text: root.secondShift
+				canvas.before:
+					Color:
+						rgba: .5, .5, .5, 1
+					Line:
+						width: 2
+						rectangle: self.x, self.y, self.width, self.height
+            SpecialLabel:
+				background_color: root.bg_color
+				size_hint: root.sizeHint
+				color: 1, 1, 1, 1
+				halign: 'center'
+				text: root.thirdShift
+				canvas.before:
+					Color:
+						rgba: .5, .5, .5, 1
+					Line:
+						width: 2
+						rectangle: self.x, self.y, self.width, self.height
 
 <DailyService>:
     day: ''
     service: ''
+	bg_color: (0,0,0,0)
     GridLayout:
         rows: 2
-        SpecialLabel:
-			background_color: 1, 0.5, 0, 1
-			color: 0, 0, 0, 1
+        Label:
             text: root.day
             canvas.before:
                 Color:
@@ -65,10 +76,40 @@
                     width: 2
                     rectangle: self.x, self.y, self.width, self.height
         SpecialLabel:
-			background_color: 0, 0, 1, 1
+			background_color: root.bg_color
 			color: 1, 1, 1, 1
             halign: 'center'
             text: root.service
+            canvas.before:
+                Color:
+                    rgba: .5, .5, .5, 1
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+					
+<DailyShift>:
+    firstItem: '' ### dan ili sluzba
+    secondItem: '' ### sluzba
+	bg_color1: (0,0,0,0)
+	bg_color2: (0,0,0,0)
+    GridLayout:
+        rows: 2
+        SpecialLabel:
+			background_color: root.bg_color1
+            text: root.firstItem
+			color: 1, 1, 1, 1
+			halign: 'center'
+            canvas.before:
+                Color:
+                    rgba: .5, .5, .5, 1
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+        SpecialLabel:
+			background_color: root.bg_color2
+			color: 1, 1, 1, 1
+            halign: 'center'
+            text: root.secondItem
             canvas.before:
                 Color:
                     rgba: .5, .5, .5, 1
@@ -107,7 +148,7 @@
 			
 <ShiftScreenTemp>:
     RecycleView:
-        viewclass: 'DailyService'
+        viewclass: 'DailyShift'
         id: shiftScreenTemp
         RecycleBoxLayout:
             default_size: None, dp(200)

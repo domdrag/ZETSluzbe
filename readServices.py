@@ -50,6 +50,30 @@ def isMoreThanThreeDigit(x):
 def getStringDate(date):
     return str(date.day) + '.' + str(date.month) + '.' + str(date.year) + '.'
 
+def deleteExceeded(directory):
+    files = os.listdir('./' + directory)
+    if(directory == 'services'):
+        maxExceed = 7
+    else:
+        maxExceed = 21
+    
+    for file in files:
+        fileName = './' + directory + '/' + file
+        fileR = open(fileName, 'r', encoding='utf-8')
+        lines = fileR.readlines()
+        fileR.close()
+
+        if(len(lines) <= maxExceed):
+            return
+
+        fileW = open(fileName, 'w', encoding='utf-8')
+        for i in range(len(lines)):
+            if(len(lines) - i > maxExceed):
+                pass
+            else:
+                fileW.write(lines[i])
+        fileW.close()
+        
 def deleteAllFiles():
     files = os.listdir(os.curdir)
     for file in files:
@@ -63,6 +87,9 @@ def deleteAllFiles():
         if(file == 'lastRecordDate.txt'):
             continue
         os.remove(os.path.join('./relevant', file))
+
+    deleteExceeded('services')
+    deleteExceeded('shifts')
 
     '''files = os.listdir('./services')
     for file in files:
@@ -181,43 +208,27 @@ def readWeekServices():
         fileW.close()
     return 1
 
+#### pomogao jsvine
+def readService(typeOfDay, URL):
+    PDFFile = download_file(URL)
+
+    with pdfplumber.open(PDFFile) as PDF:
+        fileW = open('relevant/' + typeOfDay + '.txt', 'w', encoding='utf-8')
+        for page in PDF.pages:
+            filtered = (page.filter(lambda obj: not (obj.get("non_stroking_color") == (0, 0, 1) and obj.get("width", 100) < 100)).dedupe_chars())
+            tables = filtered.extract_tables()
+            for table in tables:
+                for serviceLine in table:
+                    if(isinstance(serviceLine[0], str) and serviceLine[0].isnumeric()):
+                        fileW.write(f"{serviceLine}\n")
+    fileW.close()
+####
+
 def readAllServices():
-    PDFFile = download_file(workDayURL)
-
-    with pdfplumber.open(PDFFile) as PDF:
-        fileW = open('relevant/workDay.txt', 'w', encoding='utf-8')
-        for page in PDF.pages:
-            tables = page.dedupe_chars().find_tables()
-            for tableId in tables:
-                table = tableId.extract()
-                for serviceLine in table:
-                    if(isinstance(serviceLine[0], str) and serviceLine[0].isnumeric()):
-                        fileW.write(f"{serviceLine}\n")
-        fileW.close()
-
-    PDFFile = download_file(saturdayURL)
-    with pdfplumber.open(PDFFile) as PDF:
-        fileW = open('relevant/saturday.txt', 'w', encoding='utf-8')
-        for page in PDF.pages:
-            tables = page.dedupe_chars().find_tables()
-            for tableId in tables:
-                table = tableId.extract()
-                for serviceLine in table:
-                    if(isinstance(serviceLine[0], str) and serviceLine[0].isnumeric()):
-                        fileW.write(f"{serviceLine}\n")
-        fileW.close()
-
-    PDFFile = download_file(sundayURL)
-    with pdfplumber.open(PDFFile) as PDF:
-        fileW = open('relevant/sunday.txt', 'w', encoding='utf-8')
-        for page in PDF.pages:
-            tables = page.dedupe_chars().find_tables()
-            for tableId in tables:
-                table = tableId.extract()
-                for serviceLine in table:
-                    if(isinstance(serviceLine[0], str) and serviceLine[0].isnumeric()):
-                        fileW.write(f"{serviceLine}\n")
-        fileW.close()
+    readService('workDay', workDayURL)
+    readService('saturday', saturdayURL)
+    readService('sunday', sundayURL)
+    
 
 def getServiceLine(serviceNum, day):
     if(not serviceNum.isnumeric()):
@@ -261,17 +272,38 @@ def getServiceLayout(serviceLine, serviceNum, days, day):
     driveOrder = serviceLine[serviceStartIndex+1]
     receptionPoint = serviceLine[serviceStartIndex+2].replace('\n','')
     receptionTime = serviceLine[serviceStartIndex+3]
-            
-    if(receptionPoint == 'PTD' or receptionPoint == 'PTT'):
+    releaseTime = serviceLine[serviceStartIndex+4]
+
+    if('\n' in receptionTime): # dvokratne
+        startingTimes = re.split('\n| ', receptionTime)
+        startingTimes = list(filter(('').__ne__, startingTimes))
+        if(len(startingTimes[0]) == 1):
+            startingTimes[0] = startingTimes[0] + startingTimes[1]
+            del startingTimes[1]
+        receptionTime = startingTimes[0] + ', ' + startingTimes[1]
+
+        startingTimes = re.split('\n| ', releaseTime)
+        startingTimes = list(filter(('').__ne__, startingTimes))
+        if(len(startingTimes[0]) == 1):
+            startingTimes[0] = startingTimes[0] + startingTimes[1]
+            del startingTimes[1]
+        releaseTime = startingTimes[0] + ', ' + startingTimes[1]
+        
+        startingPlaces = re.split(' ', receptionPoint)
+        startingPlaces = list(filter(('').__ne__, startingPlaces))
+        receptionPoint = startingPlaces[0]
+        releasePoint = startingPlaces[1]
+
+    elif(driveOrder == ''): # pricuva
         driveOrder = 'PRIČUVA'
         releasePoint = receptionPoint
+        
     else:
-        releasePoint = 'PTD'
+        releasePoint = 'PTD/PTT'
         for element in serviceLine[serviceStartIndex+3:]:
             if(isAlphaWithSpaces(element)):
                 releasePoint = element.replace('\n','')
-                    
-    releaseTime = serviceLine[serviceStartIndex+4]
+    
             
     # slaganje za layout
     serviceLayout = []
@@ -279,7 +311,7 @@ def getServiceLayout(serviceLine, serviceNum, days, day):
     serviceLayout.append('broj sluzbe: ' + serviceNumber)
     serviceLayout.append('vozni red: ' + driveOrder)
     serviceLayout.append(receptionTime + ', ' + receptionPoint)
-    serviceLayout.append(releaseTime + ', ' + releasePoint + ', ')
+    serviceLayout.append(releaseTime + ', ' + releasePoint)
     return serviceLayout
     
 
@@ -315,7 +347,8 @@ def getDriverInfo(serviceNum, driverList, day):
     for driver in driverList:
         if(driver[0] == str(wantedOffNum)):
             driverName = driver[1] + ' ' + driver[2][:-1]
-            driverTelNumber = driver[3]
+            telNum = driver[3]
+            driverTelNumber = f"{telNum[:3]}-{telNum[3:6]}-{telNum[6:]}"
             return [driverName, driverTelNumber]
     return ['ANON', 'XXX-XXX-XXXX']
 
