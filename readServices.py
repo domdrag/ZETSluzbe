@@ -58,6 +58,8 @@ def deleteExceeded(directory):
         maxExceed = 21
     
     for file in files:
+        if(file == 'keep.txt'):
+            continue
         fileName = './' + directory + '/' + file
         fileR = open(fileName, 'r', encoding='utf-8')
         lines = fileR.readlines()
