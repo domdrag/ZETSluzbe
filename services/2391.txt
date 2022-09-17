@@ -1,0 +1,7 @@
+['Ponedjeljak, 19.9.2022.', 'broj sluzbe: 409', 'vozni red: 08.03', '10:49, Draškovićeva smjer Mihaljevac', '17:20, Draškovićeva smjer Zapruđe']
+['Utorak, 20.9.2022.', 'broj sluzbe: 409', 'vozni red: 08.03', '10:49, Draškovićeva smjer Mihaljevac', '17:20, Draškovićeva smjer Zapruđe']
+['Srijeda, 21.9.2022.', 'broj sluzbe: 409', 'vozni red: 08.03', '10:49, Draškovićeva smjer Mihaljevac', '17:20, Draškovićeva smjer Zapruđe']
+['Cetvrtak, 22.9.2022.', 'O']
+['Petak, 23.9.2022.', 'O']
+['Subota, 24.9.2022.', 'broj sluzbe: 492', 'vozni red: 14.08', '10:18, PTD', '17:15, SAVSKI MOST']
+['Nedjelja, 25.9.2022.', 'broj sluzbe: 389', 'vozni red: 07.01', '11:03, Dubrava smjer Savski gaj', '17:36, Zapruđe smjer Savski gaj']

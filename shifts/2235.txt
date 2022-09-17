@@ -1,0 +1,7 @@
+['Ponedjeljak, 19.9.2022.', 'I-GO']
+['Utorak, 20.9.2022.', 'I-GO']
+['Srijeda, 21.9.2022.', 'I-GO']
+['Cetvrtak, 22.9.2022.', 'I-GO']
+['Petak, 23.9.2022.', 'I-GO']
+['Subota, 24.9.2022.', 'Oz']
+['Nedjelja, 25.9.2022.', 'Oz']

@@ -1,0 +1,7 @@
+['Ponedjeljak, 19.9.2022.', 'I-BP']
+['Utorak, 20.9.2022.', 'I-BP']
+['Srijeda, 21.9.2022.', 'I-BP']
+['Cetvrtak, 22.9.2022.', 'I-BP']
+['Petak, 23.9.2022.', 'broj sluzbe: 697', 'vozni red: 07.09', '18:04, Sopot smjer Savski gaj', '01:02, PTD/PTT']
+['Subota, 24.9.2022.', 'broj sluzbe: 696', 'vozni red: 07.08', '18:11, Savski gaj smjer Savski gaj', '01:08, PTD/PTT']
+['Nedjelja, 25.9.2022.', 'broj sluzbe: 674', 'vozni red: 06.06', '18:01, ČRNOMEREC', '00:40, PTD/PTT']

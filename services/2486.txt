@@ -1,0 +1,7 @@
+['Ponedjeljak, 19.9.2022.', 'broj sluzbe: 405', 'vozni red: 07.17', '11:23, Dubrava smjer Dubec', '17:50, Dubrava smjer Dubec']
+['Utorak, 20.9.2022.', 'broj sluzbe: 405', 'vozni red: 07.17', '11:23, Dubrava smjer Dubec', '17:50, Dubrava smjer Dubec']
+['Srijeda, 21.9.2022.', 'broj sluzbe: 401', 'vozni red: 07.13', '11:27, Dubrava smjer Savski gaj', '18:00, PTD/PTT']
+['Cetvrtak, 22.9.2022.', 'broj sluzbe: 401', 'vozni red: 07.13', '11:27, Dubrava smjer Savski gaj', '18:00, PTD/PTT']
+['Petak, 23.9.2022.', 'O']
+['Subota, 24.9.2022.', 'broj sluzbe: 400', 'vozni red: 07.12', '11:58, Dubrava smjer Savski gaj', '18:31, Autobusni kol. smjer Savski gaj']
+['Nedjelja, 25.9.2022.', 'broj sluzbe: 394', 'vozni red: 07.06', '12:03, Dubrava smjer Savski gaj', '18:05, Dubrava smjer Savski gaj']

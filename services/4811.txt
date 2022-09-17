@@ -1,0 +1,7 @@
+['Ponedjeljak, 19.9.2022.', 'broj sluzbe: 703', 'vozni red: 07.15', '17:36, Dubrava smjer Dubec', '00:17, PTD/PTT']
+['Utorak, 20.9.2022.', 'broj sluzbe: 703', 'vozni red: 07.15', '17:36, Dubrava smjer Dubec', '00:17, PTD/PTT']
+['Srijeda, 21.9.2022.', 'broj sluzbe: 870', 'vozni red: PRIČUVA', '17:30, PTD', '01:00, PTD']
+['Cetvrtak, 22.9.2022.', 'broj sluzbe: 794', 'vozni red: 14.10', '17:55, TBJJ smjer Sav. most', '00:55, PTD/PTT']
+['Petak, 23.9.2022.', 'Oz']
+['Subota, 24.9.2022.', 'broj sluzbe: 732', 'vozni red: 11.03', '16:05, Dubrava smjer Dubec', '23:03, PTD/PTT']
+['Nedjelja, 25.9.2022.', 'broj sluzbe: 785', 'vozni red: 14.01', '18:07, Draškovićeva smjer Mihaljevac', '00:38, PTD/PTT']

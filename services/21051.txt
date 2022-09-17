@@ -1,0 +1,7 @@
+['Ponedjeljak, 19.9.2022.', 'O']
+['Utorak, 20.9.2022.', 'broj sluzbe: 89', 'vozni red: 07.01', '03:46, PTD', '10:42, Autobusni kol. smjer Dubec']
+['Srijeda, 21.9.2022.', 'broj sluzbe: 71', 'vozni red: 06.03', '04:02, PTD', '11:00, Britanski trg smjer Sopot']
+['Cetvrtak, 22.9.2022.', 'broj sluzbe: 41', 'vozni red: 04.02', '04:12, PTD', '11:07, Glavni kolodvor smjer Dubec']
+['Petak, 23.9.2022.', 'I-PD']
+['Subota, 24.9.2022.', 'O']
+['Nedjelja, 25.9.2022.', 'O']

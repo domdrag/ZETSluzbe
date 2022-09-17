@@ -1,0 +1,7 @@
+['Ponedjeljak, 19.9.2022.', 'broj sluzbe: 70', 'vozni red: 06.02', '06:18, PTD', '13:18, Zapruđe smjer Sopot']
+['Utorak, 20.9.2022.', 'broj sluzbe: 100', 'vozni red: 07.12', '06:33, 12:49, PTD', '09:26, 17:15, PTD']
+['Srijeda, 21.9.2022.', 'broj sluzbe: 75', 'vozni red: 06.07', '05:54, PTD', '12:51, Glavni kolodvor smjer Črnomerec']
+['Cetvrtak, 22.9.2022.', 'broj sluzbe: 100', 'vozni red: 07.12', '06:33, 12:49, PTD', '09:26, 17:15, PTD']
+['Petak, 23.9.2022.', 'broj sluzbe: 100', 'vozni red: 07.12', '06:33, 12:49, PTD', '09:26, 17:15, PTD']
+['Subota, 24.9.2022.', 'O']
+['Nedjelja, 25.9.2022.', 'O']

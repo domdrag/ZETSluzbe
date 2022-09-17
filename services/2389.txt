@@ -1,0 +1,7 @@
+['Ponedjeljak, 19.9.2022.', 'broj sluzbe: 505', 'vozni red: 15.01', '10:34, MIHALJEVAC', '17:26, MIHALJEVAC']
+['Utorak, 20.9.2022.', 'broj sluzbe: 505', 'vozni red: 15.01', '10:34, MIHALJEVAC', '17:26, MIHALJEVAC']
+['Srijeda, 21.9.2022.', 'broj sluzbe: 505', 'vozni red: 15.01', '10:34, MIHALJEVAC', '17:26, MIHALJEVAC']
+['Cetvrtak, 22.9.2022.', 'broj sluzbe: 505', 'vozni red: 15.01', '10:34, MIHALJEVAC', '17:26, MIHALJEVAC']
+['Petak, 23.9.2022.', 'broj sluzbe: 505', 'vozni red: 15.01', '10:34, MIHALJEVAC', '17:26, MIHALJEVAC']
+['Subota, 24.9.2022.', 'O']
+['Nedjelja, 25.9.2022.', 'broj sluzbe: 505', 'vozni red: 15.01', '11:40, MIHALJEVAC', '17:46, MIHALJEVAC']

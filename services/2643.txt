@@ -1,0 +1,7 @@
+['Ponedjeljak, 19.9.2022.', 'broj sluzbe: 478', 'vozni red: 13.09', '11:58, Držićeva smjer Žitnjak', '18:30, Držićeva smjer Kvat. trg']
+['Utorak, 20.9.2022.', 'broj sluzbe: 478', 'vozni red: 13.09', '11:58, Držićeva smjer Žitnjak', '18:30, Držićeva smjer Kvat. trg']
+['Srijeda, 21.9.2022.', 'broj sluzbe: 478', 'vozni red: 13.09', '11:58, Držićeva smjer Žitnjak', '18:30, Držićeva smjer Kvat. trg']
+['Cetvrtak, 22.9.2022.', 'broj sluzbe: 478', 'vozni red: 13.09', '11:58, Držićeva smjer Žitnjak', '18:30, Držićeva smjer Kvat. trg']
+['Petak, 23.9.2022.', 'broj sluzbe: 478', 'vozni red: 13.09', '11:58, Držićeva smjer Žitnjak', '18:30, Držićeva smjer Kvat. trg']
+['Subota, 24.9.2022.', 'broj sluzbe: 478', 'vozni red: 13.09', '10:58, Držićeva smjer Kvat. trg', '17:56, Držićeva smjer Žitnjak']
+['Nedjelja, 25.9.2022.', 'O']

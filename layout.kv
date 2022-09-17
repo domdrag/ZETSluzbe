@@ -7,8 +7,8 @@
             size: self.size
             pos: self.pos
 
-<SpecialLabel@Label+BackgroundColor>
-	background_color: 1, 0.5, 0, 1
+<SpecialLabel@TextInput>
+	padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 	
 <DailyShiftOld>:
     day: ''
@@ -75,12 +75,13 @@
                 Line:
                     width: 2
                     rectangle: self.x, self.y, self.width, self.height
-        SpecialLabel:
+        TextInput:
+			padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 			background_color: root.bg_color
-			color: 1, 1, 1, 1
+			foreground_color: 1, 1, 1, 1
             halign: 'center'
             text: root.service
-            canvas.before:
+            canvas.after:
                 Color:
                     rgba: .5, .5, .5, 1
                 Line:
@@ -94,23 +95,25 @@
 	bg_color2: (0,0,0,0)
     GridLayout:
         rows: 2
-        SpecialLabel:
+        TextInput:
+			padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 			background_color: root.bg_color1
             text: root.firstItem
-			color: 1, 1, 1, 1
+			foreground_color: 1, 1, 1, 1
 			halign: 'center'
-            canvas.before:
+            canvas.after:
                 Color:
                     rgba: .5, .5, .5, 1
                 Line:
                     width: 2
                     rectangle: self.x, self.y, self.width, self.height
-        SpecialLabel:
+        TextInput:
+			padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 			background_color: root.bg_color2
-			color: 1, 1, 1, 1
+			foreground_color: 1, 1, 1, 1
             halign: 'center'
             text: root.secondItem
-            canvas.before:
+            canvas.after:
                 Color:
                     rgba: .5, .5, .5, 1
                 Line:
