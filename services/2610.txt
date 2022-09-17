@@ -1,7 +1,0 @@
-['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 477', 'vozni red: 13.08', '13:44, Ivanićgradska smjer Žitnjak', '20:44, PTD, ']
-['Utorak, 6.9.2022.', 'broj sluzbe: 477', 'vozni red: 13.08', '13:44, Ivanićgradska smjer Žitnjak', '20:44, PTD, ']
-['Srijeda, 7.9.2022.', 'broj sluzbe: 477', 'vozni red: 13.08', '13:44, Ivanićgradska smjer Žitnjak', '20:44, PTD, ']
-['Cetvrtak, 8.9.2022.', 'O']
-['Petak, 9.9.2022.', 'O']
-['Subota, 10.9.2022.', 'broj sluzbe: 475', 'vozni red: 13.06', '13:49, ŽITNJAK-TERMINAL', '20:43, PTD, ']
-['Nedjelja, 11.9.2022.', 'broj sluzbe: 478', 'vozni red: 13.09', '12:37, Držićeva smjer Žitnjak', '19:31, PTD, ']

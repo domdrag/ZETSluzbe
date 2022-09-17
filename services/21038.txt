@@ -1,7 +1,0 @@
-['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 376', 'vozni red: 06.08', '11:17, Autobusni kol. smjer Črnomerec', '18:16, PTD, ']
-['Utorak, 6.9.2022.', 'broj sluzbe: 394', 'vozni red: 07.06', '11:08, Autobusni kol. smjer Savski gaj', '18:05, Zapruđe smjer Dubec, ']
-['Srijeda, 7.9.2022.', 'broj sluzbe: 495', 'vozni red: 14.11', '10:51, Draškovićeva smjer Sav. most', '17:44, PTD, ']
-['Cetvrtak, 8.9.2022.', 'broj sluzbe: 45', 'vozni red: PRIČUVA', '06:39, PTD', '13:39, PTD, ']
-['Petak, 9.9.2022.', 'broj sluzbe: 46', 'vozni red: PRIČUVA', '04:27, PTD', '10:53, PTD, ']
-['Subota, 10.9.2022.', 'Oz']
-['Nedjelja, 11.9.2022.', 'Oz']

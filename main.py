@@ -87,7 +87,7 @@ class LoginScreen(Screen):
         popupTimer.cancel()
         if(updateResult == '0'):
             # ALREADY UP TO DATE
-            updatePopup.text = 'Sluzbe vec azurne!'
+            updatePopup.text = 'Sluzbe jos nisu izasle!'
         elif(updateResult == '2'):
             # ERROR
             repairFiles()
@@ -126,7 +126,7 @@ class ShiftScreenTemp(Screen):
         super(Screen, self).__init__(**kwargs)
         
     def on_enter(self):
-        self.ids.shiftScreenTemp.data = receiveShiftsTemp(self.offNum)
+        self.ids.shiftScreenTemp.data = receiveShifts(self.offNum)
         #self.loaded = 1
 
     def serviceBtn(self):

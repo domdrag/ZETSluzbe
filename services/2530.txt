@@ -1,7 +1,0 @@
-['Ponedjeljak, 5.9.2022.', 'O']
-['Utorak, 6.9.2022.', 'broj sluzbe: 696', 'vozni red: 07.08', '17:55, Sopot smjer Savski gaj', '00:53, PTD, ']
-['Srijeda, 7.9.2022.', 'broj sluzbe: 680', 'vozni red: 06.12', '17:48, Zapruđe smjer Sopot', '00:48, PTD, ']
-['Cetvrtak, 8.9.2022.', 'broj sluzbe: 679', 'vozni red: 06.11', '17:45, SOPOT-TERMINAL', '00:39, PTD, ']
-['Petak, 9.9.2022.', 'broj sluzbe: 690', 'vozni red: 07.02', '17:48, Autobusni kol. smjer Dubec', '00:48, PTD, ']
-['Subota, 10.9.2022.', 'O']
-['Nedjelja, 11.9.2022.', 'O']
