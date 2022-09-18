@@ -115,8 +115,9 @@
 			size_hint: 0.35, 0.5
 			text: root.firstDriver
 			halign: 'center'
+			font_size: (root.width**2 + root.height**2) / 17**4
 			on_release:
-				Clipboard.copy(root.secondDriver.split('\n')[1])
+				Clipboard.copy(root.firstDriver.split('\n')[1])
 		SpecialLabel:
 			background_color: root.bg_color2
 			color: 1, 1, 1, 1
@@ -132,6 +133,7 @@
 			size_hint: 0.35, 0.5
 			text: root.secondDriver
 			halign: 'center'
+			font_size: (root.width**2 + root.height**2) / 17**4
 			on_release:
 				Clipboard.copy(root.secondDriver.split('\n')[1])
                 
