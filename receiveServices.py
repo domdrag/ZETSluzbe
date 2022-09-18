@@ -73,7 +73,9 @@ def receiveShifts(offNum):
             nextServiceDate = getServiceDate(nextService)
         if(currServiceDate != nextServiceDate):
             weekServicesData.append({'firstItem': weekService[0],
+                                     'firstDriver': '',
                                      'secondItem': '\n'.join(weekService[1:]),
+                                     'secondDriver': '',
                                      'bg_color1': (0,0,0,0),
                                      'bg_color2': (0.13, 0.55, 0.13, 1)})
             currWeekService = currWeekService + 1
@@ -81,12 +83,21 @@ def receiveShifts(offNum):
             firstShift = ast.literal_eval(weekServices[currWeekService])[1:]
             secondShift = ast.literal_eval(weekServices[currWeekService + 1])[1:]
             thirdShift = ast.literal_eval(weekServices[currWeekService+ 2])[1:]
+            
+            firstDriver = firstShift[-1]
+            secondDriver = secondShift[-1]
+            thirdDriver = thirdShift[-1]
+            
             weekServicesData.append({'firstItem': weekService[0],
-                                     'secondItem': '\n'.join(firstShift),
+                                     'firstDriver': '',
+                                     'secondItem': '\n'.join(firstShift[:-1]),
+                                     'secondDriver': firstDriver,
                                      'bg_color1': (0,0,0,0),
                                      'bg_color2': (1, 0.6, 0, 1)})
-            weekServicesData.append({'firstItem': '\n'.join(secondShift),
-                                     'secondItem': '\n'.join(thirdShift),
+            weekServicesData.append({'firstItem': '\n'.join(secondShift[:-1]),
+                                     'firstDriver': secondDriver,
+                                     'secondItem': '\n'.join(thirdShift[:-1]),
+                                     'secondDriver': thirdDriver,
                                      'bg_color1': (1, 0.6, 0, 1),
                                      'bg_color2': (1, 0.6, 0, 1)})
             currWeekService = currWeekService + 3
