@@ -1,3 +1,5 @@
+#:import Clipboard kivy.core.clipboard.Clipboard
+
 <BackgroundColor@Widget>
     background_color: .5, .5, .5, 1
     canvas.before:
@@ -7,8 +9,7 @@
             size: self.size
             pos: self.pos
 
-<SpecialLabel@TextInput>
-	padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+<SpecialLabel@Label+BackgroundColor>
 	
 <DailyShiftOld>:
     day: ''
@@ -91,37 +92,48 @@
 					
 <DailyShift>:
     firstItem: '' ### dan ili sluzba
+	firstDriver: ''
     secondItem: '' ### sluzba
+	secondDriver: ''
 	bg_color1: (0,0,0,0)
 	bg_color2: (0,0,0,0)
-    GridLayout:
-        rows: 2
-        TextInput:
-			readonly: True
-			padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+	GridLayout:
+		rows: 2
+		columns: 2
+		SpecialLabel:
 			background_color: root.bg_color1
-            text: root.firstItem
-			foreground_color: 1, 1, 1, 1
+			text: root.firstItem
+			color: 1, 1, 1, 1
 			halign: 'center'
-            canvas.after:
-                Color:
-                    rgba: .5, .5, .5, 1
-                Line:
-                    width: 2
-                    rectangle: self.x, self.y, self.width, self.height
-        TextInput:
-			readonly: True
-			padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+			canvas.after:
+				Color:
+					rgba: .5, .5, .5, 1
+				Line:
+					width: 2
+					rectangle: self.x, self.y, self.width, self.height
+		Button:
+			size_hint: 0.35, 0.5
+			text: root.firstDriver
+			halign: 'center'
+			on_release:
+				Clipboard.copy(root.secondDriver.split('\n')[1])
+		SpecialLabel:
 			background_color: root.bg_color2
-			foreground_color: 1, 1, 1, 1
-            halign: 'center'
-            text: root.secondItem
-            canvas.after:
-                Color:
-                    rgba: .5, .5, .5, 1
-                Line:
-                    width: 2
-                    rectangle: self.x, self.y, self.width, self.height
+			color: 1, 1, 1, 1
+			halign: 'center'
+			text: root.secondItem
+			canvas.after:
+				Color:
+					rgba: .5, .5, .5, 1
+				Line:
+					width: 2
+					rectangle: self.x, self.y, self.width, self.height
+		Button:
+			size_hint: 0.35, 0.5
+			text: root.secondDriver
+			halign: 'center'
+			on_release:
+				Clipboard.copy(root.secondDriver.split('\n')[1])
                 
 
 <ServiceScreen>:

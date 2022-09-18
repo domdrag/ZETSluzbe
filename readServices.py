@@ -388,7 +388,7 @@ def writeShifts(days):
                     fileW.write(f"{serviceLayout}\n")
                     continue
                 driverInfo = getDriverInfo(wantedServiceNum, driverList, i)
-                serviceLayout.append(driverInfo[0] + ', ' + driverInfo[1])
+                serviceLayout.append(driverInfo[0] + '\n' + driverInfo[1])
                 fileW.write(f"{serviceLayout}\n")
         fileW.close()
             

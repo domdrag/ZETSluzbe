@@ -1,5 +1,5 @@
-['Ponedjeljak, 19.9.2022.', 'broj sluzbe: 192', 'vozni red: 14.08', '05:53, PTD', '12:41, Draškovićeva smjer Mihaljevac', 'SREĆKO ATLIJA, 091-561-8110']
-['Ponedjeljak, 19.9.2022.', 'broj sluzbe: 492', 'vozni red: 14.08', '12:41, Draškovićeva smjer Mihaljevac', '19:28, PTD/PTT', 'ANON, XXX-XXX-XXXX']
+['Ponedjeljak, 19.9.2022.', 'broj sluzbe: 192', 'vozni red: 14.08', '05:53, PTD', '12:41, Draškovićeva smjer Mihaljevac', 'SREĆKO ATLIJA\n091-561-8110']
+['Ponedjeljak, 19.9.2022.', 'broj sluzbe: 492', 'vozni red: 14.08', '12:41, Draškovićeva smjer Mihaljevac', '19:28, PTD/PTT', 'ANON\nXXX-XXX-XXXX']
 ['Ponedjeljak, 19.9.2022.', 'empty']
 ['Utorak, 20.9.2022.', 'O']
 ['Srijeda, 21.9.2022.', 'O']
