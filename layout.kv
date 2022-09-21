@@ -76,11 +76,10 @@
                 Line:
                     width: 2
                     rectangle: self.x, self.y, self.width, self.height
-        TextInput:
+        SpecialLabel:
 			readonly: True
-			padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
 			background_color: root.bg_color
-			foreground_color: 1, 1, 1, 1
+			color: 1, 1, 1, 1
             halign: 'center'
             text: root.service
             canvas.after:
@@ -115,9 +114,10 @@
 			size_hint: 0.35, 0.5
 			text: root.firstDriver
 			halign: 'center'
+			background_color: root.bg_color1
 			font_size: (root.width**2 + root.height**2) / 16**4
 			on_release:
-				Clipboard.copy(root.firstDriver.split('\n')[1])
+				Clipboard.copy(self.text.split('\n')[1])
 		SpecialLabel:
 			background_color: root.bg_color2
 			color: 1, 1, 1, 1
@@ -132,10 +132,11 @@
 		Button:
 			size_hint: 0.35, 0.5
 			text: root.secondDriver
+			background_color: root.bg_color2
 			halign: 'center'
 			font_size: (root.width**2 + root.height**2) / 16**4
 			on_release:
-				Clipboard.copy(root.secondDriver.split('\n')[1])
+				Clipboard.copy(self.text.split('\n')[1])
                 
 
 <ServiceScreen>:
@@ -246,7 +247,7 @@
 			size_hint: 0.4, 0.1
 			font_size: (root.width**2 + root.height**2) / 17**4
             id: offNum
-            text: '2621'
+            text: '2103'
             multiline: False
 
         Button:

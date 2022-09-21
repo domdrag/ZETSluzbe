@@ -83,13 +83,30 @@ def receiveShifts(offNum):
             firstShift = ast.literal_eval(weekServices[currWeekService])[1:]
             secondShift = ast.literal_eval(weekServices[currWeekService + 1])[1:]
             thirdShift = ast.literal_eval(weekServices[currWeekService+ 2])[1:]
-            
+
             firstDriver = firstShift[-1]
+            if(firstDriver == 'empty'): 
+                firstShift = [0]
+                firstDriver = ''
+            elif('ANON' in firstDriver):
+                firstDriver = ''
+                
             secondDriver = secondShift[-1]
+            if(secondDriver == 'empty'): 
+                secondShift = [0]
+                secondDriver = ''
+            elif('ANON' in secondDriver):
+                secondDriver = ''
+                
             thirdDriver = thirdShift[-1]
+            if(thirdDriver == 'empty'): 
+                thirdShift = [0]
+                thirdDriver = ''
+            elif('ANON' in thirdDriver):
+                thirdDriver = ''
             
             weekServicesData.append({'firstItem': weekService[0],
-                                     'firstDriver': '',
+                                     'firstDriver': '\n \n',
                                      'secondItem': '\n'.join(firstShift[:-1]),
                                      'secondDriver': firstDriver,
                                      'bg_color1': (0,0,0,0),
