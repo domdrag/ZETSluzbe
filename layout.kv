@@ -117,7 +117,7 @@
 			background_color: root.bg_color1
 			font_size: (root.width**2 + root.height**2) / 16**4
 			on_release:
-				Clipboard.copy(self.text.split('\n')[1])
+				root.copyOnClipboard(self.text)
 		SpecialLabel:
 			background_color: root.bg_color2
 			color: 1, 1, 1, 1
@@ -136,7 +136,7 @@
 			halign: 'center'
 			font_size: (root.width**2 + root.height**2) / 16**4
 			on_release:
-				Clipboard.copy(self.text.split('\n')[1])
+				root.copyOnClipboard(self.text)
                 
 
 <ServiceScreen>:
@@ -247,7 +247,7 @@
 			size_hint: 0.4, 0.1
 			font_size: (root.width**2 + root.height**2) / 17**4
             id: offNum
-            text: '2103'
+            text: '2621'
             multiline: False
 
         Button:

@@ -5,6 +5,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.popup import Popup
 from kivy.properties import BooleanProperty
+from kivy.core.clipboard import Clipboard
 
 from readServices import *
 from receiveServices import *
@@ -14,7 +15,14 @@ import threading
 from threading import Timer
 
 class DailyShift(BoxLayout):
-    pass
+    def copyOnClipboard(self, driverInfo):
+        if('\n' not in driverInfo):
+            return
+        phoneNumber = driverInfo.split('\n')[1]
+        if(re.match(r'^\d{3}-\d{3}-\d{1,5}$', phoneNumber)):
+            Clipboard.copy(phoneNumber)
+
+    
 class DailyService(BoxLayout):
     pass
 
