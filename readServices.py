@@ -58,7 +58,7 @@ def deleteExceeded(directory):
         maxExceed = 21
     
     for file in files:
-        if(file == 'keep.txt'):
+        if(file == 'keep.txt'): # gitHub ne dozvoljava prazan folder
             continue
         fileName = './' + directory + '/' + file
         fileR = open(fileName, 'r', encoding='utf-8')
