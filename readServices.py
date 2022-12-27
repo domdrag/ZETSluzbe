@@ -16,7 +16,7 @@ workDayURL = ''
 saturdayURL = ''
 sundayURL = ''
 mondayDate = date(2022,1,1)
-
+weekSchedule = ['W','W','W','W','W','W','W']
 
 def download_file(url):
     local_filename = url.split('/')[-1]
@@ -50,6 +50,8 @@ def isMoreThanThreeDigit(x):
 def getStringDate(date):
     return str(date.day) + '.' + str(date.month) + '.' + str(date.year) + '.'
 
+# samo ciscenje fileova da micemo smece s vremena na vrijeme
+# datume tek gleda receive servis
 def deleteExceeded(directory):
     files = os.listdir('./' + directory)
     if(directory == 'services'):
@@ -88,18 +90,12 @@ def deleteAllFiles():
             continue
         if(file == 'lastRecordDate.txt'):
             continue
+        if(file == 'warnings.txt'):
+            continue
         os.remove(os.path.join('./relevant', file))
 
     deleteExceeded('services')
     deleteExceeded('shifts')
-
-    '''files = os.listdir('./services')
-    for file in files:
-        os.remove(os.path.join('./services', file))
-
-    files = os.listdir('./shifts')
-    for file in files:
-        os.remove(os.path.join('./shifts', file))'''
 
 def searchLinks():
     global workDayURL
@@ -180,22 +176,92 @@ def getDays(days, textFirstPDF):
     return True
 
 def setDays(days):
-    holidays2022 = ['15.8.','1.12.','18.11.','25.12.','26.12.']
+    #holidays2022 = ['15.8.','1.12.','18.11.','25.12.','26.12.']
     PDFFile = download_file(firstURL)
     with pdfplumber.open(PDFFile) as PDF:
         page = PDF.pages[0]
         textFirstPDF = page.extract_text()
     return getDays(days, textFirstPDF)
+
+def charsRepresentDays(chars, idx):
+    if(chars[idx]['text'] == 'P' and \
+       chars[idx + 1]['text'] == 'U' and \
+       chars[idx + 2]['text'] == 'S' and \
+       chars[idx + 3]['text'] == 'Č' and \
+       chars[idx + 4]['text'] == 'P' and \
+       chars[idx + 5]['text'] == 'S' and \
+       chars[idx + 6]['text'] == 'N'):
+        return True
+    else:
+        return False
+
+def determineWeekSchedule(page):
+    # pdlplumber se gubi kada rect nije obojan u smislu
+    # da izbacuje cudne atribute pozicija i velicina
+    # program se pouzdava da se ne gubi kada je rect obojan
+    global weekSchedule
+    weekScheduleDefault = True
+    rects = page.rects
+    chars = page.chars
+    #saturdayColor = (0.56471, 0.93333, 0.56471)
+    #sundayColor = (1, 0.71373, 0.75686)
+
+    message0 = '0$Raspored službi uobičajen.\n'
+    message1 = '1$Raspored službi neuobičajen.\n'
+    nonDefaultDays = dict()
+    days = ['Ponedjeljak', 'Utorak', 'Srijeda', \
+            'Četvrtak', 'Petak', 'Subota', 'Nedjelja']
+            
+    fileW = open('relevant/warnings.txt', 'w', encoding='utf-8')
+    for idx in range(len(chars)):
+        if charsRepresentDays(chars, idx):
+            for day in range(0,7):
+                charTop = chars[idx + day]['top']
+                charBottom = chars[idx + day]['bottom']
+                charLeft = chars[idx + day]['x0']
+                charRight = chars[idx + day]['x1']
+                for rect in rects:
+                    rectTop = rect['top']
+                    rectBottom = rect['bottom']
+                    rectLeft = rect['x0']
+                    rectRight = rect['x1']
+                    if(charTop > rectTop and charBottom < rectBottom and
+                       charLeft > rectLeft and charRight < rectRight):
+                        color = rect['non_stroking_color']
+                        if color[1] >= 0.9 and color != (1,1,1): # green
+                            nonDefaultDays[days[day]] = 'Subota'
+                            weekSchedule[day] = 'St'
+                            break
+                        elif color[0] >= 0.9 and color != (1,1,1): # red
+                            nonDefaultDays[days[day]] = 'Nedjelja'
+                            weekSchedule[day] = 'Sn'
+                            break
+                        
+            if nonDefaultDays['Subota'] == 'Subota':
+                del nonDefaultDays['Subota']
+            if nonDefaultDays['Nedjelja'] == 'Nedjelja':
+                del nonDefaultDays['Nedjelja']
+            
+            if not nonDefaultDays:
+                fileW.write(message0)
+            else:
+                fileW.write(message1)
+                for key,value in nonDefaultDays.items():
+                    fileW.write('{0} se uzima kao {1}.\n'.format(key, value))
+            fileW.close()
+            return
+                     
     
 def readWeekServices():
-    holidays2022 = ['15.8.','1.12.','18.11.','25.12.','26.12.']
+    #holidays2022 = ['15.8.','1.12.','18.11.','25.12.','26.12.']
 
     PDFFile = download_file(firstURL)
     with pdfplumber.open(PDFFile) as PDF:
- 
+        determineWeekSchedule(PDF.pages[0])
+        
         # citamo sluzbe za ovaj tjedan
         fileW = open('relevant/services.txt', 'w', encoding='utf-8')
-        for page in PDF.pages:
+        for page in PDF.pages:            
             tables = page.dedupe_chars().find_tables()
             for tableId in tables:
                 table = tableId.extract()
@@ -235,9 +301,9 @@ def readAllServices():
 def getServiceLine(serviceNum, day):
     if(not serviceNum.isnumeric()):
         return [serviceNum]
-    if(day < 5):
+    if(weekSchedule[day] == 'W'):
         fileR = open('relevant/workDay.txt', 'r', encoding='utf-8')
-    elif(day == 5):
+    elif(weekSchedule[day] == 'St'):
         fileR = open('relevant/saturday.txt', 'r', encoding='utf-8')
     else:
         fileR = open('relevant/sunday.txt', 'r', encoding='utf-8')
@@ -252,6 +318,8 @@ def getServiceLine(serviceNum, day):
 
 def getServiceLayout(serviceLine, serviceNum, days, day):
     if(len(serviceLine) == 1):
+        if serviceLine[0] == '' or serviceLine[0] == ' ':
+            return [days[day], 'empty']
         return [days[day], serviceLine[0]]
     serviceLayout = []
     serviceStartIndex = 0
@@ -391,38 +459,6 @@ def writeShifts(days):
                 serviceLayout.append(driverInfo[0] + '\n' + driverInfo[1])
                 fileW.write(f"{serviceLayout}\n")
         fileW.close()
-            
-def updateBefore(updateCheck):
-    days = []
-
-    try:
-        searchLinks()
-        print('LINKS FOUND')
-        
-        if(updateCheck and not setDays(days)):
-            return 0
-        print('DAYS SET')
-
-        deleteAllFiles()
-        print('DELETED ALL FILES')
-        
-        readWeekServices()
-        print('READ WEEK SERVICES DONE')
-        
-        readAllServices()
-        print('READ ALL SERVICES DONE')
-        
-        writeServices(days)
-        print('WRITE WEEK SERVICES DONE')
-        
-        writeShifts(days)
-        print('WRITE WEEK SHIFTS DONE')
-
-        setLastRecord()
-        print('LAST RECORD SET')
-        return 1
-    except:
-        return 2
 
 globalDays = []
 
@@ -472,4 +508,39 @@ def update(updateLevel):
             return '1'
     except:
         return '2'
+
+'''            
+def updateBefore(updateCheck):
+    days = []
+
+    try:
+        searchLinks()
+        print('LINKS FOUND')
+        
+        if(updateCheck and not setDays(days)):
+            return 0
+        print('DAYS SET')
+
+        deleteAllFiles()
+        print('DELETED ALL FILES')
+        
+        readWeekServices()
+        print('READ WEEK SERVICES DONE')
+        
+        readAllServices()
+        print('READ ALL SERVICES DONE')
+        
+        writeServices(days)
+        print('WRITE WEEK SERVICES DONE')
+        
+        writeShifts(days)
+        print('WRITE WEEK SHIFTS DONE')
+
+        setLastRecord()
+        print('LAST RECORD SET')
+        return 1
+    except:
+        return 2
+'''
+
 

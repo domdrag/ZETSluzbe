@@ -44,9 +44,14 @@ def receiveServices(offNum):
         if(not checkService(weekService)):
            continue
         if(len(weekService) == 2):
+            bgColor = (0.13, 0.55, 0.13, 1)
+            if(weekService[1] == 'empty' or
+               weekService[1] == '' or # za svaki slucaj case-vi
+               weekService[1] == ' '):
+                bgColor = (0.545, 0, 0, 1)
             weekServicesData.append({'day': weekService[0],
                                      'service': '\n'.join(weekService[1:]),
-                                     'bg_color': (0.13, 0.55, 0.13, 1)})
+                                     'bg_color': bgColor})
         else:
             weekServicesData.append({'day': weekService[0],
                                      'service': '\n'.join(weekService[1:]),
@@ -71,13 +76,19 @@ def receiveShifts(offNum):
         else:
             nextService = ast.literal_eval(weekServices[currWeekService + 1])
             nextServiceDate = getServiceDate(nextService)
-        if(currServiceDate != nextServiceDate):
+        if(currServiceDate != nextServiceDate): # slobodan dan
+            bgColor2 = (0.13, 0.55, 0.13, 1)
+            if(weekService[1] == 'empty' or
+               weekService[1] == '' or # za svaki slucaj case-vi
+               weekService[1] == ' '):
+                bgColor2 = (0.545, 0, 0, 1)
+                
             weekServicesData.append({'firstItem': weekService[0],
                                      'firstDriver': '',
                                      'secondItem': '\n'.join(weekService[1:]),
                                      'secondDriver': '',
                                      'bg_color1': (0,0,0,0),
-                                     'bg_color2': (0.13, 0.55, 0.13, 1)})
+                                     'bg_color2': bgColor2})
             currWeekService = currWeekService + 1
         else:
             firstShift = ast.literal_eval(weekServices[currWeekService])[1:]
@@ -120,56 +131,3 @@ def receiveShifts(offNum):
             currWeekService = currWeekService + 3
     return weekServicesData
 
-'''
-def receiveShiftsTemp(offNum):
-    fileR = open('shifts/' + offNum + '.txt', 'r', encoding='utf-8')
-    weekServices = fileR.readlines()
-    fileR.close()
-    weekServicesData = []
-    for weekServiceRawString in weekServices:
-        weekService = ast.literal_eval(weekServiceRawString)
-        if(not checkService(weekService)):
-           continue
-        weekServicesData.append({'day': weekService[0], 'service': '\n'.join(weekService[1:])})
-    return weekServicesData
-'''
-
-'''
-def receiveShifts(offNum):
-    fileR = open('shifts/' + offNum + '.txt', 'r', encoding='utf-8')
-    weekServices = fileR.readlines()
-    fileR.close()
-    weekServicesData = []
-    currWeekService = 0
-    while(currWeekService < len(weekServices)):
-        weekService = ast.literal_eval(weekServices[currWeekService])
-        if(not checkService(weekService)):
-            currWeekService = currWeekService + 1
-            continue
-        currServiceDate = getServiceDate(weekService)
-        if(currWeekService + 1 == len(weekServices)):
-            previousService = ast.literal_eval(weekServices[currWeekService - 1]) #dummy
-            nextServiceDate = getServiceDate(previousService) #dummy
-        else:
-            nextService = ast.literal_eval(weekServices[currWeekService + 1])
-            nextServiceDate = getServiceDate(nextService)
-        if(currServiceDate != nextServiceDate):
-            weekServicesData.append({'day': weekService[0],
-                                     'firstShift': '',
-                                     'secondShift': '\n'.join(weekService[1:]),
-                                     'thirdShift': '',
-                                     'bg_color': (0.13, 0.55, 0.13, 1)})
-            currWeekService = currWeekService + 1
-        else:
-            firstShift = ast.literal_eval(weekServices[currWeekService])[1:]
-            secondShift = ast.literal_eval(weekServices[currWeekService + 1])[1:]
-            thirdShift = ast.literal_eval(weekServices[currWeekService+ 2])[1:]
-            weekServicesData.append({'day': weekService[0],
-                                     'firstShift': '\n'.join(firstShift),
-                                     'secondShift': '\n'.join(secondShift),
-                                     'thirdShift': '\n'.join(thirdShift),
-                                     'bg_color': (0, 0, 1, 1)})
-            currWeekService = currWeekService + 3
-    return weekServicesData
-
-'''

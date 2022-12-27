@@ -72,7 +72,26 @@ class LoginScreen(Screen):
     
     def __init__(self, **kwargs):
         super(Screen, self).__init__(**kwargs)
+        self.updateWarningMessage()
+
+    def updateWarningMessage(self):
+        fileR = open('relevant/warnings.txt', 'r', encoding='utf-8')
+        lines = fileR.readlines()
+        fileR.close()
+
+        if(lines == []):
+            return
         
+        firstMessage = lines[0].split('$')
+        self.ids.warning.text = firstMessage[1]
+        if(firstMessage[0] == '0'):
+            self.ids.warning.color = (0.2,0.71,0.13,1)
+        else:
+            self.ids.warning.color = (0.96,0.74,0,1)
+
+        for line in lines[1:]:
+            self.ids.warning.text += line
+    
     def loginBtn(self):
         serviceScreen.offNum = self.ids.offNum.text
         sm.current = 'service'
@@ -90,6 +109,7 @@ class LoginScreen(Screen):
                 break
             if(updateResult == '2'):
                 break
+            
             updatePopup.text = updateResult
             
         popupTimer.cancel()
@@ -104,8 +124,10 @@ class LoginScreen(Screen):
         else:
             # UPDATED
             updateCopyDir()
+            self.updateWarningMessage()
             updatePopup.text = 'Azurirano!'
             print('COPY FILES UPDATED')
+
         updatePopup.auto_dismiss = True
 
 
@@ -118,7 +140,7 @@ class ServiceScreen(Screen):
     def on_enter(self):
         self.ids.serviceScreen.data = receiveServices(self.offNum)
         if(not self.ids.serviceScreen.data):
-            updatePopup.text = 'Service number not in database!'
+            updatePopup.text = 'Azuriraj sluzbe!'
             updatePopup.open()
             sm.current = 'login'
         
