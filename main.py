@@ -21,16 +21,41 @@ from android.permissions import request_permissions, Permission
 
 request_permissions([Permission.CALL_PHONE])
 
-class DailyShift(BoxLayout):
-    def copyOnClipboard(self, driverInfo):
-        if('\n' not in driverInfo):
-            return
-        phoneNumber = driverInfo.split('\n')[1]
-        if(re.match(r'^\d{3}-\d{3}-\d{1,5}$', phoneNumber)):
-            Clipboard.copy(phoneNumber)
 
-    def call(self):
-        call.makecall(tel = 997686709)
+class CallInfoPromptPopup(Popup):
+    name = ''
+    phoneNumber = ''
+    
+    def __init__(self, **kwargs):
+        super(Popup, self).__init__(**kwargs)
+
+    def populate(self, driverInfo):
+        if('\n' not in driverInfo):
+            return False
+        driverInfoList = driverInfo.split('\n')
+        self.name = driverInfoList[0]
+        self.ids.name.text = self.name
+        self.phoneNumber = driverInfoList[1]
+        self.ids.phoneNumber.text = self.phoneNumber
+        return True
+
+    def copyNameOnClipboard(self):
+        Clipboard.copy(self.name)
+
+    def copyPhoneNumberOnClipboard(self):
+        # if(re.match(r'^\d{3}-\d{3}-\d{1,5}$', phoneNumber)):
+        Clipboard.copy(self.phoneNumber)
+            
+    def callNumber(self):
+        call.makecall(tel = self.phoneNumber)
+
+    def saveContact(self):
+        pass
+
+class DailyShift(BoxLayout):
+    def createCallInfoPrompt(self, driverInfo):
+        if callInfoPromptPopup.populate(driverInfo):
+            callInfoPromptPopup.open()
 
     
 class DailyService(BoxLayout):
@@ -71,7 +96,6 @@ def show_popup(function):
 
 
 class UpdatePopup(Popup):
-    
     def __init__(self, **kwargs):
         super(Popup, self).__init__(**kwargs)
         #self.ids.popupMsg.text = state
@@ -194,6 +218,7 @@ serviceScreen = ServiceScreen(name = 'service')
 #shiftScreen = ShiftScreen(name = 'shift')
 shiftScreenTemp = ShiftScreenTemp(name = 'shiftTemp')
 updatePopup = UpdatePopup()
+callInfoPromptPopup = CallInfoPromptPopup()
 popupTimer = RepeatTimer(0.5, addDots)
 
 class SluzbeApp(App):
