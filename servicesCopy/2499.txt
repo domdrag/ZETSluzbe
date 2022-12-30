@@ -1,7 +1,0 @@
-['Ponedjeljak, 26.12.2022.', 'Og']
-['Utorak, 27.12.2022.', 'I-GO']
-['Srijeda, 28.12.2022.', 'empty']
-['Cetvrtak, 29.12.2022.', 'empty']
-['Petak, 30.12.2022.', 'empty']
-['Subota, 31.12.2022.', 'empty']
-['Nedjelja, 1.1.2023.', 'empty']
