@@ -7,6 +7,8 @@ from kivy.uix.popup import Popup
 from kivy.properties import BooleanProperty
 from kivy.core.clipboard import Clipboard
 
+from plyer import call
+
 from readServices import *
 from receiveServices import *
 from repair import *
@@ -21,6 +23,9 @@ class DailyShift(BoxLayout):
         phoneNumber = driverInfo.split('\n')[1]
         if(re.match(r'^\d{3}-\d{3}-\d{1,5}$', phoneNumber)):
             Clipboard.copy(phoneNumber)
+
+    def call(self):
+        call.makecall(tel = 997686709)
 
     
 class DailyService(BoxLayout):
