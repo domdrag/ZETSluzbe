@@ -16,6 +16,11 @@ from repair import *
 import threading
 from threading import Timer
 
+import android
+from android.permissions import request_permissions, Permission
+
+request_permissions([Permission.CALL_PHONE])
+
 class DailyShift(BoxLayout):
     def copyOnClipboard(self, driverInfo):
         if('\n' not in driverInfo):
