@@ -117,7 +117,7 @@ def receiveShifts(offNum):
                 thirdDriver = ''
             
             weekServicesData.append({'firstItem': weekService[0],
-                                     'firstDriver': '\n \n',
+                                     'firstDriver': '',
                                      'secondItem': '\n'.join(firstShift[:-1]),
                                      'secondDriver': firstDriver,
                                      'bg_color1': (0,0,0,0),

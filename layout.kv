@@ -1,5 +1,37 @@
 #:import Clipboard kivy.core.clipboard.Clipboard
 
+<CallInfoPromptPopup>:
+    auto_dismiss: True
+	title: "Kolega"
+	size_hint: 0.6, 0.6
+	pos_hint: {'x': 0.2, 'top': 0.7}
+	BoxLayout:
+		orientation: "vertical"
+		BoxLayout:
+			Label:
+				id: name
+				text: root.name
+			Button:
+				size_hint: 0.5, 0.5
+				pos_hint: {'center_x':0.5, 'center_y':0.5}
+				text: "Kopiraj"
+				on_release: root.copyNameOnClipboard()
+		BoxLayout:
+			Label:
+				id: phoneNumber
+				text: root.phoneNumber
+			Button:
+				size_hint: 0.5, 0.5
+				pos_hint: {'center_x':0.5, 'center_y':0.5}
+				text: "Kopiraj"
+				on_release: root.copyPhoneNumberOnClipboard()
+		Button:
+			text: "Nazovi"
+			on_release: root.callNumber()
+		Button:
+			text: 'Spremi u imenik'
+			on_release: root.saveContact()
+			
 <BackgroundColor@Widget>
     background_color: .5, .5, .5, 1
     canvas.before:
@@ -117,7 +149,7 @@
 			background_color: root.bg_color1
 			font_size: (root.width**2 + root.height**2) / 16**4
 			on_release:
-				root.copyOnClipboard(self.text)
+				root.createCallInfoPrompt(self.text)
 		SpecialLabel:
 			background_color: root.bg_color2
 			color: 1, 1, 1, 1
@@ -136,8 +168,7 @@
 			halign: 'center'
 			font_size: (root.width**2 + root.height**2) / 16**4
 			on_release:
-				root.copyOnClipboard(self.text)
-				root.call()
+				root.createCallInfoPrompt(self.text)
                 
 
 <ServiceScreen>:
