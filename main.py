@@ -7,8 +7,6 @@ from kivy.uix.popup import Popup
 from kivy.properties import BooleanProperty
 from kivy.core.clipboard import Clipboard
 
-from plyer import call
-
 from jnius import autoclass
 from jnius import cast 
 
@@ -26,6 +24,9 @@ request_permissions([Permission.CALL_PHONE])
 '''
 
 class CallInfoPromptPopup(Popup):
+    Intent = autoclass('android.content.Intent')        
+    PythonActivity = autoclass('org.kivy.android.PythonActivity')
+
     name = ''
     phoneNumber = ''
     
@@ -50,18 +51,22 @@ class CallInfoPromptPopup(Popup):
         Clipboard.copy(self.phoneNumber)
             
     def callNumber(self):
-        #call.makecall(tel = self.phoneNumber)                     
-
-        Intent = autoclass('android.content.Intent')
-        Uri = autoclass('android.net.Uri')          
-        PythonActivity = autoclass('org.kivy.android.PythonActivity')                                        
+        #call.makecall(tel = self.phoneNumber) [plyer module]
+        Uri = autoclass('android.net.Uri')
         intent = Intent(Intent.ACTION_DIAL)         
         intent.setData(Uri.parse("tel:" + self.phoneNumber))     
         currentActivity = cast('android.app.Activity', PythonActivity.mActivity)                                                   
         currentActivity.startActivity(intent)
 
     def saveContact(self):
-        pass
+        intent = Intent(Intent.ACTION_INSERT)         
+        intent.setType(ContactsContract.Contacts.CONTENT_TYPE)
+        intent.putExtra(ContactsContract.Intents.Insert.NAME,
+                        name);
+        intent.putExtra(ContactsContract.Intents.Insert.PHONE,
+                        phoneNumber);
+        currentActivity = cast('android.app.Activity', PythonActivity.mActivity)                                                   
+        currentActivity.startActivity(intent)
 
 class DailyShift(BoxLayout):
     def createCallInfoPrompt(self, driverInfo):
