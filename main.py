@@ -54,29 +54,18 @@ class CallInfoPromptPopup(Popup):
         Uri = autoclass('android.net.Uri')
         intent = Intent(Intent.ACTION_DIAL)         
         intent.setData(Uri.parse("tel:" + self.phoneNumber))     
-        currentActivity = cast('android.app.Activity', PythonActivity.mActivity)                                                   
+        currentActivity = cast('android.app.Activity',
+                               PythonActivity.mActivity)                                                   
         currentActivity.startActivity(intent)
 
-    def saveContact(self):
-        Intent = autoclass('android.content.Intent')        
+    def saveContact(self):      
         PythonActivity = autoclass('org.kivy.android.PythonActivity')
-        ContactsContract = autoclass('android.provider.ContactsContract')
-        Contacts = autoclass('android.provider.ContactsContract$Contacts')
-        Intents = autoclass('android.provider.ContactsContract$Intents')
-        Insert = autoclass('android.provider.ContactsContract$Intents$Insert')
-        Uri = autoclass('android.net.Uri')
-
+        # Contact.java
         Contact = autoclass('Contact')
-        ##intent = Intent(Intents.SHOW_OR_CREATE_CONTACT,
-        ##                Uri.parse('tel:' + self.phoneNumber))
-        ##intent.putExtra(Intents.EXTRA_FORCE_CREATE, True)
-        #intent.setType(Contacts.CONTENT_TYPE)
-        #intent.putExtra(Insert.NAME, 'OLE');
-        #intent.putExtra(Insert.PHONE,
-        #                self.phoneNumber);
-        currentActivity = cast('android.app.Activity', PythonActivity.mActivity)
-        Contact.addContact(currentActivity, self.name, self.phoneNumber)
-        #currentActivity.startActivity(intent)
+        currentActivity = cast('android.app.Activity',
+                               PythonActivity.mActivity)
+        Contact.addContact(currentActivity, self.name.title(),
+                           self.phoneNumber.title())
 
 class DailyShift(BoxLayout):
     def createCallInfoPrompt(self, driverInfo):
