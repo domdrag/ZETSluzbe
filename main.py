@@ -69,9 +69,7 @@ class CallInfoPromptPopup(Popup):
                         Uri.parse('tel:' + self.phoneNumber))
         intent.putExtra(Intents.EXTRA_FORCE_CREATE, True)
         #intent.setType(Contacts.CONTENT_TYPE)
-        #intent.putExtra(Insert.NAME,
-        #                'OLE');
-        intent.setData(Uri.parse('name:' + self.name))  
+        intent.putExtra(Insert.NAME, 'OLE');
         #intent.putExtra(Insert.PHONE,
         #                self.phoneNumber);
         currentActivity = cast('android.app.Activity', PythonActivity.mActivity)
