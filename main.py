@@ -24,9 +24,6 @@ request_permissions([Permission.CALL_PHONE])
 '''
 
 class CallInfoPromptPopup(Popup):
-    Intent = autoclass('android.content.Intent')        
-    PythonActivity = autoclass('org.kivy.android.PythonActivity')
-
     name = ''
     phoneNumber = ''
     
@@ -52,6 +49,8 @@ class CallInfoPromptPopup(Popup):
             
     def callNumber(self):
         #call.makecall(tel = self.phoneNumber) [plyer module]
+        Intent = autoclass('android.content.Intent')        
+        PythonActivity = autoclass('org.kivy.android.PythonActivity')
         Uri = autoclass('android.net.Uri')
         intent = Intent(Intent.ACTION_DIAL)         
         intent.setData(Uri.parse("tel:" + self.phoneNumber))     
@@ -59,6 +58,8 @@ class CallInfoPromptPopup(Popup):
         currentActivity.startActivity(intent)
 
     def saveContact(self):
+        Intent = autoclass('android.content.Intent')        
+        PythonActivity = autoclass('org.kivy.android.PythonActivity')
         intent = Intent(Intent.ACTION_INSERT)         
         intent.setType(ContactsContract.Contacts.CONTENT_TYPE)
         intent.putExtra(ContactsContract.Intents.Insert.NAME,
