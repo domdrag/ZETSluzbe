@@ -67,7 +67,7 @@ class CallInfoPromptPopup(Popup):
         Uri = autoclass('android.net.Uri')
         intent = Intent(Intents.SHOW_OR_CREATE_CONTACT,
                         Uri.parse('tel:' + self.phoneNumber))
-        intent.putExtra(Intents.EXTRA_FORCE_CREATE, True)
+        #intent.putExtra(Intents.EXTRA_FORCE_CREATE, True)
         #intent.setType(Contacts.CONTENT_TYPE)
         #intent.putExtra(Insert.NAME,
         #                'OLE');
