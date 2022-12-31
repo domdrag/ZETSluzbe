@@ -70,7 +70,7 @@ class CallInfoPromptPopup(Popup):
         intent.putExtra(Insert.PHONE,
                         self.phoneNumber);
         currentActivity = cast('android.app.Activity', PythonActivity.mActivity)
-        int PICK_CONTACT = 100;
+        PICK_CONTACT = 100;
         currentActivity.startActivityForResult(intent, PICK_CONTACT)
 
 class DailyShift(BoxLayout):
