@@ -15,12 +15,12 @@ from repair import *
 
 import threading
 from threading import Timer
-
+'''
 import android
 from android.permissions import request_permissions, Permission
 
 request_permissions([Permission.CALL_PHONE])
-
+'''
 
 class CallInfoPromptPopup(Popup):
     name = ''
@@ -227,6 +227,7 @@ class SluzbeApp(App):
         sm.add_widget(serviceScreen)
         #sm.add_widget(shiftScreen)
         sm.add_widget(shiftScreenTemp)
+        sm.current = 'login'
         return sm
 
 
