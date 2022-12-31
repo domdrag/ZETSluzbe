@@ -48,7 +48,7 @@ class CallInfoPromptPopup(Popup):
         Clipboard.copy(self.phoneNumber)
             
     def callNumber(self):
-        #call.makecall(tel = self.phoneNumber) [plyer module]
+        #call.makecall(tel = self.phoneNumber) [plyer module, zvanje odmah]
         Intent = autoclass('android.content.Intent')        
         PythonActivity = autoclass('org.kivy.android.PythonActivity')
         Uri = autoclass('android.net.Uri')
@@ -67,10 +67,10 @@ class CallInfoPromptPopup(Popup):
         Uri = autoclass('android.net.Uri')
         intent = Intent(Intents.SHOW_OR_CREATE_CONTACT,
                         Uri.parse('tel:' + self.phoneNumber))
-        #intent.putExtra(Intents.EXTRA_FORCE_CREATE, True)
+        intent.putExtra(Intents.EXTRA_FORCE_CREATE, True)
         #intent.setType(Contacts.CONTENT_TYPE)
-        #intent.putExtra(Insert.NAME,
-        #                'OLE');
+        intent.putExtra(Insert.NAME,
+                        'OLE');
         #intent.putExtra(Insert.PHONE,
         #                self.phoneNumber);
         currentActivity = cast('android.app.Activity', PythonActivity.mActivity)
