@@ -9,6 +9,9 @@ from kivy.core.clipboard import Clipboard
 
 from plyer import call
 
+from jnius import autoclass
+from jnius import cast                      
+
 from readServices import *
 from receiveServices import *
 from repair import *
@@ -47,8 +50,15 @@ class CallInfoPromptPopup(Popup):
         Clipboard.copy(self.phoneNumber)
             
     def callNumber(self):
-        call.makecall(tel = self.phoneNumber)
-
+        #call.makecall(tel = self.phoneNumber)
+        Intent = autoclass('android.content.Intent')
+        Uri = autoclass('android.net.Uri')          
+        PythonActivity = autoclass('org.renpy.android.PythonActivity')                                        
+        intent = Intent(Intent.ACTION_CALL)         
+        intent.setData(Uri.parse("tel:" + "0997686709"))     
+        currentActivity = cast('android.app.Activity', PythonActivity.mActivity)                                                   
+        currentActivity.startActivity(intent)
+    
     def saveContact(self):
         pass
 
