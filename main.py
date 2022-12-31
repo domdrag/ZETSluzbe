@@ -71,7 +71,7 @@ class CallInfoPromptPopup(Popup):
                         self.phoneNumber);
         currentActivity = cast('android.app.Activity', PythonActivity.mActivity)
         PICK_CONTACT = 100;
-        currentActivity.startActivityForResult(intent, PICK_CONTACT)
+        currentActivity.startActivity(intent)
 
 class DailyShift(BoxLayout):
     def createCallInfoPrompt(self, driverInfo):
