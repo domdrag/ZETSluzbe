@@ -2,14 +2,15 @@ import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Intents;
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 
 public class Contact{
     public static void addContact(Activity pyActivity, String name, String phone){
-        Intent i = new Intent(Intent.ACTION_INSERT_OR_EDIT);
-        i.setType(Contacts.CONTENT_TYPE);
-        i.putExtra(Intents.Insert.NAME, name);
-        i.putExtra(Intents.Insert.PHONE, phone);
-        pyActivity.startActivity(i);	
+        Intent intent = new Intent(Intents.SHOW_OR_CREATE_CONTACT, Uri.parse("tel:" + phone));
+        intent.putExtra(ContactsContract.Intents.EXTRA_FORCE_CREATE, true);
+        intent.putExtra(Intents.Insert.NAME, name);
+        intent.putExtra(Intents.Insert.PHONE, phone);
+        pyActivity.startActivity(intent);	
     }	
 
 }
