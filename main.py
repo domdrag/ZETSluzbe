@@ -63,8 +63,9 @@ class CallInfoPromptPopup(Popup):
         ContactsContract = autoclass('android.provider.ContactsContract')
         Contacts = autoclass('android.provider.ContactsContract$Contacts')
         Insert = autoclass('android.provider.ContactsContract$Intents$Insert')
+        People = autoclass('android.provider.ContactsContract$Contacts$People')
         #intent = new Intent(Intent.ACTION_INSERT);
-        intent = Intent(Insert.ACTION, Contacts.People.CONTENT_URI)         
+        intent = Intent(Insert.ACTION, People.CONTENT_URI)         
         #intent.setType(Contacts.CONTENT_TYPE)
         intent.putExtra(Insert.NAME,
                         self.name);
