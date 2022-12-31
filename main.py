@@ -60,13 +60,13 @@ class CallInfoPromptPopup(Popup):
     def saveContact(self):
         Intent = autoclass('android.content.Intent')        
         PythonActivity = autoclass('org.kivy.android.PythonActivity')
-        #ContactsContract=autoclass("android.provider.ContactsContract")
+        ContactsContract=autoclass("android.provider.ContactsContract")
         Contacts = autoclass('android.provider.ContactsContract$Contacts')
         intent = Intent(Intent.ACTION_INSERT)         
         intent.setType(Contacts.CONTENT_TYPE)
-        intent.putExtra(Intents.Insert.NAME,
+        intent.putExtra(ContactsContract.Intents.Insert.NAME,
                         name);
-        intent.putExtra(Intents.Insert.PHONE,
+        intent.putExtra(ContactsContract.Intents.Insert.PHONE,
                         phoneNumber);
         currentActivity = cast('android.app.Activity', PythonActivity.mActivity)                                                   
         currentActivity.startActivity(intent)
