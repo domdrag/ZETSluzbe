@@ -60,18 +60,15 @@ class CallInfoPromptPopup(Popup):
     def saveContact(self):
         Intent = autoclass('android.content.Intent')        
         PythonActivity = autoclass('org.kivy.android.PythonActivity')
-        ContactsContract = autoclass("android.provider.ContactsContract")
-        Contacts = autoclass('android.provider.ContactsContract$Contacts')
-        Insert = autoclass('android.provider.ContactsContract$Intents$Insert')
+        ContactsContract = autoclass('android.provider.ContactsContract')
         intent = Intent(Intent.ACTION_INSERT)         
-        intent.setType(Contacts.CONTENT_TYPE)
-        intent.putExtra(Insert.NAME,
+        intent.setType(ContactsContract.Contacts.CONTENT_TYPE)
+        intent.putExtra(ContactsContract.Intents.Insert.NAME,
                         self.name);
-        intent.putExtra(Insert.PHONE,
+        intent.putExtra(ContactsContract.Intents.Insert.PHONE,
                         self.phoneNumber);
         currentActivity = cast('android.app.Activity', PythonActivity.mActivity)
-        PICK_CONTACT = 100;
-        currentActivity.startActivityForResult(intent, PICK_CONTACT)
+        currentActivity.startActivity(intent)
 
 class DailyShift(BoxLayout):
     def createCallInfoPrompt(self, driverInfo):
