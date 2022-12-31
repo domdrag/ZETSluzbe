@@ -55,8 +55,8 @@ class CallInfoPromptPopup(Popup):
         Intent = autoclass('android.content.Intent')
         Uri = autoclass('android.net.Uri')          
         PythonActivity = autoclass('org.kivy.android.PythonActivity')                                        
-        intent = Intent(Intent.ACTION_CALL)         
-        intent.setData(Uri.parse("tel:" + '0997686709'))     
+        intent = Intent(Intent.ACTION_DIAL)         
+        intent.setData(Uri.parse("tel:" + self.phoneNumber))     
         currentActivity = cast('android.app.Activity', PythonActivity.mActivity)                                                   
         currentActivity.startActivity(intent)
 
