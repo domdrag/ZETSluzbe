@@ -68,7 +68,7 @@ class CallInfoPromptPopup(Popup):
 
         Contact = autoclass('Contact')
         ##intent = Intent(Intents.SHOW_OR_CREATE_CONTACT,
-                        Uri.parse('tel:' + self.phoneNumber))
+        ##                Uri.parse('tel:' + self.phoneNumber))
         ##intent.putExtra(Intents.EXTRA_FORCE_CREATE, True)
         #intent.setType(Contacts.CONTENT_TYPE)
         #intent.putExtra(Insert.NAME, 'OLE');
