@@ -63,16 +63,14 @@ class CallInfoPromptPopup(Popup):
         ContactsContract = autoclass('android.provider.ContactsContract')
         Contacts = autoclass('android.provider.ContactsContract$Contacts')
         Insert = autoclass('android.provider.ContactsContract$Intents$Insert')
-        People = autoclass('android.provider.ContactsContract$Contacts$People')
-        #intent = new Intent(Intent.ACTION_INSERT);
-        intent = Intent(Insert.ACTION, People.CONTENT_URI)         
-        #intent.setType(Contacts.CONTENT_TYPE)
+        intent = new Intent(Intent.ACTION_INSERT);        
+        intent.setType(Contacts.CONTENT_TYPE)
         intent.putExtra(Insert.NAME,
-                        self.name);
+                        'OLE');
         intent.putExtra(Insert.PHONE,
                         self.phoneNumber);
-        #currentActivity = cast('android.app.Activity', PythonActivity.mActivity)
-        startActivity(intent)
+        currentActivity = cast('android.app.Activity', PythonActivity.mActivity)
+        currentActivity.startActivity(intent)
 
 class DailyShift(BoxLayout):
     def createCallInfoPrompt(self, driverInfo):
