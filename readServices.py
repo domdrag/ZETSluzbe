@@ -288,7 +288,7 @@ def readService(typeOfDay, URL):
             tables = filtered.extract_tables()
             for table in tables:
                 for serviceLine in table:
-                    print('STIGAO', counter)
+                    print('STIGAO', counter, typeOfDay)
                     counter = counter + 1
                     if(isinstance(serviceLine[0], str) and serviceLine[0].isnumeric()):
                         fileW.write(f"{serviceLine}\n")
