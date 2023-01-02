@@ -1,0 +1,7 @@
+['Ponedjeljak, 2.1.2023.', 'broj sluzbe: 97', 'vozni red: 07.09', '06:10, 13:04, PTD', '09:07, 18:04, PTD']
+['Utorak, 3.1.2023.', 'broj sluzbe: 83', 'vozni red: 06.15', '06:05, PTD', '13:04, Zapruđe smjer Sopot']
+['Srijeda, 4.1.2023.', 'broj sluzbe: 178', 'vozni red: 13.09', '05:07, PTD', '11:58, Držićeva smjer Kvat. trg']
+['Cetvrtak, 5.1.2023.', 'O']
+['Petak, 6.1.2023.', 'O']
+['Subota, 7.1.2023.', 'broj sluzbe: 43', 'vozni red: 04.04', '04:25, PTD', '11:24, Draškovićeva smjer Dubec']
+['Nedjelja, 8.1.2023.', 'broj sluzbe: 70', 'vozni red: 06.02', '05:09, PTD', '11:36, ČRNOMEREC']

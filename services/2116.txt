@@ -1,0 +1,7 @@
+['Ponedjeljak, 2.1.2023.', 'Oz']
+['Utorak, 3.1.2023.', 'Oz']
+['Srijeda, 4.1.2023.', 'I-DK']
+['Cetvrtak, 5.1.2023.', 'I-DK']
+['Petak, 6.1.2023.', 'broj sluzbe: 774', 'vozni red: 13.05', '18:17, Glavni kolodvor smjer Kvat. trg', '00:27, PTD/PTT']
+['Subota, 7.1.2023.', 'broj sluzbe: 674', 'vozni red: 06.06', '18:04, SOPOT-TERMINAL', '00:43, PTD/PTT']
+['Nedjelja, 8.1.2023.', 'broj sluzbe: 648', 'vozni red: 04.09', '18:59, Dubrava smjer Dubec', '00:29, PTD/PTT']

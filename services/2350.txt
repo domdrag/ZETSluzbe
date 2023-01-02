@@ -1,0 +1,7 @@
+['Ponedjeljak, 2.1.2023.', 'broj sluzbe: 347', 'vozni red: 04.08', '11:03, Dubrava smjer Sav. most', '17:49, Glavni kolodvor smjer Sav. most']
+['Utorak, 3.1.2023.', 'broj sluzbe: 374', 'vozni red: 06.06', '11:11, Glavni kolodvor smjer Črnomerec', '18:05, ČRNOMEREC']
+['Srijeda, 4.1.2023.', 'broj sluzbe: 344', 'vozni red: 04.05', '10:33, Dubrava smjer Sav. most', '17:25, Vodnikova smjer Sav. most']
+['Cetvrtak, 5.1.2023.', 'broj sluzbe: 346', 'vozni red: 04.07', '10:53, Dubrava smjer Sav. most', '17:39, Glavni kolodvor smjer Sav. most']
+['Petak, 6.1.2023.', 'broj sluzbe: 506', 'vozni red: 15.02', '11:51, MIHALJEVAC', '17:57, MIHALJEVAC']
+['Subota, 7.1.2023.', 'Oz']
+['Nedjelja, 8.1.2023.', 'Oz']

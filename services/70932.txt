@@ -1,0 +1,7 @@
+['Ponedjeljak, 2.1.2023.', 'broj sluzbe: 173', 'vozni red: 13.04', '04:13, PTD', '10:59, Glavni kolodvor smjer Kvat. trg']
+['Utorak, 3.1.2023.', 'broj sluzbe: 189', 'vozni red: 14.05', '04:18, PTD', '10:56, Draškovićeva smjer Mihaljevac']
+['Srijeda, 4.1.2023.', 'broj sluzbe: 46', 'vozni red: 04.07', '04:27, PTD', '10:53, Glavni kolodvor smjer Sav. most']
+['Cetvrtak, 5.1.2023.', 'broj sluzbe: 191', 'vozni red: 14.07', '03:52, PTD', '10:35, Vodnikova smjer Sav. most']
+['Petak, 6.1.2023.', 'broj sluzbe: 375', 'vozni red: 06.07', '08:07, PTD', '15:00, Glavni kolodvor smjer Črnomerec']
+['Subota, 7.1.2023.', 'O']
+['Nedjelja, 8.1.2023.', 'broj sluzbe: 73', 'vozni red: 06.05', '05:26, PTD', '12:24, TBJJ smjer Sopot']

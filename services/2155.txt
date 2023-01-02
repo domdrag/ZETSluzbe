@@ -1,0 +1,7 @@
+['Ponedjeljak, 2.1.2023.', 'O']
+['Utorak, 3.1.2023.', 'broj sluzbe: 371', 'vozni red: 06.03', '11:00, Britanski trg smjer Črnomerec', '18:00, Britanski trg smjer Sopot']
+['Srijeda, 4.1.2023.', 'broj sluzbe: 343', 'vozni red: 04.04', '11:26, Glavni kolodvor smjer Dubec', '17:57, Glavni kolodvor smjer Dubec']
+['Cetvrtak, 5.1.2023.', 'broj sluzbe: 506', 'vozni red: 15.02', '10:45, MIHALJEVAC', '17:38, MIHALJEVAC']
+['Petak, 6.1.2023.', 'O']
+['Subota, 7.1.2023.', 'broj sluzbe: 346', 'vozni red: 04.07', '10:41, PTD', '17:34, Glavni kolodvor smjer Dubec']
+['Nedjelja, 8.1.2023.', 'broj sluzbe: 374', 'vozni red: 06.06', '11:51, Autobusni kol. smjer Črnomerec', '18:01, ČRNOMEREC']

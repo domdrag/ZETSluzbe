@@ -1,0 +1,7 @@
+['Ponedjeljak, 2.1.2023.', 'I-GO']
+['Utorak, 3.1.2023.', 'I-GO']
+['Srijeda, 4.1.2023.', 'I-GO']
+['Cetvrtak, 5.1.2023.', 'I-GO']
+['Petak, 6.1.2023.', 'Og']
+['Subota, 7.1.2023.', 'Og']
+['Nedjelja, 8.1.2023.', 'Og']
