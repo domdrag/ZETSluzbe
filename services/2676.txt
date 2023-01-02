@@ -1,7 +1,0 @@
-['Ponedjeljak, 2.1.2023.', 'broj sluzbe: 405', 'vozni red: 07.17', '11:23, Dubrava smjer Dubec', '17:50, Dubrava smjer Dubec']
-['Utorak, 3.1.2023.', 'broj sluzbe: 405', 'vozni red: 07.17', '11:23, Dubrava smjer Dubec', '17:50, Dubrava smjer Dubec']
-['Srijeda, 4.1.2023.', 'broj sluzbe: 405', 'vozni red: 07.17', '11:23, Dubrava smjer Dubec', '17:50, Dubrava smjer Dubec']
-['Cetvrtak, 5.1.2023.', 'broj sluzbe: 405', 'vozni red: 07.17', '11:23, Dubrava smjer Dubec', '17:50, Dubrava smjer Dubec']
-['Petak, 6.1.2023.', 'O']
-['Subota, 7.1.2023.', 'O']
-['Nedjelja, 8.1.2023.', 'broj sluzbe: 567', 'vozni red: PRIČUVA', '11:30, PTD', '19:00, PTD']

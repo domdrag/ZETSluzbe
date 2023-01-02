@@ -1,7 +1,0 @@
-['Ponedjeljak, 2.1.2023.', 'broj sluzbe: 772', 'vozni red: 13.03', '17:38, Glavni kolodvor smjer Kvat. trg', '23:48, PTD/PTT']
-['Utorak, 3.1.2023.', 'O']
-['Srijeda, 4.1.2023.', 'broj sluzbe: 772', 'vozni red: 13.03', '17:38, Glavni kolodvor smjer Kvat. trg', '23:48, PTD/PTT']
-['Cetvrtak, 5.1.2023.', 'broj sluzbe: 772', 'vozni red: 13.03', '17:38, Glavni kolodvor smjer Kvat. trg', '23:48, PTD/PTT']
-['Petak, 6.1.2023.', 'broj sluzbe: 772', 'vozni red: 13.03', '17:53, Glavni kolodvor smjer Kvat. trg', '23:51, PTD/PTT']
-['Subota, 7.1.2023.', 'broj sluzbe: 773', 'vozni red: 13.04', '17:33, Držićeva smjer Kvat. trg', '00:14, PTD/PTT']
-['Nedjelja, 8.1.2023.', 'O']
