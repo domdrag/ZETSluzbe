@@ -276,10 +276,11 @@ def readWeekServices():
         fileW.close()
     return 1
 
+counter = 0
 #### pomogao jsvine
 def readService(typeOfDay, URL):
     PDFFile = download_file(URL)
-
+    global counter
     with pdfplumber.open(PDFFile) as PDF:
         fileW = open('relevant/' + typeOfDay + '.txt', 'w', encoding='utf-8')
         for page in PDF.pages:
@@ -287,6 +288,8 @@ def readService(typeOfDay, URL):
             tables = filtered.extract_tables()
             for table in tables:
                 for serviceLine in table:
+                    print('STIGAO', counter)
+                    counter = counter + 1
                     if(isinstance(serviceLine[0], str) and serviceLine[0].isnumeric()):
                         fileW.write(f"{serviceLine}\n")
     fileW.close()

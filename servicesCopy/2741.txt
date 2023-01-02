@@ -4,4 +4,4 @@
 ['Cetvrtak, 5.1.2023.', 'broj sluzbe: 142', 'vozni red: 11.13', '04:30, PTD', '11:28, Dubrava smjer Črnomerec']
 ['Petak, 6.1.2023.', 'O']
 ['Subota, 7.1.2023.', 'O']
-['Nedjelja, 8.1.2023.', 'broj sluzbe: 42', 'vozni red: 04.03', '05:13, PTD', '10:58, Dubrava smjer Dubec']
+['Nedjelja, 8.1.2023.', 'empty']
