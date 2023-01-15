@@ -1,4 +1,4 @@
-package org.test
+package org.test;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Intents;
 import android.app.Activity;
