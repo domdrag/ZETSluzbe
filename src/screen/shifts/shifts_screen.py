@@ -1,8 +1,8 @@
 from kivy.uix.screenmanager import Screen
 from kivy.properties import ObjectProperty
 
-from src.screen.shifts.utils.daily_shift import DailyShift
-from src.screen.shifts.utils.call_info_popup import CallInfoPopup
+from src.screen.shifts.utils.python.daily_shift import DailyShift
+from src.screen.shifts.utils.python.call_info_popup import CallInfoPopup
 
 class ShiftsScreen(Screen):
     offNum = ''

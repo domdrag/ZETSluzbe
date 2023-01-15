@@ -39,7 +39,7 @@ class CallInfoPopup(Popup):
 
     def saveContact(self):      
         PythonActivity = autoclass('org.kivy.android.PythonActivity')
-        Contact = autoclass('org.test.Contact')
+        Contact = autoclass('org.test.Contact') # buildozer.spec
         currentActivity = cast('android.app.Activity',
                                PythonActivity.mActivity)
         Contact.addContact(currentActivity, self.name.title(),
