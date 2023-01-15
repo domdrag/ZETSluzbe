@@ -1,7 +1,0 @@
-['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 340', 'vozni red: 04.01', '10:57, Glavni kolodvor smjer Dubec', '17:26, Glavni kolodvor smjer Dubec, ']
-['Utorak, 6.9.2022.', 'O']
-['Srijeda, 7.9.2022.', 'O']
-['Cetvrtak, 8.9.2022.', 'broj sluzbe: 394', 'vozni red: 07.06', '11:08, Autobusni kol. smjer Savski gaj', '18:05, Zapruđe smjer Dubec, ']
-['Petak, 9.9.2022.', 'broj sluzbe: 439', 'vozni red: 11.10', '11:18, Kvaternikov trg smjer Dubec', '17:44, Kvaternikov trg smjer Črnomerec, ']
-['Subota, 10.9.2022.', 'broj sluzbe: 369', 'vozni red: 06.01', '10:55, Glavni kolodvor smjer Sopot', '17:52, TBJJ smjer Črnomerec, ']
-['Nedjelja, 11.9.2022.', 'broj sluzbe: 340', 'vozni red: 04.01', '11:54, Dubrava smjer Dubec', '17:51, Dubrava smjer Sav. most, ']

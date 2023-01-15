@@ -1,7 +1,0 @@
-['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 348', 'vozni red: 04.09', '14:04, SAVSKI MOST', '21:04, PTD, ']
-['Utorak, 6.9.2022.', 'broj sluzbe: 474', 'vozni red: 13.05', '13:07, Držićeva smjer Žitnjak', '20:05, PTD, ']
-['Srijeda, 7.9.2022.', 'Oz']
-['Cetvrtak, 8.9.2022.', 'broj sluzbe: 477', 'vozni red: 13.08', '13:44, Ivanićgradska smjer Žitnjak', '20:44, PTD, ']
-['Petak, 9.9.2022.', 'broj sluzbe: 372', 'vozni red: 06.04', '13:31, Zapruđe smjer Sopot', '20:27, PTD, ']
-['Subota, 10.9.2022.', 'broj sluzbe: 342', 'vozni red: 04.03', '14:29, Stud. centar smjer Sav. most', '21:24, PTD, ']
-['Nedjelja, 11.9.2022.', 'broj sluzbe: 476', 'vozni red: 13.07', '14:36, Držićeva smjer Kvat. trg', '21:06, PTD, ']

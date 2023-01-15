@@ -1,7 +1,0 @@
-['Ponedjeljak, 5.9.2022.', 'I-GO']
-['Utorak, 6.9.2022.', 'I-GO']
-['Srijeda, 7.9.2022.', 'broj sluzbe: 394', 'vozni red: 07.06', '11:08, Autobusni kol. smjer Savski gaj', '18:05, Zapruđe smjer Dubec, ']
-['Cetvrtak, 8.9.2022.', 'broj sluzbe: 472', 'vozni red: 13.03', '10:45, Držićeva smjer Žitnjak', '17:38, Glavni kolodvor smjer Kvat. trg, ']
-['Petak, 9.9.2022.', 'Oz']
-['Subota, 10.9.2022.', 'broj sluzbe: 494', 'vozni red: 14.10', '11:19, SAVSKI MOST', '18:18, PTD, ']
-['Nedjelja, 11.9.2022.', 'broj sluzbe: 472', 'vozni red: 13.03', '11:57, Držićeva smjer Kvat. trg', '17:53, Glavni kolodvor smjer Kvat. trg, ']

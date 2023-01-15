@@ -1,7 +1,0 @@
-['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 407', 'vozni red: 08.01', '10:52, Draškovićeva smjer Zapruđe', '17:31, Draškovićeva smjer Mihaljevac, ']
-['Utorak, 6.9.2022.', 'broj sluzbe: 407', 'vozni red: 08.01', '10:52, Draškovićeva smjer Zapruđe', '17:31, Draškovićeva smjer Mihaljevac, ']
-['Srijeda, 7.9.2022.', 'broj sluzbe: 487', 'vozni red: 14.03', '11:00, MIHALJEVAC', '17:52, Draškovićeva smjer Mihaljevac, ']
-['Cetvrtak, 8.9.2022.', 'broj sluzbe: 485', 'vozni red: 14.01', '10:51, MIHALJEVAC', '17:49, MIHALJEVAC, ']
-['Petak, 9.9.2022.', 'O']
-['Subota, 10.9.2022.', 'broj sluzbe: 506', 'vozni red: 15.02', '10:47, MIHALJEVAC', '17:40, MIHALJEVAC, ']
-['Nedjelja, 11.9.2022.', 'broj sluzbe: 505', 'vozni red: 15.01', '11:40, MIHALJEVAC', '17:46, MIHALJEVAC, ']

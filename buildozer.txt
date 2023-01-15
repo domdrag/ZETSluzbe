@@ -1,6 +1,0 @@
-buildozer android debug deploy run logcat
-
-Oracle VM VirtualBox
-opcije razvoja
-git 
-https://www.youtube.com/watch?v=EupAeyL8zAo&t=17s

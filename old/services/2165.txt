@@ -1,7 +1,0 @@
-['Ponedjeljak, 5.9.2022.', 'I-GO']
-['Utorak, 6.9.2022.', 'I-GO']
-['Srijeda, 7.9.2022.', 'broj sluzbe: 80', 'vozni red: 06.12', '06:28  \n13:50, PTD      PTD', '1  0:30   \n17:48, Zapruđe smjer Sopot, ']
-['Cetvrtak, 8.9.2022.', 'broj sluzbe: 80', 'vozni red: 06.12', '06:28  \n13:50, PTD      PTD', '1  0:30   \n17:48, Zapruđe smjer Sopot, ']
-['Petak, 9.9.2022.', 'Oz']
-['Subota, 10.9.2022.', 'Oz']
-['Nedjelja, 11.9.2022.', 'Oz']

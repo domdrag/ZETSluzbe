@@ -1,7 +1,0 @@
-['Ponedjeljak, 2.1.2023.', 'broj sluzbe: 205', 'vozni red: 15.01', '03:45, PTD', '10:34, MIHALJEVAC']
-['Utorak, 3.1.2023.', 'broj sluzbe: 205', 'vozni red: 15.01', '03:45, PTD', '10:34, MIHALJEVAC']
-['Srijeda, 4.1.2023.', 'O']
-['Cetvrtak, 5.1.2023.', 'broj sluzbe: 205', 'vozni red: 15.01', '03:45, PTD', '10:34, MIHALJEVAC']
-['Petak, 6.1.2023.', 'broj sluzbe: 205', 'vozni red: 15.01', '04:57, PTD', '11:40, MIHALJEVAC']
-['Subota, 7.1.2023.', 'O']
-['Nedjelja, 8.1.2023.', 'Oz']

@@ -1,0 +1,7 @@
+['Ponedjeljak, 16.1.2023.', 'O']
+['Utorak, 17.1.2023.', 'broj sluzbe: 139', 'vozni red: 11.10', '04:19, PTD', '11:18, Kvaternikov trg smjer Dubec']
+['Srijeda, 18.1.2023.', 'broj sluzbe: 139', 'vozni red: 11.10', '04:19, PTD', '11:18, Kvaternikov trg smjer Dubec']
+['Cetvrtak, 19.1.2023.', 'broj sluzbe: 139', 'vozni red: 11.10', '04:19, PTD', '11:18, Kvaternikov trg smjer Dubec']
+['Petak, 20.1.2023.', 'broj sluzbe: 47', 'vozni red: 04.08', '04:38, PTD', '11:03, Dubrava smjer Sav. most']
+['Subota, 21.1.2023.', 'broj sluzbe: 189', 'vozni red: 14.05', '04:19, PTD', '11:17, MIHALJEVAC']
+['Nedjelja, 22.1.2023.', 'O']

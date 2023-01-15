@@ -1,7 +1,0 @@
-['Ponedjeljak, 5.9.2022.', 'O']
-['Utorak, 6.9.2022.', 'broj sluzbe: 788', 'vozni red: 14.04', '17:22, Zagrepčanka smjer Sav. most', '00:20, PTD, ']
-['Srijeda, 7.9.2022.', 'broj sluzbe: 370', 'vozni red: 06.02', '13:18, Zapruđe smjer Sopot', '20:13, PTD, ']
-['Cetvrtak, 8.9.2022.', 'O']
-['Petak, 9.9.2022.', 'O']
-['Subota, 10.9.2022.', 'broj sluzbe: 646', 'vozni red: 04.07', '17:34, Glavni kolodvor smjer Dubec', '00:26, PTD, ']
-['Nedjelja, 11.9.2022.', 'broj sluzbe: 647', 'vozni red: 04.08', '15:04, Ravnice smjer Dubec', '21:15, PTD, ']

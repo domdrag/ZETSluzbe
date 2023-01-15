@@ -1,0 +1,7 @@
+['Ponedjeljak, 16.1.2023.', 'broj sluzbe: 874', 'vozni red: PRIČUVA', '22:45, PTD', '06:15, PTD']
+['Utorak, 17.1.2023.', 'broj sluzbe: 913', 'vozni red: 33.02', '23:28, PTD', '04:58, PTD/PTT']
+['Srijeda, 18.1.2023.', 'O']
+['Cetvrtak, 19.1.2023.', 'O']
+['Petak, 20.1.2023.', 'O']
+['Subota, 21.1.2023.', 'broj sluzbe: 913', 'vozni red: 33.02', '23:28, PTD', '06:01, PTD/PTT']
+['Nedjelja, 22.1.2023.', 'broj sluzbe: 913', 'vozni red: 33.02', '23:28, PTD', '04:58, PTD/PTT']

@@ -1,7 +1,0 @@
-['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 343', 'vozni red: 04.04', '11:26, Glavni kolodvor smjer Dubec', '17:57, Glavni kolodvor smjer Dubec, ']
-['Utorak, 6.9.2022.', 'broj sluzbe: 470', 'vozni red: 13.01', '11:05, Vodnikova smjer Kvat. trg', '17:55, Stud. centar smjer Žitnjak, ']
-['Srijeda, 7.9.2022.', 'broj sluzbe: 369', 'vozni red: 06.01', '10:47, Britanski trg smjer Črnomerec', '17:46, Britanski trg smjer Sopot, ']
-['Cetvrtak, 8.9.2022.', 'broj sluzbe: 369', 'vozni red: 06.01', '10:47, Britanski trg smjer Črnomerec', '17:46, Britanski trg smjer Sopot, ']
-['Petak, 9.9.2022.', 'broj sluzbe: 411', 'vozni red: 08.05', '11:16, Draškovićeva smjer Mihaljevac', '17:49, Draškovićeva smjer Zapruđe, ']
-['Subota, 10.9.2022.', 'O']
-['Nedjelja, 11.9.2022.', 'O']

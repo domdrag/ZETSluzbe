@@ -1,7 +1,0 @@
-['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 186', 'vozni red: 14.02', '05:53  \n13:32, PTD      PTD', '0  9:38   \n17:43, Draškovićeva smjer Mihaljevac, ']
-['Utorak, 6.9.2022.', 'broj sluzbe: 186', 'vozni red: 14.02', '05:53  \n13:32, PTD      PTD', '0  9:38   \n17:43, Draškovićeva smjer Mihaljevac, ']
-['Srijeda, 7.9.2022.', 'broj sluzbe: 186', 'vozni red: 14.02', '05:53  \n13:32, PTD      PTD', '0  9:38   \n17:43, Draškovićeva smjer Mihaljevac, ']
-['Cetvrtak, 8.9.2022.', 'Oz']
-['Petak, 9.9.2022.', 'broj sluzbe: 186', 'vozni red: 14.02', '05:53  \n13:32, PTD      PTD', '0  9:38   \n17:43, Draškovićeva smjer Mihaljevac, ']
-['Subota, 10.9.2022.', 'O']
-['Nedjelja, 11.9.2022.', 'O']

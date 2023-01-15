@@ -1,7 +1,0 @@
-['Ponedjeljak, 2.1.2023.', 'broj sluzbe: 390', 'vozni red: 07.02', '10:50, Sopot smjer Savski gaj', '17:48, Autobusni kol. smjer Dubec']
-['Utorak, 3.1.2023.', 'broj sluzbe: 472', 'vozni red: 13.03', '10:45, Držićeva smjer Žitnjak', '17:38, Glavni kolodvor smjer Kvat. trg']
-['Srijeda, 4.1.2023.', 'broj sluzbe: 347', 'vozni red: 04.08', '11:03, Dubrava smjer Sav. most', '17:49, Glavni kolodvor smjer Sav. most']
-['Cetvrtak, 5.1.2023.', 'broj sluzbe: 475', 'vozni red: 13.06', '11:06, TBJJ smjer Žitnjak', '17:50, Držićeva smjer Kvat. trg']
-['Petak, 6.1.2023.', 'broj sluzbe: 343', 'vozni red: 04.04', '11:10, Dubrava smjer Sav. most', '17:58, Dubrava smjer Dubec']
-['Subota, 7.1.2023.', 'broj sluzbe: 389', 'vozni red: 07.01', '10:40, Sopot smjer Savski gaj', '17:34, Tržnica Kvatrić smjer Dubec']
-['Nedjelja, 8.1.2023.', 'O']

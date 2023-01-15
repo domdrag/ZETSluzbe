@@ -1,7 +1,0 @@
-['Ponedjeljak, 2.1.2023.', 'broj sluzbe: 111', 'vozni red: 08.05', '04:16, PTD', '11:16, Draškovićeva smjer Zapruđe']
-['Utorak, 3.1.2023.', 'O']
-['Srijeda, 4.1.2023.', 'broj sluzbe: 173', 'vozni red: 13.04', '04:13, PTD', '10:59, Glavni kolodvor smjer Kvat. trg']
-['Cetvrtak, 5.1.2023.', 'broj sluzbe: 94', 'vozni red: 07.06', '04:22, PTD', '11:08, Zapruđe smjer Dubec']
-['Petak, 6.1.2023.', 'broj sluzbe: 491', 'vozni red: 14.07', '11:46, Draškovićeva smjer Mihaljevac', '17:48, Draškovićeva smjer Mihaljevac']
-['Subota, 7.1.2023.', 'broj sluzbe: 99', 'vozni red: 07.11', '07:00, PTD', '13:51, Dubrava smjer Savski gaj']
-['Nedjelja, 8.1.2023.', 'broj sluzbe: 345', 'vozni red: 04.06', '09:06, PTD', '16:05, Vodnikova smjer Dubec']

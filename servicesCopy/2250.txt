@@ -1,7 +1,0 @@
-['Ponedjeljak, 2.1.2023.', 'broj sluzbe: 40', 'vozni red: 04.01', '04:01, PTD', '10:57, Glavni kolodvor smjer Dubec']
-['Utorak, 3.1.2023.', 'broj sluzbe: 188', 'vozni red: 14.04', '06:08, 13:05, PTD', '09:51, 17:22, PTD']
-['Srijeda, 4.1.2023.', 'broj sluzbe: 73', 'vozni red: 06.05', '05:40, PTD', '12:38, Glavni kolodvor smjer Črnomerec']
-['Cetvrtak, 5.1.2023.', 'O']
-['Petak, 6.1.2023.', 'O']
-['Subota, 7.1.2023.', 'broj sluzbe: 78', 'vozni red: 06.10', '04:29, PTD', '11:06, Frankopanska smjer Črnomerec']
-['Nedjelja, 8.1.2023.', 'broj sluzbe: 375', 'vozni red: 06.07', '08:07, PTD', '15:00, Glavni kolodvor smjer Črnomerec']

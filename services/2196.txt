@@ -1,7 +1,0 @@
-['Ponedjeljak, 2.1.2023.', 'broj sluzbe: 191', 'vozni red: 14.07', '03:52, PTD', '10:35, Vodnikova smjer Sav. most']
-['Utorak, 3.1.2023.', 'broj sluzbe: 41', 'vozni red: 04.02', '04:12, PTD', '11:07, Glavni kolodvor smjer Dubec']
-['Srijeda, 4.1.2023.', 'broj sluzbe: 265', 'vozni red: PRIČUVA', '04:00, PTD', '11:30, PTD']
-['Cetvrtak, 5.1.2023.', 'broj sluzbe: 42', 'vozni red: 04.03', '04:23, PTD', '11:16, Glavni kolodvor smjer Dubec']
-['Petak, 6.1.2023.', 'broj sluzbe: 185', 'vozni red: 14.01', '04:54, PTD', '11:20, Draškovićeva smjer Mihaljevac']
-['Subota, 7.1.2023.', 'broj sluzbe: 96', 'vozni red: 07:08', '04:26, PTD', '11:16, Savski gaj smjer Savski gaj']
-['Nedjelja, 8.1.2023.', 'O']

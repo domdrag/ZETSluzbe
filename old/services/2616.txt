@@ -1,7 +1,0 @@
-['Ponedjeljak, 5.9.2022.', 'broj sluzbe: 97', 'vozni red: 07.09', '06:10  \n13:04, PTD      PTD', '0  9:07   \n18:04, Sopot smjer Savski gaj, ']
-['Utorak, 6.9.2022.', 'broj sluzbe: 97', 'vozni red: 07.09', '06:10  \n13:04, PTD      PTD', '0  9:07   \n18:04, Sopot smjer Savski gaj, ']
-['Srijeda, 7.9.2022.', 'broj sluzbe: 97', 'vozni red: 07.09', '06:10  \n13:04, PTD      PTD', '0  9:07   \n18:04, Sopot smjer Savski gaj, ']
-['Cetvrtak, 8.9.2022.', 'broj sluzbe: 97', 'vozni red: 07.09', '06:10  \n13:04, PTD      PTD', '0  9:07   \n18:04, Sopot smjer Savski gaj, ']
-['Petak, 9.9.2022.', 'broj sluzbe: 97', 'vozni red: 07.09', '06:10  \n13:04, PTD      PTD', '0  9:07   \n18:04, Sopot smjer Savski gaj, ']
-['Subota, 10.9.2022.', 'O']
-['Nedjelja, 11.9.2022.', 'O']

@@ -1,0 +1,7 @@
+['Ponedjeljak, 16.1.2023.', 'broj sluzbe: 369', 'vozni red: 06.01', '10:47, Britanski trg smjer Črnomerec', '17:46, Britanski trg smjer Sopot']
+['Utorak, 17.1.2023.', 'broj sluzbe: 369', 'vozni red: 06.01', '10:47, Britanski trg smjer Črnomerec', '17:46, Britanski trg smjer Sopot']
+['Srijeda, 18.1.2023.', 'O']
+['Cetvrtak, 19.1.2023.', 'broj sluzbe: 374', 'vozni red: 06.06', '11:11, Glavni kolodvor smjer Črnomerec', '18:05, ČRNOMEREC']
+['Petak, 20.1.2023.', 'broj sluzbe: 398', 'vozni red: 07.10', '11:17, Park Maksimirsmjer Arena Zagreb', '18:14, Sopotsmjer Arena Zagreb']
+['Subota, 21.1.2023.', 'broj sluzbe: 369', 'vozni red: 06.01', '10:55, Glavni kolodvor smjer Sopot', '17:52, TBJJ smjer Črnomerec']
+['Nedjelja, 22.1.2023.', 'broj sluzbe: 390', 'vozni red: 07.02', '11:18, Ravnicesmjer Arena Zagreb', '18:16, Zapruđesmjer Dubec']

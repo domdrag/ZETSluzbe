@@ -1,0 +1,7 @@
+['Ponedjeljak, 16.1.2023.', 'O-LR']
+['Utorak, 17.1.2023.', 'O-LR']
+['Srijeda, 18.1.2023.', 'broj sluzbe: 392', 'vozni red: 07.04', '10:52, Autobusni kol.smjer Arena Zagreb', '17:51, Zapruđesmjer Dubec']
+['Cetvrtak, 19.1.2023.', 'broj sluzbe: 392', 'vozni red: 07.04', '10:52, Autobusni kol.smjer Arena Zagreb', '17:51, Zapruđesmjer Dubec']
+['Petak, 20.1.2023.', 'broj sluzbe: 392', 'vozni red: 07.04', '10:52, Autobusni kol.smjer Arena Zagreb', '17:51, Zapruđesmjer Dubec']
+['Subota, 21.1.2023.', 'broj sluzbe: 394', 'vozni red: 07.06', '11:11, Tržnica Kvatrićsmjer Arena Zagreb', '18:07, Zapruđesmjer Dubec']
+['Nedjelja, 22.1.2023.', 'O']

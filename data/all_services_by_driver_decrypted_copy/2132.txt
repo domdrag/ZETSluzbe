@@ -1,0 +1,7 @@
+['Ponedjeljak, 16.1.2023.', 'I-GO']
+['Utorak, 17.1.2023.', 'broj sluzbe: 343', 'vozni red: 04.04', '11:26, Glavni kolodvor smjer Dubec', '17:57, Glavni kolodvor smjer Dubec']
+['Srijeda, 18.1.2023.', 'broj sluzbe: 340', 'vozni red: 04.01', '10:57, Glavni kolodvor smjer Dubec', '17:26, Glavni kolodvor smjer Dubec']
+['Cetvrtak, 19.1.2023.', 'broj sluzbe: 489', 'vozni red: 14.05', '10:56, Draškovićeva smjer Mihaljevac', '17:45, PTD/PTT']
+['Petak, 20.1.2023.', 'broj sluzbe: 347', 'vozni red: 04.08', '11:03, Dubrava smjer Sav. most', '17:49, Glavni kolodvor smjer Sav. most']
+['Subota, 21.1.2023.', 'broj sluzbe: 491', 'vozni red: 14.07', '10:41, Frankopanska smjer Sav. most', '17:39, Gupčeva zvije. smjer Mihaljevac']
+['Nedjelja, 22.1.2023.', 'broj sluzbe: 343', 'vozni red: 04.04', '11:10, Dubrava smjer Sav. most', '17:58, Dubrava smjer Dubec']

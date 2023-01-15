@@ -1,0 +1,26 @@
+- klase su i objekti i klase
+objekt ima vlastite member varijable ali
+member varijable mozes mijenjati samo u definicijama klase i njihovim metodama (osim valjda za kv member 
+varijable kao sto je npr data, text itd.)
+
+- popup se ne smije drzati kao child jer inace ga nemozes ugasit
+
+import inicijalizira i ujedno izvrsava sve pozive u globalnom namespace-u
+
+u ShiftsScreen py file-u ne mogu u klasi inicijalizirati callInfoPopup jer onda bi ga inicijalizirao prije nego li
+builder load-a CallInfoPopup. Kako ga umjesto toga inicijaliziram u __init__ od ShiftScreen-a, a ShiftScreen objekt
+zivi u kv.file-u i CallInfoPopup.kv file se load-a prije tog objekta jer include-amo ga u tom .kv file-u imati cemo load-an
+popup i sve radi.
+
+StringProperty mi je bitan! Inace kod ne radi (binding). (call_info_popup.py) 
+Zato ObjectProperty mi nije bitan koliko sam skuzio (ako ga zamijenim sa praznim stringom idalje radi),
+ali zadrzao sam ga kao indikatora da je vezan za nekakav objekt iz kv. file-a
+
+PROBLEMI
+----------------------
+4) kod opcenito (src/data dio)
+6) zasto mi treba popup kod updateButton (showPopup)
+7) usporedi brzine starog i novog koda
+
+novi: 41.187
+stari: 46.034 (stim da ima dosta print-eva)
