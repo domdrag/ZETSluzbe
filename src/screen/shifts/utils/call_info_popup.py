@@ -4,7 +4,6 @@ from kivy.properties import StringProperty
 
 from jnius import autoclass
 from jnius import cast
-import jnius_config
 
 class CallInfoPopup(Popup):
     name = StringProperty() # binding
@@ -40,7 +39,6 @@ class CallInfoPopup(Popup):
 
     def saveContact(self):      
         PythonActivity = autoclass('org.kivy.android.PythonActivity')
-        jnius_config.add_classpath('src/screen/shifts/utils/*')
         Contact = autoclass('src.screen.shifts.utils.Contact')
         currentActivity = cast('android.app.Activity',
                                PythonActivity.mActivity)

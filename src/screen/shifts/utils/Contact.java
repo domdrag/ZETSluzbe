@@ -1,3 +1,4 @@
+package src.screen.shifts.utils
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Intents;
 import android.app.Activity;
