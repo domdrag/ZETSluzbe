@@ -39,6 +39,7 @@ class CallInfoPopup(Popup):
 
     def saveContact(self):      
         PythonActivity = autoclass('org.kivy.android.PythonActivity')
+        jnius_config.add_classpath('src/screen/shifts/utils/*')
         Contact = autoclass('src.screen.shifts.utils.Contact')
         currentActivity = cast('android.app.Activity',
                                PythonActivity.mActivity)
