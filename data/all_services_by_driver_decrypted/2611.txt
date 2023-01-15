@@ -1,0 +1,7 @@
+['Ponedjeljak, 16.1.2023.', 'broj sluzbe: 398', 'vozni red: 07.10', '11:17, Park Maksimirsmjer Arena Zagreb', '18:14, Sopotsmjer Arena Zagreb']
+['Utorak, 17.1.2023.', 'Oz']
+['Srijeda, 18.1.2023.', 'Oz']
+['Cetvrtak, 19.1.2023.', 'broj sluzbe: 472', 'vozni red: 13.03', '10:45, Držićeva smjer Žitnjak', '17:38, Glavni kolodvor smjer Kvat. trg']
+['Petak, 20.1.2023.', 'broj sluzbe: 472', 'vozni red: 13.03', '10:45, Držićeva smjer Žitnjak', '17:38, Glavni kolodvor smjer Kvat. trg']
+['Subota, 21.1.2023.', 'broj sluzbe: 492', 'vozni red: 14.08', '10:18, PTD', '17:15, SAVSKI MOST']
+['Nedjelja, 22.1.2023.', 'broj sluzbe: 374', 'vozni red: 06.06', '11:51, Autobusni kol. smjer Črnomerec', '18:01, ČRNOMEREC']

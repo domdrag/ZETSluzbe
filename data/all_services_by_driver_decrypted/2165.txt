@@ -1,0 +1,7 @@
+['Ponedjeljak, 16.1.2023.', 'broj sluzbe: 141', 'vozni red: 11.12', '06:05, 13:21, PTD', '10:01, 17:12, PTD']
+['Utorak, 17.1.2023.', 'broj sluzbe: 141', 'vozni red: 11.12', '06:05, 13:21, PTD', '10:01, 17:12, PTD']
+['Srijeda, 18.1.2023.', 'broj sluzbe: 141', 'vozni red: 11.12', '06:05, 13:21, PTD', '10:01, 17:12, PTD']
+['Cetvrtak, 19.1.2023.', 'broj sluzbe: 141', 'vozni red: 11.12', '06:05, 13:21, PTD', '10:01, 17:12, PTD']
+['Petak, 20.1.2023.', 'broj sluzbe: 141', 'vozni red: 11.12', '06:05, 13:21, PTD', '10:01, 17:12, PTD']
+['Subota, 21.1.2023.', 'O']
+['Nedjelja, 22.1.2023.', 'O']

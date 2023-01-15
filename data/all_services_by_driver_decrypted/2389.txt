@@ -1,0 +1,7 @@
+['Ponedjeljak, 16.1.2023.', 'O']
+['Utorak, 17.1.2023.', 'broj sluzbe: 506', 'vozni red: 15.02', '10:45, MIHALJEVAC', '17:38, MIHALJEVAC']
+['Srijeda, 18.1.2023.', 'broj sluzbe: 506', 'vozni red: 15.02', '10:45, MIHALJEVAC', '17:38, MIHALJEVAC']
+['Cetvrtak, 19.1.2023.', 'broj sluzbe: 506', 'vozni red: 15.02', '10:45, MIHALJEVAC', '17:38, MIHALJEVAC']
+['Petak, 20.1.2023.', 'broj sluzbe: 506', 'vozni red: 15.02', '10:45, MIHALJEVAC', '17:38, MIHALJEVAC']
+['Subota, 21.1.2023.', 'O']
+['Nedjelja, 22.1.2023.', 'O']

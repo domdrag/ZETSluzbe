@@ -1,0 +1,7 @@
+['Ponedjeljak, 16.1.2023.', 'broj sluzbe: 391', 'vozni red: 07.03', '12:23, Dubravasmjer Arena Zagreb', '18:58, PTD/PTT']
+['Utorak, 17.1.2023.', 'broj sluzbe: 372', 'vozni red: 06.04', '13:31, Zapruđe smjer Sopot', '20:27, PTD/PTT']
+['Srijeda, 18.1.2023.', 'broj sluzbe: 490', 'vozni red: 14.06', '12:24, Draškovićeva smjer Mihaljevac', '19:16, PTD/PTT']
+['Cetvrtak, 19.1.2023.', 'broj sluzbe: 410', 'vozni red: 08.04', '12:44, Draškovićeva smjer Zapruđe', '19:44, PTD/PTT']
+['Petak, 20.1.2023.', 'broj sluzbe: 393', 'vozni red: 07.05', '12:39, Dubravasmjer Arena Zagreb', '19:09, PTD/PTT']
+['Subota, 21.1.2023.', 'O']
+['Nedjelja, 22.1.2023.', 'O']

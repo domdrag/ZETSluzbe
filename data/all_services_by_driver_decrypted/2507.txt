@@ -1,0 +1,7 @@
+['Ponedjeljak, 16.1.2023.', 'broj sluzbe: 491', 'vozni red: 14.07', '10:35, Vodnikova smjer Sav. most', '17:35, Vodnikova smjer Sav. most']
+['Utorak, 17.1.2023.', 'broj sluzbe: 389', 'vozni red: 07.01', '10:42, Sopotsmjer Arena Zagreb', '17:41, Autobusni kol.smjer Dubec']
+['Srijeda, 18.1.2023.', 'broj sluzbe: 470', 'vozni red: 13.01', '11:05, Vodnikova smjer Kvat. trg', '17:55, Stud. centar smjer Žitnjak']
+['Cetvrtak, 19.1.2023.', 'broj sluzbe: 491', 'vozni red: 14.07', '10:35, Vodnikova smjer Sav. most', '17:35, Vodnikova smjer Sav. most']
+['Petak, 20.1.2023.', 'O']
+['Subota, 21.1.2023.', 'O']
+['Nedjelja, 22.1.2023.', 'broj sluzbe: 477', 'vozni red: 13.08', '12:25, Držićeva smjer Žitnjak', '18:28, Držićeva smjer Kvat. trg']
