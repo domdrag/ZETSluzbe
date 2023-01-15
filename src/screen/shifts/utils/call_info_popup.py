@@ -4,7 +4,7 @@ from kivy.properties import StringProperty
 
 from jnius import autoclass
 from jnius import cast
-from jnius import jnius_config
+import jnius_config
 
 class CallInfoPopup(Popup):
     name = StringProperty() # binding
