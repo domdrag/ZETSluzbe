@@ -1,1 +1,0 @@
-https://stackoverflow.com/questions/46144734/a-complete-code-example-of-kivy-a-working-screen-manager-reference-written-in-kv
