@@ -32,54 +32,60 @@ class DataCollector:
                           'finished': False,
                           'message': '' }
         try:
-            match self.phase:
-                case cp.SEARCH_LINKS:
-                    #print('SEARCH_LINKS')
-                    foundLinks = searchLinks()
-                    self.workDayURL = foundLinks['workDay']
-                    self.saturdayURL = foundLinks['saturday']
-                    self.sundayURL = foundLinks['sunday']
-                    returnMessage['message'] = 'Brisanje potrebnih dokumenata'
-                case cp.DELETE_NECESSARY_FILES:
-                    #print('DELETE_NECESSARY_FILES')
-                    deleteNecessaryFiles()
-                    returnMessage['message'] = 'Postavljanje datuma'
-                case cp.SET_DAYS:
-                    #print('SET_DAYS')
-                    result = setDays(self.days)
-                    updateNeeded = result['updateNeeded']
-                    if(updateNeeded == False):
-                        returnMessage['finished'] = True
-                        returnMessage['message'] = 'Sluzbe jos nisu izasle!'
-                    else:
-                        self.mondayDate = result['mondayDate']
-                        returnMessage['message'] = \
-                                     'Citanje tjednih sluzbi'
-                case cp.EXTRACT_RULES_BY_DRIVER:
-                    #print('EXTRACT_RULES_BY_DRIVER')
-                    extractRulesByDriver(self.weekSchedule)
-                    returnMessage['message'] = 'Citanje svih sluzbi'
-                case cp.EXTRACT_RULES:
-                    #print('EXTRACT_RULES')
-                    extractRules(self.workDayURL,
-                                 self.saturdayURL,
-                                 self.sundayURL)
-                    returnMessage['message'] = 'Zapisivanje tjednih sluzbi'
-                case cp.WRITE_DECRYPTED_SERVICES:
-                    #print('WRITE_DECRYPTED_SERVICES')
-                    writeDecryptedServices(self.days, self.weekSchedule)
-                    returnMessage['message'] = 'Zapisivanje tjednih smjena'
-                case cp.WRITE_DECRYPTED_SHIFTS:
-                    #print('WRITE_DECRYPTED_SHIFTS')
-                    writeDecryptedShifts(self.days, self.weekSchedule)
-                    returnMessage['message'] = \
-                                 'Postavljanje datuma zadnjeg azuriranja'
-                case cp.SET_LAST_RECORD:
-                    #print('SET_LAST_RECORD')
-                    setLastRecord(self.mondayDate)
-                    returnMessage['success'] = True
+            if self.phase == cp.SEARCH_LINKS:
+                #print('SEARCH_LINKS')
+                foundLinks = searchLinks()
+                self.workDayURL = foundLinks['workDay']
+                self.saturdayURL = foundLinks['saturday']
+                self.sundayURL = foundLinks['sunday']
+                returnMessage['message'] = 'Brisanje potrebnih dokumenata'
+                
+            elif self.phase == cp.DELETE_NECESSARY_FILES:
+                #print('DELETE_NECESSARY_FILES')
+                deleteNecessaryFiles()
+                returnMessage['message'] = 'Postavljanje datuma'
+                
+            elif self.phase == cp.SET_DAYS:
+                #print('SET_DAYS')
+                result = setDays(self.days)
+                updateNeeded = result['updateNeeded']
+                if(updateNeeded == False):
                     returnMessage['finished'] = True
-                    returnMessage['message'] = 'Kopiranje sluzbi'
+                    returnMessage['message'] = 'Sluzbe jos nisu izasle!'
+                else:
+                    self.mondayDate = result['mondayDate']
+                    returnMessage['message'] = \
+                                  'Citanje tjednih sluzbi'
+                    
+            elif self.phase ==cp.EXTRACT_RULES_BY_DRIVER:
+                #print('EXTRACT_RULES_BY_DRIVER')
+                extractRulesByDriver(self.weekSchedule)
+                returnMessage['message'] = 'Citanje svih sluzbi'
+                
+            elif self.phase == cp.EXTRACT_RULES:
+                #print('EXTRACT_RULES')
+                extractRules(self.workDayURL,
+                             self.saturdayURL,
+                             self.sundayURL)
+                returnMessage['message'] = 'Zapisivanje tjednih sluzbi'
+                
+            elif self.phase == cp.WRITE_DECRYPTED_SERVICES:
+                #print('WRITE_DECRYPTED_SERVICES')
+                writeDecryptedServices(self.days, self.weekSchedule)
+                returnMessage['message'] = 'Zapisivanje tjednih smjena'
+                
+            elif self.phase == cp.WRITE_DECRYPTED_SHIFTS:
+                #print('WRITE_DECRYPTED_SHIFTS')
+                writeDecryptedShifts(self.days, self.weekSchedule)
+                returnMessage['message'] = \
+                              'Postavljanje datuma zadnjeg azuriranja'
+                
+            elif self.phase == cp.SET_LAST_RECORD:
+                #print('SET_LAST_RECORD')
+                setLastRecord(self.mondayDate)
+                returnMessage['success'] = True
+                returnMessage['finished'] = True
+                returnMessage['message'] = 'Kopiranje sluzbi'
                 
         except Exception as e:
             #print(e)
