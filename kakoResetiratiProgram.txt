@@ -1,2 +1,0 @@
-1) resetiraj datum u lastRecordDate.txt (promijeni u stariji)
-2) izbrisi sluzbe u services i shifts direktorijima osim 000keep.txt
