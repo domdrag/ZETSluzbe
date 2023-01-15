@@ -32,6 +32,8 @@ def deleteNecessaryFiles():
         # overkilling with conditions
         if file == 'all_drivers.txt':
             continue
+        elif file == 'tram.png':
+            continue
         elif 'copy' in file:
             continue
         elif 'last_record_date.txt' in file:
