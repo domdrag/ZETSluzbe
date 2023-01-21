@@ -5,7 +5,7 @@ from src.data.read.utils.check_service_date_validity import (
     )
 
 def readServices(offNum):
-    filePath = 'data/all_services_by_driver_decrypted/' + offNum + '.txt'
+    filePath = 'data/data/all_services_by_driver_decrypted/' + offNum + '.txt'
     weekServices = ''
     
     try:
