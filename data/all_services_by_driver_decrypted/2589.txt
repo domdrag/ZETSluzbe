@@ -1,7 +1,0 @@
-['Ponedjeljak, 16.1.2023.', 'broj sluzbe: 381', 'vozni red: 06.13', '12:51, Zapruđe smjer Sopot', '19:46, PTD/PTT']
-['Utorak, 17.1.2023.', 'broj sluzbe: 410', 'vozni red: 08.04', '12:44, Draškovićeva smjer Zapruđe', '19:44, PTD/PTT']
-['Srijeda, 18.1.2023.', 'broj sluzbe: 381', 'vozni red: 06.13', '12:51, Zapruđe smjer Sopot', '19:46, PTD/PTT']
-['Cetvrtak, 19.1.2023.', 'broj sluzbe: 381', 'vozni red: 06.13', '12:51, Zapruđe smjer Sopot', '19:46, PTD/PTT']
-['Petak, 20.1.2023.', 'broj sluzbe: 348', 'vozni red: 04.09', '14:04, SAVSKI MOST', '21:04, PTD/PTT']
-['Subota, 21.1.2023.', 'O']
-['Nedjelja, 22.1.2023.', 'O']

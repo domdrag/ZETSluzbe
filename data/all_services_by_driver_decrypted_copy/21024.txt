@@ -1,7 +1,0 @@
-['Ponedjeljak, 16.1.2023.', 'I-GO']
-['Utorak, 17.1.2023.', 'I-GO']
-['Srijeda, 18.1.2023.', 'broj sluzbe: 493', 'vozni red: 14.09', '10:46, TBJJ smjer Sav. most', '17:45, TBJJ smjer Sav. most']
-['Cetvrtak, 19.1.2023.', 'broj sluzbe: 493', 'vozni red: 14.09', '10:46, TBJJ smjer Sav. most', '17:45, TBJJ smjer Sav. most']
-['Petak, 20.1.2023.', 'broj sluzbe: 442', 'vozni red: 11.13', '11:28, Draškovićeva smjer Dubec', '17:52, Dubrava smjer Črnomerec']
-['Subota, 21.1.2023.', 'broj sluzbe: 470', 'vozni red: 13.01', '11:20, Držićeva smjer Kvat. trg', '18:19, Držićeva smjer Žitnjak']
-['Nedjelja, 22.1.2023.', 'broj sluzbe: 435', 'vozni red: 11.06', '10:48, PTD', '17:42, Dubrava smjer Črnomerec']

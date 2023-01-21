@@ -1,7 +1,0 @@
-['Ponedjeljak, 16.1.2023.', 'broj sluzbe: 174', 'vozni red: 13.05', '06:12, PTD', '13:07, Držićeva smjer Žitnjak']
-['Utorak, 17.1.2023.', 'broj sluzbe: 174', 'vozni red: 13.05', '06:12, PTD', '13:07, Držićeva smjer Žitnjak']
-['Srijeda, 18.1.2023.', 'broj sluzbe: 270', 'vozni red: PRIČUVA', '06:00, PTD', '13:30, PTD']
-['Cetvrtak, 19.1.2023.', 'broj sluzbe: 174', 'vozni red: 13.05', '06:12, PTD', '13:07, Držićeva smjer Žitnjak']
-['Petak, 20.1.2023.', 'broj sluzbe: 174', 'vozni red: 13.05', '06:12, PTD', '13:07, Držićeva smjer Žitnjak']
-['Subota, 21.1.2023.', 'O']
-['Nedjelja, 22.1.2023.', 'O']

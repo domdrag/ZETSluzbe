@@ -1,7 +1,0 @@
-['Ponedjeljak, 16.1.2023.', 'I-GO']
-['Utorak, 17.1.2023.', 'I-DK']
-['Srijeda, 18.1.2023.', 'I-DK']
-['Cetvrtak, 19.1.2023.', 'Oz']
-['Petak, 20.1.2023.', 'Oz']
-['Subota, 21.1.2023.', 'broj sluzbe: 45', 'vozni red: 04.06', '04:26, PTD', '10:56, Draškovićeva smjer Sav. most']
-['Nedjelja, 22.1.2023.', 'broj sluzbe: 172', 'vozni red: 13.03', '05:21, PTD', '11:57, Držićeva smjer Kvat. trg']

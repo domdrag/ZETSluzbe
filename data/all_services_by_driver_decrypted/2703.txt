@@ -1,7 +1,0 @@
-['Ponedjeljak, 16.1.2023.', 'I-GO']
-['Utorak, 17.1.2023.', 'I-GO']
-['Srijeda, 18.1.2023.', 'I-GO']
-['Cetvrtak, 19.1.2023.', 'I-GO']
-['Petak, 20.1.2023.', 'broj sluzbe: 52', 'vozni red: 04.13', '05:10, 13:08, PTD', '09:25, 16:53, PTD']
-['Subota, 21.1.2023.', 'broj sluzbe: 174', 'vozni red: 13.05', '04:55, PTD', '11:04, Glavni kolodvor smjer Žitnjak']
-['Nedjelja, 22.1.2023.', 'broj sluzbe: 40', 'vozni red: 04.01', '04:56, PTD', '11:54, Dubrava smjer Dubec']

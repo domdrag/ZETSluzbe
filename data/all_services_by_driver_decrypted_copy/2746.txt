@@ -1,7 +1,0 @@
-['Ponedjeljak, 16.1.2023.', 'broj sluzbe: 104', 'vozni red: 07.16', '04:58, PTD', '11:43, Dubravasmjer Arena Zagreb']
-['Utorak, 17.1.2023.', 'broj sluzbe: 44', 'vozni red: 04.05', '04:17, PTD', '10:33, Dubrava smjer Sav. most']
-['Srijeda, 18.1.2023.', 'broj sluzbe: 77', 'vozni red: 06.09', '04:04, PTD', '10:48, Autobusni kol. smjer Sopot']
-['Cetvrtak, 19.1.2023.', 'broj sluzbe: 97', 'vozni red: 07.09', '06:10, 13:04, PTD', '09:07, 18:04, PTD']
-['Petak, 20.1.2023.', 'O']
-['Subota, 21.1.2023.', 'broj sluzbe: 190', 'vozni red: 14.06', '03:55, PTD', '10:32, Frankopanska smjer Sav. most']
-['Nedjelja, 22.1.2023.', 'broj sluzbe: 42', 'vozni red: 04.03', '05:13, PTD', '10:58, Dubrava smjer Sav. most']

@@ -1,7 +1,0 @@
-['Ponedjeljak, 16.1.2023.', 'I-GO']
-['Utorak, 17.1.2023.', 'I-GO']
-['Srijeda, 18.1.2023.', 'I-GO']
-['Cetvrtak, 19.1.2023.', 'broj sluzbe: 80', 'vozni red: 06.12', '06:28, 13:50, PTD', '10:30, 17:48, PTD']
-['Petak, 20.1.2023.', 'broj sluzbe: 83', 'vozni red: 06.15', '06:05, PTD', '13:04, Zapruđe smjer Sopot']
-['Subota, 21.1.2023.', 'broj sluzbe: 194', 'vozni red: 14.10', '04:19, PTD', '11:19, SAVSKI MOST']
-['Nedjelja, 22.1.2023.', 'broj sluzbe: 185', 'vozni red: 14.01', '04:54, PTD', '11:20, Draškovićeva smjer Sav. most']

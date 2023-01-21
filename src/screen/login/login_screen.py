@@ -14,8 +14,11 @@ from src.screen.login.utils.get_warning_message_info import (
     getWarningMessageInfo
     )
 from src.screen.login.utils.update_popup_util import showPopup
+from src.data.utils.compress_util import decompressData
+from src.data.utils.dropbox_util import updateNeeded, downloadDataFromDropbox
 
 class LoginScreen(Screen):
+    ADMIN = False
     offNumTextInput = ObjectProperty(None) # object in kv
     warningMessage = StringProperty() # binding
     warningMessageColor = tuple() # binding
@@ -26,6 +29,10 @@ class LoginScreen(Screen):
         super(LoginScreen, self).__init__(**kwargs)
         self.updatePopup = UpdatePopup()
         self.setWarningMessage()
+        if not self.ADMIN and updateNeeded():
+            downloadDataFromDropbox()
+            decompressData()
+            print('stiga')
 
     def setWarningMessage(self):
         warningMessageInfo = getWarningMessageInfo()

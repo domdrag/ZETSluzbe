@@ -1,7 +1,0 @@
-['Ponedjeljak, 16.1.2023.', 'broj sluzbe: 177', 'vozni red: 13.08', '06:49, PTD', '13:44, Ivanićgradska smjer Žitnjak']
-['Utorak, 17.1.2023.', 'broj sluzbe: 190', 'vozni red: 14.06', '05:41, PTD', '12:24, Draškovićeva smjer Mihaljevac']
-['Srijeda, 18.1.2023.', 'broj sluzbe: 97', 'vozni red: 07.09', '06:10, 13:04, PTD', '09:07, 18:04, PTD']
-['Cetvrtak, 19.1.2023.', 'broj sluzbe: 45', 'vozni red: 04.06', '06:39, PTD', '13:39, Učit. fakultet smjer Dubec']
-['Petak, 20.1.2023.', 'O']
-['Subota, 21.1.2023.', 'O']
-['Nedjelja, 22.1.2023.', 'O']

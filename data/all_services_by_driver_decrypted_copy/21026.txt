@@ -1,7 +1,0 @@
-['Ponedjeljak, 16.1.2023.', 'I-BO']
-['Utorak, 17.1.2023.', 'I-BO']
-['Srijeda, 18.1.2023.', 'I-BO']
-['Cetvrtak, 19.1.2023.', 'I-BO']
-['Petak, 20.1.2023.', 'I-GO']
-['Subota, 21.1.2023.', 'Og']
-['Nedjelja, 22.1.2023.', 'Og']

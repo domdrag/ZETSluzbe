@@ -1,7 +1,0 @@
-['Ponedjeljak, 16.1.2023.', 'I-GO']
-['Utorak, 17.1.2023.', 'I-GO']
-['Srijeda, 18.1.2023.', 'I-GO']
-['Cetvrtak, 19.1.2023.', 'O']
-['Petak, 20.1.2023.', 'broj sluzbe: 401', 'vozni red: 07.13', '11:27, Dubravasmjer Arena Zagreb', '18:00, PTD/PTT']
-['Subota, 21.1.2023.', 'broj sluzbe: 400', 'vozni red: 07.12', '11:58, Dubravasmjer Arena Zagreb', '18:31, Autobusni kol.smjer Arena Zagreb']
-['Nedjelja, 22.1.2023.', 'broj sluzbe: 398', 'vozni red: 07.10', '12:52, Dubravasmjer Arena Zagreb', '18:54, Dubravasmjer Arena Zagreb']

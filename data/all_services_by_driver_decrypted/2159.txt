@@ -1,7 +1,0 @@
-['Ponedjeljak, 16.1.2023.', 'broj sluzbe: 42', 'vozni red: 04.03', '04:23, PTD', '11:16, Glavni kolodvor smjer Dubec']
-['Utorak, 17.1.2023.', 'O']
-['Srijeda, 18.1.2023.', 'O']
-['Cetvrtak, 19.1.2023.', 'broj sluzbe: 101', 'vozni red: 07.13', '04:42, PTD', '11:27, Dubravasmjer Arena Zagreb']
-['Petak, 20.1.2023.', 'broj sluzbe: 75', 'vozni red: 06.07', '05:54, PTD', '12:51, Glavni kolodvor smjer Črnomerec']
-['Subota, 21.1.2023.', 'broj sluzbe: 44', 'vozni red: 04.05', '04:10, PTD', '10:46, Draškovićeva smjer Sav. most']
-['Nedjelja, 22.1.2023.', 'O']

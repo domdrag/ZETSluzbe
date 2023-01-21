@@ -6,7 +6,7 @@ from src.data.read.utils.check_service_date_validity import (
 from src.data.read.utils.get_service_date import getServiceDate
 
 def readShifts(offNum):
-    filePath = 'data/all_shifts_by_driver_decrypted/' + offNum + '.txt'
+    filePath = 'data/data/all_shifts_by_driver_decrypted/' + offNum + '.txt'
     weekServices = ''
 
     try:

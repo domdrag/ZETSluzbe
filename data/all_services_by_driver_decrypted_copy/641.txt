@@ -1,7 +1,0 @@
-['Ponedjeljak, 16.1.2023.', 'broj sluzbe: 379', 'vozni red: 06.11', '11:02, Autobusni kol. smjer Sopot', '17:45, PTD/PTT']
-['Utorak, 17.1.2023.', 'broj sluzbe: 379', 'vozni red: 06.11', '11:02, Autobusni kol. smjer Sopot', '17:45, PTD/PTT']
-['Srijeda, 18.1.2023.', 'broj sluzbe: 379', 'vozni red: 06.11', '11:02, Autobusni kol. smjer Sopot', '17:45, PTD/PTT']
-['Cetvrtak, 19.1.2023.', 'broj sluzbe: 379', 'vozni red: 06.11', '11:02, Autobusni kol. smjer Sopot', '17:45, PTD/PTT']
-['Petak, 20.1.2023.', 'broj sluzbe: 379', 'vozni red: 06.11', '11:02, Autobusni kol. smjer Sopot', '17:45, PTD/PTT']
-['Subota, 21.1.2023.', 'broj sluzbe: 375', 'vozni red: 06.07', '11:00, Autobusni kol. smjer Črnomerec', '17:59, Autobusni kol. smjer Sopot']
-['Nedjelja, 22.1.2023.', 'O']

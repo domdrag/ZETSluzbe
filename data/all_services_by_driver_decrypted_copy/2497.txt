@@ -1,7 +1,0 @@
-['Ponedjeljak, 16.1.2023.', 'broj sluzbe: 404', 'vozni red: 07.16', '11:43, Dubravasmjer Arena Zagreb', '18:22, PTD/PTT']
-['Utorak, 17.1.2023.', 'broj sluzbe: 405', 'vozni red: 07.17', '11:23, Dubravasmjer Dubec', '17:50, Dubravasmjer Dubec']
-['Srijeda, 18.1.2023.', 'broj sluzbe: 401', 'vozni red: 07.13', '11:27, Dubravasmjer Arena Zagreb', '18:00, PTD/PTT']
-['Cetvrtak, 19.1.2023.', 'broj sluzbe: 401', 'vozni red: 07.13', '11:27, Dubravasmjer Arena Zagreb', '18:00, PTD/PTT']
-['Petak, 20.1.2023.', 'broj sluzbe: 405', 'vozni red: 07.17', '11:23, Dubravasmjer Dubec', '17:50, Dubravasmjer Dubec']
-['Subota, 21.1.2023.', 'Oz']
-['Nedjelja, 22.1.2023.', 'Oz']

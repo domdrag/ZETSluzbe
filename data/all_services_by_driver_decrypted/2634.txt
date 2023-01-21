@@ -1,7 +1,0 @@
-['Ponedjeljak, 16.1.2023.', 'broj sluzbe: 705', 'vozni red: 07.17', '17:50, Dubravasmjer Dubec', '00:27, PTD/PTT']
-['Utorak, 17.1.2023.', 'broj sluzbe: 705', 'vozni red: 07.17', '17:50, Dubravasmjer Dubec', '00:27, PTD/PTT']
-['Srijeda, 18.1.2023.', 'broj sluzbe: 705', 'vozni red: 07.17', '17:50, Dubravasmjer Dubec', '00:27, PTD/PTT']
-['Cetvrtak, 19.1.2023.', 'broj sluzbe: 705', 'vozni red: 07.17', '17:50, Dubravasmjer Dubec', '00:27, PTD/PTT']
-['Petak, 20.1.2023.', 'broj sluzbe: 705', 'vozni red: 07.17', '17:50, Dubravasmjer Dubec', '00:27, PTD/PTT']
-['Subota, 21.1.2023.', 'O']
-['Nedjelja, 22.1.2023.', 'O']

@@ -1,7 +1,0 @@
-['Ponedjeljak, 16.1.2023.', 'broj sluzbe: 382', 'vozni red: 06.14', '11:16, Autobusni kol. smjer Sopot', '17:51, Autobusni kol. smjer Sopot']
-['Utorak, 17.1.2023.', 'broj sluzbe: 491', 'vozni red: 14.07', '10:35, Vodnikova smjer Sav. most', '17:35, Vodnikova smjer Sav. most']
-['Srijeda, 18.1.2023.', 'broj sluzbe: 475', 'vozni red: 13.06', '11:06, TBJJ smjer Žitnjak', '17:50, Držićeva smjer Kvat. trg']
-['Cetvrtak, 19.1.2023.', 'O']
-['Petak, 20.1.2023.', 'O']
-['Subota, 21.1.2023.', 'broj sluzbe: 494', 'vozni red: 14.10', '11:19, SAVSKI MOST', '18:18, PTD/PTT']
-['Nedjelja, 22.1.2023.', 'broj sluzbe: 486', 'vozni red: 14.02', '11:30, Draškovićeva smjer Sav. most', '17:33, Draškovićeva smjer Sav. most']
