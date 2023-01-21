@@ -8,14 +8,15 @@ from src.screen.login.utils.update_popup import UpdatePopup
 
 from src.data.read.read_services import readServices
 from src.data.read.read_shifts import readShifts
-from src.data.repair.repair_files import repairFiles
-from src.data.repair.update_copy_dir import updateCopyDir
+from src.data.repair.repair_all_files import repairAllFiles
+from src.data.repair.update_backup_dir import updateBackupDir
 from src.screen.login.utils.get_warning_message_info import (
     getWarningMessageInfo
     )
 from src.screen.login.utils.update_popup_util import showPopup
-from src.data.utils.compress_util import decompressData
-from src.data.utils.dropbox_util import updateNeeded, downloadDataFromDropbox
+from src.data.collect.utils.download_data_from_dropbox import (
+    downloadDataFromDropbox
+    )
 
 class LoginScreen(Screen):
     ADMIN = False
@@ -29,10 +30,8 @@ class LoginScreen(Screen):
         super(LoginScreen, self).__init__(**kwargs)
         self.updatePopup = UpdatePopup()
         self.setWarningMessage()
-        if not self.ADMIN and updateNeeded():
+        if not self.ADMIN:
             downloadDataFromDropbox()
-            decompressData()
-            print('stiga')
 
     def setWarningMessage(self):
         warningMessageInfo = getWarningMessageInfo()
@@ -63,11 +62,11 @@ class LoginScreen(Screen):
         success = updateResult['success']
         error = updateResult['error']
         if success:
-            updateCopyDir()
+            updateBackupDir()
             self.setWarningMessage()
             self.updatePopup.text = 'Azurirano!'
         elif error:
-            repairFiles()
+            repairAllFiles()
             self.updatePopup.text = 'GRESKA! Dokumenti popravljeni.'
         else:
             self.updatePopup.text = 'Sluzbe jos nisu izasle!'

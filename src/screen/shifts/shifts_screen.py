@@ -7,7 +7,7 @@ from src.screen.shifts.utils.python.call_info_popup import CallInfoPopup
 class ShiftsScreen(Screen):
     offNum = ''
     callInfoPopup = None
-    servicesScreenRecycleView = ObjectProperty(None)
+    shiftsScreenRecycleView = ObjectProperty(None)
 
     def __init__(self, **kwargs):
         super(ShiftsScreen, self).__init__(**kwargs)

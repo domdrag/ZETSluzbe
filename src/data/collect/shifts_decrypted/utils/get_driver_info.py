@@ -1,7 +1,7 @@
 import ast
 
 def getDriverInfo(serviceNum, driverList, day):
-    fileR = open('data/week_services_by_driver_encrypted.txt',
+    fileR = open('data/data/week_services_by_driver_encrypted.txt',
                  'r',
                  encoding='utf-8')
     weekServicesALL = fileR.readlines()
