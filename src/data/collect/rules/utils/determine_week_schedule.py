@@ -26,7 +26,7 @@ def determineWeekSchedule(page, weekSchedule):
     days = ['Ponedjeljak', 'Utorak', 'Srijeda', \
             'Četvrtak', 'Petak', 'Subota', 'Nedjelja']
             
-    fileW = open('data/warnings.txt', 'w', encoding='utf-8')
+    fileW = open('data/data/warnings.txt', 'w', encoding='utf-8')
     for idx in range(len(chars)):
         if charsRepresentDays(chars, idx):
             for day in range(0,7):

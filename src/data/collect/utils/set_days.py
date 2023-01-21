@@ -23,7 +23,7 @@ def getDays(days, textFirstPDF):
     mondayDate = date(int(year), int(month), int(day))
     mondayDate + datetime.timedelta(days = 1)
 
-    fileR = open('data/last_record_date.txt', 'r', encoding='utf-8')
+    fileR = open('data/data/last_record_date.txt', 'r', encoding='utf-8')
     line = fileR.readline()
     fileR.close()
     lastRecordDateList = ast.literal_eval(line)

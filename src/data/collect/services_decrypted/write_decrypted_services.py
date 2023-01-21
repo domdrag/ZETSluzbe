@@ -4,7 +4,7 @@ from src.data.collect.utils.get_service_layout import getServiceLayout
 from src.data.collect.utils.get_service_line import getServiceLine
 
 def writeDecryptedServices(days, weekSchedule):
-    fileR = open('data/week_services_by_driver_encrypted.txt',
+    fileR = open('data/data/week_services_by_driver_encrypted.txt',
                  'r',
                  encoding='utf-8')
     weekServicesALL = fileR.readlines()
@@ -12,7 +12,7 @@ def writeDecryptedServices(days, weekSchedule):
     for weekServicesRaw in weekServicesALL:
         weekServices = ast.literal_eval(weekServicesRaw)
         offNum = int(weekServices[0])
-        filePath = 'data/all_services_by_driver_decrypted/' \
+        filePath = 'data/data/all_services_by_driver_decrypted/' \
                     + str(offNum) \
                     + '.txt'
         fileW = open(filePath, 'a', encoding='utf-8')

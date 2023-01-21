@@ -5,10 +5,10 @@ from src.data.collect.rules.utils.determine_week_schedule import (
     )
 
 def extractRulesByDriver(weekSchedule):
-    PDFFile = 'data/tpd.pdf' # downloaded in setDays util
+    PDFFile = 'data/data/tpd.pdf' # downloaded in setDays util
     with pdfplumber.open(PDFFile) as PDF:
         determineWeekSchedule(PDF.pages[0], weekSchedule)       
-        fileW = open('data/week_services_by_driver_encrypted.txt',
+        fileW = open('data/data/week_services_by_driver_encrypted.txt',
                      'w',
                      encoding='utf-8')
         for page in PDF.pages:            

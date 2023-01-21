@@ -4,11 +4,11 @@ def getServiceLine(serviceNum, day, weekSchedule):
     if(not serviceNum.isnumeric()):
         return [serviceNum]
     if(weekSchedule[day] == 'W'):
-        fileR = open('data/rules_work_day.txt', 'r', encoding='utf-8')
+        fileR = open('data/data/rules_work_day.txt', 'r', encoding='utf-8')
     elif(weekSchedule[day] == 'St'):
-        fileR = open('data/rules_saturday.txt', 'r', encoding='utf-8')
+        fileR = open('data/data/rules_saturday.txt', 'r', encoding='utf-8')
     else:
-        fileR = open('data/rules_sunday.txt', 'r', encoding='utf-8')
+        fileR = open('data/data/rules_sunday.txt', 'r', encoding='utf-8')
     serviceLines = fileR.readlines()
     fileR.close()
     for serviceLine in serviceLines:

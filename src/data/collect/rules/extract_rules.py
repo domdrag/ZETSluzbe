@@ -6,7 +6,7 @@ from src.data.collect.utils.download_pdf_file import downloadPDFFile
 def extractRule(typeOfDay, URL, fileName):
     PDFFile = downloadPDFFile(URL, fileName)
     with pdfplumber.open(PDFFile) as PDF:
-        fileW = open('data/rules_' + typeOfDay + '.txt',
+        fileW = open('data/data/rules_' + typeOfDay + '.txt',
                      'w',
                      encoding='utf-8')
         for page in PDF.pages:
