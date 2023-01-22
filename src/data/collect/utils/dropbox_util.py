@@ -1,10 +1,13 @@
 import dropbox
 import ast
 
-ACCESS_TOKEN = 'sl.BXa8uiO6hF3pNBfPuqn4zcgn2WUJiOmE2cRmEF956nq1R5LpCfw7N6h0VuxGYccQrgI1SVsaHz1a54TLwblHC6jJ_6xJJ_6XniabMBbSbEf9YtqYzwjxsmzEdp2-l1eetzwpKGxu'
+RFRSH_TOKEN = 'wIxEqmHW0_IAAAAAAAAAAXS9N4JdzmOIt8rV90Y-uOVCdhhvC23S7qYHSSDSd53a'
 
 def updateNeeded():
-    dbx = dropbox.Dropbox(ACCESS_TOKEN)
+    dbx = dropbox.Dropbox(app_key = '9x72f19ngmg8mqo',
+                      app_secret = 'msb8pniq2h76ym3',
+                      oauth2_refresh_token = RFRSH_TOKEN)
+    
     dbx.files_download_to_file('data/dropbox/last_record_date.txt',
                                '/last_record_date.txt')
     fileR = open('data/data/last_record_date.txt', 'r')
@@ -15,7 +18,7 @@ def updateNeeded():
     oldDate = fileR.read()
     oldDate = ast.literal_eval(oldDate)
     fileR.close()
-    
+
     if currentDate == oldDate:
         return False
     return True
