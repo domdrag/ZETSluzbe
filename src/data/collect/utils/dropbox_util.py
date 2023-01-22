@@ -1,7 +1,7 @@
 import dropbox
 import ast
 
-ACCESS_TOKEN = 'sl.BXVcSMrbkSPrs8i8CwyspJPJVpathdAAccBj9Y3E2OQdoI1ZnqeSTiIwHWyZ1G4bC4wK9cYvDdJSRd_qzlZv3pvyPaegwitScs54KtqaIXxPE_PwMl89xEtwmxsdEe9zpT1wLnHh'
+ACCESS_TOKEN = 'sl.BXa8uiO6hF3pNBfPuqn4zcgn2WUJiOmE2cRmEF956nq1R5LpCfw7N6h0VuxGYccQrgI1SVsaHz1a54TLwblHC6jJ_6xJJ_6XniabMBbSbEf9YtqYzwjxsmzEdp2-l1eetzwpKGxu'
 
 def updateNeeded():
     dbx = dropbox.Dropbox(ACCESS_TOKEN)
