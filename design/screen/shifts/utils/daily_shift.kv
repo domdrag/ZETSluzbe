@@ -26,7 +26,7 @@
 			text: root.firstDriver
 			halign: 'center'
 			background_color: root.bg_color1
-			font_size: (root.width**2 + root.height**2) / 16**4
+			font_size: (root.width**2 + root.height**2) / 15**4
 			on_release:
 				root.callInfoButton(self.text)
 		SpecialLabel:
@@ -45,5 +45,5 @@
 			text: root.secondDriver
 			background_color: root.bg_color2
 			halign: 'center'
-			font_size: (root.width**2 + root.height**2) / 16**4
+			font_size: (root.width**2 + root.height**2) / 15**4
 			on_release: root.callInfoButton(self.text)

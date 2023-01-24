@@ -14,12 +14,15 @@ from src.screen.login.utils.get_warning_message_info import (
     getWarningMessageInfo
     )
 from src.screen.login.utils.update_popup_util import showPopup
+from src.screen.login.utils.update_required_date_check import (
+    updateRequiredDateCheck
+    )
 from src.data.collect.utils.download_data_from_dropbox import (
     downloadDataFromDropbox
     )
 
 class LoginScreen(Screen):
-    ADMIN = True
+    ADMIN = False
     offNumTextInput = ObjectProperty(None) # object in kv
     warningMessage = StringProperty() # binding
     warningMessageColor = tuple() # binding
@@ -30,7 +33,7 @@ class LoginScreen(Screen):
         super(LoginScreen, self).__init__(**kwargs)
         self.updatePopup = UpdatePopup()
         self.setWarningMessage()
-        if not self.ADMIN:
+        if not self.ADMIN and updateRequiredDateCheck():
             downloadDataFromDropbox()
 
     def setWarningMessage(self):
