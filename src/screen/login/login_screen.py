@@ -19,7 +19,7 @@ from src.data.collect.utils.download_data_from_dropbox import (
     )
 
 class LoginScreen(Screen):
-    ADMIN = False
+    ADMIN = True
     offNumTextInput = ObjectProperty(None) # object in kv
     warningMessage = StringProperty() # binding
     warningMessageColor = tuple() # binding
