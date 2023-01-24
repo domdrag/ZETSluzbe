@@ -55,6 +55,8 @@ def readShifts(offNum):
                 firstDriver = ''
             elif('ANON' in firstDriver):
                 firstDriver = ''
+            elif(len((firstDriver.split('\n'))[0]) >= 15):
+                firstDriver = firstDriver.replace(' ', '\n', 1)
                 
             secondDriver = secondShift[-1]
             if(secondDriver == 'empty'): 
@@ -62,6 +64,8 @@ def readShifts(offNum):
                 secondDriver = ''
             elif('ANON' in secondDriver):
                 secondDriver = ''
+            elif(len((secondDriver.split('\n'))[0]) >= 15):
+                secondDriver = secondDriver.replace(' ', '\n', 1)
                 
             thirdDriver = thirdShift[-1]
             if(thirdDriver == 'empty'): 
@@ -69,6 +73,10 @@ def readShifts(offNum):
                 thirdDriver = ''
             elif('ANON' in thirdDriver):
                 thirdDriver = ''
+            elif(len((thirdDriver.split('\n'))[0]) >= 15):
+                thirdDriver = thirdDriver.replace(' ', '\n', 1)
+
+            
             
             weekServicesData.append({'firstItem': weekService[0],
                                      'firstDriver': '',
