@@ -55,7 +55,7 @@ def readShifts(offNum):
                 firstDriver = ''
             elif('ANON' in firstDriver):
                 firstDriver = ''
-            elif(len((firstDriver.split('\n'))[0]) >= 13):
+            else:
                 firstDriver = firstDriver.replace(' ', '\n', 1)
                 
             secondDriver = secondShift[-1]
@@ -64,7 +64,7 @@ def readShifts(offNum):
                 secondDriver = ''
             elif('ANON' in secondDriver):
                 secondDriver = ''
-            elif(len((secondDriver.split('\n'))[0]) >= 13):
+            else:
                 secondDriver = secondDriver.replace(' ', '\n', 1)
                 
             thirdDriver = thirdShift[-1]
@@ -73,7 +73,7 @@ def readShifts(offNum):
                 thirdDriver = ''
             elif('ANON' in thirdDriver):
                 thirdDriver = ''
-            elif(len((thirdDriver.split('\n'))[0]) >= 13):
+            else:
                 thirdDriver = thirdDriver.replace(' ', '\n', 1)
 
             
