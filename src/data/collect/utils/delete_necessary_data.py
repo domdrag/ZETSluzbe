@@ -29,16 +29,12 @@ def deleteExceeded(directory):
 def deleteNecessaryData():
     files = os.listdir('data/data')
     for file in files:
-        ##if False:
-        ##    pass
         ###### NEEDED DATA DURING UPDATING ############
-        ##if 'last_record_date.txt' in file:
-        ##    continue
-        ##elif 'warnings.txt' in file:
-        ##    continue
         if 'tpd.pdf' in file: # needed for extractRulesByDriver()
             continue
         elif 'all_drivers.txt' in file: # needed for writeDecryptedShifts()
+            continue
+        elif 'tram.png': # needed for buildozer [not needed for updating]
             continue
         ###### NEEDED DATA FOR APPENDING ############
         elif 'all_services_by_driver_decrypted' in file: 
