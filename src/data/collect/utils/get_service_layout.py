@@ -35,7 +35,8 @@ def getServiceLayout(serviceLine, serviceNum, days, day):
     
     serviceNumber = serviceLine[serviceStartIndex]
     driveOrder = serviceLine[serviceStartIndex+1]
-    receptionPoint = serviceLine[serviceStartIndex+2].replace('\n','')
+    receptionPoint = serviceLine[serviceStartIndex+2].replace('\n',' ')
+    receptionPoint = re.sub(' +', ' ', receptionPoint)  
     receptionTime = serviceLine[serviceStartIndex+3]
     releaseTime = serviceLine[serviceStartIndex+4]
 
@@ -67,7 +68,8 @@ def getServiceLayout(serviceLine, serviceNum, days, day):
         releasePoint = 'PTD/PTT'
         for element in serviceLine[serviceStartIndex+3:]:
             if(isAlphaWithSpaces(element)):
-                releasePoint = element.replace('\n','')
+                releasePoint = element.replace('\n',' ')
+                releasePoint = re.sub(' +', ' ', releasePoint) 
                 break
     
             
