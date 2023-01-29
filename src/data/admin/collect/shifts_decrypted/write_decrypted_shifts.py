@@ -1,10 +1,10 @@
 import ast
 
-from src.data.collect.shifts_decrypted.utils.get_driver_info import (
+from src.data.admin.collect.shifts_decrypted.utils.get_driver_info import (
     getDriverInfo
     )
-from src.data.collect.utils.get_service_layout import getServiceLayout
-from src.data.collect.utils.get_service_line import getServiceLine
+from src.data.admin.collect.utils.get_service_layout import getServiceLayout
+from src.data.admin.collect.utils.get_service_line import getServiceLine
 
 def writeDecryptedShifts(days, weekSchedule):
     fileR = open('data/data/week_services_by_driver_encrypted.txt',

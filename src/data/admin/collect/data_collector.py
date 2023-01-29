@@ -1,20 +1,26 @@
 from datetime import date
 
-from src.data.collect.utils.collect_phase import CollectPhase
+from src.data.admin.collect.utils.collect_phase import CollectPhase
 
-from src.data.collect.services_decrypted.write_decrypted_services import (
+from src.data.admin.collect.services_decrypted.write_decrypted_services import (
     writeDecryptedServices
     )
-from src.data.collect.shifts_decrypted.write_decrypted_shifts import (
+from src.data.admin.collect.shifts_decrypted.write_decrypted_shifts import (
     writeDecryptedShifts
     )
-from src.data.collect.utils.delete_necessary_data import deleteNecessaryData 
-from src.data.collect.utils.search_links import searchLinks  
-from src.data.collect.utils.set_last_record import setLastRecord   
-from src.data.collect.utils.set_days import setDays
-from src.data.collect.rules.extract_rules_by_driver import extractRulesByDriver
-from src.data.collect.rules.extract_rules import extractRules
-from src.data.collect.utils.upload_data_to_dropbox import uploadDataToDropbox
+from src.data.admin.collect.utils.delete_necessary_data import (
+    deleteNecessaryData
+    )
+from src.data.admin.collect.utils.search_links import searchLinks  
+from src.data.admin.collect.utils.set_last_record import setLastRecord   
+from src.data.admin.collect.utils.set_days import setDays
+from src.data.admin.collect.rules.extract_rules_by_driver import (
+    extractRulesByDriver
+    )
+from src.data.admin.collect.rules.extract_rules import extractRules
+from src.data.admin.collect.utils.upload_data_to_dropbox import (
+    uploadDataToDropbox
+    )
 
 cp = CollectPhase
 

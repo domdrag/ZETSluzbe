@@ -1,6 +1,6 @@
 import pdfplumber
 
-from src.data.collect.rules.utils.determine_week_schedule import (
+from src.data.admin.collect.rules.utils.determine_week_schedule import (
     determineWeekSchedule
     )
 

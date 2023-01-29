@@ -1,7 +1,7 @@
 import ast
 
-from src.data.collect.utils.get_service_layout import getServiceLayout
-from src.data.collect.utils.get_service_line import getServiceLine
+from src.data.admin.collect.utils.get_service_layout import getServiceLayout
+from src.data.admin.collect.utils.get_service_line import getServiceLine
 
 def writeDecryptedServices(days, weekSchedule):
     fileR = open('data/data/week_services_by_driver_encrypted.txt',
