@@ -15,7 +15,7 @@ class ZETScreenManager(ScreenManager):
         #self.current = 'loginScreen'
 
     def loginFailure(self):
-        self.loginScreen.updatePopup.text = 'Azuriraj sluzbe!'
+        self.loginScreen.updatePopup.text = 'Greska kod dohvacanja sluzbi.'
         self.loginScreen.updatePopup.open()
             
     def updateScreens(self, offNum, servicesData, shiftsData):
