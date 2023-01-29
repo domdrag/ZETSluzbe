@@ -3,26 +3,26 @@ from kivy.properties import ObjectProperty
 from kivy.properties import BooleanProperty
 from kivy.properties import StringProperty
 
-from src.data.collect.data_collector import DataCollector
+from src.data.admin.collect.data_collector import DataCollector
 from src.screen.login.utils.update_popup import UpdatePopup
 
 from src.data.read.read_services import readServices
 from src.data.read.read_shifts import readShifts
-from src.data.repair.repair_all_files import repairAllFiles
-from src.data.repair.update_backup_dir import updateBackupDir
+from src.data.admin.repair.repair_all_files import repairAllFiles
+from src.data.admin.repair.update_backup_dir import updateBackupDir
 from src.screen.login.utils.get_warning_message_info import (
     getWarningMessageInfo
     )
 from src.screen.login.utils.update_popup_util import showPopup
-from src.screen.login.utils.update_required_date_check import (
+from src.data.user.update_required_date_check import (
     updateRequiredDateCheck
     )
-from src.data.collect.utils.download_data_from_dropbox import (
+from src.data.user.download_data_from_dropbox import (
     downloadDataFromDropbox
     )
 
 class LoginScreen(Screen):
-    ADMIN = True
+    ADMIN = False
     offNumTextInput = ObjectProperty(None) # object in kv
     warningMessage = StringProperty() # binding
     warningMessageColor = tuple() # binding
