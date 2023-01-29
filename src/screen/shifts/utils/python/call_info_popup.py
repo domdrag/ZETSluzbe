@@ -13,12 +13,12 @@ class CallInfoPopup(Popup):
         super(CallInfoPopup, self).__init__(**kwargs)
 
     def populateCallInfo(self, driverInfo):
-        # expected: driverInfo = [name] \n [surname] \n [phoneNumber]
+        # expected: driverInfo = [name] [surname] \n [phoneNumber]
         if('\n' not in driverInfo):
             return False
         driverInfoList = driverInfo.split('\n')
-        self.name = driverInfoList[0] + ' ' + driverInfoList[1]
-        self.phoneNumber = driverInfoList[2]
+        self.name = driverInfoList[0]
+        self.phoneNumber = driverInfoList[1]
         return True
 
     def copyNameOnClipboard(self):
