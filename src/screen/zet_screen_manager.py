@@ -1,9 +1,13 @@
+import os
+
 from kivy.uix.screenmanager import ScreenManager
 
 from src.screen.login.login_screen import LoginScreen
 from src.screen.services.services_screen import ServicesScreen
 from src.screen.shifts.shifts_screen import ShiftsScreen
 
+# workaround; portrait orientation not working for some reason [?]; 
+os.environ['KIVY_ORIENTATION'] = "Portrait" 
 
 class ZETScreenManager(ScreenManager):
     def __init__(self, **kwargs):
