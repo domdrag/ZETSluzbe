@@ -34,7 +34,7 @@ def deleteNecessaryData():
             continue
         elif 'all_drivers.txt' in file: # needed for writeDecryptedShifts()
             continue
-        elif 'tram.png': # needed for buildozer [not needed for updating]
+        elif 'tram' in file: # needed for buildozer [not needed for updating]
             continue
         ###### NEEDED DATA FOR APPENDING ############
         elif 'all_services_by_driver_decrypted' in file: 
