@@ -16,7 +16,7 @@
 			color: 1, 1, 1, 1
 			halign: 'center'
 			valign: 'center'
-			text_size: self.width, None
+			text_size: self.width/1.05, None
 			canvas.after:
 				Color:
 					rgba: .5, .5, .5, 1
@@ -39,7 +39,7 @@
 			halign: 'center'
 			valign: 'center'
 			text: root.secondItem
-			text_size: self.width, None
+			text_size: self.width/1.05, None
 			canvas.after:
 				Color:
 					rgba: .5, .5, .5, 1
@@ -52,5 +52,5 @@
 			text_size: self.width/1.05, None
 			background_color: root.bg_color2
 			halign: 'center'
-			font_size: '13sp' # kivy default = 15 dp
+			font_size: '13dp' # kivy default = 15 sp
 			on_release: root.callInfoButton(self.text)
