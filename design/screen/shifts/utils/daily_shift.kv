@@ -30,7 +30,8 @@
 			halign: 'center'
 			background_color: root.bg_color1
 			#font_size: (self.width**2 + self.height**2) / 8**4
-			font_size: '15sp'
+			#font_size: '15sp'
+			font_size: self.width / 15
 			on_release:
 				root.callInfoButton(self.text)
 		SpecialLabel:
