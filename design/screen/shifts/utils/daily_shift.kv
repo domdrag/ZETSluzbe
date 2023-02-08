@@ -31,7 +31,6 @@
 			background_color: root.bg_color1
 			#font_size: (self.width**2 + self.height**2) / 8**4
 			font_size: '13sp' # kivy default = 15 sp
-			#font_size: self.width / 15
 			on_release:
 				root.callInfoButton(self.text)
 		SpecialLabel:
@@ -53,5 +52,5 @@
 			text_size: self.width, None
 			background_color: root.bg_color2
 			halign: 'center'
-			font_size: (self.width**2 + self.height**2) / 8**4
+			font_size: '13sp' # kivy default = 15 sp
 			on_release: root.callInfoButton(self.text)
