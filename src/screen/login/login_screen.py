@@ -28,6 +28,7 @@ class LoginScreen(Screen):
     warningMessageColor = tuple() # binding
     updateDone = BooleanProperty(False)
     updatePopup = None
+    prijavi = ObjectProperty(None)
     
     def __init__(self, **kwargs):
         super(LoginScreen, self).__init__(**kwargs)
@@ -42,6 +43,8 @@ class LoginScreen(Screen):
         self.warningMessageColor = warningMessageInfo['color']
 
     def loginButton(self):
+        print(self.prijavi.font_size)
+        '''
         offNum = self.offNumTextInput.text
         servicesData = readServices(offNum)
         shiftsData = readShifts(offNum)
@@ -49,7 +52,7 @@ class LoginScreen(Screen):
             self.manager.updateScreens(offNum, servicesData, shiftsData)
             self.manager.switchToServicesScreen()
         else:
-            self.manager.loginFailure()
+            self.manager.loginFailure()'''
 
     @showPopup
     def updateButton(self):
