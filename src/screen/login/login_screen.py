@@ -43,7 +43,9 @@ class LoginScreen(Screen):
         self.warningMessageColor = warningMessageInfo['color']
 
     def loginButton(self):
-        print(self.prijavi.font_size)
+        print('FONT: ', self.prijavi.font_size)
+        print('SELF WIDTH: ', self.prijavi.width)
+        print('SELF HEIGHT: ', self.prijavi.height)
         '''
         offNum = self.offNumTextInput.text
         servicesData = readServices(offNum)
