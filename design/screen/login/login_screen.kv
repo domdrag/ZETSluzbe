@@ -31,8 +31,11 @@
 			id: prijaviId
             pos_hint:{"x":0.1,'bottom': 1}
 			size_hint: 0.4, 0.1
+			halign: 'center'
+			valign: 'center'
 			#font_size: (self.width**2 + self.height**2) / 9**4
-			font_size: (self.width * self.height) / 1200
+			text_size: self.width/1.05, None
+			font_size: (self.width**2 + self.height**2) / 9**4
             text: "Prijavi se"
             on_release: root.loginButton()
 					
