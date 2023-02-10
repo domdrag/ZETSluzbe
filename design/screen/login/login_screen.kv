@@ -3,7 +3,6 @@
 <LoginScreen>:
 	name: 'loginScreen'
 	offNumTextInput: offNumTextInputId
-	prijavi: prijaviId
 	
     FloatLayout:
         Label:
@@ -28,14 +27,9 @@
 			color: root.warningMessageColor
 
         Button:
-			id: prijaviId
             pos_hint:{"x":0.1,'bottom': 1}
 			size_hint: 0.4, 0.1
-			halign: 'center'
-			valign: 'center'
-			#font_size: (self.width**2 + self.height**2) / 9**4
-			text_size: self.width/1.05, None
-			font_size: (self.width**2 + self.height**2) / 9**4
+			font_size: (root.width**2 + root.height**2) / 17**4
             text: "Prijavi se"
             on_release: root.loginButton()
 					
