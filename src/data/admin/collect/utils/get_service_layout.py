@@ -3,7 +3,7 @@ import re
 def isAlphaWithSpaces(x):
     if(x == ''):
         return False
-    y = re.split('\n|\.| ',x)
+    y = re.split('\n|\.| |-',x)
     for el in y:
         if(el == ''):
             continue
