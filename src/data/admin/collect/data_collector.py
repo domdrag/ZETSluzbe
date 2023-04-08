@@ -104,7 +104,7 @@ class DataCollector:
             return {'success': False,
                     'error': True,
                     'finished': True,
-                    'message': 'GRESKA! Popravljanje dokumenata'}
+                    'message': 'GRESKA! Popravljanje dokumenata...'}
         self.phase = cp(self.phase.value + 1)
         if self.phase == cp.END:
             self.phase = cp.SEARCH_LINKS
