@@ -13,7 +13,7 @@ def getWarningMessageInfo():
         color = (0.96,0.74,0,1)
 
     for line in lines[1:]:
-        color += line
+        message += line
 
     return {'message': message, 'color': color}
 

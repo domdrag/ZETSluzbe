@@ -19,7 +19,7 @@ def readServices(offNum):
     for weekServiceRawString in weekServices:
         weekService = ast.literal_eval(weekServiceRawString)
         if(not checkServiceDateValidity(weekService)):
-           continue
+            continue
         if(len(weekService) == 2):
             bgColor = (0.13, 0.55, 0.13, 1)
             if(weekService[1] == 'empty' or
