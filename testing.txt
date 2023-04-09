@@ -1,0 +1,10 @@
+______________________SUCCESS_____________________________
+ADMIN
+1) lastRec isti kao na dropu, na dropu azurirano
+2) lastRec isti kao na dropu, na dropu nije azurirano - skida sluzbe sa ZETa
+3) lastRec razl. kao na dropu, na dropu azurirano - skida sluzbe sa Dropa
+4) lastRec razl. kao na dropu, na dropu nije azurirano - skida sluzbe sa Dropa + skida sluzbe sa ZETa
+
+USER
+1) drop nije azuriran
+2) drop azuriran
