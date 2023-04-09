@@ -5,7 +5,7 @@ import ast
 from datetime import date
 from dateutil.relativedelta import relativedelta, FR
 
-from src.data.admin.collect.utils.download_pdf_file import downloadPDFFile
+from src.data.admin.utils.download_pdf_file import downloadPDFFile
 
 firstURL = ("https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/"
             "Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf")

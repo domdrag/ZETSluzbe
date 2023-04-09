@@ -1,13 +1,15 @@
+# CURRENTLY OBSOLETE AS USER IS ALLOWED TO MANUALLY UPDATE FROM DROPBOX !!!
+
 from datetime import date
 import ast
 
-from src.data.read.utils.get_today_date import getTodayDate
+from src.data.share.utils.get_today_date import getTodayDate
 
 MAX_ALLOWED_DATE_DIFF = 3 # friday - monday = 4
 
 def updateRequiredDateCheck():
     todayDate = getTodayDate()
-    fileR = open('data/dropbox/last_record_date.txt', 'r')
+    fileR = open('data/data/last_record_date.txt', 'r')
     rawDateString = (fileR.readlines())[0]
     fileR.close()
     rawDateList = ast.literal_eval(rawDateString)

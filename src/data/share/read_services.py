@@ -1,6 +1,6 @@
 import ast
 
-from src.data.read.utils.check_service_date_validity import (
+from src.data.share.utils.check_service_date_validity import (
     checkServiceDateValidity
     )
 

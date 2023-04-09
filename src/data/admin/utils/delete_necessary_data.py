@@ -36,6 +36,8 @@ def deleteNecessaryData():
             continue
         elif 'tram' in file: # needed for buildozer [not needed for updating]
             continue
+        elif 'update' in file: # needed for AdminDataCollector
+            continue
         ###### NEEDED DATA FOR APPENDING ############
         elif 'all_services_by_driver_decrypted' in file: 
             continue

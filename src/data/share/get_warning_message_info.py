@@ -1,4 +1,11 @@
-from src.data.read.read_warning_message import readWarningMessage
+
+COLOR_TUPLE_SIZE = 4
+
+def readWarningMessage():
+    fileR = open('data/data/warnings.txt', 'r', encoding='utf-8')
+    lines = fileR.readlines()
+    fileR.close()
+    return lines
 
 def getWarningMessageInfo():
     lines = readWarningMessage()
@@ -15,5 +22,8 @@ def getWarningMessageInfo():
     for line in lines[1:]:
         message += line
 
+    assert isinstance(message, str)
+    assert isinstance(color, tuple)
+    assert len(color) == COLOR_TUPLE_SIZE
     return {'message': message, 'color': color}
 

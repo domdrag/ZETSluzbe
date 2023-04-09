@@ -1,6 +1,6 @@
 import pdfplumber
 
-from src.data.admin.collect.utils.download_pdf_file import downloadPDFFile
+from src.data.admin.utils.download_pdf_file import downloadPDFFile
 
 #### pomogao jsvine
 def extractRule(typeOfDay, URL, fileName):

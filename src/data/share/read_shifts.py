@@ -1,9 +1,9 @@
 import ast
 
-from src.data.read.utils.check_service_date_validity import (
+from src.data.share.utils.check_service_date_validity import (
     checkServiceDateValidity
     )
-from src.data.read.utils.get_service_date import getServiceDate
+from src.data.share.utils.get_service_date import getServiceDate
 
 def readShifts(offNum):
     filePath = 'data/data/all_shifts_by_driver_decrypted/' + offNum + '.txt'

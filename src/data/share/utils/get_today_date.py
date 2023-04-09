@@ -1,3 +1,6 @@
+# FILE ALSO USED IN:
+## data/user/update_required_date_check.py
+
 from datetime import date
 import datetime
 
