@@ -2,6 +2,7 @@ from kivy.uix.screenmanager import Screen
 from kivy.properties import ObjectProperty
 from kivy.properties import BooleanProperty
 from kivy.properties import StringProperty
+from kivy.properties import ColorProperty
 
 from src.data.admin.admin_data_collector import AdminDataCollector
 from src.data.user.user_data_collector import UserDataCollector
@@ -28,7 +29,7 @@ class LoginScreen(Screen):
     ADMIN = True
     offNumTextInput = ObjectProperty(None) # object in kv
     warningMessage = StringProperty() # binding
-    warningMessageColor = tuple() # binding
+    warningMessageColor = ColorProperty() # binding
     updateDone = BooleanProperty(False)
     updatePopup = None
     
