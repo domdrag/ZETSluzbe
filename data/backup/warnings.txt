@@ -1,2 +1,1 @@
-1$Raspored službi neuobičajen.
-Ponedjeljak se uzima kao Nedjelja.
+0$Raspored službi uobičajen.

@@ -2,7 +2,7 @@ import pdfplumber
 
 from src.data.admin.utils.download_pdf_file import downloadPDFFile
 
-#### pomogao jsvine
+#### thanks to jsvine - owner of pdfplumber
 def extractRule(typeOfDay, URL, fileName):
     PDFFile = downloadPDFFile(URL, fileName)
     with pdfplumber.open(PDFFile) as PDF:

@@ -1,5 +1,5 @@
 # FILE ALSO USED IN:
-## data/user/update_required_date_check.py
+## data/user/update_required_date_check.py but that file is curr. obsolete
 
 from datetime import date
 import datetime
