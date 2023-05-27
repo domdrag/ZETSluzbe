@@ -43,6 +43,8 @@ def deleteNecessaryData():
             continue
         elif 'all_shifts_by_driver_decrypted' in file:
             continue
+        elif 'holidays' in file:
+            continue
         #############################################
         else:
             os.remove('data/data/' + file)
