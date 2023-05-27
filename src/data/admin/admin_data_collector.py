@@ -12,7 +12,8 @@ from src.data.admin.utils.delete_necessary_data import (
     deleteNecessaryData
     )
 from src.data.admin.utils.search_links import searchLinks  
-from src.data.admin.utils.set_last_record import setLastRecord   
+from src.data.admin.utils.set_last_record import setLastRecord
+from src.data.admin.utils.set_holidays import setHolidays
 from src.data.admin.utils.set_days import setDays
 from src.data.admin.rules.extract_rules_by_driver import (
     extractRulesByDriver
@@ -106,22 +107,23 @@ class AdminDataCollector:
                 extractRules(self.workDayURL,
                              self.saturdayURL,
                              self.sundayURL)
-                returnMessage['message'] = 'Zapisivanje tjednih sluzbi'
+                returnMessage['message'] = 'Spremanje tjednih sluzbi'
                 
             elif self.phase == cp.WRITE_DECRYPTED_SERVICES:
                 print('WRITE_DECRYPTED_SERVICES')
                 writeDecryptedServices(self.days, self.weekSchedule)
-                returnMessage['message'] = 'Zapisivanje tjednih smjena'
+                returnMessage['message'] = 'Spremanje tjednih smjena'
                 
             elif self.phase == cp.WRITE_DECRYPTED_SHIFTS:
                 print('WRITE_DECRYPTED_SHIFTS')
                 writeDecryptedShifts(self.days, self.weekSchedule)
                 returnMessage['message'] = \
-                              'Postavljanje datuma zadnjeg azuriranja'
+                              'Spremanje relevantnih podataka'
                 
-            elif self.phase == cp.SET_LAST_RECORD:
-                print('SET_LAST_RECORD')
+            elif self.phase == cp.SAVE_RELEVANT_DATA:
+                print('SET_RELEVANT_DATA')
                 setLastRecord(self.mondayDate)
+                setHolidays(self.mondayDate, self.weekSchedule)
                 returnMessage['message'] = 'Ucitavanje sluzbi na Internet'
 
             elif self.phase == cp.UPLOAD_DATA_TO_DROPBOX:

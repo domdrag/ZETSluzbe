@@ -1,4 +1,5 @@
 #:include design/screen/services/utils/daily_service.kv
+#:include design/screen/share/calendar/calendar.kv
 
 <ServicesScreen>:
 	name: 'servicesScreen'
@@ -26,3 +27,10 @@
         font_size: (root.width**2 + root.height**2) / 17**4
         text: 'Odjavi se'
         on_release: root.logoutButton()
+	
+	Button:
+        pos_hint:{"x":0.8,'top': 1}
+        size_hint: 0.2, 0.1
+        font_size: (root.width**2 + root.height**2) / 17**4
+        text: 'Kalendar'
+		on_release: root.calendarButton()
