@@ -5,7 +5,7 @@
 ['Petak, 2.6.2023.', 'broj sluzbe: 806', 'vozni red: 15.02', '17:38, MIHALJEVAC', '00:21, PTD/PTT']
 ['Subota, 3.6.2023.', 'O']
 ['Nedjelja, 4.6.2023.', 'O']
-['Ponedjeljak, 29.5.2023.', 'I-BO']
+['Fedeljak, 29.5.2023.', 'I-BO']
 ['Utorak, 30.5.2023.', 'I-BO']
 ['Srijeda, 31.5.2023.', 'I-BO']
 ['Cetvrtak, 1.6.2023.', 'broj sluzbe: 806', 'vozni red: 15.02', '17:38, MIHALJEVAC', '00:21, PTD/PTT']
