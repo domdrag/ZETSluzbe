@@ -7,6 +7,8 @@
 # https://xxblx.bitbucket.org/
 ###########################################################
 
+from functools import partial
+
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.popup import Popup
 from kivy.uix.relativelayout import RelativeLayout
@@ -16,14 +18,18 @@ from kivy.uix.togglebutton import ToggleButton
 from kivy.uix.textinput import TextInput
 from kivy.uix.label import Label
 from kivy.core.window import Window
-from kivy.properties import NumericProperty, ReferenceListProperty
+from kivy.properties import (NumericProperty,
+                             ReferenceListProperty,
+                             StringProperty)
 
+from src.screen.share.calendar.utils.service_popup import ServicePopup
 from src.screen.share.calendar.utils.calendar_data import (get_month_names,
                                                            get_month_names_eng,
                                                            get_days_abbrs,
                                                            today_date_list,
                                                            calc_quarter,
                                                            get_quarter)
+
 
 class CalendarWidget(RelativeLayout):
     """ Basic calendar widget """
@@ -90,16 +96,17 @@ class CalendarWidget(RelativeLayout):
 
         # Buttons with days numbers
         for week in month:
-            for day in week:
+            for day in week:                        
                 mIsHoliday = False
-                mButtonColor = (0.5, 0.5, 0.5, 1) # grey
-                print(mCurrentIndex, len(mCalendarInfo), day[2])
-                if (mCurrentIndex >= len(mCalendarInfo) or day[2] == 0):
+                mButtonColor = (0.2, 0.2, 0.2, 1) # grey
+                mRecordedDayCurrentMonth = False
+                if (mCurrentIndex >= len(mCalendarInfo)):
                     pass
                 elif (day[0] == mCalendarInfo[mCurrentIndex]['day']):
                     mIsHoliday = mCalendarInfo[mCurrentIndex]['isHoliday']
-                    mButtonColor = mCalendarInfo[mCurrentIndex]['dayColor']
-                    mCurrentIndex = mCurrentIndex + 1
+                    if (day[2] == 1):
+                        mButtonColor = mCalendarInfo[mCurrentIndex]['dayColor']
+                    mRecordedDayCurrentMonth = True
                 
                 if day[1] == 6:  # sunday
                     tbtn = DayNumSundayButton(text=str(day[0]),
@@ -108,19 +115,37 @@ class CalendarWidget(RelativeLayout):
                     if (mIsHoliday):
                         mTextColor = (1, 0, 0, 1) # red
                     else:
-                        mTextColor = (1, 1, 0, 1) # white
+                        mTextColor = (1, 1, 1, 1) # white
                     tbtn = DayNumButton(text=str(day[0]),
                                         color = mTextColor,
                                         background_color = mButtonColor)
-                
-                tbtn.bind(on_press=self.get_btn_value)
-                
+
+                if (mRecordedDayCurrentMonth):
+                    if (day[2] == 1):
+                        mCurrentDay = mCalendarInfo[mCurrentIndex]
+                        mService = mCurrentDay['service']
+                        mServiceFullDay = mCurrentDay['serviceFullDay']
+                        tbtn.bind(on_release = partial(self.m_show_service,
+                                                       mServiceFullDay,
+                                                       mService,
+                                                       mButtonColor))
+                    mCurrentIndex = mCurrentIndex + 1
+
                 if toogle_today:
                     # Down today button
                     if day[0] == self.active_date[0] and day[2] == 1:
-                        tbtn.state = "down"
+                        #tbtn.state = "down"
+                        mButtonColor = tbtn.background_color
+                        mList = list(mButtonColor)
+                        mList = [mEl + (1-mEl)*0.15 for mEl in mList]
+                        mList[3] = 1
+                        tbtn.background_color = tuple(mList)
+                        pass
+                
                 # Disable buttons with days from other months
                 if day[2] == 0:
+                    if (mIsHoliday):
+                        tbtn.disabled_color = (1, 0, 0, 1) # red
                     tbtn.disabled = True
                 
                 grid_layout.add_widget(tbtn)
@@ -152,13 +177,9 @@ class CalendarWidget(RelativeLayout):
         self.quarter = get_quarter(self.active_date[2], 
                                             self.active_date[1])
     
-    def get_btn_value(self, inst):
-        """ Get day value from pressed button """
-        
-        self.active_date[0] = int(inst.text)
-                
-        if self.as_popup:
-            self.parent_popup.dismiss()
+    def m_show_service(self, mServiceFullDay, mService, mBgColor, mButton):
+        servicePopup = ServicePopup(mServiceFullDay, mService, mBgColor)
+        servicePopup.open()
         
     def go_prev(self, inst):
         """ Go to screen with previous month """        
@@ -239,7 +260,7 @@ class DayAbbrLabel(Label):
 class DayAbbrSundayLabel(DayAbbrLabel):
     pass
 
-class DayButton(ToggleButton):
+class DayButton(Button):
     pass
 
 class DayNumButton(DayButton):

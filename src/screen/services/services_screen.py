@@ -13,7 +13,6 @@ class ServicesScreen(Screen):
 
     def __init__(self, **kwargs):
         super(ServicesScreen, self).__init__(**kwargs)
-        #self.calendarPopup = CalendarPopup()
     
     def setOffNum(self, offNum):
         self.offNum = offNum
