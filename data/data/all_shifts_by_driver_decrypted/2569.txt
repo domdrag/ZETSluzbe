@@ -1,5 +1,5 @@
-['Subota, 27.5.2023.', 'O']
-['Nedjelja, 28.5.2023.', 'Oz']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 477', 'vozni red: 13.08', '12:25, Držićeva smjer Žitnjak', '18:28, Držićeva smjer Kvat. trg', 'HRVOJE GALIĆ\n098-917-9312']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 777', 'vozni red: 13.08', '18:28, Držićeva smjer Kvat. trg', '00:36, PTD/PTT', 'SNJEŽANA KRANJEC\n091-796-3279']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 172', 'vozni red: 13.03', '04:23, PTD', '10:45, Držićeva smjer Žitnjak', 'ŽARKO BENDRA\n091-884-9634']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 472', 'vozni red: 13.03', '10:45, Držićeva smjer Žitnjak', '17:38, Glavni kolodvor smjer Kvat. trg', 'DARIO OPETUK\n091-766-3254']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 772', 'vozni red: 13.03', '17:38, Glavni kolodvor smjer Kvat. trg', '23:48, PTD/PTT', 'ANON\nXXX-XXX-XXXX']

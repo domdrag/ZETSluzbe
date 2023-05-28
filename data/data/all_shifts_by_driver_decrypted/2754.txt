@@ -1,5 +1,5 @@
-['Subota, 27.5.2023.', 'Oz']
-['Nedjelja, 28.5.2023.', 'Oz']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 370', 'vozni red: 06.02', '11:36, ČRNOMEREC', '18:04, SOPOT- TERMINAL', 'LJILJANA BARNJAK\n098-789-116']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 670', 'vozni red: 06.02', '18:04, SOPOT- TERMINAL', '00:41, PTD/PTT', 'BOŽIDAR BARTULOVIĆ\n095-900-8629']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 188', 'vozni red: 14.04', '06:08, 13:05, PTD', '09:51, 17:22, PTD', 'MARKO MARTIĆ\n099-305-8487']
 ['Ponedjeljak, 29.5.2023.', 'empty']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 788', 'vozni red: 14.04', '17:22, Zagrepčanka smjer Sav. most', '00:20, PTD/PTT', 'ANON\nXXX-XXX-XXXX']

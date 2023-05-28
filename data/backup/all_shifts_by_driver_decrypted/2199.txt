@@ -1,5 +1,5 @@
-['Subota, 27.5.2023.', 'Oz']
-['Nedjelja, 28.5.2023.', 'Oz']
+['Subota, 3.6.2023.', 'broj sluzbe: 649', 'vozni red: 04.10', '18:31, Dubrava smjer Dubec', '00:57, PTD/PTT', 'KRUNOSLAV ČIŽMEK\n098-161-2654']
+['Nedjelja, 4.6.2023.', 'Oz']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 48', 'vozni red: 04.09', '07:04, PTD', '14:04, SAVSKI MOST', 'MARIJAN COHA\n098-797-304']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 348', 'vozni red: 04.09', '14:04, SAVSKI MOST', '21:04, PTD/PTT', 'JOSIP DOMIĆ\n098-135-8696']
 ['Ponedjeljak, 29.5.2023.', 'empty']

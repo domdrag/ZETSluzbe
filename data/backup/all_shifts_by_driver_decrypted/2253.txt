@@ -1,5 +1,5 @@
-['Subota, 27.5.2023.', 'Oz']
-['Nedjelja, 28.5.2023.', 'Oz']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 486', 'vozni red: 14.02', '11:30, Draškovićeva smjer Sav. most', '17:33, Draškovićeva smjer Sav. most', 'PATRICIJA KAŠIĆ\n098-822-889']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 786', 'vozni red: 14.02', '17:33, Draškovićeva smjer Sav. most', '00:12, PTD/PTT', 'VINKO LJUBAS\n098-263-443']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 43', 'vozni red: 04.04', '04:34, PTD', '11:26, Glavni kolodvor smjer Dubec', 'DUBRAVKA LEPEN\n091-602-0044']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 343', 'vozni red: 04.04', '11:26, Glavni kolodvor smjer Dubec', '17:57, Glavni kolodvor smjer Dubec', 'IVICA ŠAJNOVIĆ\n098-919-9869']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 643', 'vozni red: 04.04', '17:57, Glavni kolodvor smjer Dubec', '00:39, PTD/PTT', 'ANON\nXXX-XXX-XXXX']

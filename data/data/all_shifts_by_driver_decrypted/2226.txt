@@ -1,5 +1,5 @@
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 346', 'vozni red: 04.07', '11:46, Dubrava smjer Sav. most', '18:35, Dubrava smjer Dubec', 'PATRICIJA KAŠIĆ\n098-822-889']
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 646', 'vozni red: 04.07', '18:35, Dubrava smjer Dubec', '00:44, PTD/PTT', 'SINIŠA BUZA\n091-204-4033']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 486', 'vozni red: 14.02', '11:30, Draškovićeva smjer Sav. most', '17:33, Draškovićeva smjer Sav. most', 'PATRICIJA KAŠIĆ\n098-822-889']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 786', 'vozni red: 14.02', '17:33, Draškovićeva smjer Sav. most', '00:12, PTD/PTT', 'VINKO LJUBAS\n098-263-443']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 72', 'vozni red: 06.04', '06:31, PTD', '13:31, Zapruđe smjer Sopot', 'TOMISLAV GREGURANIĆ\n099-216-4005']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 372', 'vozni red: 06.04', '13:31, Zapruđe smjer Sopot', '20:27, PTD/PTT', 'PATRICIJA KAŠIĆ\n098-822-889']
 ['Ponedjeljak, 29.5.2023.', 'empty']

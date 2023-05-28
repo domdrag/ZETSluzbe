@@ -1,5 +1,5 @@
-['Subota, 27.5.2023.', 'O']
-['Nedjelja, 28.5.2023.', 'Oz']
+['Subota, 3.6.2023.', 'empty']
+['Nedjelja, 4.6.2023.', 'O']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 98', 'vozni red: 07.10', '04:42, PTD', '11:21, DUBRAVA- TERMINAL', 'DRAGO BOROŠA\n091-595-5895']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 398', 'vozni red: 07.10', '11:21, DUBRAVA- TERMINAL', '18:16, DUBRAVA- TERMINAL', 'MILAN MAJKIĆ\n091-400-3097']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 698', 'vozni red: 07.10', '18:16, DUBRAVA- TERMINAL', '23:38, PTD/PTT', 'ANON\nXXX-XXX-XXXX']

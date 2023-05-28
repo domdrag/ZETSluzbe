@@ -1,5 +1,5 @@
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 391', 'vozni red: 07.03', '11:38, DUBRAVA- TERMINAL', '17:58, DUBRAVA- TERMINAL', 'JOSIP DOMIĆ\n098-135-8696']
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 691', 'vozni red: 07.03', '17:58, DUBRAVA- TERMINAL', '00:28, PTD/PTT', 'MIRJANA FOLNEGOVIĆ-HULEC\n098-905-9322']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 470', 'vozni red: 13.01', '11:57, Glavni kolodvor smjer Kvat. trg', '18:20, Držićeva smjer Žitnjak', 'JOSIP DOMIĆ\n098-135-8696']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 770', 'vozni red: 13.01', '18:20, Držićeva smjer Žitnjak', '00:54, PTD/PTT', 'MIRO BLAŽEK\n099-312-0601']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 48', 'vozni red: 04.09', '07:04, PTD', '14:04, SAVSKI MOST', 'MARIJAN COHA\n098-797-304']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 348', 'vozni red: 04.09', '14:04, SAVSKI MOST', '21:04, PTD/PTT', 'JOSIP DOMIĆ\n098-135-8696']
 ['Ponedjeljak, 29.5.2023.', 'empty']

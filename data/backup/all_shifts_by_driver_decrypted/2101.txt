@@ -1,5 +1,5 @@
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 492', 'vozni red: 14.08', '11:55, Draškovićeva smjer Mihaljevac', '17:57, Draškovićeva smjer Mihaljevac', 'DANIJEL ANTOLIĆ-MEZIN\n091-458-0493']
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 792', 'vozni red: 14.08', '17:57, Draškovićeva smjer Mihaljevac', '00:26, PTD/PTT', 'DUBRAVKA ČUKELJ\n091-922-8657']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 340', 'vozni red: 04.01', '11:54, Dubrava smjer Dubec', '17:51, Dubrava smjer Sav. most', 'DANIJEL ANTOLIĆ-MEZIN\n091-458-0493']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 640', 'vozni red: 04.01', '17:51, Dubrava smjer Sav. most', '00:47, PTD/PTT', 'GORAN KLEMEN\n091-783-7313']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 187', 'vozni red: 14.03', '04:05, PTD', '11:00, MIHALJEVAC', 'ANON\nXXX-XXX-XXXX']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 487', 'vozni red: 14.03', '11:00, MIHALJEVAC', '17:52, Draškovićeva smjer Mihaljevac', 'DANIJEL ANTOLIĆ-MEZIN\n091-458-0493']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 787', 'vozni red: 14.03', '17:52, Draškovićeva smjer Mihaljevac', '00:50, PTD/PTT', 'ANA ZOVKO\n098-951-0611']

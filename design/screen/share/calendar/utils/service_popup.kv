@@ -1,0 +1,10 @@
+#:include design/screen/services/utils/daily_service.kv
+
+<ServicePopup>:
+	servicePopupDailyService: servicePopupDailyServiceId
+	title: "Sluzba"
+	size_hint: 0.6, 0.4
+	pos_hint: {'x': 0.2, 'top': 0.7}
+	
+	DailyService:
+		id: servicePopupDailyServiceId

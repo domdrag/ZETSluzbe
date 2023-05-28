@@ -1,5 +1,5 @@
-['Subota, 27.5.2023.', 'O']
-['Nedjelja, 28.5.2023.', 'Oz']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 391', 'vozni red: 07.03', '11:38, DUBRAVA- TERMINAL', '17:58, DUBRAVA- TERMINAL', 'SADUDIN MUJKIĆ\n098-609-133']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 691', 'vozni red: 07.03', '17:58, DUBRAVA- TERMINAL', '00:28, PTD/PTT', 'MARIO ILIĆ\n095-843-4279']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 91', 'vozni red: 07.03', '04:01, PTD', '10:44, DUBRAVA- TERMINAL', 'MIRA TARADEJ\n098-966-5235']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 391', 'vozni red: 07.03', '10:44, DUBRAVA- TERMINAL', '17:31, DUBRAVA- TERMINAL', 'MIJO MIŠKULJIĆ\n092-285-6028']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 691', 'vozni red: 07.03', '17:31, DUBRAVA- TERMINAL', '00:09, PTD/PTT', 'MIRO BOŽIĆ\n099-213-3320']

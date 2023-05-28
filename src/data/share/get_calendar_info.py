@@ -3,8 +3,8 @@ import ast
 from src.data.share.utils.get_holidays import getHolidays
 
 COLOR_BLUE = (0, 0, 1, 1)
-COLOR_GREEN = (0.13, 0.55, 0.13, 1)
-COLOR_RED = (0.13, 0.55, 0.13, 1)
+COLOR_GREEN = (0.13, 0.55, 0.13, 1) 
+COLOR_RED = (0.545, 0, 0, 1)
 COLOR_GREY = (0.5, 0.5, 0.5, 1)
 
 def getCalendarInfo(offNum):
@@ -51,6 +51,7 @@ def getCalendarInfo(offNum):
                                      'year': year,
                                      'dayColor': dayColor,
                                      'isHoliday': isHoliday,
+                                     'serviceFullDay': weekService[0],
                                      'service': '\n'.join(weekService[1:])})
         else:
             calendarInfoData.append({'day': day,
@@ -58,6 +59,7 @@ def getCalendarInfo(offNum):
                                      'year': year,
                                      'dayColor': COLOR_BLUE,
                                      'isHoliday': isHoliday,
+                                     'serviceFullDay': weekService[0],
                                      'service': '\n'.join(weekService[1:])})
     return calendarInfoData
 

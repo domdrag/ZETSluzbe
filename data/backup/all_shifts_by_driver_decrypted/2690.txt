@@ -1,5 +1,5 @@
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 488', 'vozni red: 14.04', '11:57, Vodnikova smjer Sav. most', '18:55, PTD/PTT', 'JOSIP TADIĆ\n091-556-5866']
-['Nedjelja, 28.5.2023.', 'empty']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 373', 'vozni red: 06.05', '12:24, TBJJ smjer Sopot', '19:17, PTD/PTT', 'JOSIP TADIĆ\n091-556-5866']
+['Nedjelja, 4.6.2023.', 'empty']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 271', 'vozni red: PRIČUVA', '06:00, PTD', '13:30, PTD', 'VESNA ZEC\n097-774-9524']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 571', 'vozni red: PRIČUVA', '13:00, PTD', '20:30, PTD', 'JOSIP TADIĆ\n091-556-5866']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 871', 'vozni red: PRIČUVA', '17:30, PTD', '01:00, PTD', 'ANON\nXXX-XXX-XXXX']

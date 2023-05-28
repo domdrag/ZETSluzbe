@@ -1,5 +1,5 @@
-['Subota, 27.5.2023.', 'broj sluzbe: 870', 'vozni red: PRIČUVA', '17:30, PTD', '01:00, PTD', 'ANON\nXXX-XXX-XXXX']
-['Nedjelja, 28.5.2023.', 'Oz']
+['Subota, 3.6.2023.', 'empty']
+['Nedjelja, 4.6.2023.', 'Oz']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 139', 'vozni red: 11.10', '05:54, PTD', '12:49, TBJJ smjer Dubec', 'ANON\nXXX-XXX-XXXX']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 439', 'vozni red: 11.10', '12:49, TBJJ smjer Dubec', '19:20, PTD/PTT', 'IVAN BARIŠIĆ\n098-958-2906']
 ['Ponedjeljak, 29.5.2023.', 'empty']

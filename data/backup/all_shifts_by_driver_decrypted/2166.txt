@@ -1,5 +1,5 @@
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 394', 'vozni red: 07.06', '13:49, DUBRAVA- TERMINAL', '20:13, PTD/PTT', 'MLADEN KOVAČIĆ\n098-386-458']
-['Nedjelja, 28.5.2023.', 'empty']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 572', 'vozni red: PRIČUVA', '14:00, PTD', '21:30, PTD', 'MLADEN KOVAČIĆ\n098-386-458']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 872', 'vozni red: PRIČUVA', '18:00, PTD', '01:30, PTD', 'ANON\nXXX-XXX-XXXX']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 132', 'vozni red: 11.03', '05:54, PTT', '12:51, Dubrava smjer Črnomerec', 'ANON\nXXX-XXX-XXXX']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 432', 'vozni red: 11.03', '12:51, Dubrava smjer Črnomerec', '19:44, PTD/PTT', 'KREŠIMIR FLIKAČ\n095-741-5677']
 ['Ponedjeljak, 29.5.2023.', 'empty']

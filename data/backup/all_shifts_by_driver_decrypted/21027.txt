@@ -1,5 +1,5 @@
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 475', 'vozni red: 13.06', '12:01, Držićeva smjer Žitnjak', '18:04, Držićeva smjer Kvat. trg', 'SNJEŽANA HRENOVIĆ\n091-251-3868']
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 775', 'vozni red: 13.06', '18:04, Držićeva smjer Kvat. trg', '00:18, PTD/PTT', 'JOZO MARIĆ\n095-575-9103']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 475', 'vozni red: 13.06', '12:01, Držićeva smjer Žitnjak', '18:04, Držićeva smjer Kvat. trg', 'SLOBODAN PILJIĆ\n098-492-913']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 775', 'vozni red: 13.06', '18:04, Držićeva smjer Kvat. trg', '00:18, PTD/PTT', 'DENIS MOHARIĆ\n091-558-7757']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 93', 'vozni red: 07.05', '04:10, PTD', '10:57, DUBRAVA- TERMINAL', 'ANON\nXXX-XXX-XXXX']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 393', 'vozni red: 07.05', '10:57, DUBRAVA- TERMINAL', '17:44, DUBRAVA- TERMINAL', 'JADRANKA HORVAT\n091-290-9891']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 693', 'vozni red: 07.05', '17:44, DUBRAVA- TERMINAL', '00:31, PTD/PTT', 'ANON\nXXX-XXX-XXXX']

@@ -1,5 +1,5 @@
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 486', 'vozni red: 14.02', '11:30, Draškovićeva smjer Sav. most', '17:33, Draškovićeva smjer Sav. most', 'VEČESLAV KOZJAK\n098-568-424']
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 786', 'vozni red: 14.02', '17:33, Draškovićeva smjer Sav. most', '00:12, PTD/PTT', 'SNJEŽANA KRANJEC\n091-796-3279']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 477', 'vozni red: 13.08', '12:25, Držićeva smjer Žitnjak', '18:28, Držićeva smjer Kvat. trg', 'HRVOJE GALIĆ\n098-917-9312']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 777', 'vozni red: 13.08', '18:28, Držićeva smjer Kvat. trg', '00:36, PTD/PTT', 'SNJEŽANA KRANJEC\n091-796-3279']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 174', 'vozni red: 13.05', '06:12, PTD', '13:07, Držićeva smjer Žitnjak', 'MARKO RUKAVINA\n091-550-8716']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 474', 'vozni red: 13.05', '13:07, Držićeva smjer Žitnjak', '20:05, PTD/PTT', 'ANTON KARIN\n098-174-4223']
 ['Ponedjeljak, 29.5.2023.', 'empty']

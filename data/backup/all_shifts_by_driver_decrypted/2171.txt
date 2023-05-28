@@ -1,5 +1,5 @@
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 370', 'vozni red: 06.02', '11:36, ČRNOMEREC', '18:04, SOPOT- TERMINAL', 'ANTON KARIN\n098-174-4223']
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 670', 'vozni red: 06.02', '18:04, SOPOT- TERMINAL', '00:41, PTD/PTT', 'DENIS MOHARIĆ\n091-558-7757']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 474', 'vozni red: 13.05', '12:22, Držićeva smjer Kvat. trg', '18:17, Glavni kolodvor smjer Kvat. trg', 'ROBERT MIKLEC\n098-633-388']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 774', 'vozni red: 13.05', '18:17, Glavni kolodvor smjer Kvat. trg', '00:27, PTD/PTT', 'IVAN RAŠIĆ\n098-292-611']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 178', 'vozni red: 13.09', '05:07, PTD', '11:58, Držićeva smjer Žitnjak', 'KREŠIMIR COMBAJ\n091-896-4488']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 478', 'vozni red: 13.09', '11:58, Držićeva smjer Žitnjak', '18:30, Držićeva smjer Kvat. trg', 'ANON\nXXX-XXX-XXXX']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 778', 'vozni red: 13.09', '18:30, Držićeva smjer Kvat. trg', '01:02, PTD/PTT', 'DANIJEL BABIĆ\n098-620-481']

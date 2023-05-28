@@ -1,5 +1,5 @@
-['Subota, 27.5.2023.', 'O']
-['Nedjelja, 28.5.2023.', 'O']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 473', 'vozni red: 13.04', '10:39, PTD', '17:39, Držićeva smjer Kvat. trg', 'ANON\nXXX-XXX-XXXX']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 773', 'vozni red: 13.04', '17:39, Držićeva smjer Kvat. trg', '00:09, PTD/PTT', 'DINKO FILAR\n095-880-3109']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 177', 'vozni red: 13.08', '06:49, PTD', '13:44, Ivanićgradska smjer Žitnjak', 'SANELA DOMIĆ\n098-135-8695']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 477', 'vozni red: 13.08', '13:44, Ivanićgradska smjer Žitnjak', '20:44, PTD/PTT', 'ANON\nXXX-XXX-XXXX']
 ['Ponedjeljak, 29.5.2023.', 'empty']

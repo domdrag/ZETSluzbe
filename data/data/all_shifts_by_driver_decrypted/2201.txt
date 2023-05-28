@@ -1,5 +1,5 @@
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 340', 'vozni red: 04.01', '11:54, Dubrava smjer Dubec', '17:51, Dubrava smjer Sav. most', 'JOSIP ŽILIĆ\n098-239-366']
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 640', 'vozni red: 04.01', '17:51, Dubrava smjer Sav. most', '00:47, PTD/PTT', 'DARKO ĐUREC\n091-590-8933']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 348', 'vozni red: 04.09', '12:11, Dubrava smjer Sav. most', '18:59, Dubrava smjer Dubec', 'BOŽIDAR ŠIMAGA\n098-196-9203']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 648', 'vozni red: 04.09', '18:59, Dubrava smjer Dubec', '00:29, PTD/PTT', 'DARKO ĐUREC\n091-590-8933']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 46', 'vozni red: 04.07', '04:27, PTD', '10:53, Dubrava smjer Sav. most', 'ANON\nXXX-XXX-XXXX']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 346', 'vozni red: 04.07', '10:53, Dubrava smjer Sav. most', '17:39, Glavni kolodvor smjer Sav. most', 'IVO ANTUNOVIĆ\n091-582-9562']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 646', 'vozni red: 04.07', '17:39, Glavni kolodvor smjer Sav. most', '00:34, PTD/PTT', 'DARKO ĐUREC\n091-590-8933']

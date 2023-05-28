@@ -1,5 +1,5 @@
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 487', 'vozni red: 14.03', '08:14, PTD', '15:00, MIHALJEVAC', 'NEDILJKO VRKAŠEVIĆ\n098-185-8576']
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 787', 'vozni red: 14.03', '15:00, MIHALJEVAC', '21:53, PTD/PTT', 'IVICA PRGOMET\n092-110-0161']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 489', 'vozni red: 14.05', '10:22, PTD', '17:21, Vodnikova smjer Mihaljevac', 'MARIO DJAKOVIĆ\n092-112-1514']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 789', 'vozni red: 14.05', '17:21, Vodnikova smjer Mihaljevac', '00:21, PTD/PTT', 'IVICA PRGOMET\n092-110-0161']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 72', 'vozni red: 06.04', '06:31, PTD', '13:31, Zapruđe smjer Sopot', 'TOMISLAV GREGURANIĆ\n099-216-4005']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 372', 'vozni red: 06.04', '13:31, Zapruđe smjer Sopot', '20:27, PTD/PTT', 'PATRICIJA KAŠIĆ\n098-822-889']
 ['Ponedjeljak, 29.5.2023.', 'empty']

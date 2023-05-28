@@ -1,5 +1,5 @@
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 475', 'vozni red: 13.06', '12:01, Držićeva smjer Žitnjak', '18:04, Držićeva smjer Kvat. trg', 'SNJEŽANA HRENOVIĆ\n091-251-3868']
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 775', 'vozni red: 13.06', '18:04, Držićeva smjer Kvat. trg', '00:18, PTD/PTT', 'JOZO MARIĆ\n095-575-9103']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 392', 'vozni red: 07.04', '11:50, DUBRAVA- TERMINAL', '18:10, DUBRAVA- TERMINAL', 'VEČESLAV KOZJAK\n098-568-424']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 692', 'vozni red: 07.04', '18:10, DUBRAVA- TERMINAL', '00:41, PTD/PTT', 'JOZO MARIĆ\n095-575-9103']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 170', 'vozni red: 13.01', '04:06, PTD', '11:05, Vodnikova smjer Kvat. trg', 'DALIBOR ZAGORAC\n098-904-9114']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 470', 'vozni red: 13.01', '11:05, Vodnikova smjer Kvat. trg', '17:55, Stud. centar smjer Žitnjak', 'RONALD FIĆKO\n092-190-9574']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 770', 'vozni red: 13.01', '17:55, Stud. centar smjer Žitnjak', '00:55, PTD/PTT', 'JOZO MARIĆ\n095-575-9103']

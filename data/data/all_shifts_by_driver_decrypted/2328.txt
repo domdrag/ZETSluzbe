@@ -1,5 +1,5 @@
-['Subota, 27.5.2023.', 'Oz']
-['Nedjelja, 28.5.2023.', 'Oz']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 395', 'vozni red: 07.07', '12:25, DUBRAVA- TERMINAL', '18:45, DUBRAVA- TERMINAL', 'MLADEN TARADEJ\n098-671-969']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 695', 'vozni red: 07.07', '18:45, DUBRAVA- TERMINAL', '23:35, PTD/PTT', 'SINIŠA BUZA\n091-204-4033']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 75', 'vozni red: 06.07', '05:54, PTD', '12:51, Glavni kolodvor smjer Črnomerec', 'ZDRAVKO KUČIŠ\n098-829-501']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 375', 'vozni red: 06.07', '12:51, Glavni kolodvor smjer Črnomerec', '19:47, PTD/PTT', 'PAVE BARIĆ\n091-504-9389']
 ['Ponedjeljak, 29.5.2023.', 'empty']

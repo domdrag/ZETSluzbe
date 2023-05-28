@@ -1,5 +1,5 @@
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 371', 'vozni red: 06.03', '08:10, PTD', '15:08, Autobusni kol. smjer Sopot', 'NIKO DIVKOVIĆ\n098-708-469']
-['Nedjelja, 28.5.2023.', 'broj sluzbe: 671', 'vozni red: 06.03', '15:08, Autobusni kol. smjer Sopot', '21:57, PTD/PTT', 'PEZO-ROGIĆ LJILJANA\n098-160-0597']
+['Nedjelja, 4.6.2023.', 'broj sluzbe: 476', 'vozni red: 13.07', '14:36, Držićeva smjer Kvat. trg', '21:06, PTD/PTT', 'JELENA DIVKOVIĆ\n098-952-0647']
+['Nedjelja, 4.6.2023.', 'empty']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 141', 'vozni red: 11.12', '06:54, PTT', '13:54, Dubrava smjer Črnomerec', 'NIKO DIVKOVIĆ\n098-708-469']
 ['Ponedjeljak, 29.5.2023.', 'broj sluzbe: 441', 'vozni red: 11.12', '13:54, Dubrava smjer Črnomerec', '20:35, PTD/PTT', 'SNJEŽANA HRENOVIĆ\n091-251-3868']
 ['Ponedjeljak, 29.5.2023.', 'empty']
