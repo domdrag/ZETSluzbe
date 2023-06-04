@@ -49,5 +49,5 @@ def deleteNecessaryData():
         else:
             os.remove('data/data/' + file)
 
-    deleteExceeded('all_services_by_driver_decrypted')
-    deleteExceeded('all_shifts_by_driver_decrypted')
+    #deleteExceeded('all_services_by_driver_decrypted')
+    #deleteExceeded('all_shifts_by_driver_decrypted')

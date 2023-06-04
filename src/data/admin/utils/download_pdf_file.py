@@ -12,7 +12,7 @@ def downloadPDFFile(url, fileName):
                 with open(filePath, 'wb') as f:
                     f.write(r.content)
             downloadComplete = True
-        except:
-            pass
+        except Exception as e:
+            print(e)
         
     return filePath

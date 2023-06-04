@@ -29,6 +29,7 @@ from src.screen.share.calendar.utils.calendar_data import (get_month_names,
                                                            today_date_list,
                                                            calc_quarter,
                                                            get_quarter)
+from src.data.share.get_holidays import getHolidays
 
 
 class CalendarWidget(RelativeLayout):
@@ -40,6 +41,8 @@ class CalendarWidget(RelativeLayout):
         self.as_popup = as_popup
         self.touch_switch = touch_switch
         self.mCalendarInfo = mCalendarInfo
+        self.mLockSwitch = False
+        self.mErrorOccured = False
         self.prepare_data()     
         self.init_ui()
         
@@ -61,8 +64,11 @@ class CalendarWidget(RelativeLayout):
         # ScreenManager
         self.sm = MonthsManager()
         self.add_widget(self.sm)
-        
-        self.create_month_scr(self.quarter[1], toogle_today=True) 
+
+        try:
+            self.create_month_scr(self.quarter[1], toogle_today=True)
+        except:
+            self.mErrorOccured = True
     
     def create_month_scr(self, month, toogle_today=False):
         """ Screen with calendar for one month """
@@ -93,24 +99,38 @@ class CalendarWidget(RelativeLayout):
                mCalendarInfo[mIndex]['year'] == mYear:
                 mCurrentIndex = mIndex # start
                 break
-
+        mHolidays = getHolidays()
+        mHolidays = [mHDay for mHDay in mHolidays if ((mHDay[0] == 0 or
+                                                       mHDay[0] == mYear) and
+                                                      (mMonth-1 <= mHDay[1] and
+                                                       mHDay[1] <= mMonth+1))]
+        mCurrentIndexHolidays = 0
+        mMonthNeeded = mMonth
+            
         # Buttons with days numbers
         for week in month:
-            for day in week:                        
+            for day in week:
+                # 1) determine if holiday
                 mIsHoliday = False
-                mButtonColor = (0.2, 0.2, 0.2, 1) # grey
-                mRecordedDayCurrentMonth = False
-                if (mCurrentIndex >= len(mCalendarInfo)):
-                    pass
-                elif (day[0] == mCalendarInfo[mCurrentIndex]['day']):
-                    mIsHoliday = mCalendarInfo[mCurrentIndex]['isHoliday']
-                    if (day[2] == 1):
-                        mButtonColor = mCalendarInfo[mCurrentIndex]['dayColor']
-                    mRecordedDayCurrentMonth = True
-                
+                mMonthNeeded = mMonth
+                # "23" because that's lowest possible day for monday
+                # in previous month if current month is march
+                if (day[2] == 0 and day[0] >= 23):
+                    mMonthNeeded = mMonth - 1
+                # "6" because that's highest possible day for sunday
+                # in upcoming month
+                elif (day[2] == 0 and day[0] <= 6):
+                    mMonthNeeded = mMonth + 1
+                    
+                for mHoliday in mHolidays:
+                    if (mHoliday[1] == mMonthNeeded and mHoliday[2] == day[0]):
+                        mIsHoliday = True
+
+                # 2) button creation
+                mGreyColor = (0.2, 0.2, 0.2, 1) # grey
                 if day[1] == 6:  # sunday
                     tbtn = DayNumSundayButton(text=str(day[0]),
-                                              background_color = mButtonColor)
+                                              background_color = mGreyColor)
                 else:  # work days
                     if (mIsHoliday):
                         mTextColor = (1, 0, 0, 1) # red
@@ -118,10 +138,15 @@ class CalendarWidget(RelativeLayout):
                         mTextColor = (1, 1, 1, 1) # white
                     tbtn = DayNumButton(text=str(day[0]),
                                         color = mTextColor,
-                                        background_color = mButtonColor)
+                                        background_color = mGreyColor)
 
-                if (mRecordedDayCurrentMonth):
+                # 3) service binding
+                if (mCurrentIndex >= len(mCalendarInfo)):
+                    pass
+                elif (day[0] == mCalendarInfo[mCurrentIndex]['day']):
                     if (day[2] == 1):
+                        mButtonColor = mCalendarInfo[mCurrentIndex]['dayColor']
+                        tbtn.background_color = mButtonColor
                         mCurrentDay = mCalendarInfo[mCurrentIndex]
                         mService = mCurrentDay['service']
                         mServiceFullDay = mCurrentDay['serviceFullDay']
@@ -129,20 +154,19 @@ class CalendarWidget(RelativeLayout):
                                                        mServiceFullDay,
                                                        mService,
                                                        mButtonColor))
-                    mCurrentIndex = mCurrentIndex + 1
+                        mCurrentIndex = mCurrentIndex + 1
 
+                # 4) if it's today -> lighten the button color
                 if toogle_today:
                     # Down today button
                     if day[0] == self.active_date[0] and day[2] == 1:
-                        #tbtn.state = "down"
                         mButtonColor = tbtn.background_color
                         mList = list(mButtonColor)
                         mList = [mEl + (1-mEl)*0.15 for mEl in mList]
                         mList[3] = 1
                         tbtn.background_color = tuple(mList)
-                        pass
                 
-                # Disable buttons with days from other months
+                # 5) Disable buttons with days from other months
                 if day[2] == 0:
                     if (mIsHoliday):
                         tbtn.disabled_color = (1, 0, 0, 1) # red
@@ -182,6 +206,8 @@ class CalendarWidget(RelativeLayout):
         servicePopup.open()
         
     def go_prev(self, inst):
+        if (self.mErrorOccured):
+            return
         """ Go to screen with previous month """        
 
         # Change active date
@@ -194,8 +220,12 @@ class CalendarWidget(RelativeLayout):
                                    self.quarter_nums[0][0])
         
         # If it's doen't exitst, create it
-        if not self.sm.has_screen(prev_scr_name):
-            self.create_month_scr(self.quarter[0])
+        try:
+            if not self.sm.has_screen(prev_scr_name):
+                self.create_month_scr(self.quarter[0])
+        except:
+            self.mErrorOccured = True
+            return
             
         self.sm.current = prev_scr_name
         self.sm.transition.direction = "left"
@@ -207,6 +237,8 @@ class CalendarWidget(RelativeLayout):
         self.title_label.text = self.title
     
     def go_next(self, inst):
+        if (self.mErrorOccured):
+            return
         """ Go to screen with next month """
         
          # Change active date
@@ -219,8 +251,12 @@ class CalendarWidget(RelativeLayout):
                                    self.quarter_nums[2][0])
         
         # If it's doen't exitst, create it
-        if not self.sm.has_screen(next_scr_name):
-            self.create_month_scr(self.quarter[2])
+        try:
+            if not self.sm.has_screen(next_scr_name):
+                self.create_month_scr(self.quarter[2])
+        except:
+            self.mErrorOccured = True
+            return
             
         self.sm.current = next_scr_name
         self.sm.transition.direction = "right"
@@ -233,14 +269,22 @@ class CalendarWidget(RelativeLayout):
         
     def on_touch_move(self, touch):
         """ Switch months pages by touch move """
-                
+        if (self.mLockSwitch):
+            return
+        
         if self.touch_switch:
             # Left - prev
-            if touch.dpos[0] < -30:
+            if touch.dpos[0] > 50:
+                self.mLockSwitch = True
                 self.go_prev(None)
             # Right - next
-            elif touch.dpos[0] > 30:
+            elif touch.dpos[0] < -50:
+                self.mLockSwitch = True
                 self.go_next(None)
+
+    def on_touch_up(self, touch):
+        self.mLockSwitch = False
+    
 
 class ArrowButton(Button):
     pass

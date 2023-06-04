@@ -1,7 +1,0 @@
-['Ponedjeljak, 15.5.2023.', 'broj sluzbe: 563', 'vozni red: PRIČUVA', '10:00, PTD', '17:30, PTD']
-['Utorak, 16.5.2023.', 'broj sluzbe: 563', 'vozni red: PRIČUVA', '10:00, PTD', '17:30, PTD']
-['Srijeda, 17.5.2023.', 'broj sluzbe: 563', 'vozni red: PRIČUVA', '10:00, PTD', '17:30, PTD']
-['Cetvrtak, 18.5.2023.', 'broj sluzbe: 563', 'vozni red: PRIČUVA', '10:00, PTD', '17:30, PTD']
-['Petak, 19.5.2023.', 'broj sluzbe: 563', 'vozni red: PRIČUVA', '10:00, PTD', '17:30, PTD']
-['Subota, 20.5.2023.', 'O']
-['Nedjelja, 21.5.2023.', 'O']
