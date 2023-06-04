@@ -13,7 +13,6 @@ from src.data.admin.utils.delete_necessary_data import (
     )
 from src.data.admin.utils.search_links import searchLinks  
 from src.data.admin.utils.set_last_record import setLastRecord
-from src.data.admin.utils.set_holidays import setHolidays
 from src.data.admin.utils.set_days import setDays
 from src.data.admin.rules.extract_rules_by_driver import (
     extractRulesByDriver
@@ -81,7 +80,7 @@ class AdminDataCollector:
                     # for at least a week) we still got 'Sluzbe azurirane'
                     # which may be misleading 
                     if self.synchronizationNeeded:
-                        # will be + 1 after so UPDATE_BACKUP_DIRECTORY
+                        # will be + 1 after so SET_WARNING_MESSAGE
                         self.phase = cp.UPLOAD_DATA_TO_DROPBOX 
                         returnMessage['message'] = 'Kopiranje sluzbi'
                     else:
@@ -99,7 +98,7 @@ class AdminDataCollector:
                     
             elif self.phase == cp.EXTRACT_RULES_BY_DRIVER:
                 print('EXTRACT_RULES_BY_DRIVER')
-                extractRulesByDriver(self.weekSchedule)
+                extractRulesByDriver(self.weekSchedule, self.mondayDate)
                 returnMessage['message'] = 'Citanje svih sluzbi'
                 
             elif self.phase == cp.EXTRACT_RULES:
@@ -123,7 +122,6 @@ class AdminDataCollector:
             elif self.phase == cp.SAVE_RELEVANT_DATA:
                 print('SET_RELEVANT_DATA')
                 setLastRecord(self.mondayDate)
-                setHolidays(self.mondayDate, self.weekSchedule)
                 returnMessage['message'] = 'Ucitavanje sluzbi na Internet'
 
             elif self.phase == cp.UPLOAD_DATA_TO_DROPBOX:

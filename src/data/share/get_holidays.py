@@ -2,7 +2,6 @@ import ast
 
 def getHolidays():
     filePath = 'data/data/holidays.txt'
-    weekServices = ''
     
     try:
         fileR = open(filePath, 'r', encoding='utf-8')

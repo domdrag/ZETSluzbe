@@ -1,7 +1,5 @@
 import ast
 
-from src.data.share.utils.get_holidays import getHolidays
-
 COLOR_BLUE = (0, 0, 1, 1)
 COLOR_GREEN = (0.13, 0.55, 0.13, 1) 
 COLOR_RED = (0.545, 0, 0, 1)
@@ -31,14 +29,6 @@ def getCalendarInfo(offNum):
         day = int(date[:firstDotIndex])
         month = int(date[firstDotIndex+1:secondDotIndex])
         year = int(date[secondDotIndex+1:thirdDotIndex])
-        holidays = getHolidays()
-        isHoliday = False
-        
-        for holiday in holidays:
-            if (year == holiday[0] and
-                month == holiday[1] and
-                day == holiday[2]):
-                isHoliday = True
                 
         if(len(weekService) == 2):
             dayColor = COLOR_GREEN
@@ -50,7 +40,6 @@ def getCalendarInfo(offNum):
                                      'month': month,
                                      'year': year,
                                      'dayColor': dayColor,
-                                     'isHoliday': isHoliday,
                                      'serviceFullDay': weekService[0],
                                      'service': '\n'.join(weekService[1:])})
         else:
@@ -58,7 +47,6 @@ def getCalendarInfo(offNum):
                                      'month': month,
                                      'year': year,
                                      'dayColor': COLOR_BLUE,
-                                     'isHoliday': isHoliday,
                                      'serviceFullDay': weekService[0],
                                      'service': '\n'.join(weekService[1:])})
     return calendarInfoData

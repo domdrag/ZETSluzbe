@@ -35,7 +35,7 @@ class LoginScreen(Screen):
     
     def __init__(self, **kwargs):
         super(LoginScreen, self).__init__(**kwargs)
-        self.updatePopup = UpdatePopup()
+        #self.updatePopup = UpdatePopup()
 
         # if some operation haven't stopped in last session
         if errorOccuredInLastSession():
@@ -64,6 +64,7 @@ class LoginScreen(Screen):
             self.manager.loginFailure()
 
     def updateButton(self):
+        self.updatePopup = UpdatePopup()
         self.update()
 
     @showPopup
