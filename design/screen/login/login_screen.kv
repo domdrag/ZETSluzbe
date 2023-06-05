@@ -4,8 +4,9 @@
 	name: 'loginScreen'
 	offNumTextInput: offNumTextInputId
 	
-    FloatLayout:
-        Label:
+    MDFloatLayout:
+		md_bg_color: app.theme_cls.primary_dark
+        MDLabel:
 			pos_hint: {"x":0.3, "top":0.9}
             size_hint: 0.4, 0.1
 			font_size: "13dp"
@@ -22,9 +23,9 @@
             text: '2621'
             multiline: False
 			
-		Label:
-			pos_hint: {"x":0.3, "top":0.5}
-            size_hint: 0.4, 0.1
+		MDLabel:
+			pos_hint: {"x":0.2, "top":0.5}
+            size_hint: 0.6, 0.1
 			font_size: "13dp"
 			text_size: self.width/1.05, None
 			halign: 'center'
