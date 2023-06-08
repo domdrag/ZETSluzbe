@@ -3,7 +3,7 @@ from kivy.lang import Builder
 
 from src.screen.zet_screen_manager import ZETScreenManager
 
-# novi branch 3
+# novi branch 4
 
 class ZETApp(App):
     def build(self):
