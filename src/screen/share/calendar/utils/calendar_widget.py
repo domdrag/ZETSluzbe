@@ -228,7 +228,7 @@ class CalendarWidget(RelativeLayout):
             return
             
         self.sm.current = prev_scr_name
-        self.sm.transition.direction = "left"
+        self.sm.transition.direction = "right"
         
         self.get_quarter()
         self.title = "%s - %s" % (self.month_names[self.active_date[1] - 1], 
@@ -259,7 +259,7 @@ class CalendarWidget(RelativeLayout):
             return
             
         self.sm.current = next_scr_name
-        self.sm.transition.direction = "right"
+        self.sm.transition.direction = "left"
         
         self.get_quarter()
         self.title = "%s - %s" % (self.month_names[self.active_date[1] - 1], 
