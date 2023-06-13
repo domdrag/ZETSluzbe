@@ -57,8 +57,8 @@ class LoginScreen(Screen):
         servicesData = readServices(offNum)
         shiftsData = readShifts(offNum)
         if servicesData and shiftsData:
-            self.manager.updateScreens(offNum, servicesData, shiftsData)
-            self.manager.switchToServicesScreen()
+            self.manager.updateTabs(offNum, servicesData, shiftsData)
+            self.manager.switchToMainScreen()
         else:
             self.updatePopup = UpdatePopup()
             self.manager.loginFailure()

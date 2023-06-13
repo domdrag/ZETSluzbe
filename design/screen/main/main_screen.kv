@@ -1,17 +1,38 @@
-#:include design/screen/services/services_screen.kv
+#:include design/screen/main/tabs/services/services_tab.kv
+#:include design/screen/main/tabs/shifts/shifts_tab.kv
+#:include design/screen/main/tabs/hourly_rate/hourly_rate_tab.kv
 
-MDBoxLayout:
-	orientation: 'vertical'
-	
-	MDTopAppBar:
-		title: 'ZETSluzbe'
-	
-	MDTabs:
-		#size_hint_x: 1
-		#allow_stretch: True
-		#elevation: 1
-		#tab_padding: [1,0,1,0]
-		#tab_indicator_anim: True
-		tab_hint_x: True
+<MainScreen>:
+	name: 'mainScreen'
+	servicesTab: servicesTabId
+	shiftsTab: shiftsTabId
+	hourlyRateTab: hourlyRateTabId
+
+	MDBoxLayout:
+		orientation: 'vertical'
 		
-		ServicesScreen
+		MDTopAppBar:
+			orientation: 'horizontal'
+			title: 'ZETSluzbe'
+			
+			MDIconButton:
+				icon: 'calendar'
+				on_release: root.calendarButton()
+				
+			MDIconButton:
+                icon: 'logout'
+				on_release: root.logoutButton()
+		
+		MDTabs:
+			tab_hint_x: True
+			
+			ServicesTab:
+				id: servicesTabId
+				
+			ShiftsTab: 
+				id: shiftsTabId
+				
+			HourlyRateTab:
+				id: hourlyRateTabId
+				
+			
