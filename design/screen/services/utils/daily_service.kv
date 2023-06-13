@@ -3,26 +3,13 @@
 <DailyService>:
     day: ''
     service: ''
-	bg_color: (0,0,0,0)
+	bg_color: app.theme_cls.primary_dark
+	
     GridLayout:
         rows: 2
-        Label:
+        ZETLabelWithBorder:
             text: root.day
-            canvas.before:
-                Color:
-                    rgba: .5, .5, .5, 1
-                Line:
-                    width: 2
-                    rectangle: self.x, self.y, self.width, self.height
-        SpecialLabel:
-			readonly: True
-			background_color: root.bg_color
-			color: 1, 1, 1, 1
-            halign: 'center'
+
+        ZETLabelWithBorder:
+			md_bg_color: root.bg_color
             text: root.service
-            canvas.after:
-                Color:
-                    rgba: .5, .5, .5, 1
-                Line:
-                    width: 2
-                    rectangle: self.x, self.y, self.width, self.height

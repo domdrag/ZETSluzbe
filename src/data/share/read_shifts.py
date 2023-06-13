@@ -4,6 +4,10 @@ from src.data.share.utils.check_service_date_validity import (
     checkServiceDateValidity
     )
 from src.data.share.utils.get_service_date import getServiceDate
+from src.data.share.color_manager import (getPrimaryColor,
+                                          getShiftColor,
+                                          getFreeDayColor,
+                                          getErrorColor)
 
 def readShifts(offNum):
     filePath = 'data/data/all_shifts_by_driver_decrypted/' + offNum + '.txt'
@@ -31,17 +35,17 @@ def readShifts(offNum):
             nextService = ast.literal_eval(weekServices[currWeekService + 1])
             nextServiceDate = getServiceDate(nextService)
         if(currServiceDate != nextServiceDate): # slobodan dan
-            bgColor2 = (0.13, 0.55, 0.13, 1)
+            bgColor2 = getFreeDayColor()
             if(weekService[1] == 'empty' or
                weekService[1] == '' or # za svaki slucaj case-vi
                weekService[1] == ' '):
-                bgColor2 = (0.545, 0, 0, 1)
+                bgColor2 = getErrorColor()
                 
             weekServicesData.append({'firstItem': weekService[0],
                                      'firstDriver': '',
                                      'secondItem': '\n'.join(weekService[1:]),
                                      'secondDriver': '',
-                                     'bg_color1': (0,0,0,0),
+                                     'bg_color1': getPrimaryColor(),
                                      'bg_color2': bgColor2})
             currWeekService = currWeekService + 1
         else:
@@ -76,19 +80,17 @@ def readShifts(offNum):
             elif(thirdDriver.count('-') > 2):
                 thirdDriver = thirdDriver.replace('-', ' - ', 1)
 
-            
-            
             weekServicesData.append({'firstItem': weekService[0],
                                      'firstDriver': '',
                                      'secondItem': '\n'.join(firstShift[:-1]),
                                      'secondDriver': firstDriver,
-                                     'bg_color1': (0,0,0,0),
-                                     'bg_color2': (1, 0.6, 0, 1)})
+                                     'bg_color1': getPrimaryColor(),
+                                     'bg_color2': getShiftColor()})
             weekServicesData.append({'firstItem': '\n'.join(secondShift[:-1]),
                                      'firstDriver': secondDriver,
                                      'secondItem': '\n'.join(thirdShift[:-1]),
                                      'secondDriver': thirdDriver,
-                                     'bg_color1': (1, 0.6, 0, 1),
-                                     'bg_color2': (1, 0.6, 0, 1)})
+                                     'bg_color1': getShiftColor(),
+                                     'bg_color2': getShiftColor()})
             currWeekService = currWeekService + 3
     return weekServicesData

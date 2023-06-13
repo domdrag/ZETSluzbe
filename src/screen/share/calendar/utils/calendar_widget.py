@@ -20,7 +20,9 @@ from kivy.uix.label import Label
 from kivy.core.window import Window
 from kivy.properties import (NumericProperty,
                              ReferenceListProperty,
-                             StringProperty)
+                             StringProperty,
+                             ObjectProperty)
+from kivy.uix.widget import Widget
 
 from src.screen.share.calendar.utils.service_popup import ServicePopup
 from src.screen.share.calendar.utils.calendar_data import (get_month_names,
@@ -30,17 +32,31 @@ from src.screen.share.calendar.utils.calendar_data import (get_month_names,
                                                            calc_quarter,
                                                            get_quarter)
 from src.data.share.get_holidays import getHolidays
+from src.data.share.color_manager import (getPrimaryColor,
+                                          getSecondaryColor,
+                                          getErrorColor,
+                                          getWhiteColor)
+
+from kivymd.uix.relativelayout import MDRelativeLayout
+from kivymd.uix.screenmanager import MDScreenManager
+from kivymd.uix.screen import MDScreen
+from kivymd.uix.button import MDFillRoundFlatButton
+from kivymd.uix.button import MDFlatButton
+from kivymd.uix.label import MDLabel
+from kivymd.uix.gridlayout import MDGridLayout
 
 
-class CalendarWidget(RelativeLayout):
+class CalendarWidget(MDRelativeLayout):
     """ Basic calendar widget """
+    mCalendarSize = ObjectProperty(100) # binding, dummy value
     
-    def __init__(self, mCalendarInfo, as_popup=False, touch_switch=False,
+    def __init__(self, mCalendarInfo, mCalendarSize, as_popup=False, touch_switch=False,
                  *args, **kwargs):
         super(CalendarWidget, self).__init__(*args, **kwargs)
         self.as_popup = as_popup
         self.touch_switch = touch_switch
         self.mCalendarInfo = mCalendarInfo
+        self.mCalendarSize = mCalendarSize
         self.mLockSwitch = False
         self.mErrorOccured = False
         self.prepare_data()     
@@ -67,16 +83,17 @@ class CalendarWidget(RelativeLayout):
 
         try:
             self.create_month_scr(self.quarter[1], toogle_today=True)
-        except:
+        except Exception as e:
+            print(str(e))
             self.mErrorOccured = True
     
     def create_month_scr(self, month, toogle_today=False):
         """ Screen with calendar for one month """
         
-        scr = Screen()
+        scr = MDScreen()
         m = self.month_names_eng[self.active_date[1] - 1]
         scr.name = "%s-%s" % (m, self.active_date[2])  # like march-2015
-        
+
         # Grid for days
         grid_layout = ButtonsGrid()
         scr.add_widget(grid_layout)
@@ -127,18 +144,18 @@ class CalendarWidget(RelativeLayout):
                         mIsHoliday = True
 
                 # 2) button creation
-                mGreyColor = (0.2, 0.2, 0.2, 1) # grey
                 if day[1] == 6:  # sunday
                     tbtn = DayNumSundayButton(text=str(day[0]),
-                                              background_color = mGreyColor)
+                                              text_color = getErrorColor(),
+                                              md_bg_color = getPrimaryColor())
                 else:  # work days
                     if (mIsHoliday):
-                        mTextColor = (1, 0, 0, 1) # red
+                        mTextColor = getErrorColor() # red
                     else:
-                        mTextColor = (1, 1, 1, 1) # white
+                        mTextColor = getWhiteColor() 
                     tbtn = DayNumButton(text=str(day[0]),
-                                        color = mTextColor,
-                                        background_color = mGreyColor)
+                                        text_color = mTextColor,
+                                        md_bg_color = getPrimaryColor())
 
                 # 3) service binding
                 if (mCurrentIndex >= len(mCalendarInfo)):
@@ -146,7 +163,7 @@ class CalendarWidget(RelativeLayout):
                 elif (day[0] == mCalendarInfo[mCurrentIndex]['day']):
                     if (day[2] == 1):
                         mButtonColor = mCalendarInfo[mCurrentIndex]['dayColor']
-                        tbtn.background_color = mButtonColor
+                        tbtn.md_bg_color = mButtonColor
                         mCurrentDay = mCalendarInfo[mCurrentIndex]
                         mService = mCurrentDay['service']
                         mServiceFullDay = mCurrentDay['serviceFullDay']
@@ -160,15 +177,15 @@ class CalendarWidget(RelativeLayout):
                 if toogle_today:
                     # Down today button
                     if day[0] == self.active_date[0] and day[2] == 1:
-                        mButtonColor = tbtn.background_color
+                        mButtonColor = tbtn.md_bg_color
                         mList = list(mButtonColor)
                         mList = [mEl + (1-mEl)*0.15 for mEl in mList]
                         mList[3] = 1
-                        tbtn.background_color = tuple(mList)
+                        tbtn.md_bg_color = tuple(mList)
                 
                 # 5) Disable buttons with days from other months
                 if day[2] == 0:
-                    if (mIsHoliday):
+                    if (mIsHoliday or day[1] == 6):
                         tbtn.disabled_color = (1, 0, 0, 1) # red
                     tbtn.disabled = True
                 
@@ -284,27 +301,38 @@ class CalendarWidget(RelativeLayout):
 
     def on_touch_up(self, touch):
         self.mLockSwitch = False
-    
 
-class ArrowButton(Button):
+class ZETCanvasAfter(Widget):
     pass
 
-class MonthYearLabel(Label):
+class ZETDesign(Widget):
     pass
 
-class MonthsManager(ScreenManager):
+class ZETLabel(MDLabel, ZETDesign):
     pass
 
-class ButtonsGrid(GridLayout):
+class ZETLabelWithBorder(ZETLabel, ZETCanvasAfter):
     pass
 
-class DayAbbrLabel(Label):
+class ArrowButton(MDFillRoundFlatButton):
+    pass
+
+class MonthYearLabel(ZETLabel):
+    pass
+
+class MonthsManager(MDScreenManager):
+    pass
+
+class ButtonsGrid(MDGridLayout):
+    pass
+
+class DayAbbrLabel(ZETLabel):
     pass
 
 class DayAbbrSundayLabel(DayAbbrLabel):
     pass
 
-class DayButton(Button):
+class DayButton(MDFlatButton):
     pass
 
 class DayNumButton(DayButton):

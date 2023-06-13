@@ -1,10 +1,33 @@
-<BackgroundColor@Widget>
-    background_color: .5, .5, .5, 1
-    canvas.before:
-        Color:
-            rgba: root.background_color
-        Rectangle:
-            size: self.size
-            pos: self.pos
+<ZETCanvasAfter@Widget>
+	canvas.after:
+		Color:
+			rgba: app.theme_cls.accent_color
+		Line:
+			width: 1
+			rectangle: self.x, self.y, self.width, self.height
 
-<SpecialLabel@Label+BackgroundColor>
+<ZETDesign@Widget>
+	halign: 'center'
+	valign: 'center'
+	font_size: '13dp'
+	text_size: self.width/1.05, None
+	text_color: 'white'
+	md_bg_color: app.theme_cls.primary_dark
+	
+<ZETLabel@MDLabel+ZETDesign>
+
+<ZETLabelWithBorder@ZETLabel+ZETCanvasAfter>
+	
+<ZETButton@MDFillRoundFlatButton+ZETDesign>
+	text_color: 'black'
+	md_bg_color: app.theme_cls.accent_dark
+
+<ZETFlatButton@MDFlatButton+ZETDesign>
+	
+<ZETTextField@MDTextField+ZETDesign>
+	halign: 'left'
+	color_mode: 'accent'
+	line_color_normal: 'black'
+	text_color_normal: 'black'
+	line_color_focus: 'white'
+	text_color_focus: 'white'

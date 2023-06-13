@@ -1,31 +1,55 @@
-from kivy.uix.popup import Popup
-from kivy.core.clipboard import Clipboard
+from kivymd.uix.dialog import MDDialog
+from kivymd.uix.button import MDFlatButton
+from kivymd.uix.button import MDRaisedButton
 from kivy.properties import StringProperty
+from kivy.core.window import Window
 
 from jnius import autoclass
 from jnius import cast
 
-class CallInfoPopup(Popup):
+from src.screen.shifts.utils.python.call_info_widget import CallInfoWidget
+
+from src.data.share.color_manager import getPrimaryColor, getSecondaryColor
+
+DIALOG_SIZE_HINT_X = 0.62
+DIALOG_SIZE_HINT_Y = 0.53
+
+class CallInfoPopup(MDDialog):
     name = StringProperty() # binding
     phoneNumber = StringProperty() # binding
-
-    def __init__(self, **kwargs):
-        super(CallInfoPopup, self).__init__(**kwargs)
-
-    def populateCallInfo(self, driverInfo):
-        # expected: driverInfo = [name] [surname] \n [phoneNumber]
+    
+    def __init__(self, driverInfo):
         if('\n' not in driverInfo):
-            return False
+            raise Exception('Nema telefonskog broja u bazi')
+        
         driverInfoList = driverInfo.split('\n')
         self.name = driverInfoList[0]
         self.phoneNumber = driverInfoList[1]
-        return True
+        
+        buttons=[
+            MDRaisedButton(
+                text = 'SPREMI U IMENIK',
+                theme_text_color = 'Custom',
+                md_bg_color = getSecondaryColor(),
+                text_color = getPrimaryColor(),
+                on_release = self.saveContact
+            ),
+            MDRaisedButton(
+                text = 'NAZOVI',
+                theme_text_color = 'Custom',
+                md_bg_color = getSecondaryColor(),
+                text_color = getPrimaryColor(),
+                on_release = self.callNumber
+            )]
 
-    def copyNameOnClipboard(self):
-        Clipboard.copy(self.name)
-
-    def copyPhoneNumberOnClipboard(self):
-        Clipboard.copy(self.phoneNumber)
+        widgetHeight = DIALOG_SIZE_HINT_Y * Window.size[1]
+        callInfoWidget = CallInfoWidget(widgetHeight,
+                                        self.name,
+                                        self.phoneNumber)
+        super(CallInfoPopup, self).__init__(title = 'Kolega',
+                                            type = 'custom',
+                                            content_cls = callInfoWidget,
+                                            buttons = buttons)
             
     def callNumber(self):
         Intent = autoclass('android.content.Intent')        

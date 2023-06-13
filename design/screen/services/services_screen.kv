@@ -1,38 +1,60 @@
 #:include design/screen/services/utils/daily_service.kv
-#:include design/screen/share/calendar/calendar.kv
+#:include design/screen/share/calendar/calendar_dialog.kv
+
+<ZETTabs@MDTabs+ZETCanvasAfter>
+<ZETTab@Tab+ZETCanvasAfter>
 
 <ServicesScreen>:
 	name: 'servicesScreen'
 	servicesScreenRecycleView: servicesScreenRecycleViewId
 	
-    RecycleView:
-        viewclass: 'DailyService'
-        id: servicesScreenRecycleViewId
-        RecycleBoxLayout:
-            default_size: None, dp(200)
-            default_size_hint: 1, None
-            size_hint_y: None
-            height: self.minimum_height
-            orientation: 'vertical'
-    Button:
+	MDBoxLayout:
+		orientation: 'vertical'
+		
+		MDTopAppBar:
+			title: 'ZETSluzbe'
+		
+		MDTabs:
+			#size_hint_x: 1
+			#allow_stretch: True
+			#elevation: 1
+			#tab_padding: [1,0,1,0]
+			#tab_indicator_anim: True
+			tab_hint_x: True
+			
+			Tab:
+				title: 'Sluzbe'
+				#size_hint_x: 0.5 - ZGODNO! prepolovi ti screen sluzbi
+			
+				RecycleView:
+					viewclass: 'DailyService'
+					id: servicesScreenRecycleViewId
+					RecycleBoxLayout:
+						default_size: None, dp(200)
+						default_size_hint: 1, None
+						size_hint_y: None
+						height: self.minimum_height
+						orientation: 'vertical'
+			Tab:
+				title: 'Smjena'
+				
+			Tab:
+				title: 'Satnica'
+			
+    ZETButton:
         pos_hint:{"x":0.1,'bottom': 1}
         size_hint: 0.4, 0.1
-        font_size: (root.width**2 + root.height**2) / 17**4
         text: "Smjena"
         on_release: root.shiftsButton()
 		
-    Button:
+    ZETButton:
         pos_hint:{"x":0.5,'bottom': 1}
         size_hint: 0.4, 0.1
-        font_size: (root.width**2 + root.height**2) / 17**4
         text: 'Odjavi se'
         on_release: root.logoutButton()
 	
-	Button:
+	ZETButton:
         pos_hint:{"x":0.8,'top': 1}
         size_hint: 0.2, 0.1
-        font_size: "13dp"
-		text_size: self.width/1.05, None
-		halign: 'center'
         text: 'Kalendar'
 		on_release: root.calendarButton()

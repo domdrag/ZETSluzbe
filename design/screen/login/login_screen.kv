@@ -4,48 +4,34 @@
 	name: 'loginScreen'
 	offNumTextInput: offNumTextInputId
 	
-    FloatLayout:
-        Label:
+    MDFloatLayout:
+		md_bg_color: app.theme_cls.primary_dark
+
+        ZETLabel:
 			pos_hint: {"x":0.3, "top":0.9}
             size_hint: 0.4, 0.1
-			font_size: "13dp"
-			text_size: self.width/1.05, None
-			halign: 'center'
             text: "Sluzbeni broj: "
 			
-        TextInput:
+        ZETTextField:
 			pos_hint: {"x": 0.3 , "top":0.8}
 			size_hint: 0.4, 0.1
-			font_size: "13dp"
-			text_size: self.width/1.05, None
             id: offNumTextInputId
-            text: '2621'
-            multiline: False
+            text: '2545'
 			
-		Label:
+		ZETLabel:
 			pos_hint: {"x":0.2, "top":0.5}
             size_hint: 0.6, 0.1
-			font_size: "13dp"
-			text_size: self.width/1.05, None
-			halign: 'center'
             text: root.warningMessage
 			color: root.warningMessageColor
 
-        Button:
+        ZETButton:
             pos_hint:{"x":0.1,'bottom': 1}
 			size_hint: 0.4, 0.1
-			font_size: "13dp"
-			text_size: self.width/1.05, None
-			halign: 'center'
-            text: "Prijavi se"
+            text: 'Prijavi se'
             on_release: root.loginButton()
 					
-		Button:
+		ZETButton:
             pos_hint:{"x":0.5,'bottom': 1}
 			size_hint: 0.4, 0.1
-			font_size: "13dp"
-			text_size: self.width/1.05, None
-			halign: 'center'
-            text: "Azuriraj"
+            text: 'Azuriraj'
             on_release: root.updateButton()
-			disabled: False

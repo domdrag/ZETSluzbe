@@ -1,8 +1,9 @@
-from kivy.uix.popup import Popup
-from kivy.properties import StringProperty
+#from kivy.uix.popup import Popup
+from kivymd.uix.dialog import MDDialog
+#from kivy.properties import StringProperty
 
-class UpdatePopup(Popup):
-    text = StringProperty() # binding
+class UpdatePopup(MDDialog):
+    #text = StringProperty() # binding
     dotsTimer = None
     
     def __init__(self, **kwargs):

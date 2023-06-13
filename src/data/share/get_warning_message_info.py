@@ -1,8 +1,4 @@
-
-COLOR_TUPLE_SIZE = 4
-COLOR_GREEN = (0.2,0.71,0.13,1)
-COLOR_ORANGE = (0.96,0.74,0,1)
-COLOR_RED = (0.545, 0, 0, 1)
+from src.data.share.color_manager import getWhiteColor, getErrorColor
 
 def readWarningMessage():
     fileR = open('data/data/warnings.txt', 'r', encoding='utf-8')
@@ -13,22 +9,21 @@ def readWarningMessage():
 def getWarningMessageInfo():
     lines = readWarningMessage()
     if (lines == []):
-        return
+        return {'message': '[ERROR] Warning message ne postoji.',
+                'color': getErrorColor()}
         
     firstMessage = lines[0].split('$')
     message = firstMessage[1]
     if (firstMessage[0] == '0'):
-        color = COLOR_GREEN
+        color = getWhiteColor()
     elif (firstMessage[0] == '1'):
-        color = COLOR_ORANGE
+        color = getWhiteColor()
     else:
-        color = COLOR_RED
+        color = getErrorColor()
 
     for line in lines[1:]:
         message += line
 
     assert isinstance(message, str)
-    assert isinstance(color, tuple)
-    assert len(color) == COLOR_TUPLE_SIZE
     return {'message': message, 'color': color}
 

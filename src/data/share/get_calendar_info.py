@@ -1,9 +1,9 @@
 import ast
 
-COLOR_BLUE = (0, 0, 1, 1)
-COLOR_GREEN = (0.13, 0.55, 0.13, 1) 
-COLOR_RED = (0.545, 0, 0, 1)
-COLOR_GREY = (0.5, 0.5, 0.5, 1)
+from src.data.share.color_manager import (getPrimaryColor,
+                                          getServiceColor,
+                                          getFreeDayColor,
+                                          getErrorColor)
 
 def getCalendarInfo(offNum):
     filePath = 'data/data/all_services_by_driver_decrypted/' + offNum + '.txt'
@@ -31,11 +31,11 @@ def getCalendarInfo(offNum):
         year = int(date[secondDotIndex+1:thirdDotIndex])
                 
         if(len(weekService) == 2):
-            dayColor = COLOR_GREEN
+            dayColor = getFreeDayColor()
             if(weekService[1] == 'empty' or
                weekService[1] == '' or # za svaki slucaj case-vi
                weekService[1] == ' '):
-                dayColor = COLOR_GREY
+                dayColor = getPrimaryColor()
             calendarInfoData.append({'day': day,
                                      'month': month,
                                      'year': year,
@@ -46,7 +46,7 @@ def getCalendarInfo(offNum):
             calendarInfoData.append({'day': day,
                                      'month': month,
                                      'year': year,
-                                     'dayColor': COLOR_BLUE,
+                                     'dayColor': getServiceColor(),
                                      'serviceFullDay': weekService[0],
                                      'service': '\n'.join(weekService[1:])})
     return calendarInfoData
