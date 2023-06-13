@@ -1,0 +1,18 @@
+#:include design/screen/main/tabs/services/utils/daily_service.kv
+#:include design/screen/share/calendar/calendar_dialog.kv
+
+<ServicesTab>:
+	name: 'servicesTab'
+	servicesTabRecycleView: servicesTabRecycleViewId
+	title: 'Sluzbe'
+	#size_hint_x: 0.5 - ZGODNO! prepolovi ti screen sluzbi
+
+	RecycleView:
+		viewclass: 'DailyService'
+		id: servicesTabRecycleViewId
+		RecycleBoxLayout:
+			default_size: None, dp(200)
+			default_size_hint: 1, None
+			size_hint_y: None
+			height: self.minimum_height
+			orientation: 'vertical'

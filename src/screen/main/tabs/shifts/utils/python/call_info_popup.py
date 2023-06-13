@@ -7,7 +7,8 @@ from kivy.core.window import Window
 from jnius import autoclass
 from jnius import cast
 
-from src.screen.shifts.utils.python.call_info_widget import CallInfoWidget
+from src.screen.main.tabs.shifts.utils.python.call_info_widget import \
+     CallInfoWidget
 
 from src.data.share.color_manager import getPrimaryColor, getSecondaryColor
 
