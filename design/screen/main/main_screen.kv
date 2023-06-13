@@ -1,0 +1,17 @@
+#:include design/screen/services/services_screen.kv
+
+MDBoxLayout:
+	orientation: 'vertical'
+	
+	MDTopAppBar:
+		title: 'ZETSluzbe'
+	
+	MDTabs:
+		#size_hint_x: 1
+		#allow_stretch: True
+		#elevation: 1
+		#tab_padding: [1,0,1,0]
+		#tab_indicator_anim: True
+		tab_hint_x: True
+		
+		ServicesScreen

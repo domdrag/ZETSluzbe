@@ -1,0 +1,30 @@
+#:include design/screen/share/special_label.kv
+
+<CallInfoWidget>:
+	height: root.widgetHeight
+	size_hint_y: None
+
+	BoxLayout:
+		orientation: 'vertical'
+		
+		BoxLayout:
+			ZETLabel:
+				id: nameId
+				text: root.driverName
+				
+			ZETFlatButton:
+				size_hint: 0.5, 0.5
+				pos_hint: {'center_x':0.5, 'center_y':0.5}
+				text: 'Kopiraj'
+				on_release: root.copyNameOnClipboard()
+				
+		BoxLayout:
+			ZETLabel:
+				id: phoneNumberId
+				text: root.driverPhoneNumber
+
+			ZETFlatButton:
+				size_hint: 0.5, 0.5
+				pos_hint: {'center_x':0.5, 'center_y':0.5}
+				text: 'Kopiraj'
+				on_release: root.copyPhoneNumberOnClipboard()

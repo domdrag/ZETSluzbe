@@ -21,10 +21,12 @@ class ShiftsScreen(Screen):
     def setOffNum(self, offNum):
         self.offNum = offNum
 
-    def showCallInfoPopup(self, driverInfoList):
-        self.callInfoPopup = CallInfoPopup()
-        if self.callInfoPopup.populateCallInfo(driverInfoList):
+    def showCallInfoPopup(self, driverInfo):
+        try:
+            self.callInfoPopup = CallInfoPopup(driverInfo)
             self.callInfoPopup.open()
+        except Exception as e:
+            print(str(e))
         
     def servicesButton(self):
         self.manager.switchToServicesScreen()
