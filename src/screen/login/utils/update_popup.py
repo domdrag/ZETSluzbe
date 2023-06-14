@@ -6,5 +6,5 @@ class UpdatePopup(MDDialog):
     #text = StringProperty() # binding
     dotsTimer = None
     
-    def __init__(self, **kwargs):
-        super(UpdatePopup, self).__init__(**kwargs)
+    def __init__(self):
+        super(UpdatePopup, self).__init__(type = 'custom')
