@@ -14,7 +14,6 @@ class CalendarPopup(MDDialog):
         # when I forward the wanted height of CalendarWidget, the width
         # of the widget also changes when I change size_hint_x a.k.a
         # now the widget follow the Dialog x-coordinate
-        # POSSIBLE REASON - DailyService covers entire dialog screen
         calendarDialogSize = (DIALOG_SIZE_HINT_X * Window.size[0],
                               DIALOG_SIZE_HINT_Y * Window.size[1])
         cal = CalendarWidget(calendarInfo,
