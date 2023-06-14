@@ -1,5 +1,6 @@
-from kivy.uix.boxlayout import BoxLayout
+from kivymd.uix.boxlayout import MDBoxLayout
+from kivy.properties import ColorProperty
 
-class DailyService(BoxLayout):
+class DailyService(MDBoxLayout):
     pass
 

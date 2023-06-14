@@ -301,7 +301,7 @@ class CalendarWidget(MDRelativeLayout):
 
     def on_touch_up(self, touch):
         self.mLockSwitch = False
-
+'''
 class ZETCanvasAfter(Widget):
     pass
 
@@ -312,12 +312,12 @@ class ZETLabel(MDLabel, ZETDesign):
     pass
 
 class ZETLabelWithBorder(ZETLabel, ZETCanvasAfter):
-    pass
+    pass'''
 
 class ArrowButton(MDFillRoundFlatButton):
     pass
 
-class MonthYearLabel(ZETLabel):
+class MonthYearLabel(MDLabel):
     pass
 
 class MonthsManager(MDScreenManager):
@@ -326,7 +326,7 @@ class MonthsManager(MDScreenManager):
 class ButtonsGrid(MDGridLayout):
     pass
 
-class DayAbbrLabel(ZETLabel):
+class DayAbbrLabel(MDLabel):
     pass
 
 class DayAbbrSundayLabel(DayAbbrLabel):
