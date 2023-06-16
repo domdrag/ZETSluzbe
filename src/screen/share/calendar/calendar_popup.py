@@ -6,23 +6,24 @@ from src.data.share.get_calendar_info import getCalendarInfo
 from src.data.share.color_manager import getSecondaryColor
 
 DIALOG_SIZE_HINT_X = 0.8
-DIALOG_SIZE_HINT_Y = 0.5
+DIALOG_SIZE_HINT_Y = 0.6
+DIALOG_X_PERCENTAGE_FOR_CONTENT = 0.925 # WORKAROUND
+DIALOG_Y_PERCENTAGE_FOR_CONTENT = 0.77 # WORKAROUND
 
 class CalendarPopup(MDDialog):
     def __init__(self, calendarInfo):
-        # ISSUE, CalendarWidget size won't follow Dialog by default, but
-        # when I forward the wanted height of CalendarWidget, the width
-        # of the widget also changes when I change size_hint_x a.k.a
-        # now the widget follow the Dialog x-coordinate
-        calendarDialogSize = (DIALOG_SIZE_HINT_X * Window.size[0],
-                              DIALOG_SIZE_HINT_Y * Window.size[1])
+        
+        dialogWidth = DIALOG_SIZE_HINT_X * Window.size[0]
+        dialogHeight = DIALOG_SIZE_HINT_Y * Window.size[1]
+        calendarContentSize = (DIALOG_X_PERCENTAGE_FOR_CONTENT * dialogWidth,
+                               DIALOG_Y_PERCENTAGE_FOR_CONTENT * dialogHeight)
         cal = CalendarWidget(calendarInfo,
-                             DIALOG_SIZE_HINT_Y * Window.size[1],
+                             calendarContentSize,
                              as_popup = True,
                              touch_switch = True) 
         super(CalendarPopup, self).__init__(title = 'Kalendar',
                                             type = 'custom',
                                             content_cls = cal,
                                             size_hint = (DIALOG_SIZE_HINT_X,
-                                                         None))
+                                                         DIALOG_SIZE_HINT_Y))
 

@@ -48,15 +48,15 @@ from kivymd.uix.gridlayout import MDGridLayout
 
 class CalendarWidget(MDRelativeLayout):
     """ Basic calendar widget """
-    mCalendarSize = ObjectProperty(100) # binding, dummy value
+    mWidgetSize = ObjectProperty([100, 100]) # binding, dummy value
     
-    def __init__(self, mCalendarInfo, mCalendarSize, as_popup=False, touch_switch=False,
+    def __init__(self, mCalendarInfo, mWidgetSize, as_popup=False, touch_switch=False,
                  *args, **kwargs):
         super(CalendarWidget, self).__init__(*args, **kwargs)
         self.as_popup = as_popup
         self.touch_switch = touch_switch
         self.mCalendarInfo = mCalendarInfo
-        self.mCalendarSize = mCalendarSize
+        self.mWidgetSize = mWidgetSize
         self.mLockSwitch = False
         self.mErrorOccured = False
         self.prepare_data()     
