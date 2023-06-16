@@ -6,7 +6,7 @@ from src.data.share.get_calendar_info import getCalendarInfo
 from src.data.share.color_manager import getSecondaryColor
 
 DIALOG_SIZE_HINT_X = 0.8
-DIALOG_SIZE_HINT_Y = 0.6
+DIALOG_SIZE_HINT_Y = 0.8
 DIALOG_X_PERCENTAGE_FOR_CONTENT = 0.925 # WORKAROUND
 DIALOG_Y_PERCENTAGE_FOR_CONTENT = 0.77 # WORKAROUND
 
@@ -15,8 +15,8 @@ class CalendarPopup(MDDialog):
         
         dialogWidth = DIALOG_SIZE_HINT_X * Window.size[0]
         dialogHeight = DIALOG_SIZE_HINT_Y * Window.size[1]
-        calendarContentSize = (DIALOG_X_PERCENTAGE_FOR_CONTENT * dialogWidth,
-                               DIALOG_Y_PERCENTAGE_FOR_CONTENT * dialogHeight)
+        calendarContentSize = (DIALOG_SIZE_HINT_X * dialogWidth,
+                               DIALOG_SIZE_HINT_Y * dialogHeight)
         cal = CalendarWidget(calendarInfo,
                              calendarContentSize,
                              as_popup = True,
