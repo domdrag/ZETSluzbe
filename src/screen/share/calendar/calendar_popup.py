@@ -23,7 +23,5 @@ class CalendarPopup(MDDialog):
                              touch_switch = True) 
         super(CalendarPopup, self).__init__(title = 'Kalendar',
                                             type = 'custom',
-                                            content_cls = cal,
-                                            size_hint = (DIALOG_SIZE_HINT_X,
-                                                         DIALOG_SIZE_HINT_Y))
+                                            content_cls = cal)
 
