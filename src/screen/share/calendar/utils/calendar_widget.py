@@ -42,6 +42,7 @@ from kivymd.uix.screenmanager import MDScreenManager
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.button import MDFillRoundFlatButton
 from kivymd.uix.button import MDFlatButton
+from kivymd.uix.button import MDTextButton
 from kivymd.uix.label import MDLabel
 from kivymd.uix.gridlayout import MDGridLayout
 
@@ -100,6 +101,7 @@ class CalendarWidget(RelativeLayout):
         # Grid for days
         grid_layout = ButtonsGrid()
         scr.add_widget(grid_layout)
+        #self.sm.add_widget(scr)
         
         # Days abbrs
         for i in range(7):
@@ -109,7 +111,7 @@ class CalendarWidget(RelativeLayout):
                 l = DayAbbrLabel(text=self.days_abrs[i])
             
             grid_layout.add_widget(l)
-
+        
         mMonth = self.active_date[1]
         mYear = self.active_date[2]
         mCalendarInfo = self.mCalendarInfo
@@ -126,7 +128,7 @@ class CalendarWidget(RelativeLayout):
                                                        mHDay[1] <= mMonth+1))]
         mCurrentIndexHolidays = 0
         mMonthNeeded = mMonth
-            
+           
         # Buttons with days numbers
         for week in month:
             for day in week:
@@ -145,21 +147,21 @@ class CalendarWidget(RelativeLayout):
                 for mHoliday in mHolidays:
                     if (mHoliday[1] == mMonthNeeded and mHoliday[2] == day[0]):
                         mIsHoliday = True
-
+                
                 # 2) button creation
                 if day[1] == 6:  # sunday
                     tbtn = DayNumSundayButton(text=str(day[0]),
-                                              text_color = getErrorColor(),
-                                              md_bg_color = getPrimaryColor())
+                                              text_color = getErrorColor())
+                    tbtn.md_bg_color = getPrimaryColor()
                 else:  # work days
                     if (mIsHoliday):
                         mTextColor = getErrorColor() # red
                     else:
                         mTextColor = getWhiteColor() 
                     tbtn = DayNumButton(text=str(day[0]),
-                                        text_color = mTextColor,
-                                        md_bg_color = getPrimaryColor())
-
+                                        text_color = mTextColor)
+                    tbtn.md_bg_color = getPrimaryColor()
+    
                 # 3) service binding
                 if (mCurrentIndex >= len(mCalendarInfo)):
                     pass
@@ -193,8 +195,9 @@ class CalendarWidget(RelativeLayout):
                     tbtn.disabled = True
                 
                 grid_layout.add_widget(tbtn)
-
+                
         self.sm.add_widget(scr)
+        
         
     def prepare_data(self):
         """ Prepare data for showing on widget loading """
@@ -317,6 +320,9 @@ class ZETLabel(MDLabel, ZETDesign):
 class ZETLabelWithBorder(ZETLabel, ZETCanvasAfter):
     pass
 
+class ZETTextButton(MDTextButton, ZETDesign, ZETCanvasAfter):
+    pass
+
 class ArrowButton(MDFillRoundFlatButton):
     pass
 
@@ -335,7 +341,8 @@ class DayAbbrLabel(MDLabel):
 class DayAbbrSundayLabel(DayAbbrLabel):
     pass
 
-class DayButton(MDFlatButton):
+# WORKAROUND, other MD buttons doesn't fit size well
+class DayButton(ZETTextButton):
     pass
 
 class DayNumButton(DayButton):
