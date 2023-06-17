@@ -1,4 +1,10 @@
 <CalendarWidget>:
+	canvas.after:
+		Color:
+			rgba: app.theme_cls.accent_color
+		Line:
+			width: 1
+			rectangle: self.x, self.y, self.width, self.height
     #pos_hint: {"top": 1}
     #size_hint: 1, 1
 	#orientation: "vertical"
@@ -7,5 +13,5 @@
     #size: root.mCalendarSize
 	size_hint_y: None
 	#width: dp(200)
-	height: dp(300)
+	height: dp(400) # WORKAROUND, content doesn't show well unless height is fixed
 	# md_bg_color: app.theme_cls.primary_dark
