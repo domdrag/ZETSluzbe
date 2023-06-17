@@ -10,8 +10,7 @@ class ServicePopup(MDDialog):
     servicePopupRecycleView = ObjectProperty(None)
     
     def __init__(self, day, service, bgColor):
-        super(ServicePopup, self).__init__(size_hint = (0.8,
-                                                        0.4))
+        super(ServicePopup, self).__init__(size_hint = (0.8, 0.4))
         data = [{'day': day, 'service': service, 'bg_color': bgColor}]
         self.servicePopupRecycleView.data = data
 
