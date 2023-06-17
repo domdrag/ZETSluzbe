@@ -46,23 +46,24 @@ from kivymd.uix.label import MDLabel
 from kivymd.uix.gridlayout import MDGridLayout
 
 
-class CalendarWidget(MDRelativeLayout):
+class CalendarWidget(RelativeLayout):
     """ Basic calendar widget """
-    mWidgetSize = ObjectProperty([100, 100]) # binding, dummy value
+   # mWidgetSize = ObjectProperty([100, 100]) # binding, dummy value
     
     def __init__(self, mCalendarInfo = [], mWidgetSize = [], as_popup=False, touch_switch=False,
                  *args, **kwargs):
         super(CalendarWidget, self).__init__(*args, **kwargs)
-        self.width = mWidgetSize[0]
-        self.height = mWidgetSize[1]
+        #self.width = mWidgetSize[0]
+        #self.height = mWidgetSize[1]
         self.as_popup = as_popup
         self.touch_switch = touch_switch
         self.mCalendarInfo = mCalendarInfo
-        self.mWidgetSize = mWidgetSize
+        #self.mWidgetSize = mWidgetSize
         self.mLockSwitch = False
         self.mErrorOccured = False
         self.prepare_data()     
         self.init_ui()
+        #self.size_hint = (0.5, 0.5)
         
     def init_ui(self):
         
@@ -319,7 +320,7 @@ class ZETLabelWithBorder(ZETLabel, ZETCanvasAfter):
 class ArrowButton(MDFillRoundFlatButton):
     pass
 
-class MonthYearLabel(ZETLabel):
+class MonthYearLabel(MDLabel):
     pass
 
 class MonthsManager(MDScreenManager):
