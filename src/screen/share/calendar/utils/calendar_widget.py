@@ -50,7 +50,7 @@ class CalendarWidget(MDRelativeLayout):
     """ Basic calendar widget """
     mWidgetSize = ObjectProperty([100, 100]) # binding, dummy value
     
-    def __init__(self, mCalendarInfo, mWidgetSize, as_popup=False, touch_switch=False,
+    def __init__(self, mCalendarInfo = [], mWidgetSize = [], as_popup=False, touch_switch=False,
                  *args, **kwargs):
         super(CalendarWidget, self).__init__(*args, **kwargs)
         self.as_popup = as_popup
@@ -301,7 +301,7 @@ class CalendarWidget(MDRelativeLayout):
 
     def on_touch_up(self, touch):
         self.mLockSwitch = False
-'''
+
 class ZETCanvasAfter(Widget):
     pass
 
@@ -312,12 +312,12 @@ class ZETLabel(MDLabel, ZETDesign):
     pass
 
 class ZETLabelWithBorder(ZETLabel, ZETCanvasAfter):
-    pass'''
+    pass
 
 class ArrowButton(MDFillRoundFlatButton):
     pass
 
-class MonthYearLabel(MDLabel):
+class MonthYearLabel(ZETLabel):
     pass
 
 class MonthsManager(MDScreenManager):
@@ -326,7 +326,7 @@ class MonthsManager(MDScreenManager):
 class ButtonsGrid(MDGridLayout):
     pass
 
-class DayAbbrLabel(MDLabel):
+class DayAbbrLabel(ZETLabelWithBorder):
     pass
 
 class DayAbbrSundayLabel(DayAbbrLabel):
