@@ -15,14 +15,18 @@ class CalendarPopup(MDDialog):
         
         dialogWidth = DIALOG_SIZE_HINT_X * Window.size[0]
         dialogHeight = DIALOG_SIZE_HINT_Y * Window.size[1]
-        calendarContentSize = (DIALOG_SIZE_HINT_X * dialogWidth,
-                               DIALOG_SIZE_HINT_Y * dialogHeight)
+        calendarContentSize = (0.5 * dialogWidth,
+                               0.5 * dialogHeight)
         cal = CalendarWidget(calendarInfo,
                              calendarContentSize,
                              as_popup = True,
                              touch_switch = True) 
         super(CalendarPopup, self).__init__(title = 'Kalendar',
                                             type = 'custom',
-                                            content_cls = cal)
+                                            size_hint = (0.8, None),
+                                            content_cls = CalendarWidget(calendarInfo,
+                                                                         calendarContentSize,
+                                                                         as_popup = True,
+                                                                         touch_switch = True))
 
 
