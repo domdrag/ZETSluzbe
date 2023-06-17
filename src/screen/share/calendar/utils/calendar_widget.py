@@ -326,7 +326,7 @@ class MonthsManager(MDScreenManager):
 class ButtonsGrid(MDGridLayout):
     pass
 
-class DayAbbrLabel(ZETLabelWithBorder):
+class DayAbbrLabel(MDLabel):
     pass
 
 class DayAbbrSundayLabel(DayAbbrLabel):
