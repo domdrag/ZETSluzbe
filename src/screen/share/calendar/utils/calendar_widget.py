@@ -80,6 +80,16 @@ class CalendarWidget(RelativeLayout):
         # Title        
         self.title_label = MonthYearLabel(text=self.title)
         self.add_widget(self.title_label)
+
+        # Try - dayAbbr labels
+        mTestGrid = GridLayout(rows = 1, size_hint = (1, 0.1), pos_hint = {"top": 0.85}) 
+        for i in range(7):
+            if i == 6:  # weekends
+                l = DayAbbrSundayLabel(text=self.days_abrs[i])
+            else:  # work days
+                l = DayAbbrLabel(text=self.days_abrs[i])
+            mTestGrid.add_widget(l)
+        self.add_widget(mTestGrid)
         
         # ScreenManager
         self.sm = MonthsManager()
@@ -104,13 +114,13 @@ class CalendarWidget(RelativeLayout):
         #self.sm.add_widget(scr)
         
         # Days abbrs
-        for i in range(7):
-            if i == 6:  # weekends
-                l = DayAbbrSundayLabel(text=self.days_abrs[i])
-            else:  # work days
-                l = DayAbbrLabel(text=self.days_abrs[i])
-            
-            grid_layout.add_widget(l)
+        #for i in range(7):
+        #    if i == 6:  # weekends
+        #        l = DayAbbrSundayLabel(text=self.days_abrs[i])
+        #    else:  # work days
+        #        l = DayAbbrLabel(text=self.days_abrs[i])
+        #    
+        #    grid_layout.add_widget(l)
         
         mMonth = self.active_date[1]
         mYear = self.active_date[2]
