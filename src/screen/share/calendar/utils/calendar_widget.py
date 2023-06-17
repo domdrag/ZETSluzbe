@@ -13,7 +13,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.popup import Popup
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.gridlayout import GridLayout
-from kivy.uix.button import Button
+from kivy.uix.button import Button, ButtonBehavior
 from kivy.uix.togglebutton import ToggleButton
 from kivy.uix.textinput import TextInput
 from kivy.uix.label import Label
@@ -151,16 +151,16 @@ class CalendarWidget(RelativeLayout):
                 # 2) button creation
                 if day[1] == 6:  # sunday
                     tbtn = DayNumSundayButton(text=str(day[0]),
-                                              text_color = getErrorColor())
-                    tbtn.md_bg_color = getPrimaryColor()
+                                              color = getErrorColor())
+                    tbtn.background_color = getPrimaryColor()
                 else:  # work days
                     if (mIsHoliday):
                         mTextColor = getErrorColor() # red
                     else:
                         mTextColor = getWhiteColor() 
                     tbtn = DayNumButton(text=str(day[0]),
-                                        text_color = mTextColor)
-                    tbtn.md_bg_color = getPrimaryColor()
+                                        color = mTextColor)
+                    tbtn.background_color = getPrimaryColor()
     
                 # 3) service binding
                 if (mCurrentIndex >= len(mCalendarInfo)):
@@ -168,7 +168,7 @@ class CalendarWidget(RelativeLayout):
                 elif (day[0] == mCalendarInfo[mCurrentIndex]['day']):
                     if (day[2] == 1):
                         mButtonColor = mCalendarInfo[mCurrentIndex]['dayColor']
-                        tbtn.md_bg_color = mButtonColor
+                        tbtn.background_color = mButtonColor
                         mCurrentDay = mCalendarInfo[mCurrentIndex]
                         mService = mCurrentDay['service']
                         mServiceFullDay = mCurrentDay['serviceFullDay']
@@ -182,11 +182,11 @@ class CalendarWidget(RelativeLayout):
                 if toogle_today:
                     # Down today button
                     if day[0] == self.active_date[0] and day[2] == 1:
-                        mButtonColor = tbtn.md_bg_color
+                        mButtonColor = tbtn.background_color
                         mList = list(mButtonColor)
                         mList = [mEl + (1-mEl)*0.15 for mEl in mList]
                         mList[3] = 1
-                        tbtn.md_bg_color = tuple(mList)
+                        tbtn.background_color = tuple(mList)
                 
                 # 5) Disable buttons with days from other months
                 if day[2] == 0:
@@ -341,8 +341,8 @@ class DayAbbrLabel(MDLabel):
 class DayAbbrSundayLabel(DayAbbrLabel):
     pass
 
-# WORKAROUND, other MD buttons doesn't fit size well
-class DayButton(ZETTextButton):
+# WORKAROUND, MD buttons doesn't fit size well
+class DayButton(Button):
     pass
 
 class DayNumButton(DayButton):
