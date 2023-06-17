@@ -53,6 +53,8 @@ class CalendarWidget(MDRelativeLayout):
     def __init__(self, mCalendarInfo = [], mWidgetSize = [], as_popup=False, touch_switch=False,
                  *args, **kwargs):
         super(CalendarWidget, self).__init__(*args, **kwargs)
+        self.width = mWidgetSize[0]
+        self.height = mWidgetSize[1]
         self.as_popup = as_popup
         self.touch_switch = touch_switch
         self.mCalendarInfo = mCalendarInfo
