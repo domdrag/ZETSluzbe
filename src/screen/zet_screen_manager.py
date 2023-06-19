@@ -6,7 +6,7 @@ from src.screen.login.login_screen import LoginScreen
 from src.screen.main.main_screen import MainScreen
 
 # workaround; portrait orientation not working for some reason [?]; 
-os.environ['KIVY_ORIENTATION'] = "Portrait" 
+#os.environ['KIVY_ORIENTATION'] = "Portrait" 
 
 class ZETScreenManager(ScreenManager):
     def __init__(self, **kwargs):

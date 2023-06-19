@@ -54,7 +54,7 @@ class CallInfoPopup(MDDialog):
                                             content_cls = callInfoWidget,
                                             buttons = buttons)
             
-    def callNumber(self):
+    def callNumber(self, button):
         Intent = autoclass('android.content.Intent')        
         PythonActivity = autoclass('org.kivy.android.PythonActivity')
         Uri = autoclass('android.net.Uri')
@@ -64,7 +64,7 @@ class CallInfoPopup(MDDialog):
                                PythonActivity.mActivity)                                                   
         currentActivity.startActivity(intent)
 
-    def saveContact(self):      
+    def saveContact(self, button):      
         PythonActivity = autoclass('org.kivy.android.PythonActivity')
         Contact = autoclass('org.test.Contact') # buildozer.spec
         currentActivity = cast('android.app.Activity',
