@@ -1,30 +1,29 @@
 #:include design/screen/share/special_label.kv
 
 <CallInfoWidget>:
-	height: root.widgetHeight
+	height: dp(150) # WORKAROUND, content doesn't show well unless height is fixed
 	size_hint_y: None
 
 	BoxLayout:
 		orientation: 'vertical'
-		
 		BoxLayout:
 			ZETLabel:
 				id: nameId
 				text: root.driverName
+				font_size: '15dp'
 				
-			ZETFlatButton:
-				size_hint: 0.5, 0.5
-				pos_hint: {'center_x':0.5, 'center_y':0.5}
-				text: 'Kopiraj'
+			IconRightWidget:
+				#pos_hint: {'center_y': .5}
+				halign: 'left'
+				icon: 'content-copy'
 				on_release: root.copyNameOnClipboard()
-				
 		BoxLayout:
 			ZETLabel:
 				id: phoneNumberId
 				text: root.driverPhoneNumber
-
-			ZETFlatButton:
-				size_hint: 0.5, 0.5
-				pos_hint: {'center_x':0.5, 'center_y':0.5}
-				text: 'Kopiraj'
+				font_size: '15dp'
+				
+			MDIconButton:
+				pos_hint: {'center_y': .5}
+				icon: 'content-copy'
 				on_release: root.copyPhoneNumberOnClipboard()

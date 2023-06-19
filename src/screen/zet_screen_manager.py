@@ -18,6 +18,8 @@ class ZETScreenManager(ScreenManager):
         self.loginScreen.updatePopup.open()
             
     def updateTabs(self, offNum, servicesData, shiftsData):
+        #self.mainScreen.servicesTab.servicesTabRecycleView.data = []
+        #self.mainScreen.shiftsTab.shiftsTabRecycleView.data = []
         self.mainScreen.setOffNum(offNum)
         self.mainScreen.servicesTab.servicesTabRecycleView.data = \
                                                                    servicesData

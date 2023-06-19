@@ -33,3 +33,14 @@
 	text_color_normal: 'black'
 	line_color_focus: 'white'
 	text_color_focus: 'white'
+	
+<BackgroundColor@Widget>
+    md_bg_color: .5, .5, .5, 1
+    canvas.before:
+        Color:
+            rgba: root.md_bg_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+<SpecialLabel@Label+BackgroundColor>
