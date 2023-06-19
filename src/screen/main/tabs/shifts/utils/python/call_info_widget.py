@@ -5,11 +5,11 @@ from kivymd.uix.relativelayout import MDRelativeLayout
 from kivymd.uix.widget import MDWidget
 
 class CallInfoWidget(MDRelativeLayout):
-    widgetHeight = ObjectProperty(100)
+    #widgetHeight = ObjectProperty(100)
     driverName = StringProperty() # binding
     driverPhoneNumber = StringProperty() # binding
     
-    def __init__(self, callInfoSize, driverName, driverPhoneNumber, **kwargs):
+    def __init__(self, driverName, driverPhoneNumber, **kwargs):
         super(CallInfoWidget, self).__init__(**kwargs)
         self.driverName = driverName
         self.driverPhoneNumber = driverPhoneNumber

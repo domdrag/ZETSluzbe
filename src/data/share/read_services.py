@@ -8,6 +8,7 @@ from src.data.share.color_manager import (getPrimaryColor,
                                           getFreeDayColor,
                                           getErrorColor)
 
+
 def readServices(offNum):
     filePath = 'data/data/all_services_by_driver_decrypted/' + offNum + '.txt'
     weekServices = ''

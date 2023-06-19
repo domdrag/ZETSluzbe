@@ -10,7 +10,9 @@ from jnius import cast
 from src.screen.main.tabs.shifts.utils.python.call_info_widget import \
      CallInfoWidget
 
-from src.data.share.color_manager import getPrimaryColor, getSecondaryColor
+from src.data.share.color_manager import (getPrimaryColor,
+                                          getSecondaryColor,
+                                          getWhiteColor)
 
 DIALOG_SIZE_HINT_X = 0.62
 DIALOG_SIZE_HINT_Y = 0.53
@@ -32,23 +34,23 @@ class CallInfoPopup(MDDialog):
                 text = 'SPREMI U IMENIK',
                 theme_text_color = 'Custom',
                 md_bg_color = getSecondaryColor(),
-                text_color = getPrimaryColor(),
+                text_color = getWhiteColor(),
                 on_release = self.saveContact
             ),
             MDRaisedButton(
                 text = 'NAZOVI',
                 theme_text_color = 'Custom',
                 md_bg_color = getSecondaryColor(),
-                text_color = getPrimaryColor(),
+                text_color = getWhiteColor(),
                 on_release = self.callNumber
             )]
 
-        widgetHeight = DIALOG_SIZE_HINT_Y * Window.size[1]
-        callInfoWidget = CallInfoWidget(widgetHeight,
-                                        self.name,
+        #widgetHeight = DIALOG_SIZE_HINT_Y * Window.size[1]
+        callInfoWidget = CallInfoWidget(self.name,
                                         self.phoneNumber)
         super(CallInfoPopup, self).__init__(title = 'Kolega',
                                             type = 'custom',
+                                            size_hint = (0.8, None),
                                             content_cls = callInfoWidget,
                                             buttons = buttons)
             
