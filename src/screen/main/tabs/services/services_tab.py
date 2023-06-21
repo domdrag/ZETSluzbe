@@ -1,6 +1,6 @@
 from kivy.uix.screenmanager import Screen
 from kivy.properties import ObjectProperty
-from kivymd.uix.tab import MDTabsBase
+from kivymd.uix.tab import MDTabsBase, MDTabs
 from kivymd.uix.floatlayout import MDFloatLayout
 
 from src.screen.main.tabs.services.utils.daily_service import DailyService
@@ -16,4 +16,5 @@ class ServicesTab(MDFloatLayout, MDTabsBase):
     
     def logoutButton(self):
         self.manager.switchToLoginScreen()
-        
+
+

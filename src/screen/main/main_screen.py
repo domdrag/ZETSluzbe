@@ -8,6 +8,8 @@ from src.screen.main.tabs.hourly_rate.hourly_rate_tab import HourlyRateTab
 from src.screen.share.calendar.calendar_popup import CalendarPopup
 from src.data.share.get_calendar_info import getCalendarInfo
 
+import time
+
 SWIPE_LIMIT = 50
 TAB_TITLES = ['Sluzbe', 'Smjena', 'Satnica']
 MAX_TABS = 3
@@ -30,7 +32,8 @@ class MainScreen(Screen):
         self.calendarPopup = CalendarPopup(calendarInfo)
         self.calendarPopup.open()
 
-    # I don't like Kivy's default swiping distance
+    '''
+    # I don't like Kivy's default swiping distance for tabs
     def on_touch_move(self, touch):
         if (self.lockSwitch):
             return
@@ -52,7 +55,7 @@ class MainScreen(Screen):
             self.mainScreenTabs.switch_tab(newTab, search_by = 'title')
             
     def on_touch_up(self, touch):
-        self.lockSwitch = False
+        self.lockSwitch = False'''
     
     def logoutButton(self):
         self.manager.switchToLoginScreen()
