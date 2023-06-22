@@ -54,20 +54,13 @@ class LoginScreen(Screen):
 
     def loginButton(self):        
         offNum = self.offNumTextInput.text
-        print('stigo0')
         servicesData = readServices(offNum)
-        print('stigo1')
         shiftsData = readShifts(offNum)
-        print('stigo2')
         if servicesData and shiftsData:
-            print('stigo3')
             self.manager.updateTabs(offNum, servicesData, shiftsData)
-            print('stigo4')
             self.manager.switchToMainScreen()
         else:
-            print('stigo5')
             self.updatePopup = UpdatePopup()
-            print('stigo6')
             self.manager.loginFailure()
 
     def updateButton(self):
