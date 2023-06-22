@@ -1,3 +1,4 @@
+// if you change directory of this file, make sure to update path in buildozer.spec
 package org.test; // buildozer.spec
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Intents;
