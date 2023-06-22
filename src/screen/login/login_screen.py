@@ -26,7 +26,7 @@ from src.data.share.dropbox_share import (
     )
 
 class LoginScreen(Screen):
-    ADMIN = True
+    ADMIN = False
     offNumTextInput = ObjectProperty(None) # object in kv
     warningMessage = StringProperty() # binding
     warningMessageColor = ColorProperty() # binding
