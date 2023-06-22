@@ -26,11 +26,16 @@ class ZETScreenManager(ScreenManager):
         self.mainScreen.shiftsTab.shiftsTabRecycleView.data = shiftsData
 
     def switchToMainScreen(self):
+        print('stigo5')
         if self.current == 'loginScreen':
+            print('stigo6')
             self.transition.direction = 'down'
         else:
+            print('stigo7')
             self.transition.direction = 'right'
+        print('stigo8')
         self.current = 'mainScreen'
+        print('stigo9')
 
     def switchToLoginScreen(self):
         self.transition.direction = 'up'
