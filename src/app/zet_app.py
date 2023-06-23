@@ -1,3 +1,7 @@
+import os
+
+os.environ["KIVY_NO_CONSOLELOG"] = "1" # disable all logs
+
 from kivymd.app import MDApp
 from kivy.lang import Builder
 
