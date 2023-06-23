@@ -1,3 +1,1 @@
-1$Neuobicajen vozni red. Sugerira se samostalna provjera sluzbi.
-Za cetvrtak se gleda nedjeljni vozni red.
-Za petak se gleda subotnji vozni red.
+0$Uobicajen vozni red.
