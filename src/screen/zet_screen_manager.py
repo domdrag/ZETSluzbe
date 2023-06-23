@@ -21,9 +21,9 @@ class ZETScreenManager(ScreenManager):
         #self.mainScreen.servicesTab.servicesTabRecycleView.data = []
         #self.mainScreen.shiftsTab.shiftsTabRecycleView.data = []
         self.mainScreen.setOffNum(offNum)
-        self.mainScreen.servicesTab.servicesTabRecycleView.data = \
-                                                                   servicesData
-        self.mainScreen.shiftsTab.shiftsTabRecycleView.data = shiftsData
+        #self.mainScreen.servicesTab.servicesTabRecycleView.data = \
+        #                                                           servicesData
+        #self.mainScreen.shiftsTab.shiftsTabRecycleView.data = shiftsData
 
     def switchToMainScreen(self):
         if self.current == 'loginScreen':
