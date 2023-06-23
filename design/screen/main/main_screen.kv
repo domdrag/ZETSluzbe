@@ -4,10 +4,10 @@
 
 <MainScreen>:
 	name: 'mainScreen'
-	#mainScreenTabs: mainScreenTabsId
-	#servicesTab: servicesTabId
-	#shiftsTab: shiftsTabId
-	#hourlyRateTab: hourlyRateTabId
+	mainScreenTabs: mainScreenTabsId
+	servicesTab: servicesTabId
+	shiftsTab: shiftsTabId
+	hourlyRateTab: hourlyRateTabId
 
 	MDBoxLayout:
 		orientation: 'vertical'
@@ -15,8 +15,27 @@
 		MDTopAppBar:
 			orientation: 'horizontal'
 			title: 'ZETSluzbe'
-
+			
+			MDIconButton:
+				icon: 'calendar'
+				on_release: root.calendarButton()
+				
+			MDIconButton:
+                icon: 'logout'
+				on_release: root.logoutButton()
 		
-		
+		MDTabs:
+			id: mainScreenTabsId
+			tab_hint_x: True
+			#lock_swiping: True
+			
+			ServicesTab:
+				id: servicesTabId
+				
+			ShiftsTab: 
+				id: shiftsTabId
+				
+			HourlyRateTab:
+				id: hourlyRateTabId
 				
 			
