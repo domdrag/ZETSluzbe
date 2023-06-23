@@ -24,9 +24,6 @@ class MainScreen(Screen):
         self.currentTab = 0
         self.lockSwitch = False
 
-    def on_enter(self):
-        print('hi')
-
     def setOffNum(self, offNum):
         self.offNum = offNum
 
