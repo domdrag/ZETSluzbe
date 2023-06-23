@@ -30,7 +30,7 @@ class ZETScreenManager(ScreenManager):
             self.transition.direction = 'down'
         else:
             self.transition.direction = 'right'
-        #self.current = 'mainScreen'
+        self.current = 'mainScreen'
 
     def switchToLoginScreen(self):
         self.transition.direction = 'up'
