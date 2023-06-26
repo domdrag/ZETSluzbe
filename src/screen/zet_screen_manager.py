@@ -11,15 +11,12 @@ os.environ['KIVY_ORIENTATION'] = "Portrait"
 class ZETScreenManager(ScreenManager):
     def __init__(self, **kwargs):
         super(ZETScreenManager, self).__init__(**kwargs)
-        #self.current = 'loginScreen'
 
     def loginFailure(self):
-        self.loginScreen.updatePopup.text = 'Greska kod dohvacanja sluzbi.'
-        self.loginScreen.updatePopup.open()
+        self.loginScreen.updateDialog.text = 'Greska kod dohvacanja sluzbi.'
+        self.loginScreen.updateDialog.open()
             
     def updateTabs(self, offNum, servicesData, shiftsData):
-        #self.mainScreen.servicesTab.servicesTabRecycleView.data = []
-        #self.mainScreen.shiftsTab.shiftsTabRecycleView.data = []
         self.mainScreen.setOffNum(offNum)
         self.mainScreen.servicesTab.servicesTabRecycleView.data = \
                                                                    servicesData

@@ -1,11 +1,9 @@
-from kivy.properties import StringProperty, ObjectProperty
+from kivy.properties import StringProperty
 from kivy.core.clipboard import Clipboard
-from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.relativelayout import MDRelativeLayout
 from kivymd.uix.widget import MDWidget
 
 class CallInfoWidget(MDRelativeLayout):
-    #widgetHeight = ObjectProperty(100)
     driverName = StringProperty() # binding
     driverPhoneNumber = StringProperty() # binding
     

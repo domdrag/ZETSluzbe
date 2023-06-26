@@ -38,6 +38,8 @@ def deleteNecessaryData():
             continue
         elif 'update' in file: # needed for AdminDataCollector
             continue
+        elif 'config' in file: # we mustn't delete the config
+            continue
         ###### NEEDED DATA FOR APPENDING ############
         elif 'all_services_by_driver_decrypted' in file: 
             continue
