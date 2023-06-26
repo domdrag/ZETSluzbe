@@ -3,35 +3,35 @@
 
 <LoginScreen>:
 	name: 'loginScreen'
-	offNumTextInput: offNumTextInputId
+	offNumTextField: offNumTextFieldId
 	
     MDFloatLayout:
 		md_bg_color: app.theme_cls.primary_dark
 
-        LoginLabel:
+        LoginScreenLabel:
 			pos_hint: {"x":0.3, "top":0.9}
             size_hint: 0.4, 0.1
             text: "Sluzbeni broj: "
 			
-        LoginTextField:
+        LoginScreenTextField:
 			pos_hint: {"x": 0.4, "top": 0.8}
 			size_hint_x: 0.2
-            id: offNumTextInputId
-            text: '2621'
+            id: offNumTextFieldId
+            text: root.offNum
 			
-		LoginLabel:
+		LoginScreenLabel:
 			pos_hint: {"x":0.1, "top":0.5}
             size_hint: 0.8, 0.1
             text: root.warningMessage
 			color: root.warningMessageColor
 
-        LoginButton:
+        LoginScreenButton:
             pos_hint:{"x":0.1,'bottom': 1}
 			size_hint: 0.4, 0.1
             text: 'Prijavi se'
             on_release: root.loginButton()
 					
-		LoginButton:
+		LoginScreenButton:
             pos_hint:{"x":0.5,'bottom': 1}
 			size_hint: 0.4, 0.1
             text: 'Azuriraj'

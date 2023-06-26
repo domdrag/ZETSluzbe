@@ -8,9 +8,7 @@ class CalendarDialog(MDDialog):
     def __init__(self, offNum):
         self.show_duration = 0 # remove animation
         calendarInfo = getCalendarInfo(offNum)
-        calendarWidget = CalendarWidget(calendarInfo,
-                                        as_popup = True,
-                                        touch_switch = True) 
+        calendarWidget = CalendarWidget(calendarInfo) 
         super(CalendarDialog, self).__init__(title = 'Kalendar',
                                             type = 'custom',
                                             size_hint = (0.8, None),

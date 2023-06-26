@@ -1,8 +1,8 @@
 from kivy.uix.screenmanager import Screen
-from kivy.properties import ObjectProperty
-from kivy.properties import BooleanProperty
-from kivy.properties import StringProperty
-from kivy.properties import ColorProperty
+from kivy.properties import (ObjectProperty,
+                             BooleanProperty,
+                             StringProperty,
+                             ColorProperty)
 
 from src.data.admin.admin_data_collector import AdminDataCollector
 from src.data.user.user_data_collector import UserDataCollector
@@ -24,24 +24,27 @@ from src.data.share.dropbox_share import (
     isDropboxSynchronizationNeeded,
     dropbboxSynchronization
     )
+from src.data.share.get_config import getConfig
 
 class LoginScreen(Screen):
-    ADMIN = True
-    offNumTextInput = ObjectProperty(None) # object in kv
+    offNumTextField = ObjectProperty(None) # object in kv
     warningMessage = StringProperty() # binding
     warningMessageColor = ColorProperty() # binding
+    offNum = StringProperty()# binding
     updateDone = BooleanProperty(False)
-    updateDialog = None
     
     def __init__(self, **kwargs):
         super(LoginScreen, self).__init__(**kwargs)
-        
         # if some operation haven't stopped in last session
         if errorOccuredInLastSession():
             print('REPAIR ALL FILES - ERROR IN LAST SESSION')
             repairAllFiles()
-                            
+        
+        config = getConfig()
+        self.offNum = config['OFFICIAL_NUMBER_STARTUP']
+        self.admin = config['ADMIN']
         self.setWarningMessage()
+        
         '''
         if not self.ADMIN and updateRequiredDateCheck():
             print('USER UPDATE REQUIRED DATE CHECK')
@@ -53,7 +56,7 @@ class LoginScreen(Screen):
         self.warningMessageColor = warningMessageInfo['color']
 
     def loginButton(self):        
-        offNum = self.offNumTextInput.text
+        offNum = self.offNumTextField.text
         servicesData = readServices(offNum)
         shiftsData = readShifts(offNum)
         if servicesData and shiftsData:
@@ -69,7 +72,7 @@ class LoginScreen(Screen):
 
     @showDialog
     def update(self):
-        if self.ADMIN:
+        if self.admin:
             dataCollector = AdminDataCollector()
         else:
             dataCollector = UserDataCollector()
@@ -98,7 +101,7 @@ class LoginScreen(Screen):
             self.updateDialog.text = 'GRESKA! Dokumenti popravljeni.\n' \
                                     + errorMessage
         else:
-            if self.ADMIN:
+            if self.admin:
                 self.updateDialog.text = 'Sluzbe jos nisu izasle!'
             else:
                 self.updateDialog.text = 'Nove sluzbe jos nisu izasle na web ' \

@@ -1,11 +1,12 @@
 from kivy.uix.boxlayout import BoxLayout
 
+from src.screen.main.tabs.utils.call_info_dialog import CallInfoDialog
+
 class DailyShift(BoxLayout):
     def callInfoButton(self, driverInfo):
-        parent = self.parent
-        # workaround
-        while not (hasattr(parent, 'showCallInfoDialog') and
-                   callable(getattr(parent, 'showCallInfoDialog'))): 
-            parent = parent.parent
-        parent.showCallInfoDialog(driverInfo)
+        try:
+            self.callInfoDialog = CallInfoDialog(driverInfo)
+            self.callInfoDialog.open()
+        except Exception as e:
+            print(str(e))
         

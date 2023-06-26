@@ -20,11 +20,11 @@ from kivymd.uix.gridlayout import MDGridLayout
 from src.screen.share.utils.service_dialog import ServiceDialog
 
 from src.screen.share.utils.calendar_data import (get_month_names,
-                                                           get_month_names_eng,
-                                                           get_days_abbrs,
-                                                           today_date_list,
-                                                           calc_quarter,
-                                                           get_quarter)
+                                                  get_month_names_eng,
+                                                  get_days_abbrs,
+                                                  today_date_list,
+                                                  calc_quarter,
+                                                  get_quarter)
 from src.data.share.get_holidays import getHolidays
 from src.data.share.color_manager import (getPrimaryColor,
                                           getErrorColor,
@@ -32,11 +32,8 @@ from src.data.share.color_manager import (getPrimaryColor,
 
 class CalendarWidget(RelativeLayout):
     """ Basic calendar widget """    
-    def __init__(self, mCalendarInfo = [], as_popup=False, touch_switch=False,
-                 *args, **kwargs):
+    def __init__(self, mCalendarInfo = [], *args, **kwargs):
         super(CalendarWidget, self).__init__(*args, **kwargs)
-        self.as_popup = as_popup
-        self.touch_switch = touch_switch
         self.mCalendarInfo = mCalendarInfo
         self.mLockSwitch = False
         self.mErrorOccured = False
@@ -274,15 +271,14 @@ class CalendarWidget(RelativeLayout):
         if (self.mLockSwitch):
             return
         
-        if self.touch_switch:
-            # Left - prev
-            if touch.dpos[0] > 50:
-                self.mLockSwitch = True
-                self.go_prev(None)
-            # Right - next
-            elif touch.dpos[0] < -50:
-                self.mLockSwitch = True
-                self.go_next(None)
+        # Left - prev
+        if touch.dpos[0] > 50:
+            self.mLockSwitch = True
+            self.go_prev(None)
+        # Right - next
+        elif touch.dpos[0] < -50:
+            self.mLockSwitch = True
+            self.go_next(None)
 
     def on_touch_up(self, touch):
         self.mLockSwitch = False
