@@ -29,6 +29,7 @@ from src.data.share.get_holidays import getHolidays
 from src.data.share.color_manager import (getPrimaryColor,
                                           getErrorColor,
                                           getWhiteColor)
+from src.share.trace import TRACE
 
 class CalendarWidget(RelativeLayout):
     """ Basic calendar widget """    
@@ -74,7 +75,7 @@ class CalendarWidget(RelativeLayout):
         try:
             self.create_month_scr(self.quarter[1], toogle_today=True)
         except Exception as e:
-            print(str(e))
+            TRACE(e)
             self.mErrorOccured = True
     
     def create_month_scr(self, month, toogle_today=False):

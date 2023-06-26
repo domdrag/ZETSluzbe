@@ -1,5 +1,7 @@
 import requests
 
+from src.share.trace import TRACE
+
 def downloadPDFFile(url, fileName):
     filePath = 'data/data/' + fileName
 
@@ -13,6 +15,6 @@ def downloadPDFFile(url, fileName):
                     f.write(r.content)
             downloadComplete = True
         except Exception as e:
-            print(e)
+            TRACE(e)
         
     return filePath

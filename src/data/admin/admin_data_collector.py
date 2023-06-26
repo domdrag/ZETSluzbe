@@ -30,6 +30,7 @@ from src.data.share.get_warning_message_info import (
     )
 from src.data.share.update_backup_dir import updateBackupDir
 from src.data.share.repair_all_files import repairAllFiles
+from src.share.trace import TRACE
 
 cp = AdminCollectPhase
 
@@ -55,7 +56,7 @@ class AdminDataCollector:
                           'warningMessageColor': ''}
         try:
             if self.phase == cp.DROPBOX_SYNCHRONIZATION:
-                print('DROPBOX_SYNCHRONIZATION')
+                TRACE('DROPBOX_SYNCHRONIZATION')
                 unsetUpdateSuccessful()
                 if isDropboxSynchronizationNeeded():
                     self.synchronizationNeeded = True
@@ -63,7 +64,7 @@ class AdminDataCollector:
                 returnMessage['message'] = 'Trazenje linkova'
                 
             elif self.phase == cp.SEARCH_LINKS:
-                print('SEARCH_LINKS')
+                TRACE('SEARCH_LINKS')
                 foundLinks = searchLinks()
                 self.workDayURL = foundLinks['workDay']
                 self.saturdayURL = foundLinks['saturday']
@@ -71,7 +72,7 @@ class AdminDataCollector:
                 returnMessage['message'] = 'Provjera novih sluzbi'
 
             elif self.phase == cp.SET_DAYS:
-                print('SET_DAYS')
+                TRACE('SET_DAYS')
                 result = setDays(self.days)
                 updateNeeded = result['updateNeeded']
                 if not updateNeeded:
@@ -92,45 +93,45 @@ class AdminDataCollector:
                                   'Brisanje potrebnih podataka'
                 
             elif self.phase == cp.DELETE_NECESSARY_DATA:
-                print('DELETE_NECESSARY_DATA')
+                TRACE('DELETE_NECESSARY_DATA')
                 deleteNecessaryData()
                 returnMessage['message'] = 'Citanje tjednih sluzbi'
                     
             elif self.phase == cp.EXTRACT_RULES_BY_DRIVER:
-                print('EXTRACT_RULES_BY_DRIVER')
+                TRACE('EXTRACT_RULES_BY_DRIVER')
                 extractRulesByDriver(self.weekSchedule, self.mondayDate)
                 returnMessage['message'] = 'Citanje svih sluzbi'
                 
             elif self.phase == cp.EXTRACT_RULES:
-                print('EXTRACT_RULES')
+                TRACE('EXTRACT_RULES')
                 extractRules(self.workDayURL,
                              self.saturdayURL,
                              self.sundayURL)
                 returnMessage['message'] = 'Spremanje tjednih sluzbi'
                 
             elif self.phase == cp.WRITE_DECRYPTED_SERVICES:
-                print('WRITE_DECRYPTED_SERVICES')
+                TRACE('WRITE_DECRYPTED_SERVICES')
                 writeDecryptedServices(self.days, self.weekSchedule)
                 returnMessage['message'] = 'Spremanje tjednih smjena'
                 
             elif self.phase == cp.WRITE_DECRYPTED_SHIFTS:
-                print('WRITE_DECRYPTED_SHIFTS')
+                TRACE('WRITE_DECRYPTED_SHIFTS')
                 writeDecryptedShifts(self.days, self.weekSchedule)
                 returnMessage['message'] = \
                               'Spremanje relevantnih podataka'
                 
             elif self.phase == cp.SAVE_RELEVANT_DATA:
-                print('SET_RELEVANT_DATA')
+                TRACE('SET_RELEVANT_DATA')
                 setLastRecord(self.mondayDate)
                 returnMessage['message'] = 'Ucitavanje sluzbi na Internet'
 
             elif self.phase == cp.UPLOAD_DATA_TO_DROPBOX:
-                print('UPLOAD_DATA_TO_DROPBOX')
+                TRACE('UPLOAD_DATA_TO_DROPBOX')
                 uploadDataToDropbox()
                 returnMessage['message'] = 'Postavljanje oglasne poruke'
                 
             elif self.phase == cp.SET_WARNING_MESSAGE:
-                print('SET_WARNING_MESSAGE')
+                TRACE('SET_WARNING_MESSAGE')
                 warningMessageInfo = getWarningMessageInfo()
                 self.warningMessage = warningMessageInfo['message']
                 self.warningMessageColor = warningMessageInfo['color']
@@ -138,7 +139,7 @@ class AdminDataCollector:
 
             elif self.phase == cp.UPDATE_BACKUP_DIRECTORY:
                 # must not fail by canon
-                print('UPDATE_BACKUP_DIRECTORY')
+                TRACE('UPDATE_BACKUP_DIRECTORY')
                 setUpdateSuccessful() # must go before so backup gets it
                 updateBackupDir() # must not fail by canon
                 returnMessage['success'] = True
@@ -148,7 +149,7 @@ class AdminDataCollector:
                 returnMessage['warningMessageColor'] = self.warningMessageColor
                 
         except Exception as e:
-            print(e)
+            TRACE(e)
             repairAllFiles()
             return {'success': False,
                     'error': True,

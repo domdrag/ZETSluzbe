@@ -11,6 +11,7 @@ from src.data.share.get_warning_message_info import (
     )
 from src.data.share.update_backup_dir import updateBackupDir
 from src.data.share.repair_all_files import repairAllFiles
+from src.share.trace import TRACE
 
 cp = UserCollectPhase
 
@@ -29,7 +30,7 @@ class UserDataCollector:
                           'warningMessageColor': ''}
         try:
             if self.phase == cp.DROPBOX_SYNCHRONIZATION:
-                print('DROPBOX_SYNCHRONIZATION')
+                TRACE('DROPBOX_SYNCHRONIZATION')
                 unsetUpdateSuccessful()
                 if isDropboxSynchronizationNeeded():
                     dropbboxSynchronization()
@@ -39,7 +40,7 @@ class UserDataCollector:
                     returnMessage['finished'] = True
                 
             elif self.phase == cp.SET_WARNING_MESSAGE:
-                print('SET_WARNING_MESSAGE')
+                TRACE('SET_WARNING_MESSAGE')
                 warningMessageInfo = getWarningMessageInfo()
                 self.warningMessage = warningMessageInfo['message']
                 self.warningMessageColor = warningMessageInfo['color']
@@ -47,7 +48,7 @@ class UserDataCollector:
 
             elif self.phase == cp.UPDATE_BACKUP_DIRECTORY:
                 # must not fail by canon
-                print('UPDATE_BACKUP_DIRECTORY')
+                TRACE('UPDATE_BACKUP_DIRECTORY')
                 setUpdateSuccessful() # must go before so backup gets it
                 updateBackupDir() # must not fail by canon
                 returnMessage['success'] = True
@@ -57,7 +58,7 @@ class UserDataCollector:
                 returnMessage['warningMessageColor'] = self.warningMessageColor
                 
         except Exception as e:
-            print(e)
+            TRACE(e)
             repairAllFiles()
             return {'success': False,
                     'error': True,
