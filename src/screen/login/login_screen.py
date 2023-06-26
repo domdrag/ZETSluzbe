@@ -25,6 +25,7 @@ from src.data.share.dropbox_share import (
     dropbboxSynchronization
     )
 from src.data.share.get_config import getConfig
+from src.share.trace import TRACE
 
 class LoginScreen(Screen):
     offNumTextField = ObjectProperty(None) # object in kv
@@ -37,7 +38,7 @@ class LoginScreen(Screen):
         super(LoginScreen, self).__init__(**kwargs)
         # if some operation haven't stopped in last session
         if errorOccuredInLastSession():
-            print('REPAIR ALL FILES - ERROR IN LAST SESSION')
+            TRACE('REPAIR ALL FILES - ERROR IN LAST SESSION')
             repairAllFiles()
         
         config = getConfig()
@@ -47,7 +48,7 @@ class LoginScreen(Screen):
         
         '''
         if not self.ADMIN and updateRequiredDateCheck():
-            print('USER UPDATE REQUIRED DATE CHECK')
+            TRACE('USER UPDATE REQUIRED DATE CHECK')
             self.update()'''
 
     def setWarningMessage(self):
