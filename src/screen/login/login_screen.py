@@ -6,7 +6,7 @@ from kivy.properties import ColorProperty
 
 from src.data.admin.admin_data_collector import AdminDataCollector
 from src.data.user.user_data_collector import UserDataCollector
-from src.screen.login.utils.update_popup import UpdatePopup
+from src.screen.login.utils.update_dialog import UpdateDialog
 
 from src.data.share.read_services import readServices
 from src.data.share.read_shifts import readShifts
@@ -16,7 +16,7 @@ from src.data.share.error_manager import errorOccuredInLastSession
 from src.data.share.get_warning_message_info import (
     getWarningMessageInfo
     )
-from src.screen.login.utils.update_popup_util import showPopup
+from src.screen.login.utils.update_dialog_util import showDialog
 from src.data.user.update_required_date_check import (
     updateRequiredDateCheck
     )
@@ -31,7 +31,7 @@ class LoginScreen(Screen):
     warningMessage = StringProperty() # binding
     warningMessageColor = ColorProperty() # binding
     updateDone = BooleanProperty(False)
-    updatePopup = None
+    updateDialog = None
     
     def __init__(self, **kwargs):
         super(LoginScreen, self).__init__(**kwargs)
@@ -60,14 +60,14 @@ class LoginScreen(Screen):
             self.manager.updateTabs(offNum, servicesData, shiftsData)
             self.manager.switchToMainScreen()
         else:
-            self.updatePopup = UpdatePopup()
+            self.updateDialog = UpdateDialog()
             self.manager.loginFailure()
 
     def updateButton(self):
-        self.updatePopup = UpdatePopup()
+        self.updateDialog = UpdateDialog()
         self.update()
 
-    @showPopup
+    @showDialog
     def update(self):
         if self.ADMIN:
             dataCollector = AdminDataCollector()
@@ -76,13 +76,13 @@ class LoginScreen(Screen):
             
         finished = False
         updateResult = dict()
-        self.updatePopup.text = 'Dropbox sinkronizacija'
+        self.updateDialog.text = 'Dropbox sinkronizacija'
         while not finished:
             updateResult = dataCollector.keepCollectingData()
             finished = updateResult['finished']
-            self.updatePopup.text = updateResult['message']
+            self.updateDialog.text = updateResult['message']
    
-        self.updatePopup.dotsTimer.cancel()
+        self.updateDialog.dotsTimer.cancel()
         success = updateResult['success']
         error = updateResult['error']
         errorMessage = updateResult['errorMessage']
@@ -92,20 +92,20 @@ class LoginScreen(Screen):
         if success:
             self.warningMessage = warningMessage
             self.warningMessageColor = warningMessageColor
-            self.updatePopup.text = 'Sluzbe azurirane!'
+            self.updateDialog.text = 'Sluzbe azurirane!'
             
         elif error:
-            self.updatePopup.text = 'GRESKA! Dokumenti popravljeni.\n' \
+            self.updateDialog.text = 'GRESKA! Dokumenti popravljeni.\n' \
                                     + errorMessage
         else:
             if self.ADMIN:
-                self.updatePopup.text = 'Sluzbe jos nisu izasle!'
+                self.updateDialog.text = 'Sluzbe jos nisu izasle!'
             else:
-                self.updatePopup.text = 'Nove sluzbe jos nisu izasle na web ' \
+                self.updateDialog.text = 'Nove sluzbe jos nisu izasle na web ' \
                                         'stranici ZET-a ili jos nisu ' \
                                         'registrirane u sustavu aplikacije.'
 
-        self.updatePopup.auto_dismiss = True
+        self.updateDialog.auto_dismiss = True
 
 
 

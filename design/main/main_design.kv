@@ -1,0 +1,36 @@
+<MainCanvasAfter@Widget>
+	canvas.after:
+		Color:
+			rgba: app.theme_cls.accent_color
+		Line:
+			width: 1
+			rectangle: self.x, self.y, self.width, self.height
+
+<MainDesign@Widget>
+	halign: 'center'
+	valign: 'center'
+	font_size: '13dp'
+	text_size: self.width/1.05, None # idk how, but this works
+	text_color: 'white'
+	md_bg_color: app.theme_cls.primary_dark
+	
+<MainLabel@MDLabel+MainDesign>
+
+<MainLabelWithBorder@MainLabel+MainCanvasAfter>
+	
+<MainButton@MDFillRoundFlatButton+MainDesign>
+	md_bg_color: app.theme_cls.primary_color
+
+<MainFlatButton@MDFlatButton+MainDesign>
+
+<CallInfoButton@MDTextButton+MainDesign+MainCanvasAfter> 
+
+<MainRecycleView@MDRecycleView>:
+	RecycleBoxLayout:
+		default_size: None, dp(200)
+		default_size_hint: 1, None
+		size_hint_y: None
+		height: self.minimum_height
+		orientation: 'vertical'
+
+	

@@ -1,0 +1,42 @@
+#:include design/main/tabs/services_tab.kv
+#:include design/main/tabs/shifts_tab.kv
+#:include design/main/tabs/hourly_rate_tab.kv
+#:include design/share/calendar_dialog.kv
+
+<MainScreen>:
+	name: 'mainScreen'
+	mainScreenTabs: mainScreenTabsId
+	servicesTab: servicesTabId
+	shiftsTab: shiftsTabId
+	hourlyRateTab: hourlyRateTabId
+
+	MDBoxLayout:
+		orientation: 'vertical'
+		
+		MDTopAppBar:
+			orientation: 'horizontal'
+			title: 'ZETSluzbe'
+			anchor_title: 'left'
+			
+			MDIconButton:
+				icon: 'calendar'
+				on_release: root.calendarButton()
+				
+			MDIconButton:
+                icon: 'logout'
+				on_release: root.logoutButton()
+		
+		MDTabs:
+			id: mainScreenTabsId
+			tab_hint_x: True
+			
+			ServicesTab:
+				id: servicesTabId
+				
+			ShiftsTab: 
+				id: shiftsTabId
+				
+			HourlyRateTab:
+				id: hourlyRateTabId
+				
+			

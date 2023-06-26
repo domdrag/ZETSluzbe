@@ -1,0 +1,12 @@
+#:include design/main/tabs/utils/daily_service.kv
+
+<ServiceDialog>:
+	servicePopupRecycleView: servicePopupRecycleViewId
+	
+	RecycleView: # workaround preko recycleview jer se inace pokazuje onaj random square u kutu
+		viewclass: 'DailyService'
+		id: servicePopupRecycleViewId
+		RecycleBoxLayout:
+			default_size_hint: 1, 1
+			size_hint: 1, 1
+			orientation: 'vertical'

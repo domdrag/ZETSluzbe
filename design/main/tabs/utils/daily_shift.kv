@@ -1,0 +1,32 @@
+#:include design/main/main_design.kv
+#:include design/main/tabs/utils/call_info_dialog.kv
+
+<DailyShift>:
+    firstItem: '' ### day or service
+	firstDriver: ''
+    secondItem: '' ### service
+	secondDriver: ''
+	bg_color1: app.theme_cls.primary_dark
+	bg_color2: app.theme_cls.primary_dark
+	
+	MDGridLayout:
+		rows: 2
+		columns: 2
+		
+		MainLabelWithBorder:
+			md_bg_color: root.bg_color1
+			text: root.firstItem
+					
+		CallInfoButton:
+			size_hint: 0.35, 0.5
+			text: root.firstDriver
+			on_release: root.callInfoButton(self.text)
+			
+		MainLabelWithBorder:
+			md_bg_color: root.bg_color2
+			text: root.secondItem
+
+		CallInfoButton:
+			size_hint: 0.35, 0.5
+			text: root.secondDriver
+			on_release: root.callInfoButton(self.text)

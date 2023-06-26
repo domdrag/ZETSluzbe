@@ -1,0 +1,15 @@
+#:include design/main/main_design.kv
+
+<DailyService>:
+	bg_color: app.theme_cls.primary_dark
+    day: ''
+    service: ''
+	
+    MDGridLayout:
+        rows: 2
+        MainLabelWithBorder:
+            text: root.day
+
+        MainLabelWithBorder:
+			md_bg_color: root.bg_color
+            text: root.service
