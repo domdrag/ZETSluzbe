@@ -1,7 +1,7 @@
 import os
 import logging
 
-from src.data.share.get_config import getConfig
+from src.data.share.config_manager import getConfig
 
 def configSetup():
     config = getConfig()

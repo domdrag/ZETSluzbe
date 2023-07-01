@@ -1,5 +1,8 @@
+from src.data.share.config_manager import setConfig
 
 def setLastRecord(mondayDate):
-    fileW = open('data/data/last_record_date.txt', 'w', encoding='utf-8')
-    fileW.write(f"{[mondayDate.year, mondayDate.month, mondayDate.day]}\n")
-    fileW.close()
+    lastRecordDate = [mondayDate.year, mondayDate.month, mondayDate.day]
+    setConfig('LAST_RECORD_DATE', lastRecordDate)
+
+def setLastRecord(fromDir):
+    

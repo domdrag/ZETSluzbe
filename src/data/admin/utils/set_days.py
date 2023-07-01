@@ -6,6 +6,7 @@ from datetime import date
 from dateutil.relativedelta import relativedelta, FR
 
 from src.data.admin.utils.download_pdf_file import downloadPDFFile
+from src.data.share.config_manager import getConfig
 
 firstURL = ("https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/"
             "Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf")
@@ -23,15 +24,12 @@ def getDays(days, textFirstPDF):
     mondayDate = date(int(year), int(month), int(day))
     # mondayDate + datetime.timedelta(days = 1)
 
-    fileR = open('data/data/last_record_date.txt', 'r', encoding='utf-8')
-    line = fileR.readline()
-    fileR.close()
-    lastRecordDateList = ast.literal_eval(line)
-    lastRecordedDate = date(lastRecordDateList[0],
-                            lastRecordDateList[1],
-                            lastRecordDateList[2])
-
-    if(mondayDate == lastRecordedDate):
+    config = getConfig()
+    lastRecordDateConfig = config['LAST_RECORD_DATE']
+    lastRecordDate = date(lastRecordDateConfig[0],
+                          lastRecordDateConfig[1],
+                          lastRecordDateConfig[2])
+    if(mondayDate == lastRecordDate):
         return {'mondayDate': mondayDate, 'updateNeeded': False}
 
     monday = 'Ponedjeljak, ' + getStringDate(mondayDate)
