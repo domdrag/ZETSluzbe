@@ -138,14 +138,6 @@ class AdminDataCollector:
                 returnMessage['success'] = True
                 returnMessage['finished'] = True
                 returnMessage['message'] = 'Sluzbe azurirane!'
-            '''
-            elif self.phase == cp.SET_WARNING_MESSAGE:
-                TRACE('SET_WARNING_MESSAGE')
-                warningMessageInfo = getWarningMessageInfo()
-                self.warningMessage = warningMessageInfo['message']
-                self.warningMessageColor = warningMessageInfo['color']
-                returnMessage['message'] = 'Kopiranje sluzbi'
-                '''
                 
         except Exception as e:
             TRACE(e)

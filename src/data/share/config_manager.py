@@ -1,5 +1,7 @@
 import json
 
+from src.data.share.repair_all_files import repairAllFiles
+
 CURRENT_CONFIG = dict()
 
 # called by the app at the start
