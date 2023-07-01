@@ -42,7 +42,7 @@ def isDropboxSynchronizationNeeded():
     onlineDate = ast.literal_eval(onlineDateString)
     fileR.close()
 
-    if currentDate == oldDate:
+    if currentDate == onlineDate:
         return False
     else:
         setConfig('LAST_RECORD_DATE', onlineDate)

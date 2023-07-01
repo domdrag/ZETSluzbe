@@ -84,12 +84,9 @@ class LoginScreen(Screen):
         success = updateResult['success']
         error = updateResult['error']
         errorMessage = updateResult['errorMessage']
-        #warningMessage = updateResult['warningMessage']
-        #warningMessageColor = updateResult['warningMessageColor']
         
         if success:
-            #self.warningMessage = warningMessage
-            #self.warningMessageColor = warningMessageColor
+            self.setWarningMessage()
             self.updateDialog.text = 'Sluzbe azurirane!'
             
         elif error:

@@ -31,7 +31,7 @@ class UserDataCollector:
                 setConfig('UPDATE_SUCCESSFUL', 0)
                 if isDropboxSynchronizationNeeded():
                     dropbboxSynchronization()
-                    returnMessage['message'] = 'Postavljanje oglasne poruke'
+                    returnMessage['message'] = 'Stvaranje sigurnosne kopije'
                 else:
                     setConfig('UPDATE_SUCCESSFUL', 1)
                     returnMessage['finished'] = True
