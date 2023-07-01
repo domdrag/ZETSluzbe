@@ -1,6 +1,8 @@
-from src.app.utils.config_setup import configSetup
+from src.data.share.config_manager import loadConfig
+from src.app.utils.environment_setup import environmentSetup
 
-configSetup()
+loadConfig()
+environmentSetup()
 
 from kivymd.app import MDApp
 from kivy.lang import Builder

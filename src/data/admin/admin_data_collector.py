@@ -12,8 +12,8 @@ from src.data.admin.utils.delete_necessary_data import (
     deleteNecessaryData
     )
 from src.data.admin.utils.search_links import searchLinks  
-from src.data.admin.utils.set_last_record import setLastRecord
 from src.data.admin.utils.set_days import setDays
+from src.data.admin.utils.set_last_record import setLastRecord
 from src.data.admin.rules.extract_rules_by_driver import (
     extractRulesByDriver
     )
@@ -21,16 +21,15 @@ from src.data.admin.rules.extract_rules import extractRules
 from src.data.admin.utils.upload_data_to_dropbox import (
     uploadDataToDropbox
     )
-from src.data.share.error_manager import (unsetUpdateSuccessful,
-                                          setUpdateSuccessful)
 from src.data.share.dropbox_share import (isDropboxSynchronizationNeeded,
                                           dropbboxSynchronization)
 from src.data.share.get_warning_message_info import (
     getWarningMessageInfo
     )
-from src.data.share.update_backup_dir import updateBackupDir
 from src.data.share.repair_all_files import repairAllFiles
 from src.share.trace import TRACE
+from src.data.share.config_manager import setConfig
+from src.data.share.update_backup_dir import updateBackupDir
 
 cp = AdminCollectPhase
 
@@ -51,13 +50,11 @@ class AdminDataCollector:
                           'error': False,
                           'finished': False,
                           'message': '',
-                          'errorMessage': '',
-                          'warningMessage': '',
-                          'warningMessageColor': ''}
+                          'errorMessage': ''}
         try:
             if self.phase == cp.DROPBOX_SYNCHRONIZATION:
                 TRACE('DROPBOX_SYNCHRONIZATION')
-                unsetUpdateSuccessful()
+                setConfig('UPDATE_SUCCESSFUL', 0)
                 if isDropboxSynchronizationNeeded():
                     self.synchronizationNeeded = True
                     dropbboxSynchronization()                
@@ -83,9 +80,9 @@ class AdminDataCollector:
                     if self.synchronizationNeeded:
                         # will be + 1 after so SET_WARNING_MESSAGE
                         self.phase = cp.UPLOAD_DATA_TO_DROPBOX 
-                        returnMessage['message'] = 'Kopiranje sluzbi'
+                        returnMessage['message'] = 'Stvaranje sigurnosne kopije'
                     else:
-                        setUpdateSuccessful()
+                        setConfig('UPDATE_SUCCESSFUL', 1)
                         returnMessage['finished'] = True
                 else:
                     self.mondayDate = result['mondayDate']
@@ -118,35 +115,37 @@ class AdminDataCollector:
                 TRACE('WRITE_DECRYPTED_SHIFTS')
                 writeDecryptedShifts(self.days, self.weekSchedule)
                 returnMessage['message'] = \
-                              'Spremanje relevantnih podataka'
-                
-            elif self.phase == cp.SAVE_RELEVANT_DATA:
-                TRACE('SET_RELEVANT_DATA')
+                              'Setiranje datuma zadnjeg zapisa'
+
+            # NEXT ORDER EXPLANATION: in case anything fails, we must have
+            # have a backup ready -> last step must be updating the backup.
+            elif self.phase == cp.SET_LAST_RECORD:
+                TRACE('SET_LAST_RECORD')
                 setLastRecord(self.mondayDate)
                 returnMessage['message'] = 'Ucitavanje sluzbi na Internet'
 
             elif self.phase == cp.UPLOAD_DATA_TO_DROPBOX:
                 TRACE('UPLOAD_DATA_TO_DROPBOX')
                 uploadDataToDropbox()
-                returnMessage['message'] = 'Postavljanje oglasne poruke'
-                
+                returnMessage['message'] = 'Stvaranje sigurnosne kopije'
+            
+            elif self.phase == cp.UPDATE_BACKUP_DIRECTORY:
+                # must not fail by canon
+                TRACE('UPDATE_BACKUP_DIRECTORY')
+                # must go first so backup gets it
+                setConfig('UPDATE_SUCCESSFUL', 1)
+                updateBackupDir() 
+                returnMessage['success'] = True
+                returnMessage['finished'] = True
+                returnMessage['message'] = 'Sluzbe azurirane!'
+            '''
             elif self.phase == cp.SET_WARNING_MESSAGE:
                 TRACE('SET_WARNING_MESSAGE')
                 warningMessageInfo = getWarningMessageInfo()
                 self.warningMessage = warningMessageInfo['message']
                 self.warningMessageColor = warningMessageInfo['color']
                 returnMessage['message'] = 'Kopiranje sluzbi'
-
-            elif self.phase == cp.UPDATE_BACKUP_DIRECTORY:
-                # must not fail by canon
-                TRACE('UPDATE_BACKUP_DIRECTORY')
-                setUpdateSuccessful() # must go before so backup gets it
-                updateBackupDir() # must not fail by canon
-                returnMessage['success'] = True
-                returnMessage['finished'] = True
-                returnMessage['message'] = 'Sluzbe azurirane!'
-                returnMessage['warningMessage'] = self.warningMessage
-                returnMessage['warningMessageColor'] = self.warningMessageColor
+                '''
                 
         except Exception as e:
             TRACE(e)
@@ -155,9 +154,8 @@ class AdminDataCollector:
                     'error': True,
                     'finished': True,
                     'message': 'GRESKA! Popravljanje dokumenata..\n',
-                    'errorMessage': str(e),
-                    'warningMessage': '',
-                    'warningMessageColor': ''}
+                    'errorMessage': str(e)}
+
         self.phase = cp(self.phase.value + 1)
         if self.phase == cp.END:
             self.phase = cp.SEARCH_LINKS
