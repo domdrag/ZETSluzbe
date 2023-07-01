@@ -1,21 +1,15 @@
+from src.data.share.config_manager import getConfig, setConfig
 
 def errorOccuredInLastSession():
-    fileR = open('data/data/update_successful.txt', 'r', encoding='utf-8')
-    line = fileR.read()
-    fileR.close()
-    
-    if line == '1':
+    config = getConfig()
+
+    if (config['UPDATE_SUCCESSFUL']):
         return False
     return True
 
-# bad programming but left for code clarity
 def unsetUpdateSuccessful():
-    fileW = open('data/data/update_successful.txt', 'w', encoding='utf-8')
-    fileW.write('0')
-    fileW.close()
+    setConfig('UPDATE_SUCCESSFUL', 0)
 
 def setUpdateSuccessful():
-    fileW = open('data/data/update_successful.txt', 'w', encoding='utf-8')
-    fileW.write('1')
-    fileW.close()
+    setConfig('UPDATE_SUCCESSFUL', 1)
 

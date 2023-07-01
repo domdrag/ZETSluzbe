@@ -24,7 +24,7 @@ from src.data.share.dropbox_share import (
     isDropboxSynchronizationNeeded,
     dropbboxSynchronization
     )
-from src.data.share.get_config import getConfig
+from src.data.share.config_manager import getConfig
 from src.share.trace import TRACE
 
 class LoginScreen(Screen):
