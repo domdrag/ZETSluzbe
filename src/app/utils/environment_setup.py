@@ -3,7 +3,7 @@ import logging
 
 from src.data.share.config_manager import getConfig
 
-def configSetup():
+def environmentSetup():
     config = getConfig()
     
     if (not config['LOGS']):

@@ -11,8 +11,6 @@ from src.screen.login.utils.update_dialog import UpdateDialog
 from src.data.share.read_services import readServices
 from src.data.share.read_shifts import readShifts
 from src.data.share.repair_all_files import repairAllFiles
-from src.data.share.update_backup_dir import updateBackupDir
-from src.data.share.error_manager import errorOccuredInLastSession
 from src.data.share.get_warning_message_info import (
     getWarningMessageInfo
     )
@@ -36,10 +34,6 @@ class LoginScreen(Screen):
     
     def __init__(self, **kwargs):
         super(LoginScreen, self).__init__(**kwargs)
-        # if some operation haven't stopped in last session
-        if errorOccuredInLastSession():
-            TRACE('REPAIR ALL FILES - ERROR IN LAST SESSION')
-            repairAllFiles()
         
         config = getConfig()
         self.offNum = config['OFFICIAL_NUMBER_STARTUP']
@@ -90,12 +84,12 @@ class LoginScreen(Screen):
         success = updateResult['success']
         error = updateResult['error']
         errorMessage = updateResult['errorMessage']
-        warningMessage = updateResult['warningMessage']
-        warningMessageColor = updateResult['warningMessageColor']
+        #warningMessage = updateResult['warningMessage']
+        #warningMessageColor = updateResult['warningMessageColor']
         
         if success:
-            self.warningMessage = warningMessage
-            self.warningMessageColor = warningMessageColor
+            #self.warningMessage = warningMessage
+            #self.warningMessageColor = warningMessageColor
             self.updateDialog.text = 'Sluzbe azurirane!'
             
         elif error:

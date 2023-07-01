@@ -1,11 +1,6 @@
 from distutils.dir_util import copy_tree 
-#import shutil # distutils has been deprecated in 3.10 or 3.12
-'''
-def repairAllFiles():
-    shutil.copytree('data/backup',
-                    'data/data')
 
-'''
+# Can update files produce some garbage which won't be removed by repair?
 def repairAllFiles():
     copy_tree('data/backup',
-              'data/data')
+              'data')
