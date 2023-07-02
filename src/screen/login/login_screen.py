@@ -27,10 +27,13 @@ from src.share.trace import TRACE
 
 class LoginScreen(Screen):
     offNumTextField = ObjectProperty(None) # object in kv
+    loginButtonObj = ObjectProperty(None) # object in kv
+    updateButtonObj = ObjectProperty(None) # object in kv
     warningMessage = StringProperty() # binding
     warningMessageColor = ColorProperty() # binding
     offNum = StringProperty()# binding
     updateDone = BooleanProperty(False)
+    
     
     def __init__(self, **kwargs):
         super(LoginScreen, self).__init__(**kwargs)
