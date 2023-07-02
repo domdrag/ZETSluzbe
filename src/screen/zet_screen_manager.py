@@ -5,7 +5,7 @@ from kivy.uix.screenmanager import ScreenManager
 from src.screen.login.login_screen import LoginScreen
 from src.screen.main.main_screen import MainScreen
 
-# workaround; portrait orientation not working for some reason [?]; 
+# WORKAROUND; portrait orientation not working for some reason [?]; 
 os.environ['KIVY_ORIENTATION'] = "Portrait" 
 
 class ZETScreenManager(ScreenManager):
@@ -25,6 +25,9 @@ class ZETScreenManager(ScreenManager):
     def switchToMainScreen(self):
         if self.current == 'loginScreen':
             self.transition.direction = 'down'
+            # WORKAROUND: button shadows briefly stay after switching screen
+            #self.loginScreen.loginButtonObj.opacity = 0
+            #self.loginScreen.updateButtonObj.opacity = 0
         else:
             self.transition.direction = 'right'
         self.current = 'mainScreen'
@@ -32,3 +35,6 @@ class ZETScreenManager(ScreenManager):
     def switchToLoginScreen(self):
         self.transition.direction = 'up'
         self.current = 'loginScreen'
+        # WORKAROUND: button shadows briefly stay after switching screen
+        #self.loginScreen.loginButtonObj.opacity = 1
+       # self.loginScreen.updateButtonObj.opacity = 1

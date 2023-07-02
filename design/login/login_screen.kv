@@ -4,6 +4,8 @@
 <LoginScreen>:
 	name: 'loginScreen'
 	offNumTextField: offNumTextFieldId
+	loginButtonObj: loginButtonId
+	updateButtonObj: updateButtonId
 	
     MDFloatLayout:
 		md_bg_color: app.theme_cls.primary_dark
@@ -14,9 +16,9 @@
             text: "Sluzbeni broj: "
 			
         LoginScreenTextField:
+			id: offNumTextFieldId
 			pos_hint: {"x": 0.4, "top": 0.8}
 			size_hint_x: 0.2
-            id: offNumTextFieldId
             text: root.offNum
 			
 		LoginScreenLabel:
@@ -26,13 +28,15 @@
 			color: root.warningMessageColor
 
         LoginScreenButton:
-            pos_hint:{"x":0.1,'bottom': 1}
+			id: loginButtonId
+            pos_hint:{"x":0.09,'bottom': 1}
 			size_hint: 0.4, 0.1
             text: 'Prijavi se'
             on_release: root.loginButton()
 					
 		LoginScreenButton:
-            pos_hint:{"x":0.5,'bottom': 1}
+			id: updateButtonId
+            pos_hint:{"x":0.51,'bottom': 1}
 			size_hint: 0.4, 0.1
             text: 'Azuriraj'
             on_release: root.updateButton()

@@ -1,14 +1,23 @@
+<LoginCanvasAfter@Widget>
+	canvas.after:
+		Color:
+			rgba: app.theme_cls.accent_color
+		Line:
+			width: 1
+			rectangle: self.x, self.y, self.width, self.height
+
 <LoginScreenDesign@Widget>
 	halign: 'center'
 	valign: 'center'
 	font_size: '13dp'
 	text_size: self.width/1.05, None # idk how, but this works
 	text_color: 'white'
+	theme_text_color: 'Custom'
 	md_bg_color: app.theme_cls.primary_dark
 	
 <LoginScreenLabel@MDLabel+LoginScreenDesign>
 	
-<LoginScreenButton@MDFillRoundFlatButton+LoginScreenDesign>
+<LoginScreenButton@MDRaisedButton+LoginScreenDesign>
 	md_bg_color: app.theme_cls.primary_color
 	
 <LoginScreenTextField@MDTextField+LoginScreenDesign>
