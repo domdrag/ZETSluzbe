@@ -1,7 +1,6 @@
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.button import MDFlatButton
 from kivymd.uix.button import MDRaisedButton
-from kivy.core.window import Window
 
 from jnius import autoclass
 from jnius import cast
@@ -11,14 +10,10 @@ from src.screen.main.tabs.utils.call_info_widget import CallInfoWidget
 from src.data.share.color_manager import (getSecondaryColor,
                                           getWhiteColor)
 
-DIALOG_SIZE_HINT_X = 0.62
-DIALOG_SIZE_HINT_Y = 0.53
-
 class CallInfoDialog(MDDialog):
     def __init__(self, driverInfo):
         if('\n' not in driverInfo):
-            raise Exception('Nema telefonskog broja u bazi')
-        self.show_duration = 0        
+            raise Exception('Nema telefonskog broja u bazi')     
         driverInfoList = driverInfo.split('\n')
         self.name = driverInfoList[0]
         self.phoneNumber = driverInfoList[1]
