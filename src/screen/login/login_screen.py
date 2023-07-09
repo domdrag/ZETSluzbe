@@ -84,7 +84,7 @@ class LoginScreen(Screen):
     def fontSizeSlider(self, value):
         updateFontSize('LOGIN', int(value))
         for obj in self.ids.values():
-            obj.font_size = int(value)
+            obj.font_size = str(int(value))+'dp'
 
     @showDialog
     def update(self):
