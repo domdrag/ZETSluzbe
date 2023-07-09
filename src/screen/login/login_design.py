@@ -11,5 +11,5 @@ class LoginScreenDesign(Widget):
         design = getDesign('LOGIN')
 
         self.fontSize = design['FONT_SIZE']
-        print(self.fontSize)
+        self.fontValue = int(self.fontSize[:2])
         
