@@ -20,22 +20,10 @@ def setDesign(designScreen, designName, designValue):
     with open('data/design.json', 'w') as designFile:
         json.dump(design, designFile, indent = 3)
 
-def updateFontSize(screen, isIncrease):
+def updateFontSize(screen, value):
     designJSON = getDesignJSON()
-    design = designJSON[screen]
-
-    fontSize = design['FONT_SIZE']
-    if (fontSize[:2].isdigit()):
-        size = int(fontSize[:2])
-    else:
-        size = int(fontSize[0])
-
-    if (isIncrease):
-        size = size + 1
-    else:
-        size = size - 1
-    design['FONT_SIZE'] = str(size) + 'dp'
-
+    design = designJSON[screen]    
+    design['FONT_SIZE'] = str(value) + 'dp'
     designJSON[screen] = design
 
     with open('data/design.json', 'w') as designFile:

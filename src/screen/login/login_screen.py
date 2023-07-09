@@ -69,7 +69,7 @@ class LoginScreen(Screen):
     def updateButton(self):
         self.updateDialog = UpdateDialog()
         self.update()
-
+    '''
     def plusButton(self):
         updateFontSize('LOGIN', True)
         for obj in self.ids.values():
@@ -78,7 +78,12 @@ class LoginScreen(Screen):
     def minusButton(self):
         updateFontSize('LOGIN', False)
         for obj in self.ids.values():
-            obj.font_size = obj.font_size - 1
+            obj.font_size = obj.font_size - 1'''
+
+    def fontSizeSlider(self, value):
+        updateFontSize('LOGIN', int(value))
+        for obj in self.ids.values():
+            obj.font_size = int(value)
 
     @showDialog
     def update(self):
