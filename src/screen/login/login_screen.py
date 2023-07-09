@@ -67,6 +67,7 @@ class LoginScreen(Screen):
             self.manager.loginFailure()
 
     def updateButton(self):
+        print(self.offNumTextFieldObj.font_size)
         self.updateDialog = UpdateDialog()
         self.update()
     '''
