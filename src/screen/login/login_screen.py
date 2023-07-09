@@ -4,6 +4,7 @@ from kivy.properties import (ObjectProperty,
                              StringProperty,
                              ColorProperty)
 
+from src.screen.login.login_design import LoginScreenDesign
 from src.data.admin.admin_data_collector import AdminDataCollector
 from src.data.user.user_data_collector import UserDataCollector
 from src.screen.login.utils.update_dialog import UpdateDialog
@@ -23,10 +24,11 @@ from src.data.share.dropbox_share import (
     dropbboxSynchronization
     )
 from src.data.share.config_manager import getConfig
+from src.data.share.design_manager import updateFontSize
 from src.share.trace import TRACE
 
 class LoginScreen(Screen):
-    offNumTextField = ObjectProperty(None) # object in kv
+    offNumTextFieldObj = ObjectProperty(None) # object in kv
     loginButtonObj = ObjectProperty(None) # object in kv
     updateButtonObj = ObjectProperty(None) # object in kv
     warningMessage = StringProperty() # binding
@@ -54,7 +56,7 @@ class LoginScreen(Screen):
         self.warningMessageColor = warningMessageInfo['color']
 
     def loginButton(self):        
-        offNum = self.offNumTextField.text
+        offNum = self.offNumTextFieldObj.text
         servicesData = readServices(offNum)
         shiftsData = readShifts(offNum)
         if servicesData and shiftsData:
@@ -67,6 +69,16 @@ class LoginScreen(Screen):
     def updateButton(self):
         self.updateDialog = UpdateDialog()
         self.update()
+
+    def plusButton(self):
+        updateFontSize('LOGIN', True)
+        for obj in self.ids.values():
+            obj.font_size = obj.font_size + 1
+
+    def minusButton(self):
+        updateFontSize('LOGIN', False)
+        for obj in self.ids.values():
+            obj.font_size = obj.font_size - 1
 
     @showDialog
     def update(self):

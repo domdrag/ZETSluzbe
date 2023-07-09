@@ -3,7 +3,7 @@
 
 <LoginScreen>:
 	name: 'loginScreen'
-	offNumTextField: offNumTextFieldId
+	offNumTextFieldObj: offNumTextFieldId
 	loginButtonObj: loginButtonId
 	updateButtonObj: updateButtonId
 	
@@ -11,6 +11,7 @@
 		md_bg_color: app.theme_cls.primary_dark
 
         LoginScreenLabel:
+			id: offNumLabelId
 			pos_hint: {"x":0.3, "top":0.9}
             size_hint: 0.4, 0.1
             text: "Sluzbeni broj: "
@@ -22,6 +23,7 @@
             text: root.offNum
 			
 		LoginScreenLabel:
+			id: warningMessageLabelId
 			pos_hint: {"x":0.1, "top":0.5}
             size_hint: 0.8, 0.1
             text: root.warningMessage
@@ -40,3 +42,13 @@
 			size_hint: 0.4, 0.1
             text: 'Azuriraj'
             on_release: root.updateButton()
+			
+		MDIconButton:
+			pos_hint: {"x":0.0, "top":0.65}
+			icon: 'plus-circle'
+			on_release: root.plusButton()
+		
+		MDIconButton:
+			pos_hint: {"x":0.0, "top":0.6}
+			icon: 'minus-circle'
+			on_release: root.minusButton()
