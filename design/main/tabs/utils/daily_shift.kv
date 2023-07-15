@@ -1,32 +1,41 @@
 #:include design/main/main_design.kv
 #:include design/main/tabs/utils/call_info_dialog.kv
 
-<DailyShift>:
+<DailyShift@MainScreenDesign>:
     firstItem: '' ### day or service
 	firstDriver: ''
     secondItem: '' ### service
 	secondDriver: ''
 	bg_color1: app.theme_cls.primary_dark
 	bg_color2: app.theme_cls.primary_dark
+	font_size: root.fontSize # workaround, couldn't find any way to respect the existing arch.
 	
 	MDGridLayout:
 		rows: 2
 		columns: 2
 		
 		MainLabelWithBorder:
+			id: firstLabelId
 			md_bg_color: root.bg_color1
 			text: root.firstItem
+			font_size: root.font_size
 					
 		CallInfoButton:
+			id: firstButtonId
 			size_hint: 0.35, 0.5
 			text: root.firstDriver
 			on_release: root.callInfoButton(self.text)
+			font_size: root.font_size
 			
 		MainLabelWithBorder:
+			id: secondLabelId
 			md_bg_color: root.bg_color2
 			text: root.secondItem
+			font_size: root.font_size
 
 		CallInfoButton:
+			id: secondButtonId
 			size_hint: 0.35, 0.5
 			text: root.secondDriver
 			on_release: root.callInfoButton(self.text)
+			font_size: root.font_size

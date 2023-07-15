@@ -12,8 +12,8 @@
 
         LoginScreenLabel:
 			id: offNumLabelId
-			pos_hint: {"x":0.3, "top":0.9}
-            size_hint: 0.4, 0.1
+			pos_hint: {"x":0.1, "top":0.9}
+            size_hint: 0.8, 0.1
             text: "Sluzbeni broj: "
 			
         LoginScreenTextField:
@@ -43,17 +43,8 @@
             text: 'Azuriraj'
             on_release: root.updateButton()
 			
-		#MDIconButton:
-		#	pos_hint: {"x":0.0, "top":0.65}
-		#	icon: 'plus-circle'
-		#	on_release: root.plusButton()
-		
-		#MDIconButton:
-		#	pos_hint: {"x":0.0, "top":0.6}
-		#	icon: 'minus-circle'
-		#	on_release: root.minusButton()
-			
 		LoginScreenSlider:
 			size_hint_y: 0.2
-			pos_hint: {"x":-0.45, "top":0.65}
+			size_hint_x: 0.2
+			pos_hint: {"x":0.4, "top": 1.04}
 			on_value_normalized: root.fontSizeSlider(self.value)

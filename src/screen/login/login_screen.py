@@ -62,30 +62,27 @@ class LoginScreen(Screen):
         if servicesData and shiftsData:
             self.manager.updateTabs(offNum, servicesData, shiftsData)
             self.manager.switchToMainScreen()
+            return
+
+        if (servicesData == None and shiftsData == None):
+            message = 'Sluzbeni broj ne postoji!'
+        elif (servicesData == [] and shiftsData == []):
+            message = 'Nema aktualnih sluzbi. Probajte azurirati sluzbe.'
         else:
-            self.updateDialog = UpdateDialog()
-            self.manager.loginFailure()
+            message = 'Greska u sustavu. Kontaktirati administratora.'
+
+        self.updateDialog = UpdateDialog()
+        self.updateDialog.text = message
+        self.updateDialog.open()
 
     def updateButton(self):
-        print(self.offNumTextFieldObj.font_size)
         self.updateDialog = UpdateDialog()
         self.update()
-    '''
-    def plusButton(self):
-        updateFontSize('LOGIN', True)
-        for obj in self.ids.values():
-            obj.font_size = obj.font_size + 1
-
-    def minusButton(self):
-        updateFontSize('LOGIN', False)
-        for obj in self.ids.values():
-            obj.font_size = obj.font_size - 1'''
 
     def fontSizeSlider(self, value):
-        print(value)
         updateFontSize('LOGIN', int(value))
         for obj in self.ids.values():
-            obj.font_size = str(int(value))+'dp'
+            obj.font_size = str(int(value)) + 'dp'
 
     @showDialog
     def update(self):

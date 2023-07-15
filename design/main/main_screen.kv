@@ -38,5 +38,10 @@
 				
 			HourlyRateTab:
 				id: hourlyRateTabId
-				
+			
+	MainScreenSlider:
+		size_hint_y: 0.2
+		size_hint_x: 0.2
+		pos_hint: {"x":0.4, "top": 1.04}
+		on_value_normalized: root.fontSizeSlider(self.value)	
 			
