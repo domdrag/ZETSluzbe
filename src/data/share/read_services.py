@@ -18,7 +18,7 @@ def readServices(offNum):
         weekServices = fileR.readlines()
         fileR.close()
     except:
-        return []
+        return None
     
     weekServicesData = []
     for weekServiceRawString in weekServices:

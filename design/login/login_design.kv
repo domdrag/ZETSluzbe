@@ -1,7 +1,7 @@
 <LoginScreenDesign@Widget>
 	halign: 'center'
 	valign: 'center'
-	font_size: root.fontSize #'13dp'
+	font_size: root.fontSize 
 	text_size: self.width/1.05, None # idk how, but this works
 	text_color: 'white'
 	theme_text_color: 'Custom'
@@ -22,7 +22,7 @@
 	text_color_focus: 'white'
 	
 <LoginScreenSlider@MDSlider+LoginScreenDesign>
-	orientation: 'vertical'
+	orientation: 'horizontal'
 	color: 'white'
 	value: root.fontValue
 	min: 10

@@ -1,7 +1,4 @@
 from kivy.uix.widget import Widget
-from kivymd.uix.label import MDLabel
-from kivymd.uix.button import MDRaisedButton
-from kivymd.uix.textfield import MDTextField
 
 from src.data.share.design_manager import getDesign
 

@@ -18,7 +18,7 @@ def readShifts(offNum):
         weekServices = fileR.readlines()
         fileR.close()
     except:
-        return []
+        return None
     
     weekServicesData = []
     currWeekService = 0

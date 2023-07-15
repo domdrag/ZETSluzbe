@@ -1,5 +1,8 @@
 {
    "LOGIN": {
-      "FONT_SIZE": "30dp"
+      "FONT_SIZE": "24dp"
+   },
+   "MAIN": {
+      "FONT_SIZE": "14dp"
    }
 }

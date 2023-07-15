@@ -6,20 +6,20 @@
 			width: 1
 			rectangle: self.x, self.y, self.width, self.height
 
-<MainDesign@Widget>
+<MainScreenDesign@Widget>
 	halign: 'center'
 	valign: 'center'
-	font_size: '13dp'
+	font_size: root.fontSize
 	text_size: self.width/1.05, None # idk how, but this works
 	text_color: 'white'
 	md_bg_color: app.theme_cls.primary_dark
 	
-<CallInfoLabel@MDLabel+MainDesign>
+<CallInfoLabel@MDLabel+MainScreenDesign>
 
 # service/day label
-<MainLabelWithBorder@MDLabel+MainDesign+MainCanvasAfter> 
+<MainLabelWithBorder@MDLabel+MainScreenDesign+MainCanvasAfter> 
 
-<CallInfoButton@MDTextButton+MainDesign+MainCanvasAfter> 
+<CallInfoButton@MDTextButton+MainScreenDesign+MainCanvasAfter> 
 
 <MainRecycleView@MDRecycleView>:
 	RecycleBoxLayout:
@@ -29,4 +29,9 @@
 		height: self.minimum_height
 		orientation: 'vertical'
 
-	
+<MainScreenSlider@MDSlider+MainScreenDesign>
+	orientation: 'horizontal'
+	color: 'white'
+	value: root.fontValue
+	min: 10
+	max: 20
