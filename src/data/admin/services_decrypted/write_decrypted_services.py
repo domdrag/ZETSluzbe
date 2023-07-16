@@ -1,7 +1,8 @@
 import ast
 
-from src.data.admin.utils.get_service_layout import getServiceLayout
+from src.data.admin.utils.get_service_layout import getServiceLayoutAndUpdateStats
 from src.data.admin.utils.get_service_line import getServiceLine
+from src.data.admin.utils.statistics_manager import setStatistics
 
 def writeDecryptedServices(days, weekSchedule):
     fileR = open('data/data/week_services_by_driver_encrypted.txt',
@@ -19,6 +20,7 @@ def writeDecryptedServices(days, weekSchedule):
         for i in range(1,8):
             serviceNum = weekServices[i]
             serviceLine = getServiceLine(serviceNum, i-1, weekSchedule)
-            serviceLayout = getServiceLayout(serviceLine, serviceNum, days, i-1)
+            serviceLayout = getServiceLayoutAndUpdateStats(serviceLine, serviceNum, days, i-1, str(offNum))
             fileW.write(f"{serviceLayout}\n")
         fileW.close()
+    setStatistics()

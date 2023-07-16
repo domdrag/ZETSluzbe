@@ -1,4 +1,8 @@
 import re
+from decimal import Decimal
+
+from src.data.admin.utils.statistics_manager import updateStatistics, updateStatisticsVac
+from src.data.share.get_holidays import getHolidays
 
 def isAlphaWithSpaces(x):
     if(x == ''):
@@ -11,11 +15,32 @@ def isAlphaWithSpaces(x):
             return False
     return True
 
-def getServiceLayout(serviceLine, serviceNum, days, day):
+def getServiceLayout(serviceLine, serviceNum, days, day, offNum = None):
     if(len(serviceLine) == 1):
         if serviceLine[0] == '' or serviceLine[0] == ' ':
             return [days[day], 'empty']
+        if (offNum):
+            dayInfoList = days[day].split(',')
+            dateList = dayInfoList[1].split('.')
+            monthFormat = dateList[1] + '-' + dateList[2]
+
+            dateListInt = [int(dateList[0]), int(dateList[1]), int(dateList[2])]
+            holidays = getHolidays()
+            isHoliday = False
+            for holiday in holidays:
+                holiday = holiday[::-1]
+                if ((holiday == dateListInt) or
+                    (holiday[2] == 0 and holiday[:2] == dateListInt[:2])):
+                    isHoliday = True
+                    break
+
+            updateStatisticsVac(offNum,
+                                monthFormat,
+                                serviceLine[0],
+                                isHoliday)
         return [days[day], serviceLine[0]]
+
+    nightHoursPossible = True
     serviceLayout = []
     serviceStartIndex = 0
     if(not serviceNum.isnumeric()):
@@ -27,6 +52,7 @@ def getServiceLayout(serviceLine, serviceNum, days, day):
     if(any(x is None for x in serviceLine)):
         return [days[day], 'empty']
     if(serviceLine[8] == serviceNum):
+        nightHoursPossible = False
         serviceStartIndex = 8
     if(serviceLine[15] == serviceNum):
         serviceStartIndex = 15
@@ -39,6 +65,38 @@ def getServiceLayout(serviceLine, serviceNum, days, day):
     receptionPoint = re.sub(' +', ' ', receptionPoint)  
     receptionTime = serviceLine[serviceStartIndex+3]
     releaseTime = serviceLine[serviceStartIndex+4]
+
+    if (offNum):
+        serviceDuration = serviceLine[serviceStartIndex + 5]
+        if (nightHoursPossible):
+            nightHours = serviceLine[serviceStartIndex + 6]
+            secondShift = serviceLine[serviceStartIndex + 7]
+        else:
+            nightHours = ''
+            secondShift = serviceLine[serviceStartIndex + 6]
+
+        serviceDurationFloat = Decimal(serviceDuration.replace(',', '.'))
+        if (nightHours):
+            nightHoursFloat = Decimal(nightHours.replace(',', '.'))
+        else:
+            nightHoursFloat = 0
+        if (secondShift):
+            secondShiftFloat = Decimal(secondShift.replace(',', '.'))
+        else:
+            secondShiftFloat = 0
+
+        dayInfoList = days[day].split('.')
+        monthFormat = dayInfoList[-3] + '-' + dayInfoList[-2]
+        isSaturday = (day == 5)
+        isSunday = (day == 6)
+
+        updateStatistics(offNum,
+                         monthFormat,
+                         serviceDurationFloat,
+                         nightHoursFloat,
+                         secondShiftFloat,
+                         isSaturday,
+                         isSunday)
 
     if('\n' in receptionTime): # dvokratne
         startingTimes = re.split('\n| ', receptionTime)
@@ -82,3 +140,5 @@ def getServiceLayout(serviceLine, serviceNum, days, day):
     serviceLayout.append(releaseTime + ', ' + releasePoint)
     return serviceLayout
     
+def getServiceLayoutAndUpdateStats(serviceLine, serviceNum, days, day, offNum):
+    return getServiceLayout(serviceLine, serviceNum, days, day, offNum)

@@ -43,6 +43,8 @@ def deleteNecessaryData():
             continue
         elif 'holidays' in file:
             continue
+        elif 'statistics' in file:
+            continue
         #############################################
         else:
             os.remove('data/data/' + file)
