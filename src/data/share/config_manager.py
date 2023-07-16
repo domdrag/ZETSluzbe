@@ -1,6 +1,7 @@
 import json
 
 from src.data.share.repair_all_files import repairAllFiles
+import src.share.trace as trace
 
 CURRENT_CONFIG = dict()
 
@@ -10,13 +11,11 @@ def loadConfig():
     
     with open('data/config.json', 'r') as configFile:
         config = json.load(configFile)
+    CURRENT_CONFIG = config
 
-    if (config['UPDATE_SUCCESSFUL']):
-        CURRENT_CONFIG = config
-        
-    else: # if some operation haven't stopped in last session
-        # can't use trace.py because of circularity
-        print('REPAIR ALL FILES - ERROR IN LAST SESSION')
+    # if some operation haven't stopped in last session
+    if (not CURRENT_CONFIG['UPDATE_SUCCESSFUL']):
+        trace.TRACE('REPAIR ALL FILES - ERROR IN LAST SESSION')
         repairAllFiles()
         loadConfig()
 
