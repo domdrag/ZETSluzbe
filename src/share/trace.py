@@ -1,7 +1,7 @@
-from src.data.share.config_manager import getConfig
+import src.data.share.config_manager as configManager
 
 def TRACE(traceObj):
-    config = getConfig()
+    config = configManager.getConfig()
     
     if (config['TRACES']):
         print(traceObj)
