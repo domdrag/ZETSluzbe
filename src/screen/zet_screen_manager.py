@@ -19,11 +19,11 @@ class ZETScreenManager(ScreenManager):
         self.loginScreen.updateDialog.text = 'Greska kod dohvacanja sluzbi.'
         self.loginScreen.updateDialog.open()
             
-    def updateTabs(self, offNum, servicesData, shiftsData):
+    def updateTabs(self, offNum, servicesData, shiftsData, statisticsData):
         self.mainScreen.setOffNum(offNum)
-        self.mainScreen.servicesTab.servicesTabRecycleView.data = \
-                                                                   servicesData
+        self.mainScreen.servicesTab.servicesTabRecycleView.data = servicesData
         self.mainScreen.shiftsTab.shiftsTabRecycleView.data = shiftsData
+        self.mainScreen.hourlyRateTab.hourlyRateTabRecycleView.data = statisticsData
 
     def switchToMainScreen(self):
         if self.current == 'loginScreen':

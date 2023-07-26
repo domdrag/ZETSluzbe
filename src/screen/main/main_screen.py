@@ -1,3 +1,5 @@
+import copy
+
 from kivy.uix.screenmanager import Screen
 from kivy.properties import ObjectProperty
 
@@ -8,6 +10,26 @@ from src.screen.main.tabs.hourly_rate_tab import HourlyRateTab
 from src.screen.share.calendar_dialog import CalendarDialog
 
 from src.data.share.design_manager import updateFontSize
+
+def updateRecycleViewFont(recycleViewData, value):
+    for obj in recycleViewData:
+        obj['font_size'] = str(int(value)) + 'dp'
+def updateTabFont(ids, tabId, recycleViewId, value):
+    tabObj = ids[tabId]
+    recycleViewObj = tabObj.ids[recycleViewId]
+    updateRecycleViewFont(recycleViewObj.data, value)
+    recycleViewObj.refresh_from_data()
+
+def updateStatisticsTabFont(ids, tabId, recycleViewId, value):
+    tabObj = ids[tabId]
+    recycleViewObj = tabObj.ids[recycleViewId]
+    updateRecycleViewFont(recycleViewObj.data, value)
+
+    for statisticComponent in recycleViewObj.data:
+        newStatisticContentData = copy.deepcopy(statisticComponent['statisticContentData'])
+        updateRecycleViewFont(newStatisticContentData, value)
+        statisticComponent['statisticContentData'] = newStatisticContentData
+    recycleViewObj.refresh_from_data()
 
 class MainScreen(Screen):
     offNum = ''
@@ -29,18 +51,13 @@ class MainScreen(Screen):
 
     def fontSizeSlider(self, value):
         updateFontSize('MAIN', int(value))
-        
-        servicesTabObj = self.ids['servicesTabId']
-        recycleViewObj = servicesTabObj.ids['servicesTabRecycleViewId']
-        for obj in recycleViewObj.data:
-            obj['font_size'] = str(int(value)) + 'dp'
-        recycleViewObj.refresh_from_data()
 
-        shiftsTabObj = self.ids['shiftsTabId']
-        shiftsRecycleViewObj = shiftsTabObj.ids['shiftsTabRecycleViewId']
-        for obj in shiftsRecycleViewObj.data:
-            obj['font_size'] = str(int(value)) + 'dp'
-        shiftsRecycleViewObj.refresh_from_data()
+        updateTabFont(self.ids, 'servicesTabId', 'servicesTabRecycleViewId', value)
+        updateTabFont(self.ids, 'shiftsTabId', 'shiftsTabRecycleViewId', value)
+        updateStatisticsTabFont(self.ids,
+                                'hourlyRateTabId',
+                                'hourlyRateTabRecycleViewId',
+                                value)
         
         
 

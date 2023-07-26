@@ -56,6 +56,7 @@ class AdminDataCollector:
                 TRACE('DROPBOX_SYNCHRONIZATION')
                 setConfig('UPDATE_SUCCESSFUL', 0)
                 if isDropboxSynchronizationNeeded():
+                    print('OVO SE NE BI SMJELO DESIT')
                     self.synchronizationNeeded = True
                     dropbboxSynchronization()                
                 returnMessage['message'] = 'Trazenje linkova'

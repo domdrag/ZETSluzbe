@@ -11,6 +11,7 @@ from src.screen.login.utils.update_dialog import UpdateDialog
 
 from src.data.share.read_services import readServices
 from src.data.share.read_shifts import readShifts
+from src.data.share.read_statistics import readStatistics
 from src.data.share.repair_all_files import repairAllFiles
 from src.data.share.get_warning_message_info import (
     getWarningMessageInfo
@@ -59,12 +60,13 @@ class LoginScreen(Screen):
         offNum = self.offNumTextFieldObj.text
         servicesData = readServices(offNum)
         shiftsData = readShifts(offNum)
-        if servicesData and shiftsData:
-            self.manager.updateTabs(offNum, servicesData, shiftsData)
+        statisticsData = readStatistics(offNum)
+        if (servicesData and shiftsData and statisticsData):
+            self.manager.updateTabs(offNum, servicesData, shiftsData, statisticsData)
             self.manager.switchToMainScreen()
             return
 
-        if (servicesData == None and shiftsData == None):
+        if (servicesData == None and shiftsData == None and statisticsData):
             message = 'Sluzbeni broj ne postoji!'
         elif (servicesData == [] and shiftsData == []):
             message = 'Nema aktualnih sluzbi. Probajte azurirati sluzbe.'
