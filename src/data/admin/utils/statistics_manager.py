@@ -4,24 +4,20 @@ from decimal import Decimal
 STATISTICS = dict()
 
 def getEmptyMonthDict():
-    return {'ODRADENO': '0',
-            'NOCNA': '0',
-            'DRUGA': '0',
-            'SUBOTA': '0',
-            'NEDJELJA': '0',
-            'DRUGA': '0',
-            'I-GO': 0,
-            'I-BO': 0,
-            'O': 0,
-            'Og': 0,
-            'Oz': 0,
-            'Ob': 0,
-            'UKUPNO': '0'}
+    return {'SATNICA': {'ODRADENO': '0',
+                        'NOCNA': '0',
+                        'DRUGA': '0',
+                        'SUBOTA': '0',
+                        'NEDJELJA': '0',
+                        'UKUPNO': '0'},
+            'LINIJE': {},
+            'MJESTA_PRIMANJA': {},
+            'MJESTA_PUSTANJA': {}}
 
 def getMonthDict(offNum, month):
     global STATISTICS
     if (not STATISTICS):
-        with open('data/data/statistics.json', 'r') as statisticsFile:
+        with open('data/data/statistics.json', 'r', encoding='utf-8') as statisticsFile:
             STATISTICS = json.load(statisticsFile)
 
     if (offNum not in STATISTICS):
@@ -35,26 +31,52 @@ def getMonthDict(offNum, month):
 # saving str instead of float (Decimal not accepted to JSON) because of the same issue
 def addNumbers(number1, number2):
     return str(Decimal(number1) + Decimal(number2))
-def updateStatistics(offNum, month, serviceDuration, nightHours, secondShift, isSaturday, isSunday):
+def updateStatistics(offNum, month, hourlyRateStats, driveOrder, receptionPoint, releasePoint):
     monthDict = getMonthDict(offNum, month)
-    monthDict['ODRADENO'] = addNumbers(monthDict['ODRADENO'], serviceDuration)
-    monthDict['NOCNA'] = addNumbers(monthDict['NOCNA'], nightHours)
-    monthDict['DRUGA'] = addNumbers(monthDict['DRUGA'], secondShift)
+
+    serviceDuration = hourlyRateStats['serviceDuration']
+    nightHours = hourlyRateStats['nightHours']
+    secondShift = hourlyRateStats['secondShift']
+    isSaturday = hourlyRateStats['isSaturday']
+    isSunday = hourlyRateStats['isSunday']
+
+    hourlyRateDict = monthDict['SATNICA']
+    hourlyRateDict['ODRADENO'] = addNumbers(hourlyRateDict['ODRADENO'], serviceDuration)
+    hourlyRateDict['NOCNA'] = addNumbers(hourlyRateDict['NOCNA'], nightHours)
+    hourlyRateDict['DRUGA'] = addNumbers(hourlyRateDict['DRUGA'], secondShift)
     if (isSaturday):
-        monthDict['SUBOTA'] = addNumbers(monthDict['SUBOTA'], serviceDuration)
+        hourlyRateDict['SUBOTA'] = addNumbers(hourlyRateDict['SUBOTA'], serviceDuration)
     if (isSunday):
-        monthDict['NEDJELJA'] = addNumbers(monthDict['NEDJELJA'], serviceDuration)
-    monthDict['UKUPNO'] = addNumbers(monthDict['UKUPNO'], serviceDuration)
+        hourlyRateDict['NEDJELJA'] = addNumbers(hourlyRateDict['NEDJELJA'], serviceDuration)
+    hourlyRateDict['UKUPNO'] = addNumbers(hourlyRateDict['UKUPNO'], serviceDuration)
+
+    lineNumbersDict = monthDict['LINIJE']
+    lineNumber = (driveOrder.split('.'))[0]
+    if (lineNumber not in lineNumbersDict):
+        lineNumbersDict[lineNumber] = 0
+    lineNumbersDict[lineNumber] = lineNumbersDict[lineNumber] + 1
+
+    receptionPointsDict = monthDict['MJESTA_PRIMANJA']
+    if (receptionPoint not in receptionPointsDict):
+        receptionPointsDict[receptionPoint] = 0
+    receptionPointsDict[receptionPoint] = receptionPointsDict[receptionPoint] + 1
+
+    releasePointsDict = monthDict['MJESTA_PUSTANJA']
+    if (releasePoint not in releasePointsDict):
+        releasePointsDict[releasePoint] = 0
+    releasePointsDict[releasePoint] = releasePointsDict[releasePoint] + 1
+
 
 def updateStatisticsVac(offNum, month, vacationType, isHoliday):
     monthDict = getMonthDict(offNum, month)
-    if (vacationType not in monthDict):
-        monthDict[vacationType] = 0
-    monthDict[vacationType] = monthDict[vacationType] + 1
+    hourlyRateDict = monthDict['SATNICA']
+    if (vacationType not in hourlyRateDict):
+        hourlyRateDict[vacationType] = 0
+    hourlyRateDict[vacationType] = hourlyRateDict[vacationType] + 1
 
     if (vacationType == 'I-GO' or vacationType == 'I-BO' or isHoliday):
-        monthDict['UKUPNO'] = addNumbers(monthDict['UKUPNO'], 8)
+        hourlyRateDict['UKUPNO'] = addNumbers(hourlyRateDict['UKUPNO'], 8)
 
 def setStatistics():
-    with open('data/data/statistics.json', 'w') as statisticsFile:
+    with open('data/data/statistics.json', 'w', encoding='utf-8') as statisticsFile:
         json.dump(STATISTICS, statisticsFile, indent = 3)

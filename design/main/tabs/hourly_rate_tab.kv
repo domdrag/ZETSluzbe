@@ -1,4 +1,11 @@
+#:include design/main/tabs/utils/statistic_component.kv
 
-<HourlyRateTab>:
-	name: 'hourlyRateTab'
-	title: 'Satnica'
+<HourlyRateTab>:	
+	hourlyRateTabRecycleView: hourlyRateTabRecycleViewId
+	title: 'Statistika'
+	
+    MainRecycleView:
+        viewclass: 'StatisticComponent'
+        id: hourlyRateTabRecycleViewId
+
+    

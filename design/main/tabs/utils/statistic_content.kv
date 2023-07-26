@@ -1,0 +1,22 @@
+#:include design/main/main_design.kv
+
+<StatisticContent@MainScreenDesign>:
+    statisticContentItem: ''
+	statisticContentValue: ''
+	font_size: root.fontSize # workaround, couldn't find any way to respect the existing arch.
+	
+	MDGridLayout:
+		cols: 2
+		rows: 1
+		
+		MainLabelWithBorder:
+			id: statisticContentItemId
+			#md_bg_color: root.bg_color1
+			text: root.statisticContentItem
+			font_size: root.font_size
+		
+		MainLabelWithBorder:
+			id: statisticContentValueId
+			#md_bg_color: root.bg_color2
+			text: root.statisticContentValue
+			font_size: root.font_size

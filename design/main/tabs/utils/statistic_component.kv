@@ -1,0 +1,30 @@
+#:include design/main/tabs/utils/statistic_content.kv
+
+<StatisticComponent@MainScreenDesign>:
+    statisticTitle: ''
+	statisticContentData: []
+	font_size: root.fontSize # workaround, couldn't find any way to respect the existing arch.
+	
+	MDGridLayout:
+		cols: 2
+		rows: 1
+		
+		MainLabelWithBorder:
+			id: statisticTitleId
+			size_hint_x: 1
+			#md_bg_color: root.bg_color1
+			text: root.statisticTitle
+			font_size: root.font_size
+			
+		MDRecycleView:
+			viewclass: 'StatisticContent'
+			id: statisticContentRecycleViewId
+			data: root.statisticContentData
+			do_scroll_y: False
+			do_scroll_x: False
+			
+			RecycleBoxLayout:
+				default_size_hint: 1, 1
+				orientation: 'vertical'
+			
+	

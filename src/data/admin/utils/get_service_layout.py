@@ -66,38 +66,6 @@ def getServiceLayout(serviceLine, serviceNum, days, day, offNum = None):
     receptionTime = serviceLine[serviceStartIndex+3]
     releaseTime = serviceLine[serviceStartIndex+4]
 
-    if (offNum):
-        serviceDuration = serviceLine[serviceStartIndex + 5]
-        if (nightHoursPossible):
-            nightHours = serviceLine[serviceStartIndex + 6]
-            secondShift = serviceLine[serviceStartIndex + 7]
-        else:
-            nightHours = ''
-            secondShift = serviceLine[serviceStartIndex + 6]
-
-        serviceDurationFloat = Decimal(serviceDuration.replace(',', '.'))
-        if (nightHours):
-            nightHoursFloat = Decimal(nightHours.replace(',', '.'))
-        else:
-            nightHoursFloat = 0
-        if (secondShift):
-            secondShiftFloat = Decimal(secondShift.replace(',', '.'))
-        else:
-            secondShiftFloat = 0
-
-        dayInfoList = days[day].split('.')
-        monthFormat = dayInfoList[-3] + '-' + dayInfoList[-2]
-        isSaturday = (day == 5)
-        isSunday = (day == 6)
-
-        updateStatistics(offNum,
-                         monthFormat,
-                         serviceDurationFloat,
-                         nightHoursFloat,
-                         secondShiftFloat,
-                         isSaturday,
-                         isSunday)
-
     if('\n' in receptionTime): # dvokratne
         startingTimes = re.split('\n| ', receptionTime)
         startingTimes = list(filter(('').__ne__, startingTimes))
@@ -129,6 +97,37 @@ def getServiceLayout(serviceLine, serviceNum, days, day, offNum = None):
                 releasePoint = element.replace('\n',' ')
                 releasePoint = re.sub(' +', ' ', releasePoint) 
                 break
+
+    if (offNum):
+        serviceDuration = serviceLine[serviceStartIndex + 5]
+        if (nightHoursPossible):
+            nightHours = serviceLine[serviceStartIndex + 6]
+            secondShift = serviceLine[serviceStartIndex + 7]
+        else:
+            nightHours = ''
+            secondShift = serviceLine[serviceStartIndex + 6]
+
+        serviceDurationFloat = Decimal(serviceDuration.replace(',', '.'))
+        if (nightHours):
+            nightHoursFloat = Decimal(nightHours.replace(',', '.'))
+        else:
+            nightHoursFloat = 0
+        if (secondShift):
+            secondShiftFloat = Decimal(secondShift.replace(',', '.'))
+        else:
+            secondShiftFloat = 0
+
+        dayInfoList = days[day].split('.')
+        monthFormat = dayInfoList[-3] + '-' + dayInfoList[-2]
+        isSaturday = (day == 5)
+        isSunday = (day == 6)
+        hourlyRateStats = {'serviceDuration': serviceDurationFloat,
+                           'nightHours': nightHoursFloat,
+                           'secondShift': secondShiftFloat,
+                           'isSaturday': isSaturday,
+                           'isSunday': isSunday}
+
+        updateStatistics(offNum, monthFormat, hourlyRateStats, driveOrder, receptionPoint, releasePoint)
     
             
     # slaganje za layout
