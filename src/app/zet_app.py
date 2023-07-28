@@ -11,8 +11,10 @@ from src.screen.zet_screen_manager import ZETScreenManager
 from src.data.share.color_manager import (getColors,
                                           getPrimaryColorString,
                                           getSecondaryColorString)
+from kivy.properties import ObjectProperty
+class ZETApp(MDApp):
+    fontSize = ObjectProperty('20dp')
 
-class ZETApp(MDApp):    
     def build(self):
         self.theme_cls.theme_style = 'Dark'
         self.theme_cls.colors = getColors()

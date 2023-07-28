@@ -2,6 +2,7 @@ import copy
 
 from kivy.uix.screenmanager import Screen
 from kivy.properties import ObjectProperty
+from kivymd.app import MDApp
 
 from src.screen.main.main_design import MainScreenDesign
 from src.screen.main.tabs.services_tab import ServicesTab
@@ -51,13 +52,14 @@ class MainScreen(Screen):
 
     def fontSizeSlider(self, value):
         updateFontSize('MAIN', int(value))
-
-        updateTabFont(self.ids, 'servicesTabId', 'servicesTabRecycleViewId', value)
-        updateTabFont(self.ids, 'shiftsTabId', 'shiftsTabRecycleViewId', value)
-        updateStatisticsTabFont(self.ids,
-                                'hourlyRateTabId',
-                                'hourlyRateTabRecycleViewId',
-                                value)
+        app = MDApp.get_running_app()
+        app.fontSize = str(int(value)) + 'dp'
+        #updateTabFont(self.ids, 'servicesTabId', 'servicesTabRecycleViewId', value)
+        #updateTabFont(self.ids, 'shiftsTabId', 'shiftsTabRecycleViewId', value)
+        #updateStatisticsTabFont(self.ids,
+        #                        'hourlyRateTabId',
+        #                        'hourlyRateTabRecycleViewId',
+        #                        value)
         
         
 
