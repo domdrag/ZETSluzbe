@@ -7,7 +7,7 @@ from jnius import cast
 
 from src.screen.main.tabs.utils.call_info_widget import CallInfoWidget
 
-from src.data.share.color_manager import (getSecondaryColor,
+from src.data.share.design_manager import (getSecondaryColor,
                                           getWhiteColor)
 
 class CallInfoDialog(MDDialog):

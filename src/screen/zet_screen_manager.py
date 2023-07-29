@@ -11,6 +11,7 @@ os.environ['KIVY_ORIENTATION'] = "Portrait"
 ANDROID_BACK_BUTTON_KEY = 27
 
 class ZETScreenManager(ScreenManager):
+
     def __init__(self, **kwargs):
         super(ZETScreenManager, self).__init__(**kwargs)
         Window.bind(on_keyboard=self.androidBackClick)

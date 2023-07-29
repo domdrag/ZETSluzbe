@@ -26,7 +26,7 @@ from src.screen.share.utils.calendar_data import (get_month_names,
                                                   calc_quarter,
                                                   get_quarter)
 from src.data.share.get_holidays import getHolidays
-from src.data.share.color_manager import (getPrimaryColor,
+from src.data.share.design_manager import (getPrimaryColor,
                                           getErrorColor,
                                           getWhiteColor)
 from src.share.trace import TRACE

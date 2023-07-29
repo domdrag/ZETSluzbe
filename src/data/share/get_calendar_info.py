@@ -1,6 +1,6 @@
 import ast
 
-from src.data.share.color_manager import (getPrimaryColor,
+from src.data.share.design_manager import (getPrimaryColor,
                                           getServiceColor,
                                           getFreeDayColor,
                                           getErrorColor)

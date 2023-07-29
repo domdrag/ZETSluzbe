@@ -1,8 +1,14 @@
 {
-   "LOGIN": {
-      "FONT_SIZE": "26dp"
-   },
-   "MAIN": {
-      "FONT_SIZE": "18dp"
+   "FONT_SIZE": "15dp",
+   "CUSTOM_COLORS": {
+      "LIGHT_HUE": "200",
+      "MAIN_HUE": "500",
+      "DARK_HUE": "700",
+      "PRIMARY_COLOR": "Blue",
+      "SECONDARY_COLOR": "Amber",
+      "SERVICE_COLOR": "BlueGray",
+      "SHIFT_COLOR": "BlueGray",
+      "FREE_DAY_COLOR": "Green",
+      "ERROR_COLOR": "Red"
    }
 }

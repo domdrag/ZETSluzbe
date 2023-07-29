@@ -1,1 +1,3 @@
-0$Uobicajen vozni red.
+1$Neuobicajen vozni red. Sugerira se samostalna provjera sluzbi.
+Moguca greska! Upozoriti admina!
+Za subota se gleda nedjeljni vozni red.
