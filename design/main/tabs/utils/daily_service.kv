@@ -1,21 +1,18 @@
-#:include design/main/main_design.kv
+#:include design/main/main_screen_design.kv
 
 <DailyService@MainScreenDesign>:
 	bg_color: app.theme_cls.primary_dark
     day: ''
     service: ''
-	font_size: root.fontSize # workaround, couldn't find any way to respect the existing arch.
 	
     MDGridLayout:
         rows: 2
         MainLabelWithBorder:
 			id: dayLabelId
             text: root.day
-			#font_size: root.font_size
 			
 
         MainLabelWithBorder:
 			id: serviceLabelId
 			md_bg_color: root.bg_color
             text: root.service
-			font_size: root.font_size

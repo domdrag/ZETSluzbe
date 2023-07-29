@@ -1,4 +1,4 @@
-from src.data.share.color_manager import getWhiteColor, getErrorColor
+from src.data.share.design_manager import getWhiteColor, getErrorColor
 
 def readWarningMessage():
     fileR = open('data/data/warnings.txt', 'r', encoding='utf-8')

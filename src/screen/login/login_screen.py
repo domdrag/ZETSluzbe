@@ -1,10 +1,10 @@
+from kivymd.app import MDApp
 from kivy.uix.screenmanager import Screen
 from kivy.properties import (ObjectProperty,
                              BooleanProperty,
                              StringProperty,
                              ColorProperty)
 
-from src.screen.login.login_design import LoginScreenDesign
 from src.data.admin.admin_data_collector import AdminDataCollector
 from src.data.user.user_data_collector import UserDataCollector
 from src.screen.login.utils.update_dialog import UpdateDialog
@@ -40,6 +40,7 @@ class LoginScreen(Screen):
     
     def __init__(self, **kwargs):
         super(LoginScreen, self).__init__(**kwargs)
+        self.app = MDApp.get_running_app()
         
         config = getConfig()
         self.offNum = config['OFFICIAL_NUMBER_STARTUP']
@@ -82,9 +83,9 @@ class LoginScreen(Screen):
         self.update()
 
     def fontSizeSlider(self, value):
-        updateFontSize('LOGIN', int(value))
-        for obj in self.ids.values():
-            obj.font_size = str(int(value)) + 'dp'
+        updateFontSize(int(value))
+        self.app.fontSize = str(int(value)) + 'dp'
+
 
     @showDialog
     def update(self):

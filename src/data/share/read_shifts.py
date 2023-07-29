@@ -4,7 +4,7 @@ from src.data.share.utils.check_service_date_validity import (
     checkServiceDateValidity
     )
 from src.data.share.utils.get_service_date import getServiceDate
-from src.data.share.color_manager import (getPrimaryColor,
+from src.data.share.design_manager import (getPrimaryColor,
                                           getShiftColor,
                                           getFreeDayColor,
                                           getErrorColor)

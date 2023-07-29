@@ -1,8 +1,16 @@
-<LoginScreenDesign@Widget>
+<MainCanvasAfter@Widget>
+	canvas.after:
+		Color:
+			rgba: app.theme_cls.accent_color
+		Line:
+			width: 1
+			rectangle: self.x, self.y, self.width, self.height
+
+<LoginScreenDesign@MainCanvasAfter+Widget>
 	halign: 'center'
 	valign: 'center'
-	font_size: root.fontSize 
-	text_size: self.width/1.05, None # idk how, but this works
+	font_size: app.fontSize 
+	text_size: self.width/1.05, self.height/1.05 # idk how, but this works
 	text_color: 'white'
 	theme_text_color: 'Custom'
 	md_bg_color: app.theme_cls.primary_dark
@@ -24,6 +32,6 @@
 <LoginScreenSlider@MDSlider+LoginScreenDesign>
 	orientation: 'horizontal'
 	color: 'white'
-	value: root.fontValue
+	value: int(app.fontSize[:-2]) 
 	min: 10
 	max: 30
