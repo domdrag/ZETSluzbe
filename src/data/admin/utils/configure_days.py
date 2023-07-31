@@ -14,7 +14,7 @@ firstURL = ("https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/"
 def getStringDate(date):
     return str(date.day) + '.' + str(date.month) + '.' + str(date.year) + '.'
 
-def getDays(days, textFirstPDF):
+def setDays(days, textFirstPDF):
     odIndex = textFirstPDF.find('od')
     stringForMonth = textFirstPDF[odIndex:odIndex+50]
     stringForMonthList = re.split(' |\.', stringForMonth)
@@ -22,15 +22,6 @@ def getDays(days, textFirstPDF):
     month = stringForMonthList[2]
     year = stringForMonthList[3]
     mondayDate = date(int(year), int(month), int(day))
-    # mondayDate + datetime.timedelta(days = 1)
-
-    config = getConfig()
-    lastRecordDateConfig = config['LAST_RECORD_DATE']
-    lastRecordDate = date(lastRecordDateConfig[0],
-                          lastRecordDateConfig[1],
-                          lastRecordDateConfig[2])
-    if(mondayDate == lastRecordDate):
-        return {'mondayDate': mondayDate, 'updateNeeded': False}
 
     monday = 'Ponedjeljak, ' + getStringDate(mondayDate)
     nextDate = mondayDate + datetime.timedelta(days = 1)
@@ -53,11 +44,11 @@ def getDays(days, textFirstPDF):
     days.append(friday)
     days.append(saturday)
     days.append(sunday)
-    return {'mondayDate': mondayDate, 'updateNeeded': True}
+    return mondayDate
 
-def setDays(days):
+def configureDays(days):
     PDFFile = downloadPDFFile(firstURL, 'tpd.pdf')
     with pdfplumber.open(PDFFile) as PDF:
         page = PDF.pages[0]
         textFirstPDF = page.extract_text()
-    return getDays(days, textFirstPDF)
+    return setDays(days, textFirstPDF)

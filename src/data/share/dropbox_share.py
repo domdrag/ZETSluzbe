@@ -1,55 +1,59 @@
 import dropbox
 import ast
+import json
+import shutil
 
-from src.data.share.utils.decompress_data import decompressData
 from src.data.share.config_manager import getConfig, setConfig
+from src.share.trace import TRACE
 
 RFRSH_TOKEN = 'wIxEqmHW0_IAAAAAAAAAAXS9N4JdzmOIt8rV90Y-uOVCdhhvC23S7qYHSSDSd53a'
 
-def downloadData():
-    dbx = dropbox.Dropbox(app_key = '9x72f19ngmg8mqo',
-                          app_secret = 'msb8pniq2h76ym3',
-                          oauth2_refresh_token = RFRSH_TOKEN)
-    
+def decompressData():
+    shutil.unpack_archive('data/dropbox/data.zip', 'data/data')
+def downloadDropboxFile(file):
+    dbx = dropbox.Dropbox(app_key='9x72f19ngmg8mqo',
+                          app_secret='msb8pniq2h76ym3',
+                          oauth2_refresh_token=RFRSH_TOKEN)
+
     downloadComplete = False
     while not downloadComplete:
         try:
-            dbx.files_download_to_file('data/dropbox/data.zip',
-                                       '/data.zip')
+            dbx.files_download_to_file('data/dropbox/' + file,
+                                       '/' + file)
             downloadComplete = True
         except:
             pass
 
+def getOnlineConfig():
+    with open('data/dropbox/config.json', 'r') as configFile:
+        onlineConfig = json.load(configFile)
+
+    return onlineConfig
+
+###########################################################################
 def isDropboxSynchronizationNeeded():
     dbx = dropbox.Dropbox(app_key = '9x72f19ngmg8mqo',
                           app_secret = 'msb8pniq2h76ym3',
                           oauth2_refresh_token = RFRSH_TOKEN)
-    
-    downloadComplete = False
-    while not downloadComplete:
-        try:
-            dbx.files_download_to_file('data/dropbox/last_record_date.txt',
-                                       '/last_record_date.txt')
-            downloadComplete = True
-        except:
-            pass
+
+    downloadDropboxFile('config.json')
+    onlineConfig = getOnlineConfig()
+    onlineDate = onlineConfig['LAST_RECORD_DATE']
 
     config = getConfig()
     currentDate = config['LAST_RECORD_DATE']
-    
-    fileR = open('data/dropbox/last_record_date.txt', 'r')
-    onlineDateString = fileR.read()
-    onlineDate = ast.literal_eval(onlineDateString)
-    fileR.close()
 
     if currentDate == onlineDate:
+        TRACE('DROPBOX_SYNCHRONIZATION_NOT_NEEDED')
         return False
     else:
         setConfig('LAST_RECORD_DATE', onlineDate)
+        # relevant for admin only
+        setConfig('MISSING_SERVICES', onlineConfig['MISSING_SERVICES'])
         return True
 
 def dropbboxSynchronization():
-    downloadData()
+    downloadDropboxFile('data.zip')
     decompressData()
 
 

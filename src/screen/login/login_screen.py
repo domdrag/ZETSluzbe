@@ -20,10 +20,6 @@ from src.screen.login.utils.update_dialog_util import showDialog
 from src.data.user.update_required_date_check import (
     updateRequiredDateCheck
     )
-from src.data.share.dropbox_share import (
-    isDropboxSynchronizationNeeded,
-    dropbboxSynchronization
-    )
 from src.data.share.config_manager import getConfig
 from src.data.share.design_manager import updateFontSize
 from src.share.trace import TRACE

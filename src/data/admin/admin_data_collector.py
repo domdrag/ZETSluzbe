@@ -2,17 +2,19 @@ from datetime import date
 
 from src.data.admin.utils.admin_collect_phase import AdminCollectPhase
 
-from src.data.admin.services_decrypted.write_decrypted_services import (
-    writeDecryptedServices
+from src.data.admin.services_decrypted.add_decrypted_services import (
+    addDecryptedServices,
+    addMissingDecryptedServices
     )
-from src.data.admin.shifts_decrypted.write_decrypted_shifts import (
-    writeDecryptedShifts
+from src.data.admin.shifts_decrypted.add_decrypted_shifts import (
+    addDecryptedShifts,
+    addMissingDecryptedShifts
     )
 from src.data.admin.utils.delete_necessary_data import (
     deleteNecessaryData
     )
 from src.data.admin.utils.search_links import searchLinks  
-from src.data.admin.utils.set_days import setDays
+from src.data.admin.utils.configure_days import configureDays
 from src.data.admin.utils.set_last_record import setLastRecord
 from src.data.admin.rules.extract_rules_by_driver import (
     extractRulesByDriver
@@ -21,6 +23,8 @@ from src.data.admin.rules.extract_rules import extractRules
 from src.data.admin.utils.upload_data_to_dropbox import (
     uploadDataToDropbox
     )
+from src.data.admin.utils.handle_missing_services import handleMissingServices
+from src.data.admin.utils.check_update_neeeded import checkUpdateNeeded
 from src.data.share.dropbox_share import (isDropboxSynchronizationNeeded,
                                           dropbboxSynchronization)
 from src.data.share.get_warning_message_info import (
@@ -44,6 +48,9 @@ class AdminDataCollector:
     synchronizationNeeded = False
     warningMessage = ''
     warningMessageColor = ''
+    hasMissingServicesChanged = False
+    updateCause = None
+    numberOfPreviouslyAddedServices = 7
     
     def keepCollectingData(self):
         returnMessage = { 'success': False,
@@ -53,92 +60,126 @@ class AdminDataCollector:
                           'errorMessage': ''}
         try:
             if self.phase == cp.DROPBOX_SYNCHRONIZATION:
-                TRACE('DROPBOX_SYNCHRONIZATION')
+                TRACE('[CP] DROPBOX_SYNCHRONIZATION')
                 setConfig('UPDATE_SUCCESSFUL', 0)
                 if isDropboxSynchronizationNeeded():
-                    print('OVO SE NE BI SMJELO DESIT')
+                    TRACE('DROPBOX_SYNCHRONIZATION_NEEDED')
                     self.synchronizationNeeded = True
-                    dropbboxSynchronization()                
+                    dropbboxSynchronization()
+                    TRACE('DROPBOX_SYNCHRONIZATION_DONE')
                 returnMessage['message'] = 'Trazenje linkova'
                 
             elif self.phase == cp.SEARCH_LINKS:
-                TRACE('SEARCH_LINKS')
+                TRACE('[CP] SEARCH_LINKS')
                 foundLinks = searchLinks()
                 self.workDayURL = foundLinks['workDay']
                 self.saturdayURL = foundLinks['saturday']
                 self.sundayURL = foundLinks['sunday']
-                returnMessage['message'] = 'Provjera novih sluzbi'
+                returnMessage['message'] = 'Setiranje dana'
 
-            elif self.phase == cp.SET_DAYS:
-                TRACE('SET_DAYS')
-                result = setDays(self.days)
+            elif self.phase == cp.CONFIGURE_DAYS:
+                TRACE('[CP] GET_MONDAY_DATE')
+                self.mondayDate = configureDays(self.days)
+                returnMessage['message'] = 'Citanje tjednih sluzbi'
+
+            elif self.phase == cp.EXTRACT_RULES_BY_DRIVER:
+                TRACE('[CP] EXTRACT_RULES_BY_DRIVER')
+                extractRulesByDriver(self.weekSchedule, self.mondayDate)
+                returnMessage['message'] = 'Pretraga nedostajucih sluzbi'
+
+            elif self.phase == cp.HANDLE_MISSING_SERVICES:
+                TRACE('[CP] HANDLE_MISSING_SERVICES')
+                result = handleMissingServices()
+                self.hasMissingServicesChanged = result['hasMissingServicesChanged']
+                self.numberOfPreviouslyAddedServices = result['numberOfPreviouslyAddedServices']
+                returnMessage['message'] = 'Odredivanje potrebe azuriranja'
+
+            elif self.phase == cp.CHECK_UPDATE_NEEDED:
+                TRACE('[CP] CHECKING_UPDATE_NEEDED')
+                result = checkUpdateNeeded(self.mondayDate, self.hasMissingServicesChanged)
                 updateNeeded = result['updateNeeded']
+                self.updateCause = result['updateCause']
                 if not updateNeeded:
+                    TRACE('UPDATE_NOT_PERFORMING')
                     # REMARK - if services haven't been added in Friday yet,
                     # but admin still had synch with dropbox (he was inactive
                     # for at least a week) we still got 'Sluzbe azurirane'
                     # which may be misleading 
                     if self.synchronizationNeeded:
-                        # will be + 1 after so SET_WARNING_MESSAGE
+                        # will be + 1 after so UPDATE_BACKUP_DIRECTORY
                         self.phase = cp.UPLOAD_DATA_TO_DROPBOX 
                         returnMessage['message'] = 'Stvaranje sigurnosne kopije'
                     else:
                         setConfig('UPDATE_SUCCESSFUL', 1)
                         returnMessage['finished'] = True
                 else:
-                    self.mondayDate = result['mondayDate']
+                    TRACE('UPDATE_PERFORMING')
                     returnMessage['message'] = \
                                   'Brisanje potrebnih podataka'
-                
+
             elif self.phase == cp.DELETE_NECESSARY_DATA:
-                TRACE('DELETE_NECESSARY_DATA')
+                TRACE('[CP] DELETE_NECESSARY_DATA')
                 deleteNecessaryData()
-                returnMessage['message'] = 'Citanje tjednih sluzbi'
-                    
-            elif self.phase == cp.EXTRACT_RULES_BY_DRIVER:
-                TRACE('EXTRACT_RULES_BY_DRIVER')
-                extractRulesByDriver(self.weekSchedule, self.mondayDate)
                 returnMessage['message'] = 'Citanje svih sluzbi'
                 
             elif self.phase == cp.EXTRACT_RULES:
-                TRACE('EXTRACT_RULES')
+                TRACE('[CP] EXTRACT_RULES')
                 extractRules(self.workDayURL,
                              self.saturdayURL,
                              self.sundayURL)
                 returnMessage['message'] = 'Spremanje tjednih sluzbi'
                 
             elif self.phase == cp.WRITE_DECRYPTED_SERVICES:
-                TRACE('WRITE_DECRYPTED_SERVICES')
-                writeDecryptedServices(self.days, self.weekSchedule)
+                TRACE('[CP] WRITE_DECRYPTED_SERVICES')
+                if (self.updateCause == 'DATES_DIFFERENCE'):
+                    addDecryptedServices(self.days, self.weekSchedule)
+                elif (self.updateCause == 'MISSING_SERVICES'):
+                    addMissingDecryptedServices(self.days,
+                                                self.weekSchedule,
+                                                self.numberOfPreviouslyAddedServices)
+                else:
+                    # CODE ERROR
+                    pass
                 returnMessage['message'] = 'Spremanje tjednih smjena'
                 
             elif self.phase == cp.WRITE_DECRYPTED_SHIFTS:
-                TRACE('WRITE_DECRYPTED_SHIFTS')
-                writeDecryptedShifts(self.days, self.weekSchedule)
+                TRACE('[CP] WRITE_DECRYPTED_SHIFTS')
+                if (self.updateCause == 'DATES_DIFFERENCE'):
+                    addDecryptedShifts(self.days, self.weekSchedule)
+                elif (self.updateCause == 'MISSING_SERVICES'):
+                    addMissingDecryptedShifts(self.days,
+                                                self.weekSchedule,
+                                                self.numberOfPreviouslyAddedServices)
+                else:
+                    # CODE ERROR
+                    pass
                 returnMessage['message'] = \
                               'Setiranje datuma zadnjeg zapisa'
 
             # NEXT ORDER EXPLANATION: in case anything fails, we must have
             # have a backup ready -> last step must be updating the backup.
             elif self.phase == cp.SET_LAST_RECORD:
-                TRACE('SET_LAST_RECORD')
+                TRACE('[CP] SET_LAST_RECORD')
                 setLastRecord(self.mondayDate)
                 returnMessage['message'] = 'Ucitavanje sluzbi na Internet'
 
             elif self.phase == cp.UPLOAD_DATA_TO_DROPBOX:
-                TRACE('UPLOAD_DATA_TO_DROPBOX')
+                TRACE('[CP] UPLOAD_DATA_TO_DROPBOX')
                 uploadDataToDropbox()
+                TRACE('DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY')
                 returnMessage['message'] = 'Stvaranje sigurnosne kopije'
             
             elif self.phase == cp.UPDATE_BACKUP_DIRECTORY:
                 # must not fail by canon
-                TRACE('UPDATE_BACKUP_DIRECTORY')
-                # must go first so backup gets it
+                TRACE('[CP] UPDATE_BACKUP_DIRECTORY')
+                # must go before updateBackupDir() so backup gets it
+                # ISSUE WITH UPLOAD!!!
                 setConfig('UPDATE_SUCCESSFUL', 1)
                 updateBackupDir() 
                 returnMessage['success'] = True
                 returnMessage['finished'] = True
                 returnMessage['message'] = 'Sluzbe azurirane!'
+                TRACE('SERVICES_UPDATE_FINISHED_SUCCESSFULLY')
                 
         except Exception as e:
             TRACE(e)

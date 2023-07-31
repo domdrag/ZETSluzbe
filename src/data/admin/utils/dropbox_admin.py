@@ -18,13 +18,13 @@ def uploadData():
         except:
             pass
 
-    lastRecordDateSent = False
-    while not lastRecordDateSent:
+    configSent = False
+    while not configSent:
         try:
-            with open('./data/dropbox/last_record_date.txt', 'rb') as f:
+            with open('./data/dropbox/config.json', 'rb') as f:
                 dbx.files_upload(f.read(),
-                                 '/last_record_date.txt',
+                                 '/config.json',
                                  mode = dropbox.files.WriteMode.overwrite)
-            lastRecordDateSent = True
+            configSent = True
         except:
             pass

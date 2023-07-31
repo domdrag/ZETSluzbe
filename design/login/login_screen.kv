@@ -11,9 +11,8 @@
 		md_bg_color: app.theme_cls.primary_dark
 
 		LoginScreenSlider:
-			size_hint_y: 0.2
-			size_hint_x: 0.2
-			pos_hint: {"x":0.4, "top": 1.04}
+			size_hint: 0.3, 0.2
+			pos_hint: {"x":0.35, "top": 1.04}
 			value: int(app.fontSize[:-2])
 			on_value_normalized: root.fontSizeSlider(self.value)
 			
@@ -25,8 +24,8 @@
 			
         LoginScreenTextField:
 			id: offNumTextFieldId
-			pos_hint: {"x": 0.4, "top": 0.8}
-			size_hint_x: 0.2
+			pos_hint: {"x": 0.3, "top": 0.8}
+			size_hint_x: 0.4
             text: root.offNum
 			
 		LoginScreenLabel:

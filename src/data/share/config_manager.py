@@ -22,6 +22,8 @@ def loadConfig():
 def getConfig():
     return CURRENT_CONFIG
 
+# configure setConfig so the caller doesn't need to know what values should he send
+# for example: caller might send True/False, but we need to set that to 1/0
 def setConfig(configName, configValue):
     CURRENT_CONFIG[configName] = configValue
     with open('data/config.json', 'w') as configFile:
