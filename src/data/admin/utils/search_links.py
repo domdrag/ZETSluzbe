@@ -25,9 +25,9 @@ def searchLinks():
                         link = link['href']
                         if('RD' in link):
                             workDayURL = link
-                        if('SUB' in link):
+                        if('SUB' in link or 'S_internet' in link):
                             saturdayURL = link
-                        if('NED' in link):
+                        if('NED' in link or 'N_internet' in link):
                             sundayURL = link
             searchComplete = True
         except:

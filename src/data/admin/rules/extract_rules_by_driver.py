@@ -5,12 +5,13 @@ from src.data.admin.rules.utils.determine_week_schedule import (
     )
 
 def extractRulesByDriver(weekSchedule, mondayDate):
-    PDFFile = 'data/data/tpd.pdf' # downloaded in setDays util
+    PDFFile = 'data/data/tpd.pdf' # downloaded in configure_days util
     with pdfplumber.open(PDFFile) as PDF:
         determineWeekSchedule(PDF.pages[0], weekSchedule, mondayDate)       
         fileW = open('data/data/week_services_by_driver_encrypted.txt',
                      'w',
                      encoding='utf-8')
+
         for page in PDF.pages:            
             tables = page.dedupe_chars().find_tables()
             for tableId in tables:
@@ -24,3 +25,6 @@ def extractRulesByDriver(weekSchedule, mondayDate):
                             continue
                         fileW.write(f"{services[8:]}\n")
         fileW.close()
+
+
+

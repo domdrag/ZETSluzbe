@@ -45,6 +45,10 @@ def deleteNecessaryData():
             continue
         elif 'statistics' in file:
             continue
+        elif 'week' in file:
+            continue
+        elif 'warning' in file:
+            continue
         #############################################
         else:
             os.remove('data/data/' + file)
