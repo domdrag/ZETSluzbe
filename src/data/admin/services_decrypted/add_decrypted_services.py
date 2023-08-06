@@ -3,7 +3,26 @@ import ast
 from src.data.admin.utils.get_service_layout import getServiceLayoutAndUpdateStats
 from src.data.admin.utils.get_service_line import getServiceLine
 from src.data.admin.utils.statistics_manager import setStatistics
+from src.data.admin.utils.count_previously_added_services import countPreviouslyAddedServices
 from src.data.share.config_manager import getConfig
+
+def configureEmptyServices():
+    return [None] * 7
+
+def configureValidOldIndexedServices(filePath, oldMissingServices, numOfPreviouslyAddedServices):
+    fileR = open(filePath, 'r', encoding='utf-8')
+    services = fileR.readlines()
+    fileR.close()
+
+    validOldServices = configureEmptyServices()
+    validOldServicesUnordered = services[-numOfPreviouslyAddedServices:]
+    currValidOldServIndex = 0
+    for i in range(len(oldMissingServices)):
+        if (not oldMissingServices[i]):
+            validOldServices[i] = validOldServicesUnordered[currValidOldServIndex]
+            currValidOldServIndex = currValidOldServIndex + 1
+
+    return validOldServices
 
 def deletePreviouslyAddedServices(filePath, numOfPreviouslyAddedServices):
     fileR = open(filePath, 'r', encoding='utf-8')
@@ -18,27 +37,38 @@ def deletePreviouslyAddedServices(filePath, numOfPreviouslyAddedServices):
         fileW.write(services[i])
     fileW.close()
 
-def addDecryptedServices(days, weekSchedule, numOfPreviouslyAddedServicesSetToDelete = None):
+def addDecryptedServices(days, weekSchedule, missingServices, updateCause):
     fileR = open('data/data/week_services_by_driver_encrypted.txt',
                  'r',
                  encoding='utf-8')
     weekServicesALL = fileR.readlines()
     fileR.close()
 
-    config = getConfig()
-    missingServices = config['MISSING_SERVICES']
     for weekServicesRaw in weekServicesALL:
         weekServices = ast.literal_eval(weekServicesRaw)
         offNum = int(weekServices[0])
         filePath = 'data/data/all_services_by_driver_decrypted/' \
                     + str(offNum) \
                     + '.txt'
-        if (numOfPreviouslyAddedServicesSetToDelete):
-            deletePreviouslyAddedServices(filePath, numOfPreviouslyAddedServicesSetToDelete)
+
+        if (updateCause == 'MISSING_SERVICES'):
+            config = getConfig()
+            oldMissingServices = config['MISSING_SERVICES']
+            numOfPreviouslyAddedServices = countPreviouslyAddedServices(oldMissingServices)
+            validOldIndexedServices = configureValidOldIndexedServices(filePath,
+                                                                       oldMissingServices,
+                                                                       numOfPreviouslyAddedServices)
+            deletePreviouslyAddedServices(filePath, numOfPreviouslyAddedServices)
+        else:
+            validOldIndexedServices = configureEmptyServices()
 
         fileW = open(filePath, 'a', encoding='utf-8')
         for i in range(1,8):
             if (missingServices[i-1]):
+                continue
+            if (validOldIndexedServices[i-1]):
+                # already contains newline
+                fileW.write(validOldIndexedServices[i-1])
                 continue
 
             serviceNum = weekServices[i]
@@ -48,6 +78,4 @@ def addDecryptedServices(days, weekSchedule, numOfPreviouslyAddedServicesSetToDe
         fileW.close()
     setStatistics()
 
-def addMissingDecryptedServices(days, weekSchedule, numOfPreviouslyAddedServices):
-    addDecryptedServices(days, weekSchedule, numOfPreviouslyAddedServices)
 

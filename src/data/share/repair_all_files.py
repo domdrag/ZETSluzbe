@@ -6,8 +6,9 @@ import src.share.trace as trace
 
 # Can update files produce some garbage which won't be removed by repair?
 def repairAllFiles():
-    trace.TRACE('REPAIRING DATA')
+    trace.TRACE('REPAIRING DATA AND CONFIG')
     try:
+        # repairing data + config
         copy_tree('data/backup',
                   'data')
     except Exception as e:
@@ -16,4 +17,4 @@ def repairAllFiles():
         # manual set needed because we don't know whether copy_tree copied backup config
         configManager.setConfig('UPDATE_SUCCESSFUL', 0)
         sys.exit()
-    trace.TRACE('DATA REPAIRED')
+    trace.TRACE('DATA AND CONFIG REPAIRED')
