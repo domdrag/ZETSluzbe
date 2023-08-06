@@ -5,33 +5,63 @@ from src.data.admin.shifts_decrypted.utils.get_driver_info import (
     )
 from src.data.admin.utils.get_service_layout import getServiceLayout
 from src.data.admin.utils.get_service_line import getServiceLine
+from src.data.admin.utils.count_previously_added_services import countPreviouslyAddedServices
 from src.data.share.config_manager import getConfig
 
-def deletePreviouslyAddedShifts(filePath, numOfPreviouslyAddedServices):
+def configureEmptyShifts():
+    return [None] * 7
+
+def getValidOldShiftsUnordered(filePath, numOfPreviouslyAddedServices):
+    fileR = open(filePath, 'r', encoding='utf-8')
+    shifts = fileR.readlines()
+    fileR.close()
+
+    validOldShiftsUnordered = []
+    numOfShifts = len(shifts)
+    currentIndex = numOfShifts - 1
+    # REMARK: assumed currentIndex >> 0
+    while(numOfPreviouslyAddedServices):
+        numOfPreviouslyAddedServices = numOfPreviouslyAddedServices - 1
+        shiftInst = shifts[currentIndex]
+        shiftInstBefore = shifts[currentIndex-1]
+        if (ast.literal_eval(shiftInst)[0] == ast.literal_eval(shiftInstBefore)[0]):
+            shiftInstBeforeBefore = shifts[currentIndex-2]
+            validOldShiftsUnordered.append([shiftInstBeforeBefore, shiftInstBefore, shiftInst])
+            currentIndex = currentIndex - 3
+        else:
+            validOldShiftsUnordered.append([shiftInst])
+            currentIndex = currentIndex - 1
+
+    return validOldShiftsUnordered[::-1]
+
+def configureValidOldIndexedShifts(filePath, oldMissingServices, numOfPreviouslyAddedServices):
+    fileR = open(filePath, 'r', encoding='utf-8')
+    shifts = fileR.readlines()
+    fileR.close()
+
+    validOldShifts = configureEmptyShifts()
+    validOldShiftsUnordered = getValidOldShiftsUnordered(filePath, numOfPreviouslyAddedServices)
+    currValidOldShiftIndex = 0
+    for i in range(len(oldMissingServices)):
+        if (not oldMissingServices[i]):
+            validOldShifts[i] = validOldShiftsUnordered[currValidOldShiftIndex]
+            currValidOldShiftIndex = currValidOldShiftIndex + 1
+
+    return {'validOldIndexedShifts': validOldShifts,
+            'numOfPreviouslyAddedShifts': len(validOldShiftsUnordered)}
+def deletePreviouslyAddedShifts(filePath, numOfPreviouslyAddedShifts):
     fileR = open(filePath, 'r', encoding='utf-8')
     shifts = fileR.readlines()
     fileR.close()
 
     numOfShifts = len(shifts)
-    numOfKeptShifts = numOfShifts
-    currentIndex = numOfShifts - 1
-    # REMARK: assumed currentIndex >> 0
-    while(numOfPreviouslyAddedServices):
-        numOfPreviouslyAddedServices = numOfPreviouslyAddedServices - 1
-        shift = ast.literal_eval(shifts[currentIndex])
-        shiftBefore = ast.literal_eval(shifts[currentIndex-1])
-        if (shift[0] == shiftBefore[0]):
-            numOfKeptShifts = numOfKeptShifts - 3
-            currentIndex = currentIndex - 3
-        else:
-            numOfKeptShifts = numOfKeptShifts - 1
-            currentIndex = currentIndex - 1
+    numOfKeptShifts = numOfShifts - numOfPreviouslyAddedShifts
 
     fileW = open(filePath, 'w', encoding='utf-8')
     for i in range(numOfKeptShifts):
         fileW.write(shifts[i])
     fileW.close()
-def addDecryptedShifts(days, weekSchedule, numOfPreviouslyAddedServices = None):
+def addDecryptedShifts(days, weekSchedule, missingServices, updateCause):
     fileR = open('data/data/week_services_by_driver_encrypted.txt',
                  'r',
                  encoding='utf-8')
@@ -46,20 +76,34 @@ def addDecryptedShifts(days, weekSchedule, numOfPreviouslyAddedServices = None):
         driver = driverRaw.split()
         driverList.append(driver)
 
-    config = getConfig()
-    missingServices = config['MISSING_SERVICES']
     for weekServicesRaw in weekServicesALL:
         weekServices = ast.literal_eval(weekServicesRaw)
         offNum = int(weekServices[0])
         filePath = 'data/data/all_shifts_by_driver_decrypted/' \
                     + str(offNum) \
                     + '.txt'
-        if (numOfPreviouslyAddedServices):
-            deletePreviouslyAddedShifts(filePath, numOfPreviouslyAddedServices)
+        if (updateCause == 'MISSING_SERVICES'):
+            config = getConfig()
+            oldMissingServices = config['MISSING_SERVICES']
+            numOfPreviouslyAddedServices = countPreviouslyAddedServices(oldMissingServices)
+            result = configureValidOldIndexedShifts(filePath,
+                                                    oldMissingServices,
+                                                    numOfPreviouslyAddedServices)
+            validOldIndexedShifts = result['validOldIndexedShifts']
+            numOfPreviouslyAddedShifts = result['numOfPreviouslyAddedShifts']
+            deletePreviouslyAddedShifts(filePath, numOfPreviouslyAddedShifts)
+        else:
+            validOldIndexedShifts = configureEmptyShifts()
 
-        fileW = open(filePath, 'a', encoding='utf-8')        
+        fileW = open(filePath, 'a', encoding='utf-8')
         for i in range(1,8):
             if (missingServices[i-1]):
+                continue
+            if (validOldIndexedShifts[i-1]):
+                validOldShift = validOldIndexedShifts[i-1]
+                for shiftInstance in validOldShift:
+                    # already contains newline
+                    fileW.write(shiftInstance)
                 continue
 
             serviceNum = weekServices[i]
@@ -87,6 +131,3 @@ def addDecryptedShifts(days, weekSchedule, numOfPreviouslyAddedServices = None):
                 serviceLayout.append(driverInfo[0] + '\n' + driverInfo[1])
                 fileW.write(f"{serviceLayout}\n")
         fileW.close()
-
-def addMissingDecryptedShifts(days, weekSchedule, numOfPreviouslyAddedServices):
-    addDecryptedShifts(days, weekSchedule, numOfPreviouslyAddedServices)

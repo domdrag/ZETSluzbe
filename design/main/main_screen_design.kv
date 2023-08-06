@@ -18,7 +18,12 @@
 
 # service/day/stats label
 <MainLabelWithBorder@MDLabel+MainScreenDesign+MainCanvasAfter>
-
+	#height: max(self.texture_size[1], dp(100))
+	#size_hint_y: None
+	#on_size:
+		#self.texture_update()
+		#self.height = max(self.texture_size[1], dp(100))
+	
 <CallInfoButton@MDTextButton+MainScreenDesign+MainCanvasAfter> 
 
 <MainRecycleView@MDRecycleView>:

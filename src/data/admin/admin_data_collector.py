@@ -3,19 +3,17 @@ from datetime import date
 from src.data.admin.utils.admin_collect_phase import AdminCollectPhase
 
 from src.data.admin.services_decrypted.add_decrypted_services import (
-    addDecryptedServices,
-    addMissingDecryptedServices
+    addDecryptedServices
     )
 from src.data.admin.shifts_decrypted.add_decrypted_shifts import (
-    addDecryptedShifts,
-    addMissingDecryptedShifts
+    addDecryptedShifts
     )
 from src.data.admin.utils.delete_necessary_data import (
     deleteNecessaryData
     )
 from src.data.admin.utils.search_links import searchLinks  
 from src.data.admin.utils.configure_days import configureDays
-from src.data.admin.utils.set_last_record import setLastRecord
+from src.data.admin.utils.set_new_config import setNewConfig
 from src.data.admin.rules.extract_rules_by_driver import (
     extractRulesByDriver
     )
@@ -23,7 +21,7 @@ from src.data.admin.rules.extract_rules import extractRules
 from src.data.admin.utils.upload_data_to_dropbox import (
     uploadDataToDropbox
     )
-from src.data.admin.utils.handle_missing_services import handleMissingServices
+from src.data.admin.utils.configure_missing_services import configureMissingServices
 from src.data.admin.utils.check_update_neeeded import checkUpdateNeeded
 from src.data.share.dropbox_share import (isDropboxSynchronizationNeeded,
                                           dropbboxSynchronization)
@@ -48,9 +46,9 @@ class AdminDataCollector:
     synchronizationNeeded = False
     warningMessage = ''
     warningMessageColor = ''
-    hasMissingServicesChanged = False
     updateCause = None
-    numberOfPreviouslyAddedServices = 7
+    missingServices = None
+    servicesHash = None
     
     def keepCollectingData(self):
         returnMessage = { 'success': False,
@@ -78,25 +76,27 @@ class AdminDataCollector:
                 returnMessage['message'] = 'Setiranje dana'
 
             elif self.phase == cp.CONFIGURE_DAYS:
-                TRACE('[CP] GET_MONDAY_DATE')
+                TRACE('[CP] CONFIGURE_DAYS')
                 self.mondayDate = configureDays(self.days)
                 returnMessage['message'] = 'Citanje tjednih sluzbi'
 
             elif self.phase == cp.EXTRACT_RULES_BY_DRIVER:
                 TRACE('[CP] EXTRACT_RULES_BY_DRIVER')
-                extractRulesByDriver(self.weekSchedule, self.mondayDate)
+                result = extractRulesByDriver(self.weekSchedule, self.mondayDate)
+                self.servicesHash = result['servicesHash']
                 returnMessage['message'] = 'Pretraga nedostajucih sluzbi'
 
-            elif self.phase == cp.HANDLE_MISSING_SERVICES:
-                TRACE('[CP] HANDLE_MISSING_SERVICES')
-                result = handleMissingServices()
-                self.hasMissingServicesChanged = result['hasMissingServicesChanged']
-                self.numberOfPreviouslyAddedServices = result['numberOfPreviouslyAddedServices']
+            elif self.phase == cp.CONFIGURE_MISSING_SERVICES:
+                TRACE('[CP] CONFIGURE_MISSING_SERVICES')
+                self.missingServices = configureMissingServices()
                 returnMessage['message'] = 'Odredivanje potrebe azuriranja'
 
             elif self.phase == cp.CHECK_UPDATE_NEEDED:
                 TRACE('[CP] CHECKING_UPDATE_NEEDED')
-                result = checkUpdateNeeded(self.mondayDate, self.hasMissingServicesChanged)
+                result = checkUpdateNeeded(self.mondayDate,
+                                           self.missingServices,
+                                           self.servicesHash,
+                                           self.synchronizationNeeded)
                 updateNeeded = result['updateNeeded']
                 self.updateCause = result['updateCause']
                 if not updateNeeded:
@@ -129,42 +129,34 @@ class AdminDataCollector:
                              self.sundayURL)
                 returnMessage['message'] = 'Spremanje tjednih sluzbi'
                 
-            elif self.phase == cp.WRITE_DECRYPTED_SERVICES:
-                TRACE('[CP] WRITE_DECRYPTED_SERVICES')
-                if (self.updateCause == 'DATES_DIFFERENCE'):
-                    addDecryptedServices(self.days, self.weekSchedule)
-                elif (self.updateCause == 'MISSING_SERVICES'):
-                    addMissingDecryptedServices(self.days,
-                                                self.weekSchedule,
-                                                self.numberOfPreviouslyAddedServices)
-                else:
-                    # CODE ERROR
-                    pass
+            elif self.phase == cp.ADD_DECRYPTED_SERVICES:
+                TRACE('[CP] ADD_DECRYPTED_SERVICES')
+                addDecryptedServices(self.days,
+                                     self.weekSchedule,
+                                     self.missingServices,
+                                     self.updateCause)
                 returnMessage['message'] = 'Spremanje tjednih smjena'
                 
-            elif self.phase == cp.WRITE_DECRYPTED_SHIFTS:
-                TRACE('[CP] WRITE_DECRYPTED_SHIFTS')
-                if (self.updateCause == 'DATES_DIFFERENCE'):
-                    addDecryptedShifts(self.days, self.weekSchedule)
-                elif (self.updateCause == 'MISSING_SERVICES'):
-                    addMissingDecryptedShifts(self.days,
-                                                self.weekSchedule,
-                                                self.numberOfPreviouslyAddedServices)
-                else:
-                    # CODE ERROR
-                    pass
+            elif self.phase == cp.ADD_DECRYPTED_SHIFTS:
+                TRACE('[CP] ADD_DECRYPTED_SHIFTS')
+                addDecryptedShifts(self.days,
+                                   self.weekSchedule,
+                                   self.missingServices,
+                                   self.updateCause)
                 returnMessage['message'] = \
-                              'Setiranje datuma zadnjeg zapisa'
+                              'Spremanje nove konfiguracije'
 
             # NEXT ORDER EXPLANATION: in case anything fails, we must have
             # have a backup ready -> last step must be updating the backup.
-            elif self.phase == cp.SET_LAST_RECORD:
-                TRACE('[CP] SET_LAST_RECORD')
-                setLastRecord(self.mondayDate)
+            elif self.phase == cp.SET_NEW_CONFIG:
+                TRACE('[CP] SET_NEW_CONFIG')
+                setNewConfig(self.mondayDate, self.missingServices, self.servicesHash)
                 returnMessage['message'] = 'Ucitavanje sluzbi na Internet'
 
             elif self.phase == cp.UPLOAD_DATA_TO_DROPBOX:
                 TRACE('[CP] UPLOAD_DATA_TO_DROPBOX')
+                # dodaj mockan UPD_SUCC da se salje
+                # razmisliti o scenariju da djelomicno faila upload
                 uploadDataToDropbox()
                 TRACE('DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY')
                 returnMessage['message'] = 'Stvaranje sigurnosne kopije'

@@ -33,6 +33,8 @@ class MainScreen(Screen):
     def fontSizeSlider(self, value):
         updateFontSize(int(value))
         self.app.fontSize = str(int(value)) + 'dp'
+        #self.servicesTab.servicesTabRecycleView.refresh_from_data()
+
 
         
         
