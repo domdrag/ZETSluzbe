@@ -5,6 +5,7 @@ from kivymd.color_definitions import colors as kivyColors
 COLORS_IMPL = kivyColors
 DESIGN = dict()
 CUSTOM_COLORS = dict()
+GRID_HEIGHT_TO_FONT_SIZE_RATIO = 12
 def loadDesign():
     global DESIGN
     global CUSTOM_COLORS
@@ -15,6 +16,10 @@ def loadDesign():
 
 def getFontSize():
     return DESIGN['FONT_SIZE']
+
+def getGridHeight():
+    value = int(DESIGN['FONT_SIZE'][:-2])
+    return str(value * GRID_HEIGHT_TO_FONT_SIZE_RATIO) + 'dp'
 def updateFontSize(value):
     DESIGN['FONT_SIZE'] = str(value) + 'dp'
     with open('data/design.json', 'w') as designFile:

@@ -9,7 +9,8 @@ from src.screen.main.tabs.shifts_tab import ShiftsTab
 from src.screen.main.tabs.hourly_rate_tab import HourlyRateTab
 from src.screen.share.calendar_dialog import CalendarDialog
 
-from src.data.share.design_manager import updateFontSize
+from src.data.share.design_manager import (updateFontSize,
+                                           GRID_HEIGHT_TO_FONT_SIZE_RATIO)
 
 class MainScreen(Screen):
     offNum = ''
@@ -33,6 +34,7 @@ class MainScreen(Screen):
     def fontSizeSlider(self, value):
         updateFontSize(int(value))
         self.app.fontSize = str(int(value)) + 'dp'
+        self.app.gridHeight = str(int(value * GRID_HEIGHT_TO_FONT_SIZE_RATIO)) + 'dp'
         #self.servicesTab.servicesTabRecycleView.refresh_from_data()
 
 

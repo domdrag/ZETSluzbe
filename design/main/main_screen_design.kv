@@ -10,7 +10,7 @@
 	halign: 'center'
 	valign: 'center'
 	font_size: app.fontSize
-	text_size: self.width/1.05, self.height/1.05 # idk how, but this works
+	text_size: self.width/1.05, None # idk how, but this works
 	text_color: 'white'
 	md_bg_color: app.theme_cls.primary_dark
 	
@@ -18,17 +18,13 @@
 
 # service/day/stats label
 <MainLabelWithBorder@MDLabel+MainScreenDesign+MainCanvasAfter>
-	#height: max(self.texture_size[1], dp(100))
-	#size_hint_y: None
-	#on_size:
-		#self.texture_update()
-		#self.height = max(self.texture_size[1], dp(100))
 	
 <CallInfoButton@MDTextButton+MainScreenDesign+MainCanvasAfter> 
 
 <MainRecycleView@MDRecycleView>:
 	RecycleBoxLayout:
-		default_size: None, dp(200)
+		#default_size: None, dp(200)
+		default_size: None, app.gridHeight
 		default_size_hint: 1, None
 		size_hint_y: None
 		height: self.minimum_height
