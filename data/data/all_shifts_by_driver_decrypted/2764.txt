@@ -153,3 +153,7 @@
 ['Subota, 12.8.2023.', 'broj sluzbe: 487', 'vozni red: 14.03', '10:46, TBJJ smjer Zap.kol.', '17:30, TBJJ smjer Zap.kol.', 'VERICA PATEK\n095-770-4754']
 ['Subota, 12.8.2023.', 'broj sluzbe: 787', 'vozni red: 14.03', '17:30, TBJJ smjer Zap.kol.', '00:28, PTD/PTT', 'ANTE MILIČEVIĆ\n091-185-9267']
 ['Nedjelja, 13.8.2023.', 'O']
+['Ponedjeljak, 14.8.2023.', 'I-GO']
+['Utorak, 15.8.2023.', 'Og']
+['Srijeda, 16.8.2023.', 'I-GO']
+['Cetvrtak, 17.8.2023.', 'I-GO']

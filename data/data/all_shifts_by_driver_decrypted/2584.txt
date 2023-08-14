@@ -163,3 +163,7 @@
 ['Petak, 11.8.2023.', 'broj sluzbe: 672', 'vozni red: 06.04', '17:49, Glavni kolodvor smjer Črnomerec', '00:29, PTD/PTT', 'DRAGUTIN POHOVSKI\n099-830-0767']
 ['Subota, 12.8.2023.', 'Oz']
 ['Nedjelja, 13.8.2023.', 'Oz']
+['Ponedjeljak, 14.8.2023.', 'I-GO']
+['Utorak, 15.8.2023.', 'Og']
+['Srijeda, 16.8.2023.', 'I-GO']
+['Cetvrtak, 17.8.2023.', 'I-GO']

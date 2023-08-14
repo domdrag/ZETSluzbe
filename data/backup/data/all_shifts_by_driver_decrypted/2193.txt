@@ -125,3 +125,7 @@
 ['Nedjelja, 13.8.2023.', 'broj sluzbe: 95', 'vozni red: 07.07', '05:54, PTD', '12:25, DUBRAVA- TERMINAL', 'MONIKA BARBARIĆ\n091-895-3544']
 ['Nedjelja, 13.8.2023.', 'broj sluzbe: 395', 'vozni red: 07.07', '12:25, DUBRAVA- TERMINAL', '18:45, DUBRAVA- TERMINAL', 'SINIŠA MIHALINEC\n099-639-9963']
 ['Nedjelja, 13.8.2023.', 'broj sluzbe: 695', 'vozni red: 07.07', '18:45, DUBRAVA- TERMINAL', '23:35, PTD/PTT', 'SEVADA FOJNICA\n091-579-8925']
+['Ponedjeljak, 14.8.2023.', 'I-GO']
+['Utorak, 15.8.2023.', 'Og']
+['Srijeda, 16.8.2023.', 'I-GO']
+['Cetvrtak, 17.8.2023.', 'I-GO']

@@ -38,9 +38,9 @@ cp = AdminCollectPhase
 class AdminDataCollector:
     phase = cp.DROPBOX_SYNCHRONIZATION
     days = []
-    workDayURL = ''
-    saturdayURL = ''
-    sundayURL = ''
+    workDayLinks = ''
+    saturdayLinks = ''
+    sundayLinks = ''
     mondayDate = date(2022,1,1)
     weekSchedule = ['W','W','W','W','W','W','W']
     synchronizationNeeded = False
@@ -49,6 +49,7 @@ class AdminDataCollector:
     updateCause = None
     missingServices = None
     servicesHash = None
+    workDayFileNames = []
     
     def keepCollectingData(self):
         returnMessage = { 'success': False,
@@ -70,9 +71,9 @@ class AdminDataCollector:
             elif self.phase == cp.SEARCH_LINKS:
                 TRACE('[CP] SEARCH_LINKS')
                 foundLinks = searchLinks()
-                self.workDayURL = foundLinks['workDay']
-                self.saturdayURL = foundLinks['saturday']
-                self.sundayURL = foundLinks['sunday']
+                self.workDayLinks = foundLinks['workDay']
+                self.saturdayLinks = foundLinks['saturday']
+                self.sundayLinks = foundLinks['sunday']
                 returnMessage['message'] = 'Setiranje dana'
 
             elif self.phase == cp.CONFIGURE_DAYS:
@@ -124,9 +125,10 @@ class AdminDataCollector:
                 
             elif self.phase == cp.EXTRACT_RULES:
                 TRACE('[CP] EXTRACT_RULES')
-                extractRules(self.workDayURL,
-                             self.saturdayURL,
-                             self.sundayURL)
+                fileNames = extractRules(self.workDayLinks,
+                                         self.saturdayLinks,
+                                         self.sundayLinks)
+                self.workDayFileNames = fileNames['workDay']
                 returnMessage['message'] = 'Spremanje tjednih sluzbi'
                 
             elif self.phase == cp.ADD_DECRYPTED_SERVICES:
@@ -134,7 +136,9 @@ class AdminDataCollector:
                 addDecryptedServices(self.days,
                                      self.weekSchedule,
                                      self.missingServices,
-                                     self.updateCause)
+                                     self.updateCause,
+                                     self.mondayDate,
+                                     self.workDayFileNames)
                 returnMessage['message'] = 'Spremanje tjednih smjena'
                 
             elif self.phase == cp.ADD_DECRYPTED_SHIFTS:
@@ -142,7 +146,9 @@ class AdminDataCollector:
                 addDecryptedShifts(self.days,
                                    self.weekSchedule,
                                    self.missingServices,
-                                   self.updateCause)
+                                   self.updateCause,
+                                   self.mondayDate,
+                                   self.workDayFileNames)
                 returnMessage['message'] = \
                               'Spremanje nove konfiguracije'
 

@@ -75,3 +75,7 @@
 ['Petak, 11.8.2023.', 'broj sluzbe: 50', 'vozni red: 04.11', '05:06, PTD', '11:51, DUBEC']
 ['Subota, 12.8.2023.', 'broj sluzbe: 139', 'vozni red: 11.10', '04:55, PTD', '11:54, Dankovečka smjer Dubec']
 ['Nedjelja, 13.8.2023.', 'broj sluzbe: 40', 'vozni red: 04.01', '04:53, PTD', '11:41, SAVSKI MOST']
+['Ponedjeljak, 14.8.2023.', 'broj sluzbe: 76', 'vozni red: 06.08', '06:14, PTD', '13:06, ČRNOMEREC']
+['Utorak, 15.8.2023.', 'O']
+['Srijeda, 16.8.2023.', 'O']
+['Cetvrtak, 17.8.2023.', 'broj sluzbe: 69', 'vozni red: 06.01', '03:57, PTD', '10:48, Autobusni kol. smjer Črnomerec']

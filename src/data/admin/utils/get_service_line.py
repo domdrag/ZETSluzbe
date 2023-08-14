@@ -1,14 +1,27 @@
 import ast
+import datetime
 
-def getServiceLine(serviceNum, day, weekSchedule):
+def getServiceLine(serviceNum, dayIndex, weekSchedule, mondayDate, workDayFileNames):
     if(not serviceNum.isnumeric()):
         return [serviceNum]
-    if(weekSchedule[day] == 'W'):
-        fileR = open('data/data/rules_work_day.txt', 'r', encoding='utf-8')
-    elif(weekSchedule[day] == 'St'):
-        fileR = open('data/data/rules_saturday.txt', 'r', encoding='utf-8')
+
+    if(weekSchedule[dayIndex] == 'W'):
+        textFileName = 'data/data/rules_W.txt'
+        day = (mondayDate + datetime.timedelta(days = dayIndex)).day
+        for workDayFileName in workDayFileNames:
+            if (workDayFileName == 'W'):
+                continue
+            # fileName starts with rules_W
+            specificDays = ast.literal_eval(workDayFileName[7:])
+            if (day in specificDays):
+                textFileName = 'data/data/' + workDayFileName + '.txt'
+                break
+        fileR = open(textFileName, 'r', encoding='utf-8')
+    elif(weekSchedule[dayIndex] == 'St'):
+        fileR = open('data/data/rules_ST.txt', 'r', encoding='utf-8')
     else:
-        fileR = open('data/data/rules_sunday.txt', 'r', encoding='utf-8')
+        fileR = open('data/data/rules_SN.txt', 'r', encoding='utf-8')
+
     serviceLines = fileR.readlines()
     fileR.close()
     for serviceLine in serviceLines:

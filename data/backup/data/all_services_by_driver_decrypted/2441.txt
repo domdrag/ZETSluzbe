@@ -75,3 +75,7 @@
 ['Petak, 11.8.2023.', 'broj sluzbe: 96', 'vozni red: 07.08', '04:43, PTD', '11:23, DUBRAVA- TERMINAL']
 ['Subota, 12.8.2023.', 'broj sluzbe: 96', 'vozni red: 07.08', '05:01, PTD', '11:31, DUBRAVA- TERMINAL']
 ['Nedjelja, 13.8.2023.', 'broj sluzbe: 90', 'vozni red: 07.02', '05:00, PTD', '11:26, DUBRAVA- TERMINAL']
+['Ponedjeljak, 14.8.2023.', 'broj sluzbe: 206', 'vozni red: 15.02', '03:59, PTD', '10:47, MIHALJEVAC']
+['Utorak, 15.8.2023.', 'broj sluzbe: 205', 'vozni red: 15.01', '04:57, PTD', '11:40, MIHALJEVAC']
+['Srijeda, 16.8.2023.', 'broj sluzbe: 206', 'vozni red: 15.02', '03:57, PTD', '10:45, MIHALJEVAC']
+['Cetvrtak, 17.8.2023.', 'Oz']

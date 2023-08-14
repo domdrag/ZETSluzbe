@@ -75,3 +75,7 @@
 ['Petak, 11.8.2023.', 'broj sluzbe: 186', 'vozni red: 14.02', '04:09, PTD', '10:38, Draškovićeva smjer Zap.kol.']
 ['Subota, 12.8.2023.', 'broj sluzbe: 186', 'vozni red: 14.02', '04:02, PTD', '10:47, MIHALJEVAC']
 ['Nedjelja, 13.8.2023.', 'broj sluzbe: 191', 'vozni red: 14.07', '05:24, PTD', '11:46, Draškovićeva smjer Mihaljevac']
+['Ponedjeljak, 14.8.2023.', 'O']
+['Utorak, 15.8.2023.', 'broj sluzbe: 191', 'vozni red: 14.07', '05:24, PTD', '11:46, Draškovićeva smjer Mihaljevac']
+['Srijeda, 16.8.2023.', 'broj sluzbe: 186', 'vozni red: 14.02', '04:09, PTD', '10:38, Draškovićeva smjer Zap.kol.']
+['Cetvrtak, 17.8.2023.', 'broj sluzbe: 186', 'vozni red: 14.02', '04:09, PTD', '10:38, Draškovićeva smjer Zap.kol.']

@@ -75,3 +75,7 @@
 ['Petak, 11.8.2023.', 'I-GO']
 ['Subota, 12.8.2023.', 'Og']
 ['Nedjelja, 13.8.2023.', 'Og']
+['Ponedjeljak, 14.8.2023.', 'I-GO']
+['Utorak, 15.8.2023.', 'Oz']
+['Srijeda, 16.8.2023.', 'broj sluzbe: 107', 'vozni red: 08.01', '03:54, PTD', '10:42, HEINZELOVA']
+['Cetvrtak, 17.8.2023.', 'broj sluzbe: 138', 'vozni red: 11.09', '05:50, PTD', '12:32, ČRNOMEREC']

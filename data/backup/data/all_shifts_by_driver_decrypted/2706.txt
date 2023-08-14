@@ -89,3 +89,7 @@
 ['Nedjelja, 13.8.2023.', 'broj sluzbe: 94', 'vozni red: 07.06', '07:27, PTD', '13:49, DUBRAVA- TERMINAL', 'NIKICA MILOŠEVIĆ\n091-506-1314']
 ['Nedjelja, 13.8.2023.', 'broj sluzbe: 394', 'vozni red: 07.06', '13:49, DUBRAVA- TERMINAL', '20:13, PTD/PTT', 'ANON\nXXX-XXX-XXXX']
 ['Nedjelja, 13.8.2023.', 'empty']
+['Ponedjeljak, 14.8.2023.', 'I-BO']
+['Utorak, 15.8.2023.', 'I-BO']
+['Srijeda, 16.8.2023.', 'I-BO']
+['Cetvrtak, 17.8.2023.', 'I-BO']

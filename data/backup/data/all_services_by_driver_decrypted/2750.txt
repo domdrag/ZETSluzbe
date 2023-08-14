@@ -75,3 +75,7 @@
 ['Petak, 11.8.2023.', 'broj sluzbe: 441', 'vozni red: 11.12', '11:28, TBJJ smjer Dubec', '17:56, PTD/PTT']
 ['Subota, 12.8.2023.', 'broj sluzbe: 340', 'vozni red: 04.01', '10:46, SAVSKI MOST', '17:43, Park Maksimir smjer Dubec']
 ['Nedjelja, 13.8.2023.', 'broj sluzbe: 370', 'vozni red: 06.02', '11:36, ČRNOMEREC', '18:04, SOPOT- TERMINAL']
+['Ponedjeljak, 14.8.2023.', 'O']
+['Utorak, 15.8.2023.', 'O']
+['Srijeda, 16.8.2023.', 'broj sluzbe: 133', 'vozni red: 11.04', '06:54, PTD', '13:53, Draškovićeva smjer Dubec']
+['Cetvrtak, 17.8.2023.', 'broj sluzbe: 441', 'vozni red: 11.12', '11:28, TBJJ smjer Dubec', '17:56, PTD/PTT']

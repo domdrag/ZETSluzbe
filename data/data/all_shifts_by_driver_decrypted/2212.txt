@@ -133,3 +133,7 @@
 ['Nedjelja, 13.8.2023.', 'broj sluzbe: 49', 'vozni red: 04.10', '06:06, PTD', '12:49, Dubrava smjer Sav. most', 'NIKOLA JUREC\n098-928-1316']
 ['Nedjelja, 13.8.2023.', 'broj sluzbe: 349', 'vozni red: 04.10', '12:49, Dubrava smjer Sav. most', '19:01, Dubrava smjer Sav. most', 'SNJEŽANA HRENOVIĆ\n091-251-3868']
 ['Nedjelja, 13.8.2023.', 'broj sluzbe: 649', 'vozni red: 04.10', '19:01, Dubrava smjer Sav. most', '00:43, PTD/PTT', 'JOSIP ŽILIĆ\n098-239-366']
+['Ponedjeljak, 14.8.2023.', 'I-BO']
+['Utorak, 15.8.2023.', 'I-BO']
+['Srijeda, 16.8.2023.', 'I-BO']
+['Cetvrtak, 17.8.2023.', 'I-BO']

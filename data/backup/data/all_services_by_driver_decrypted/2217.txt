@@ -75,3 +75,7 @@
 ['Petak, 11.8.2023.', 'broj sluzbe: 374', 'vozni red: 06.06', '13:02, Glavni kolodvor smjer Črnomerec', '19:59, PTD/PTT']
 ['Subota, 12.8.2023.', 'broj sluzbe: 440', 'vozni red: 11.11', '08:26, PTD', '15:26, Ravnice smjer Dubec']
 ['Nedjelja, 13.8.2023.', 'Oz']
+['Ponedjeljak, 14.8.2023.', 'I-DK']
+['Utorak, 15.8.2023.', 'Oz']
+['Srijeda, 16.8.2023.', 'I-DK']
+['Cetvrtak, 17.8.2023.', 'I-GO']

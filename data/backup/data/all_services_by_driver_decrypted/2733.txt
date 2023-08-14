@@ -75,3 +75,7 @@
 ['Petak, 11.8.2023.', 'broj sluzbe: 408', 'vozni red: 08.02', '11:02, Draškovićeva smjer Zapruđe', '17:42, Draškovićeva smjer Mihaljevac']
 ['Subota, 12.8.2023.', 'broj sluzbe: 378', 'vozni red: 06.10', '11:06, SOPOT- TERMINAL', '17:45, Frankopanska smjer Črnomerec']
 ['Nedjelja, 13.8.2023.', 'broj sluzbe: 435', 'vozni red: 11.06', '10:48, PTD', '17:42, Dubrava smjer Črnomerec']
+['Ponedjeljak, 14.8.2023.', 'Oz']
+['Utorak, 15.8.2023.', 'Oz']
+['Srijeda, 16.8.2023.', 'broj sluzbe: 408', 'vozni red: 08.02', '10:52, Autobusni kol. smjer Heinzelova', '17:38, Autobusni kol. smjer Heinzelova']
+['Cetvrtak, 17.8.2023.', 'broj sluzbe: 470', 'vozni red: 13.01', '10:51, TBJJ smjer Kvat. trg', '17:47, TBJJ smjer Kvat. trg']

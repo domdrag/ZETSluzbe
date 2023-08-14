@@ -75,3 +75,7 @@
 ['Petak, 11.8.2023.', 'broj sluzbe: 698', 'vozni red: 07.10', '18:21, DUBRAVA- TERMINAL', '01:03, PTD/PTT']
 ['Subota, 12.8.2023.', 'broj sluzbe: 787', 'vozni red: 14.03', '17:30, TBJJ smjer Zap.kol.', '00:28, PTD/PTT']
 ['Nedjelja, 13.8.2023.', 'O']
+['Ponedjeljak, 14.8.2023.', 'I-GO']
+['Utorak, 15.8.2023.', 'Og']
+['Srijeda, 16.8.2023.', 'I-GO']
+['Cetvrtak, 17.8.2023.', 'I-GO']

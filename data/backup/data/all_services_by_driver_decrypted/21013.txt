@@ -75,3 +75,7 @@
 ['Petak, 11.8.2023.', 'I-GO']
 ['Subota, 12.8.2023.', 'O']
 ['Nedjelja, 13.8.2023.', 'O']
+['Ponedjeljak, 14.8.2023.', 'broj sluzbe: 344', 'vozni red: 04.05', '11:08, Autobusni kol. smjer Sav. most', '17:50, SAVSKI MOST']
+['Utorak, 15.8.2023.', 'broj sluzbe: 342', 'vozni red: 04.03', '11:22, Dubrava smjer Sav. most', '17:34, Dubrava smjer Sav. most']
+['Srijeda, 16.8.2023.', 'broj sluzbe: 472', 'vozni red: 13.03', '11:08, TBJJ smjer Kvat. trg', '18:04, TBJJ smjer Kvat. trg']
+['Cetvrtak, 17.8.2023.', 'O']

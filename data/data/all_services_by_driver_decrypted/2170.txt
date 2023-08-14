@@ -75,3 +75,7 @@
 ['Petak, 11.8.2023.', 'broj sluzbe: 46', 'vozni red: 04.07', '04:22, PTD', '10:59, Dubrava smjer Dubec']
 ['Subota, 12.8.2023.', 'broj sluzbe: 173', 'vozni red: 13.04', '04:25, PTD', '11:18, TBJJ smjer Kvat. trg']
 ['Nedjelja, 13.8.2023.', 'O']
+['Ponedjeljak, 14.8.2023.', 'broj sluzbe: 189', 'vozni red: 14.05', '04:20, PTD', '10:56, TBJJ smjer Zap.kol.']
+['Utorak, 15.8.2023.', 'broj sluzbe: 89', 'vozni red: 07.01', '04:46, PTD', '11:14, DUBRAVA- TERMINAL']
+['Srijeda, 16.8.2023.', 'broj sluzbe: 191', 'vozni red: 14.07', '04:13, PTD', '11:10, MIHALJEVAC']
+['Cetvrtak, 17.8.2023.', 'broj sluzbe: 50', 'vozni red: 04.11', '05:06, PTD', '11:51, DUBEC']

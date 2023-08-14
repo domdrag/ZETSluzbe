@@ -75,3 +75,7 @@
 ['Petak, 11.8.2023.', 'broj sluzbe: 69', 'vozni red: 06.01', '03:50, PTD', '10:47, Glavni kolodvor smjer Črnomerec']
 ['Subota, 12.8.2023.', 'broj sluzbe: 188', 'vozni red: 14.04', '04:13, PTD', '10:56, MIHALJEVAC']
 ['Nedjelja, 13.8.2023.', 'broj sluzbe: 185', 'vozni red: 14.01', '05:00, PTD', '11:10, Draškovićeva smjer Zap.kol.']
+['Ponedjeljak, 14.8.2023.', 'broj sluzbe: 174', 'vozni red: 13.05', '04:37, PTD', '11:28, TBJJ smjer Kvat. trg']
+['Utorak, 15.8.2023.', 'O']
+['Srijeda, 16.8.2023.', 'broj sluzbe: 141', 'vozni red: 11.12', '04:29, PTD', '11:28, TBJJ smjer Dubec']
+['Cetvrtak, 17.8.2023.', 'broj sluzbe: 74', 'vozni red: 06.06', '04:36, PTD', '11:33, Autobusni kol. smjer Črnomerec']

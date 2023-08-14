@@ -75,3 +75,7 @@
 ['Petak, 11.8.2023.', 'broj sluzbe: 274', 'vozni red: PRIČUVA', '07:30, PTD', '15:00, PTD']
 ['Subota, 12.8.2023.', 'O']
 ['Nedjelja, 13.8.2023.', 'O']
+['Ponedjeljak, 14.8.2023.', 'broj sluzbe: 574', 'vozni red: PRIČUVA', '14:30, PTD', '22:00, PTD']
+['Utorak, 15.8.2023.', 'O']
+['Srijeda, 16.8.2023.', 'broj sluzbe: 574', 'vozni red: PRIČUVA', '14:00, PTD', '21:30, PTD']
+['Cetvrtak, 17.8.2023.', 'broj sluzbe: 574', 'vozni red: PRIČUVA', '14:00, PTD', '21:30, PTD']

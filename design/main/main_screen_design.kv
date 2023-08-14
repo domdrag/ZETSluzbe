@@ -9,8 +9,9 @@
 <MainScreenDesign@Widget>
 	halign: 'center'
 	valign: 'center'
-	font_size: app.fontSize
-	text_size: self.width/1.05, None # idk how, but this works
+	font_size: 1/2*((int(app.gridHeight[:-2])//12) + 30 - abs((int(app.gridHeight[:-2])//10)-30))
+	#font_size: self.font_size + ((1/2*(self.height - self.texture_size[1] + abs(self.height - self.texture_size[1]))) / (self.height - self.texture_size[1] + 0.001))*(int(app.gridHeight[:-2])//10 - self.font_size)
+	text_size: self.width, self.height * 1.4
 	text_color: 'white'
 	md_bg_color: app.theme_cls.primary_dark
 	
@@ -30,7 +31,7 @@
 		height: self.minimum_height
 		orientation: 'vertical'
 
-<MainScreenSlider@MDSlider+MainScreenDesign>
+<MainScreenSlider@MDSlider>
 	orientation: 'horizontal'
 	color: 'white'
 	value: int(app.fontSize[:-2]) 

@@ -75,3 +75,7 @@
 ['Petak, 11.8.2023.', 'broj sluzbe: 378', 'vozni red: 06.10', '10:57, ČRNOMEREC', '17:53, Glavni kolodvor smjer Sopot']
 ['Subota, 12.8.2023.', 'broj sluzbe: 141', 'vozni red: 11.12', '06:49, PTD', '13:49, Hondlova smjer Dubec']
 ['Nedjelja, 13.8.2023.', 'O']
+['Ponedjeljak, 14.8.2023.', 'O']
+['Utorak, 15.8.2023.', 'broj sluzbe: 471', 'vozni red: 13.02', '11:58, KVATERNIKOV TRG-TERMINAL', '18:29, KVATERNIKOV TRG-TERMINAL']
+['Srijeda, 16.8.2023.', 'broj sluzbe: 470', 'vozni red: 13.01', '10:51, TBJJ smjer Kvat. trg', '17:47, TBJJ smjer Kvat. trg']
+['Cetvrtak, 17.8.2023.', 'broj sluzbe: 376', 'vozni red: 06.08', '10:46, ČRNOMEREC', '17:43, TBJJ smjer Žitnjak']

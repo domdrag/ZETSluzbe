@@ -157,3 +157,7 @@
 ['Subota, 12.8.2023.', 'broj sluzbe: 440', 'vozni red: 11.11', '08:26, PTD', '15:26, Ravnice smjer Dubec', 'PEZO-ROGIĆ LJILJANA\n098-160-0597']
 ['Subota, 12.8.2023.', 'broj sluzbe: 740', 'vozni red: 11.11', '15:26, Ravnice smjer Dubec', '22:26, PTD/PTT', 'ANON\nXXX-XXX-XXXX']
 ['Nedjelja, 13.8.2023.', 'Oz']
+['Ponedjeljak, 14.8.2023.', 'I-DK']
+['Utorak, 15.8.2023.', 'Oz']
+['Srijeda, 16.8.2023.', 'I-DK']
+['Cetvrtak, 17.8.2023.', 'I-GO']
