@@ -61,7 +61,12 @@ def deletePreviouslyAddedShifts(filePath, numOfPreviouslyAddedShifts):
     for i in range(numOfKeptShifts):
         fileW.write(shifts[i])
     fileW.close()
-def addDecryptedShifts(days, weekSchedule, missingServices, updateCause):
+def addDecryptedShifts(days,
+                       weekSchedule,
+                       missingServices,
+                       updateCause,
+                       mondayDate,
+                       workDayFileNames):
     fileR = open('data/data/week_services_by_driver_encrypted.txt',
                  'r',
                  encoding='utf-8')
@@ -107,7 +112,7 @@ def addDecryptedShifts(days, weekSchedule, missingServices, updateCause):
                 continue
 
             serviceNum = weekServices[i]
-            serviceLine = getServiceLine(serviceNum, i-1, weekSchedule)
+            serviceLine = getServiceLine(serviceNum, i-1, weekSchedule, mondayDate, workDayFileNames)
             if(len(serviceLine) == 1):
                 serviceLayout = getServiceLayout(serviceLine,
                                                  serviceNum,

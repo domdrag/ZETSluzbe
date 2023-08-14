@@ -2,6 +2,47 @@ import pdfplumber
 
 from src.data.admin.utils.download_pdf_file import downloadPDFFile
 
+def determineWorkDayFileName(linkName):
+    isOrdinal = lambda word: word[:-1].isdigit() and word[-1] == '.'
+    # we want to split every dot as well, but also keep the dot to be sure which numbers are dates
+    linkName = linkName.replace('.', '. ')
+    words = linkName.split()
+    prevWordOrdinal = False
+    prevWordAppended = False
+    potentialDays = []
+    ordinals = []
+
+    for word in words:
+        if (isOrdinal(word)):
+            number = int(word[:-1])
+            if (not prevWordOrdinal and 0 < number < 32):
+                potentialDays.append(number)
+                prevWordAppended = True
+            else:
+                # prev word is ordinal or number is year
+                if (prevWordAppended and number > 2000):
+                    potentialDays = potentialDays[:-1]
+                prevWordAppended = False
+
+            prevWordOrdinal = True
+            ordinals.append(int(word[:-1]))
+        else:
+            if (prevWordAppended and (word == 'mjesec' or word == 'Mjesec')):
+                potentialDays = potentialDays[:-1]
+            prevWordOrdinal = False
+            prevWordAppended = False
+
+    if ('od' in linkName or 'Od' in linkName or 'OD' in linkName):
+        if ('do' in linkName or 'Do' in linkName or 'DO' in linkName or '-' in linkName):
+            assert len(potentialDays) == 2, 'Sustav nije razumio linkove za radne dane.'
+            daysRange = list(range(min(potentialDays), max(potentialDays) + 1))
+            return 'rules_W' + str(daysRange)
+        else:
+            assert len(potentialDays) == 1, 'Sustav nije razumio linkove za radne dane.'
+            return 'rules_W'
+    else:
+        return 'rules_W' + str(potentialDays)
+
 def determineRemovingRectsColor(typeOfDay):
     if (typeOfDay == 'work_day'):
         return (0,0,1)
@@ -12,9 +53,9 @@ def determineRemovingRectsColor(typeOfDay):
 
 #### thanks to jsvine - owner of pdfplumber
 def extractRule(typeOfDay, URL, fileName):
-    PDFFile = downloadPDFFile(URL, fileName)
+    PDFFile = downloadPDFFile(URL, fileName + '.pdf')
     with pdfplumber.open(PDFFile) as PDF:
-        fileW = open('data/data/rules_' + typeOfDay + '.txt',
+        fileW = open('data/data/' + fileName + '.txt',
                      'w',
                      encoding='utf-8')
         removingColor = determineRemovingRectsColor(typeOfDay)
@@ -32,7 +73,20 @@ def extractRule(typeOfDay, URL, fileName):
     fileW.close()
 ####
 
-def extractRules(workDayURL, saturdayURL, sundayURL):
-    extractRule('work_day', workDayURL, 'workDay.pdf')
-    extractRule('saturday', saturdayURL, 'saturday.pdf')
-    extractRule('sunday', sundayURL, 'sunday.pdf')
+def extractRules(workDayLinks, saturdayLinks, sundayLinks):
+    fileNames = {'workDay' : []}
+
+    for link in workDayLinks:
+        fileName = 'rules_W'
+        if (len(workDayLinks) > 1):
+            fileName = determineWorkDayFileName(link['name'])
+        extractRule('work_day', link['URL'], fileName)
+        fileNames['workDay'].append(fileName)
+
+    for link in saturdayLinks:
+        extractRule('saturday', link['URL'], 'rules_ST')
+
+    for link in sundayLinks:
+        extractRule('sunday', link['URL'], 'rules_SN')
+
+    return fileNames

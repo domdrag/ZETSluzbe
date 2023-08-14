@@ -37,7 +37,12 @@ def deletePreviouslyAddedServices(filePath, numOfPreviouslyAddedServices):
         fileW.write(services[i])
     fileW.close()
 
-def addDecryptedServices(days, weekSchedule, missingServices, updateCause):
+def addDecryptedServices(days,
+                         weekSchedule,
+                         missingServices,
+                         updateCause,
+                         mondayDate,
+                         workDayFileNames):
     fileR = open('data/data/week_services_by_driver_encrypted.txt',
                  'r',
                  encoding='utf-8')
@@ -72,10 +77,11 @@ def addDecryptedServices(days, weekSchedule, missingServices, updateCause):
                 continue
 
             serviceNum = weekServices[i]
-            serviceLine = getServiceLine(serviceNum, i-1, weekSchedule)
+            serviceLine = getServiceLine(serviceNum, i-1, weekSchedule, mondayDate, workDayFileNames)
             serviceLayout = getServiceLayoutAndUpdateStats(serviceLine, serviceNum, days, i-1, str(offNum))
             fileW.write(f"{serviceLayout}\n")
         fileW.close()
+
     setStatistics()
 
 
