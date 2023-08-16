@@ -2,13 +2,9 @@ import ast
 
 from src.data.share.config_manager import getConfig
 from src.share.trace import TRACE
+from src.data.admin.utils.add_warning_message import addWarningMessage
 
 EMPTY_MISSING_SERVICES = [0,0,0,0,0,0,0]
-def addWarningForMissingServices(message):
-    # OK, determineWeekSchedule occurs beforehand
-    fileA = open('data/data/warnings.txt', 'a', encoding='utf-8')
-    fileA.write(message)
-    fileA.close()
 
 def generateMissingServicesForDriver(services):
     isMissing = lambda service: service == '' or service == ' ' or service == None
@@ -36,7 +32,8 @@ def configureMissingServices():
     TRACE('CONFIGURED_MISSING_SERVICES: ' + str(missingServices))
 
     if (missingServices != EMPTY_MISSING_SERVICES):
-        message = 'Sustav nije uspio ocitati neke sluzbe.'
-        addWarningForMissingServices(message)
+        message = 'Sustav nije uspio ocitati neke sluzbe.\n'
+        # OK, determineWeekSchedule occurs beforehand
+        addWarningMessage(message)
 
     return missingServices

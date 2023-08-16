@@ -47,8 +47,9 @@ def configureValidOldIndexedShifts(filePath, oldMissingServices, numOfPreviously
             validOldShifts[i] = validOldShiftsUnordered[currValidOldShiftIndex]
             currValidOldShiftIndex = currValidOldShiftIndex + 1
 
+    numOfPreviouslyAddedShifts = sum([len(shift) for shift in validOldShiftsUnordered])
     return {'validOldIndexedShifts': validOldShifts,
-            'numOfPreviouslyAddedShifts': len(validOldShiftsUnordered)}
+            'numOfPreviouslyAddedShifts': numOfPreviouslyAddedShifts}
 def deletePreviouslyAddedShifts(filePath, numOfPreviouslyAddedShifts):
     fileR = open(filePath, 'r', encoding='utf-8')
     shifts = fileR.readlines()
@@ -102,13 +103,13 @@ def addDecryptedShifts(days,
 
         fileW = open(filePath, 'a', encoding='utf-8')
         for i in range(1,8):
-            if (missingServices[i-1]):
-                continue
             if (validOldIndexedShifts[i-1]):
                 validOldShift = validOldIndexedShifts[i-1]
                 for shiftInstance in validOldShift:
                     # already contains newline
                     fileW.write(shiftInstance)
+                continue
+            if (missingServices[i-1]):
                 continue
 
             serviceNum = weekServices[i]

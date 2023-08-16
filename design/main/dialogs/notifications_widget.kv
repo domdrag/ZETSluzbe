@@ -1,0 +1,18 @@
+#:include design/main/dialogs/notification.kv
+
+<NotificationsWidget>:
+	size_hint_y: None
+	height: dp(300) # WORKAROUND, content doesn't show well unless height is fixed
+	notificationsWidgetRecycleView: notificationsWidgetRecycleViewId
+	
+	
+	MDRecycleView:
+		viewclass: 'Notification'
+		id: notificationsWidgetRecycleViewId
+		
+		RecycleBoxLayout:
+			default_size: None, str(int(app.gridHeight[:-2]) // 5) + 'dp'
+			default_size_hint: 1, None
+			size_hint_y: None
+			height: self.minimum_height
+			orientation: 'vertical'
