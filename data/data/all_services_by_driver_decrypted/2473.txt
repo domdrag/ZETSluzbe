@@ -79,3 +79,6 @@
 ['Utorak, 15.8.2023.', 'broj sluzbe: 770', 'vozni red: 13.01', '18:17, KVATERNIKOV TRG-TERMINAL', '00:17, PTD/PTT']
 ['Srijeda, 16.8.2023.', 'O']
 ['Cetvrtak, 17.8.2023.', 'O']
+['Petak, 18.8.2023.', 'broj sluzbe: 709', 'vozni red: 08.03', '17:55, Autobusni kol. smjer Heinzelova', '00:45, PTD/PTT']
+['Subota, 19.8.2023.', 'broj sluzbe: 792', 'vozni red: 14.08', '17:15, SAVSKI MOST', '00:15, PTD/PTT']
+['Nedjelja, 20.8.2023.', 'broj sluzbe: 641', 'vozni red: 04.02', '15:01, SAVSKI MOST', '21:51, PTD/PTT']

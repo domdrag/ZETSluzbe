@@ -49,6 +49,8 @@ def deleteNecessaryData():
             continue
         elif 'warning' in file:
             continue
+        elif 'notifications' in file:
+            continue
         #############################################
         else:
             os.remove('data/data/' + file)

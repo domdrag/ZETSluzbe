@@ -79,3 +79,6 @@
 ['Utorak, 15.8.2023.', 'broj sluzbe: 340', 'vozni red: 04.01', '11:41, SAVSKI MOST', '18:22, Autobusni kol. smjer Dubec']
 ['Srijeda, 16.8.2023.', 'broj sluzbe: 341', 'vozni red: 04.02', '11:07, Lisinski smjer Sav. most', '18:07, SAVSKI MOST']
 ['Cetvrtak, 17.8.2023.', 'broj sluzbe: 340', 'vozni red: 04.01', '10:53, Držićeva smjer Sav. most', '17:53, SAVSKI MOST']
+['Petak, 18.8.2023.', 'O']
+['Subota, 19.8.2023.', 'broj sluzbe: 470', 'vozni red: 13.01', '10:53, Vodnikova smjer Kvat. trg', '17:50, ŽITNJAK- TERMINAL']
+['Nedjelja, 20.8.2023.', 'broj sluzbe: 375', 'vozni red: 06.07', '10:27, PTD', '17:20, ČRNOMEREC']

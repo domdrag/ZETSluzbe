@@ -79,3 +79,6 @@
 ['Utorak, 15.8.2023.', 'broj sluzbe: 341', 'vozni red: 04.02', '08:30, PTD', '14:50, Dubrava smjer Dubec']
 ['Srijeda, 16.8.2023.', 'broj sluzbe: 485', 'vozni red: 14.01', '10:52, ZAPADNI KOLODVOR', '17:47, Frankopanska smjer Zap.kol.']
 ['Cetvrtak, 17.8.2023.', 'O']
+['Petak, 18.8.2023.', 'I-BO']
+['Subota, 19.8.2023.', 'Ob']
+['Nedjelja, 20.8.2023.', 'Ob']

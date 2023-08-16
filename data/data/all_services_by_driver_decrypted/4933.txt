@@ -79,3 +79,6 @@
 ['Utorak, 15.8.2023.', 'Oz']
 ['Srijeda, 16.8.2023.', 'I-DK']
 ['Cetvrtak, 17.8.2023.', 'I-DK']
+['Petak, 18.8.2023.', 'O']
+['Subota, 19.8.2023.', 'O']
+['Nedjelja, 20.8.2023.', 'broj sluzbe: 172', 'vozni red: 13.03', '05:44, PTD', '12:18, Držićeva smjer Žitnjak']

@@ -79,3 +79,6 @@
 ['Utorak, 15.8.2023.', 'broj sluzbe: 190', 'vozni red: 14.06', '05:13, PTD', '11:08, ZAPADNI KOLODVOR']
 ['Srijeda, 16.8.2023.', 'Oz']
 ['Cetvrtak, 17.8.2023.', 'I-DK']
+['Petak, 18.8.2023.', 'I-DK']
+['Subota, 19.8.2023.', 'Oz']
+['Nedjelja, 20.8.2023.', 'Oz']

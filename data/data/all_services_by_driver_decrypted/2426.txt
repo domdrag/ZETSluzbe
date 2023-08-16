@@ -79,3 +79,6 @@
 ['Utorak, 15.8.2023.', 'broj sluzbe: 374', 'vozni red: 06.06', '11:51, Autobusni kol. smjer Črnomerec', '18:01, ČRNOMEREC']
 ['Srijeda, 16.8.2023.', 'broj sluzbe: 376', 'vozni red: 06.08', '10:46, ČRNOMEREC', '17:43, TBJJ smjer Žitnjak']
 ['Cetvrtak, 17.8.2023.', 'broj sluzbe: 374', 'vozni red: 06.06', '11:33, Autobusni kol. smjer Črnomerec', '18:15, Autobusni kol. smjer Črnomerec']
+['Petak, 18.8.2023.', 'broj sluzbe: 376', 'vozni red: 06.08', '10:46, ČRNOMEREC', '17:43, TBJJ smjer Žitnjak']
+['Subota, 19.8.2023.', 'broj sluzbe: 491', 'vozni red: 14.07', '10:41, Frankopanska smjer Sav. most', '17:39, Gupčeva zvije. smjer Mihaljevac']
+['Nedjelja, 20.8.2023.', 'O']

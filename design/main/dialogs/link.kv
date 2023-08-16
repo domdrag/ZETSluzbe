@@ -1,0 +1,10 @@
+#:include design/main/main_screen_design.kv
+
+<Link>:
+	linkText: ''
+	linkURL: ''
+
+	MDRaisedButton:
+		md_bg_color: app.theme_cls.accent_dark
+		text: root.linkText
+		on_release: root.openLink(root.linkURL)

@@ -79,3 +79,6 @@
 ['Utorak, 15.8.2023.', 'I-BP']
 ['Srijeda, 16.8.2023.', 'I-BP']
 ['Cetvrtak, 17.8.2023.', 'I-BP']
+['Petak, 18.8.2023.', 'I-BP']
+['Subota, 19.8.2023.', 'Oz']
+['Nedjelja, 20.8.2023.', 'Oz']

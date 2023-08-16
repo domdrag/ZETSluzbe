@@ -79,3 +79,6 @@
 ['Utorak, 15.8.2023.', 'Og']
 ['Srijeda, 16.8.2023.', 'I-GO']
 ['Cetvrtak, 17.8.2023.', 'Oz']
+['Petak, 18.8.2023.', 'broj sluzbe: 96', 'vozni red: 07.08', '04:52, PTD', '11:39, DUBRAVA- TERMINAL']
+['Subota, 19.8.2023.', 'broj sluzbe: 73', 'vozni red: 06.05', '04:31, PTD', '11:13, Glavni kolodvor smjer Črnomerec']
+['Nedjelja, 20.8.2023.', 'broj sluzbe: 170', 'vozni red: 13.01', '05:38, PTD', '11:47, Držićeva smjer Žitnjak']

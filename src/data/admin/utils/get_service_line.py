@@ -9,7 +9,7 @@ def getServiceLine(serviceNum, dayIndex, weekSchedule, mondayDate, workDayFileNa
         textFileName = 'data/data/rules_W.txt'
         day = (mondayDate + datetime.timedelta(days = dayIndex)).day
         for workDayFileName in workDayFileNames:
-            if (workDayFileName == 'W'):
+            if (workDayFileName == 'rules_W'):
                 continue
             # fileName starts with rules_W
             specificDays = ast.literal_eval(workDayFileName[7:])
@@ -28,4 +28,5 @@ def getServiceLine(serviceNum, dayIndex, weekSchedule, mondayDate, workDayFileNa
         serviceLine = ast.literal_eval(serviceLine)
         if(serviceNum in serviceLine):
             return serviceLine
+
     return []

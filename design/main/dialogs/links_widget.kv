@@ -1,0 +1,17 @@
+#:include design/main/dialogs/link.kv
+
+<LinksWidget>:
+	size_hint_y: None
+	height: dp(300) # WORKAROUND, content doesn't show well unless height is fixed
+	linksWidgetRecycleView: linksWidgetRecycleViewId
+	
+	MDRecycleView:
+		viewclass: 'Link'
+		id: linksWidgetRecycleViewId
+		
+		RecycleBoxLayout:
+			default_size: None, str(int(app.gridHeight[:-2]) // 5) + 'dp'
+			default_size_hint: 1, None
+			size_hint_y: None
+			height: self.minimum_height
+			orientation: 'vertical'

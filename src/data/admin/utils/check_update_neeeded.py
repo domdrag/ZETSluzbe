@@ -2,6 +2,7 @@ from datetime import date
 
 from src.data.share.config_manager import getConfig
 from src.share.trace import TRACE
+from src.data.admin.utils.add_warning_message import addWarningMessage
 
 def unexpectedMissingServicesChange(missingServices, oldMissingServices):
     # i.e. last wednesday record wasn't missing, now it's missing
@@ -16,7 +17,10 @@ def missingServicesChanged(missingServices, oldMissingServices):
         return False
 
     if (unexpectedMissingServicesChange(missingServices, oldMissingServices)):
-        raise Exception('Greska u sluzbama (fale prijasnje sluzbe)')
+        message = 'Neke sluzbe fale na web-stranici ZET-a,'\
+                  ' ali su prethodno zapisane u sustavu.\n'
+        addWarningMessage(message)
+        #raise Exception('Greska u sluzbama (fale prijasnje sluzbe)')
 
     return True
 

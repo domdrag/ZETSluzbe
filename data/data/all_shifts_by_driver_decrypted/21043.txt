@@ -139,3 +139,8 @@
 ['Utorak, 15.8.2023.', 'Og']
 ['Srijeda, 16.8.2023.', 'I-GO']
 ['Cetvrtak, 17.8.2023.', 'I-GO']
+['Petak, 18.8.2023.', 'I-GO']
+['Subota, 19.8.2023.', 'O']
+['Nedjelja, 20.8.2023.', 'broj sluzbe: 174', 'vozni red: 13.05', '05:02, PTD', '11:33, Držićeva smjer Kvat. trg', 'MARIJAN SAMBOLEC\n098-815-845']
+['Nedjelja, 20.8.2023.', 'broj sluzbe: 474', 'vozni red: 13.05', '11:33, Držićeva smjer Kvat. trg', '18:20, Držićeva smjer Žitnjak', 'ANON\nXXX-XXX-XXXX']
+['Nedjelja, 20.8.2023.', 'broj sluzbe: 774', 'vozni red: 13.05', '18:20, Držićeva smjer Žitnjak', '00:53, PTD/PTT', 'MIROSLAV KINDER\n098-921-8060']

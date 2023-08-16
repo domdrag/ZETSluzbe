@@ -79,3 +79,6 @@
 ['Utorak, 15.8.2023.', 'O']
 ['Srijeda, 16.8.2023.', 'O']
 ['Cetvrtak, 17.8.2023.', 'broj sluzbe: 69', 'vozni red: 06.01', '03:57, PTD', '10:48, Autobusni kol. smjer Črnomerec']
+['Petak, 18.8.2023.', 'broj sluzbe: 69', 'vozni red: 06.01', '03:57, PTD', '10:48, Autobusni kol. smjer Črnomerec']
+['Subota, 19.8.2023.', 'broj sluzbe: 70', 'vozni red: 06.02', '04:05, PTD', '10:45, Glavni kolodvor smjer Črnomerec']
+['Nedjelja, 20.8.2023.', 'broj sluzbe: 138', 'vozni red: 11.09', '07:55, PTD', '14:55, Kvaternikov trg smjer Črnomerec']

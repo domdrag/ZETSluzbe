@@ -79,3 +79,6 @@
 ['Utorak, 15.8.2023.', 'O']
 ['Srijeda, 16.8.2023.', 'O']
 ['Cetvrtak, 17.8.2023.', 'broj sluzbe: 135', 'vozni red: 11.06', '05:25, PTD', '12:23, Draškovićeva smjer Dubec']
+['Petak, 18.8.2023.', 'broj sluzbe: 178', 'vozni red: 13.09', '05:07, PTD', '11:58, Držićeva smjer Žitnjak']
+['Subota, 19.8.2023.', 'broj sluzbe: 43', 'vozni red: 04.04', '06:19, PTD', '13:18, Draškovićeva smjer Dubec']
+['Nedjelja, 20.8.2023.', 'O']

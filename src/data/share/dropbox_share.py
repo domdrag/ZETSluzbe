@@ -39,17 +39,24 @@ def isDropboxSynchronizationNeeded():
     downloadDropboxFile('config.json')
     onlineConfig = getOnlineConfig()
     onlineDate = onlineConfig['LAST_RECORD_DATE']
+    onlineMissingServices = onlineConfig['MISSING_SERVICES']
+    onlineServicesHash = onlineConfig['SERVICES_HASH']
 
     config = getConfig()
     currentDate = config['LAST_RECORD_DATE']
+    currentMissingServices = config['MISSING_SERVICES']
+    currentServicesHash = config['SERVICES_HASH']
 
-    if currentDate == onlineDate:
+    if ((currentDate == onlineDate) and (currentMissingServices == onlineMissingServices)):
         TRACE('DROPBOX_SYNCHRONIZATION_NOT_NEEDED')
+        assert currentServicesHash == onlineServicesHash, 'Neuskladjene sluzbe sa dropbox-om.'
         return False
+
     else:
+        # pozovi setConfig fju ako mozes? - mozda mozes prebacit na cp?
         setConfig('LAST_RECORD_DATE', onlineDate)
-        # relevant for admin only
-        setConfig('MISSING_SERVICES', onlineConfig['MISSING_SERVICES'])
+        setConfig('MISSING_SERVICES', onlineMissingServices)
+        setConfig('SERVICES_HASH', currentServicesHash)
         return True
 
 def dropbboxSynchronization():

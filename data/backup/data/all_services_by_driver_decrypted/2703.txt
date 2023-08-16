@@ -79,3 +79,6 @@
 ['Utorak, 15.8.2023.', 'O']
 ['Srijeda, 16.8.2023.', 'O']
 ['Cetvrtak, 17.8.2023.', 'O']
+['Petak, 18.8.2023.', 'broj sluzbe: 77', 'vozni red: 06.09', '04:21, PTD', '11:21, Autobusni kol. smjer Žitnjak']
+['Subota, 19.8.2023.', 'broj sluzbe: 45', 'vozni red: 04.06', '04:28, PTD', '10:57, Draškovićeva smjer Sav. most']
+['Nedjelja, 20.8.2023.', 'broj sluzbe: 188', 'vozni red: 14.04', '05:18, PTD', '11:57, Vodnikova smjer Sav. most']

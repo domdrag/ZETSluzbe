@@ -79,3 +79,6 @@
 ['Utorak, 15.8.2023.', 'broj sluzbe: 431', 'vozni red: 11.02', '08:26, PTD', '15:17, Dubrava smjer Črnomerec']
 ['Srijeda, 16.8.2023.', 'broj sluzbe: 135', 'vozni red: 11.06', '05:25, PTD', '12:23, Draškovićeva smjer Dubec']
 ['Cetvrtak, 17.8.2023.', 'broj sluzbe: 75', 'vozni red: 06.07', '06:15, PTD', '12:55, ŽITNJAK- TERMINAL']
+['Petak, 18.8.2023.', 'broj sluzbe: 42', 'vozni red: 04.03', '06:03, PTD', '13:03, Zagrepčanka smjer Dubec']
+['Subota, 19.8.2023.', 'broj sluzbe: 440', 'vozni red: 11.11', '08:26, PTD', '15:26, Ravnice smjer Dubec']
+['Nedjelja, 20.8.2023.', 'O']

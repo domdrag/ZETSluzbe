@@ -79,3 +79,6 @@
 ['Utorak, 15.8.2023.', 'broj sluzbe: 506', 'vozni red: 15.02', '11:51, MIHALJEVAC', '17:57, MIHALJEVAC']
 ['Srijeda, 16.8.2023.', 'O']
 ['Cetvrtak, 17.8.2023.', 'O']
+['Petak, 18.8.2023.', 'broj sluzbe: 506', 'vozni red: 15.02', '10:45, MIHALJEVAC', '17:38, MIHALJEVAC']
+['Subota, 19.8.2023.', 'broj sluzbe: 506', 'vozni red: 15.02', '10:47, MIHALJEVAC', '17:40, MIHALJEVAC']
+['Nedjelja, 20.8.2023.', 'broj sluzbe: 506', 'vozni red: 15.02', '11:51, MIHALJEVAC', '17:57, MIHALJEVAC']

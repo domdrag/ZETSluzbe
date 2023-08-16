@@ -155,3 +155,8 @@
 ['Utorak, 15.8.2023.', 'Og']
 ['Srijeda, 16.8.2023.', 'I-GO']
 ['Cetvrtak, 17.8.2023.', 'I-GO']
+['Petak, 18.8.2023.', 'I-GO']
+['Subota, 19.8.2023.', 'O']
+['Nedjelja, 20.8.2023.', 'broj sluzbe: 70', 'vozni red: 06.02', '05:10, PTD', '11:29, Autobusni kol. smjer Črnomerec', 'NEVEN COMBAJ\n091-548-4001']
+['Nedjelja, 20.8.2023.', 'broj sluzbe: 370', 'vozni red: 06.02', '11:29, Autobusni kol. smjer Črnomerec', '17:58, ČRNOMEREC', 'ANON\nXXX-XXX-XXXX']
+['Nedjelja, 20.8.2023.', 'broj sluzbe: 670', 'vozni red: 06.02', '17:58, ČRNOMEREC', '00:47, PTD/PTT', 'DRAŽEN ŠTIVIČIĆ\n091-730-9442']

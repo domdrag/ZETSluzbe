@@ -93,3 +93,8 @@
 ['Cetvrtak, 17.8.2023.', 'broj sluzbe: 75', 'vozni red: 06.07', '06:15, PTD', '12:55, ŽITNJAK- TERMINAL', 'BENJANIM TERZIĆ\n099-249-5450']
 ['Cetvrtak, 17.8.2023.', 'broj sluzbe: 375', 'vozni red: 06.07', '12:55, ŽITNJAK- TERMINAL', '19:49, PTD/PTT', 'MIRSADA TOKIĆ\n091-733-6905']
 ['Cetvrtak, 17.8.2023.', 'empty']
+['Petak, 18.8.2023.', 'broj sluzbe: 90', 'vozni red: 07.02', '05:40, PTD', '12:22, DUBRAVA- TERMINAL', 'JADRANKA SEDLIĆ\n098-920-9554']
+['Petak, 18.8.2023.', 'broj sluzbe: 390', 'vozni red: 07.02', '12:22, DUBRAVA- TERMINAL', '19:15, PTD/PTT', 'MIRSADA TOKIĆ\n091-733-6905']
+['Petak, 18.8.2023.', 'empty']
+['Subota, 19.8.2023.', 'O']
+['Nedjelja, 20.8.2023.', 'O']

@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup, SoupStrainer
 
+from src.data.admin.utils.set_notifications import setNotifications
+
 def searchLinks():
     workDayURL = ''
     workDayLinks = []
@@ -22,10 +24,15 @@ def searchLinks():
                 r = s.get('https://www.zet.hr/interno/default.aspx?id=1041')
                 content = r.content
 
+                notifications = []
                 for line in BeautifulSoup(content,
                                           parse_only=SoupStrainer('a')):
                     if hasattr(line, "href"):
                         link = line['href']
+                        # notifications
+                        if ('dubrava/' in link):
+                            notifications.append({'URL': link, 'name': line.text})
+
                         if('RD' in link or 'Radni dan' in line.text or 'radni dan' in line.text):
                             workDayLinks.append({'URL': link, 'name': line.text})
                             #workDayURL = link
@@ -36,6 +43,7 @@ def searchLinks():
                             sundayLinks.append({'URL': link, 'name': line.text})
                             #sundayURL = link
             searchComplete = True
+            setNotifications(notifications)
         except:
             pass
 

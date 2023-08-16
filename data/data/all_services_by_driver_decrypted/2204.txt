@@ -79,3 +79,6 @@
 ['Utorak, 15.8.2023.', 'broj sluzbe: 435', 'vozni red: 11.06', '10:48, PTD', '17:42, Dubrava smjer Črnomerec']
 ['Srijeda, 16.8.2023.', 'broj sluzbe: 340', 'vozni red: 04.01', '10:53, Držićeva smjer Sav. most', '17:53, SAVSKI MOST']
 ['Cetvrtak, 17.8.2023.', 'O']
+['Petak, 18.8.2023.', 'broj sluzbe: 491', 'vozni red: 14.07', '10:35, Vodnikova smjer Sav. most', '17:35, Vodnikova smjer Sav. most']
+['Subota, 19.8.2023.', 'broj sluzbe: 372', 'vozni red: 06.04', '11:04, Glavni kolodvor smjer Črnomerec', '18:04, Glavni kolodvor smjer Žitnjak']
+['Nedjelja, 20.8.2023.', 'broj sluzbe: 340', 'vozni red: 04.01', '11:54, Dubrava smjer Dubec', '17:51, Dubrava smjer Sav. most']

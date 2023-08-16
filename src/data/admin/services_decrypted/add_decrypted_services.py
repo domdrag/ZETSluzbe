@@ -69,11 +69,11 @@ def addDecryptedServices(days,
 
         fileW = open(filePath, 'a', encoding='utf-8')
         for i in range(1,8):
-            if (missingServices[i-1]):
-                continue
             if (validOldIndexedServices[i-1]):
                 # already contains newline
                 fileW.write(validOldIndexedServices[i-1])
+                continue
+            if (missingServices[i-1]):
                 continue
 
             serviceNum = weekServices[i]

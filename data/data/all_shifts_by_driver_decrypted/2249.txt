@@ -183,3 +183,8 @@
 ['Cetvrtak, 17.8.2023.', 'broj sluzbe: 142', 'vozni red: 11.13', '06:15, 13:31, PTD', '10:13, 17:24, PTD', 'IVICA ĐURIĆ\n098-405-529']
 ['Cetvrtak, 17.8.2023.', 'empty']
 ['Cetvrtak, 17.8.2023.', 'broj sluzbe: 742', 'vozni red: 11.13', '17:24, Dubrava smjer Dubec', '00:20, PTD/PTT', 'VLASTA MRKONJIĆ\n098-929-0494']
+['Petak, 18.8.2023.', 'broj sluzbe: 142', 'vozni red: 11.13', '06:15, 13:31, PTD', '10:13, 17:24, PTD', 'IVICA ĐURIĆ\n098-405-529']
+['Petak, 18.8.2023.', 'empty']
+['Petak, 18.8.2023.', 'broj sluzbe: 742', 'vozni red: 11.13', '17:24, Dubrava smjer Dubec', '00:20, PTD/PTT', 'VINKO KIKIĆ\n098-688-661']
+['Subota, 19.8.2023.', 'O']
+['Nedjelja, 20.8.2023.', 'O']
