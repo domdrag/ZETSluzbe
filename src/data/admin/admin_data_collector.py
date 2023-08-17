@@ -111,6 +111,10 @@ class AdminDataCollector:
                         self.phase = cp.UPLOAD_DATA_TO_DROPBOX 
                         returnMessage['message'] = 'Stvaranje sigurnosne kopije'
                     else:
+                        # quick fix
+                        import shutil
+                        shutil.copyfile('data/backup/data/warnings.txt',
+                                        'data/data/warnings.txt')
                         setConfig('UPDATE_SUCCESSFUL', 1)
                         returnMessage['finished'] = True
                 else:
