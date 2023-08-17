@@ -9,7 +9,7 @@
 <LoginScreenDesign@Widget>
 	halign: 'center'
 	valign: 'center'
-	font_size: app.fontSize 
+	font_size: 1/2*((int(app.gridHeight[:-2])//12) + 30 - abs((int(app.gridHeight[:-2])//10)-30)) 
 	text_size: self.width/1.05, self.height/1.05 # idk how, but this works
 	text_color: 'white'
 	theme_text_color: 'Custom'

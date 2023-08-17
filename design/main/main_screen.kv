@@ -70,6 +70,7 @@
 		id: nav_drawer
 		anchor: 'right'
 		radius: (16,0,0,16)
+		size_hint_x: 0.3
 		
 		MDNavigationDrawerMenu:
 
@@ -100,6 +101,14 @@
 				text_right_color: "#4a4939"
 				text: "Linkovi"
 				on_release: root.linksButton()
+				
+			DrawerClickableItem:
+				icon: "link"
+				#right_text: "+99"
+				text_right_color: "#4a4939"
+				text: "Font"
+				on_release: 
+					mainScreenSliderId.disabled = not mainScreenSliderId.disabled
 
 			MDNavigationDrawerDivider:
 			
@@ -110,9 +119,12 @@
 				text: 'Odjavi se'
 				on_release: root.logoutButton()
 			
-	#MainScreenSlider:
-	#	size_hint: 0.3, 0.2
-	#	pos_hint: {"x":0.35, "top": 1.04}
-	#	value: int(app.fontSize[:-2])
-	#	on_value_normalized: root.fontSizeSlider(self.value)	
+	MainScreenSlider:
+		id: mainScreenSliderId
+		disabled: True if nav_drawer.state == 'close' else self.disabled
+		size_hint: 0.3, 0.2 if not self.disabled else 0
+		opacity: 1 if not self.disabled else 0 # safety
+		pos_hint: {"x":0.35, "top": 1.04}
+		value: int(app.fontSize[:-2])
+		on_value_normalized: root.fontSizeSlider(self.value)
 			
