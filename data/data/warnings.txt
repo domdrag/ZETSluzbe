@@ -1,4 +1,5 @@
 1$Neuobicajen vozni red. Sugerira se samostalna provjera sluzbi.
 Za utorak se gleda nedjeljni vozni red.
 Za ponedjeljak se gleda subotnji vozni red.
-Sustav nije uspio ocitati neke sluzbe.Neke sluzbe fale na web-stranici ZET-a, ali su prethodno zapisane u sustavu.
+Sustav nije uspio ocitati neke sluzbe.
+Neke sluzbe fale na web-stranici ZET-a, ali su prethodno zapisane u sustavu.
