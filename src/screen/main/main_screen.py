@@ -12,7 +12,7 @@ from src.screen.main.dialogs.notifications_dialog import NotificationsDialog
 from src.screen.main.dialogs.links_dialog import LinksDialog
 
 from src.data.share.design_manager import (updateFontSize,
-                                           GRID_HEIGHT_TO_FONT_SIZE_RATIO)
+                                           updateGridHeight)
 from src.data.share.read_notifications import readNotifications
 from src.data.share.read_links import readLinks
 
@@ -51,15 +51,15 @@ class MainScreen(Screen):
 
     def increaseGridHeight(self):
         oldValue = int(self.app.gridHeight[:-2])
+        newValue = oldValue + 12
+        updateGridHeight(newValue)
         self.app.gridHeight = str(oldValue + 12) + 'dp'
-        #oldValue = int(self.app.fontSize[:-2])
-        #self.app.fontSize = str(oldValue + 1) + 'dp'
 
     def decreaseGridHeight(self):
         oldValue = int(self.app.gridHeight[:-2])
+        newValue = oldValue - 12
+        updateGridHeight(newValue)
         self.app.gridHeight = str(oldValue - 12) + 'dp'
-        #oldValue = int(self.app.fontSize[:-2])
-        #self.app.fontSize = str(oldValue - 1) + 'dp'
         
 
 

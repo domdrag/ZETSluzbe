@@ -17,11 +17,22 @@ def loadDesign():
 def getFontSize():
     return DESIGN['FONT_SIZE']
 
+def getLoginScreenFontSize():
+    return DESIGN['LOGIN_SCREEN_FONT_SIZE']
+
+def getMainScreenFontSize():
+    return DESIGN['MAIN_SCREEN_FONT_SIZE']
+
 def getGridHeight():
-    value = int(DESIGN['FONT_SIZE'][:-2])
-    return str(value * GRID_HEIGHT_TO_FONT_SIZE_RATIO) + 'dp'
-def updateFontSize(value):
-    DESIGN['FONT_SIZE'] = str(value) + 'dp'
+    return DESIGN['GRID_HEIGHT']
+
+def updateFontSize(screen, value):
+    DESIGN[screen] = str(value) + 'dp'
+    with open('data/design.json', 'w') as designFile:
+        json.dump(DESIGN, designFile, indent = 3)
+
+def updateGridHeight(value):
+    DESIGN['GRID_HEIGHT'] = str(value) + 'dp'
     with open('data/design.json', 'w') as designFile:
         json.dump(DESIGN, designFile, indent = 3)
 

@@ -82,6 +82,17 @@ class LoginScreen(Screen):
         updateFontSize(int(value))
         self.app.fontSize = str(int(value)) + 'dp'
 
+    def increaseFontSize(self):
+        oldValue = int(self.app.loginScreenFontSize[:-2])
+        newValue = oldValue + 1
+        updateFontSize('LOGIN_SCREEN_FONT_SIZE', newValue)
+        self.app.loginScreenFontSize = str(newValue) + 'dp'
+
+    def decreaseFontSize(self):
+        oldValue = int(self.app.loginScreenFontSize[:-2])
+        newValue = oldValue - 1
+        updateFontSize('LOGIN_SCREEN_FONT_SIZE', newValue)
+        self.app.loginScreenFontSize = str(newValue) + 'dp'
 
     @showDialog
     def update(self):

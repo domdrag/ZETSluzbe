@@ -5,21 +5,6 @@
 #:include design/main/dialogs/notifications_dialog.kv
 #:include design/main/dialogs/links_dialog.kv
 
-<DrawerClickableItem@MDNavigationDrawerItem>
-    focus_color: "#e7e4c0"
-    text_color: "#4a4939"
-    icon_color: "#4a4939"
-    ripple_color: "#c5bdd2"
-    selected_color: "#0c6c4d"
-
-
-<DrawerLabelItem@MDNavigationDrawerItem>
-    text_color: "#4a4939"
-    icon_color: "#4a4939"
-    focus_behavior: False
-    selected_color: "#4a4939"
-    _no_ripple_effect: True
-
 <MainScreen>:
 	name: 'mainScreen'
 	mainScreenTabs: mainScreenTabsId
@@ -34,12 +19,6 @@
 			orientation: 'horizontal'
 			title: 'ZETSluzbe'
 			anchor_title: 'left'
-			#right_action_items: 
-			#	[
-			#	['calendar', lambda x: root.calendarButton()],
-			#	['menu', lambda x: nav_drawer.set_state("open")]
-			#	]
-			
 			
 			MDIconButton:
 				icon: 'calendar'
@@ -49,9 +28,9 @@
 				icon: 'menu'
 				on_release: nav_drawer.set_state('open')
 				
-			#MDIconButton:
-            #   icon: 'logout'
-			#	on_release: root.logoutButton()
+			MDIconButton:
+				icon: 'logout'
+				on_release: root.logoutButton()
 		
 		MDTabs:
 			id: mainScreenTabsId
@@ -68,65 +47,12 @@
 				
 	MDIconButton:
 		icon: 'plus-box-outline'
-		pos_hint: {"x":0, "top": 0.13}
+		pos_hint: {"x":0, "top": 0.11}
 		on_release: root.increaseGridHeight()
 		
 	MDIconButton:
 		icon: 'minus-box-outline'
 		on_release: root.decreaseGridHeight()
-	
-	MDNavigationDrawer:
-		id: nav_drawer
-		anchor: 'right'
-		radius: (16,0,0,16)
-		size_hint_x: 0.5
-		
-		MDNavigationDrawerMenu:
-
-			MDNavigationDrawerHeader:
-				title: ''
-				title_color: "#4a4939"
-				text: "Izbornik"
-				spacing: "4dp"
-				padding: "12dp", 0, 0, "56dp"
-				
-			DrawerClickableItem:
-				icon: 'message'
-				#right_text: "+99"
-				text_right_color: "#4a4939"
-				text: 'Obavijesti'
-				on_release: root.notificationsButton()
-				
-			DrawerClickableItem:
-				icon: 'calendar'
-				#right_text: "+99"
-				text_right_color: "#4a4939"
-				text: 'Kalendar'
-				on_release: root.calendarButton()
-				
-			DrawerClickableItem:
-				icon: "link"
-				#right_text: "+99"
-				text_right_color: "#4a4939"
-				text: "Linkovi"
-				on_release: root.linksButton()
-				
-			DrawerClickableItem:
-				icon: "link"
-				#right_text: "+99"
-				text_right_color: "#4a4939"
-				text: "Font"
-				on_release: 
-					mainScreenSliderId.disabled = not mainScreenSliderId.disabled
-
-			MDNavigationDrawerDivider:
-			
-			DrawerClickableItem:
-				icon: 'logout'
-				#right_text: "+99"
-				text_right_color: "#4a4939"
-				text: 'Odjavi se'
-				on_release: root.logoutButton()
 			
 	#MainScreenSlider:
 	#	id: mainScreenSliderId
