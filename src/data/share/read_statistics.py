@@ -38,7 +38,8 @@ def appendStatisticData(statisticsData, dictionary, title, editKeys = False):
         else:
             fixedKey = key
         statisticContentData.append({'statisticContentItem': fixedKey,
-                                     'statisticContentValue': str(value)})
+                                     'statisticContentValue': str(value),
+                                     'neighboursCount': len(dictionary)})
 
     statisticsData.append({'statisticTitle': title,
                            'statisticContentData': statisticContentData})

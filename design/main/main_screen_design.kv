@@ -9,9 +9,12 @@
 <MainScreenDesign@Widget>
 	halign: 'center'
 	valign: 'center'
-	font_size: str(int(1/2*((int(app.gridHeight[:-2])//10) + 30 - abs((int(app.gridHeight[:-2])//10)-30)))) + 'dp'
-	#font_size: self.font_size + ((1/2*(self.height - self.texture_size[1] + abs(self.height - self.texture_size[1]))) / (self.height - self.texture_size[1] + 0.001))*(int(app.gridHeight[:-2])//10 - self.font_size)
-	text_size: self.width, self.height * 1.4
+	font_size: str(int(app.gridHeight[:-2])//10)+'dp' if int(app.gridHeight[:-2])//10 < 25 else '25dp'
+	#font_size: str(int(1/2*((int(app.gridHeight[:-2])//10) + 30 - abs((int(app.gridHeight[:-2])//10)-30)))) + 'dp'
+	#font_size: int(app.gridHeight[:-2])//10 if int(app.gridHeight[:-2])//10 < 30 else 30
+	#font_size: int(app.gridHeight[:-2])//10 if self.height > self.texture_size[1] else (int(app.gridHeight[:-2])-10)//10
+	#font_size: self.font_size + ((1/2*(self.height - self.texture_size[1] + abs(self.height - self.texture_size[1]))) / (self.height #- self.texture_size[1] + 0.001))*(int(app.gridHeight[:-2])//10 - self.font_size)
+	text_size: self.width, None
 	text_color: 'white'
 	md_bg_color: app.theme_cls.primary_dark
 	
@@ -24,7 +27,6 @@
 
 <MainRecycleView@MDRecycleView>:
 	RecycleBoxLayout:
-		#default_size: None, dp(200)
 		default_size: None, app.gridHeight
 		default_size_hint: 1, None
 		size_hint_y: None

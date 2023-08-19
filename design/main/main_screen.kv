@@ -1,6 +1,6 @@
 #:include design/main/tabs/services_tab.kv
 #:include design/main/tabs/shifts_tab.kv
-#:include design/main/tabs/hourly_rate_tab.kv
+#:include design/main/tabs/statistics_tab.kv
 #:include design/share/calendar_dialog.kv
 #:include design/main/dialogs/notifications_dialog.kv
 #:include design/main/dialogs/links_dialog.kv
@@ -25,7 +25,7 @@
 	mainScreenTabs: mainScreenTabsId
 	servicesTab: servicesTabId
 	shiftsTab: shiftsTabId
-	hourlyRateTab: hourlyRateTabId
+	statisticsTab: statisticsTabId
 
 	MDBoxLayout:
 		orientation: 'vertical'
@@ -63,9 +63,18 @@
 			ShiftsTab: 
 				id: shiftsTabId
 				
-			HourlyRateTab:
-				id: hourlyRateTabId
+			StatisticsTab:
+				id: statisticsTabId
 				
+	MDIconButton:
+		icon: 'plus-box-outline'
+		pos_hint: {"x":0, "top": 0.13}
+		on_release: root.increaseGridHeight()
+		
+	MDIconButton:
+		icon: 'minus-box-outline'
+		on_release: root.decreaseGridHeight()
+	
 	MDNavigationDrawer:
 		id: nav_drawer
 		anchor: 'right'
@@ -119,12 +128,15 @@
 				text: 'Odjavi se'
 				on_release: root.logoutButton()
 			
-	MainScreenSlider:
-		id: mainScreenSliderId
-		disabled: True if nav_drawer.state == 'close' else self.disabled
-		size_hint: 0.3, 0.2 if not self.disabled else 0
-		opacity: 1 if not self.disabled else 0 # safety
-		pos_hint: {"x":0.35, "top": 1.04}
-		value: int(app.fontSize[:-2])
-		on_value_normalized: root.fontSizeSlider(self.value)
+	#MainScreenSlider:
+	#	id: mainScreenSliderId
+	#	disabled: True if nav_drawer.state == 'close' else self.disabled
+	#	size_hint: 0.3, 0.2 if not self.disabled else 0
+	#	opacity: 1 if not self.disabled else 0 # safety
+	#	pos_hint: {"x":0.35, "top": 1.04}
+	#	value: int(app.fontSize[:-2])
+	#	on_value_normalized: root.fontSizeSlider(self.value)
+	
+	
+	
 			
