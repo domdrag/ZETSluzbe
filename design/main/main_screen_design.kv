@@ -9,7 +9,7 @@
 <MainScreenDesign@Widget>
 	halign: 'center'
 	valign: 'center'
-	font_size: 1/2*((int(app.gridHeight[:-2])//12) + 30 - abs((int(app.gridHeight[:-2])//10)-30))
+	font_size: str(int(1/2*((int(app.gridHeight[:-2])//10) + 30 - abs((int(app.gridHeight[:-2])//10)-30)))) + 'dp'
 	#font_size: self.font_size + ((1/2*(self.height - self.texture_size[1] + abs(self.height - self.texture_size[1]))) / (self.height - self.texture_size[1] + 0.001))*(int(app.gridHeight[:-2])//10 - self.font_size)
 	text_size: self.width, self.height * 1.4
 	text_color: 'white'

@@ -82,3 +82,8 @@
 ['Petak, 18.8.2023.', 'I-GO']
 ['Subota, 19.8.2023.', 'Og']
 ['Nedjelja, 20.8.2023.', 'Og']
+['Ponedjeljak, 21.8.2023.', 'I-GO']
+['Utorak, 22.8.2023.', 'I-GO']
+['Srijeda, 23.8.2023.', 'I-GO']
+['Cetvrtak, 24.8.2023.', 'broj sluzbe: 641', 'vozni red: 04.02', '17:51, Dubrava smjer Dubec', '00:15, PTD/PTT']
+['Petak, 25.8.2023.', 'broj sluzbe: 646', 'vozni red: 04.07', '17:35, Glavni kolodvor smjer Sav. most', '00:29, PTD/PTT']

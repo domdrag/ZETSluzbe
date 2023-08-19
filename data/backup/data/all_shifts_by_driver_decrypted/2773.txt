@@ -204,3 +204,8 @@
 ['Nedjelja, 20.8.2023.', 'broj sluzbe: 92', 'vozni red: 07.04', '05:45, PTD', '12:12, Autobusni kol. smjer Sav. most', 'JOSIP DELIJA\n091-734-4868']
 ['Nedjelja, 20.8.2023.', 'broj sluzbe: 392', 'vozni red: 07.04', '12:12, Autobusni kol. smjer Sav. most', '18:11, Autobusni kol. smjer Sav. most', 'SNJEŽANA HRENOVIĆ\n091-251-3868']
 ['Nedjelja, 20.8.2023.', 'broj sluzbe: 692', 'vozni red: 07.04', '18:11, Autobusni kol. smjer Sav. most', '00:05, PTD/PTT', 'MARIJA KRAMAR\n091-926-7040']
+['Ponedjeljak, 21.8.2023.', 'O']
+['Utorak, 22.8.2023.', 'O']
+['Srijeda, 23.8.2023.', 'I-DK']
+['Cetvrtak, 24.8.2023.', 'I-DK']
+['Petak, 25.8.2023.', 'I-GO']

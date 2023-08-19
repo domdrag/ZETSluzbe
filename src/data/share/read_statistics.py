@@ -4,15 +4,27 @@ from src.data.share.config_manager import getConfig
 from src.data.share.utils.get_monthly_hours_fund import getMonthlyHoursFund
 
 HOURLY_RATE_SORTED_KEYS = ['ODRADENO', 'NOCNA', 'DRUGA', 'SUBOTA', 'NEDJELJA', 'O', 'UKUPNO']
+
+def getEmptyMonthDict():
+    return {'SATNICA': {'ODRADENO': '0',
+                        'NOCNA': '0',
+                        'DRUGA': '0',
+                        'SUBOTA': '0',
+                        'NEDJELJA': '0',
+                        'UKUPNO': '0'},
+            'LINIJE': {},
+            'MJESTA_PRIMANJA': {},
+            'MJESTA_PUSTANJA': {}}
+
 def getStatistics(offNum, month):
     with open('data/data/statistics.json', 'r', encoding='utf-8') as statisticsFile:
         STATISTICS = json.load(statisticsFile)
 
     if (offNum not in STATISTICS):
-        return dict()
+        return getEmptyMonthDict()
     offNumDict = STATISTICS[offNum]
     if (month not in offNumDict):
-        return dict()
+        return getEmptyMonthDict()
     return offNumDict[month]
 
 def fixKey(key):

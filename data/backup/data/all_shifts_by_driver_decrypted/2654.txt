@@ -178,3 +178,8 @@
 ['Petak, 18.8.2023.', 'broj sluzbe: 778', 'vozni red: 13.09', '18:22, Držićeva smjer Kvat. trg', '00:55, PTD/PTT', 'PERO KRNJIĆ\n099-324-1512']
 ['Subota, 19.8.2023.', 'O']
 ['Nedjelja, 20.8.2023.', 'O']
+['Ponedjeljak, 21.8.2023.', 'I-GO']
+['Utorak, 22.8.2023.', 'I-GO']
+['Srijeda, 23.8.2023.', 'I-GO']
+['Cetvrtak, 24.8.2023.', 'I-GO']
+['Petak, 25.8.2023.', 'I-GO']

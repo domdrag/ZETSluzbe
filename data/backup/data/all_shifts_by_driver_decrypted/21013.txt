@@ -150,3 +150,8 @@
 ['Nedjelja, 20.8.2023.', 'broj sluzbe: 188', 'vozni red: 14.04', '05:18, PTD', '11:57, Vodnikova smjer Sav. most', 'MARIJANA BULIĆ\n099-214-7462']
 ['Nedjelja, 20.8.2023.', 'broj sluzbe: 488', 'vozni red: 14.04', '11:57, Vodnikova smjer Sav. most', '18:55, PTD/PTT', 'DANIEL MIHALJEVIĆ\n091-612-7857']
 ['Nedjelja, 20.8.2023.', 'empty']
+['Ponedjeljak, 21.8.2023.', 'I-BO']
+['Utorak, 22.8.2023.', 'I-BO']
+['Srijeda, 23.8.2023.', 'I-BO']
+['Cetvrtak, 24.8.2023.', 'I-BO']
+['Petak, 25.8.2023.', 'I-BO']

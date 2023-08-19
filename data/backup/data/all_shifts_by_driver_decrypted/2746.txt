@@ -184,3 +184,8 @@
 ['Subota, 19.8.2023.', 'broj sluzbe: 565', 'vozni red: PRIČUVA', '11:00, PTD', '18:30, PTD', 'ANON\nXXX-XXX-XXXX']
 ['Subota, 19.8.2023.', 'broj sluzbe: 865', 'vozni red: PRIČUVA', '16:30, PTD', '00:00, PTD', 'ANON\nXXX-XXX-XXXX']
 ['Nedjelja, 20.8.2023.', 'O']
+['Ponedjeljak, 21.8.2023.', 'I-BO']
+['Utorak, 22.8.2023.', 'I-BO']
+['Srijeda, 23.8.2023.', 'I-BO']
+['Cetvrtak, 24.8.2023.', 'I-BO']
+['Petak, 25.8.2023.', 'I-BO']

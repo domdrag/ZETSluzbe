@@ -172,3 +172,8 @@
 ['Subota, 19.8.2023.', 'broj sluzbe: 477', 'vozni red: 13.08', '13:50, ŽITNJAK- TERMINAL', '20:43, PTD/PTT', 'DAMIR CAREK\n098-884-424']
 ['Subota, 19.8.2023.', 'empty']
 ['Nedjelja, 20.8.2023.', 'O']
+['Ponedjeljak, 21.8.2023.', 'I-GO']
+['Utorak, 22.8.2023.', 'I-GO']
+['Srijeda, 23.8.2023.', 'I-GO']
+['Cetvrtak, 24.8.2023.', 'I-GO']
+['Petak, 25.8.2023.', 'I-GO']

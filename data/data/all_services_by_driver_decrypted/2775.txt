@@ -82,3 +82,8 @@
 ['Petak, 18.8.2023.', 'broj sluzbe: 439', 'vozni red: 11.10', '11:14, Draškovićeva smjer Dubec', '17:53, Draškovićeva smjer Črnomerec']
 ['Subota, 19.8.2023.', 'broj sluzbe: 486', 'vozni red: 14.02', '10:54, MIHALJEVAC', '17:45, SAVSKI MOST']
 ['Nedjelja, 20.8.2023.', 'Oz']
+['Ponedjeljak, 21.8.2023.', 'broj sluzbe: 397', 'vozni red: 07.09', '11:47, DUBRAVA- TERMINAL', '18:13, Autobusni kol. smjer Dubrava']
+['Utorak, 22.8.2023.', 'broj sluzbe: 343', 'vozni red: 04.04', '11:21, Vodnikova smjer Dubec', '18:15, Dubrava smjer Dubec']
+['Srijeda, 23.8.2023.', 'broj sluzbe: 495', 'vozni red: 14.11', '10:51, Draškovićeva smjer Sav. most', '17:44, PTD/PTT']
+['Cetvrtak, 24.8.2023.', 'broj sluzbe: 348', 'vozni red: 04.09', '11:19, Dubrava smjer Sav. most', '18:00, Glavni kolodvor smjer Sav. most']
+['Petak, 25.8.2023.', 'broj sluzbe: 396', 'vozni red: 07.08', '11:39, DUBRAVA- TERMINAL', '18:31, DUBRAVA- TERMINAL']

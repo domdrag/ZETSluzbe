@@ -82,3 +82,8 @@
 ['Petak, 18.8.2023.', 'broj sluzbe: 140', 'vozni red: 11.11', '04:29, PTD', '11:27, Kvaternikov trg smjer Dubec']
 ['Subota, 19.8.2023.', 'broj sluzbe: 265', 'vozni red: PRIČUVA', '04:00, PTD', '11:30, PTD']
 ['Nedjelja, 20.8.2023.', 'O']
+['Ponedjeljak, 21.8.2023.', 'I-BO']
+['Utorak, 22.8.2023.', 'I-BO']
+['Srijeda, 23.8.2023.', 'I-BO']
+['Cetvrtak, 24.8.2023.', 'I-BO']
+['Petak, 25.8.2023.', 'I-BO']

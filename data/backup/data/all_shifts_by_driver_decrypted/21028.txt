@@ -182,3 +182,8 @@
 ['Subota, 19.8.2023.', 'broj sluzbe: 371', 'vozni red: 06.03', '13:33, ŽITNJAK- TERMINAL', '20:33, PTD/PTT', 'VINKO MATIĆ\n097-796-6902']
 ['Subota, 19.8.2023.', 'empty']
 ['Nedjelja, 20.8.2023.', 'O']
+['Ponedjeljak, 21.8.2023.', 'I-BO']
+['Utorak, 22.8.2023.', 'I-BO']
+['Srijeda, 23.8.2023.', 'I-BO']
+['Cetvrtak, 24.8.2023.', 'I-BO']
+['Petak, 25.8.2023.', 'I-BO']

@@ -178,3 +178,8 @@
 ['Petak, 18.8.2023.', 'broj sluzbe: 648', 'vozni red: 04.09', '18:00, Glavni kolodvor smjer Sav. most', '00:58, PTD/PTT', 'NENAD MARTINKEC\n092-196-6689']
 ['Subota, 19.8.2023.', 'O']
 ['Nedjelja, 20.8.2023.', 'O']
+['Ponedjeljak, 21.8.2023.', 'I-BO']
+['Utorak, 22.8.2023.', 'I-BO']
+['Srijeda, 23.8.2023.', 'I-BO']
+['Cetvrtak, 24.8.2023.', 'I-BO']
+['Petak, 25.8.2023.', 'I-BO']

@@ -82,3 +82,8 @@
 ['Petak, 18.8.2023.', 'broj sluzbe: 371', 'vozni red: 06.03', '11:06, Autobusni kol. smjer Črnomerec', '17:47, Autobusni kol. smjer Črnomerec']
 ['Subota, 19.8.2023.', 'broj sluzbe: 473', 'vozni red: 13.04', '11:21, Držićeva smjer Kvat. trg', '18:19, Držićeva smjer Žitnjak']
 ['Nedjelja, 20.8.2023.', 'broj sluzbe: 488', 'vozni red: 14.04', '11:57, Vodnikova smjer Sav. most', '18:55, PTD/PTT']
+['Ponedjeljak, 21.8.2023.', 'I-BO']
+['Utorak, 22.8.2023.', 'I-BO']
+['Srijeda, 23.8.2023.', 'I-BO']
+['Cetvrtak, 24.8.2023.', 'I-BO']
+['Petak, 25.8.2023.', 'I-BO']

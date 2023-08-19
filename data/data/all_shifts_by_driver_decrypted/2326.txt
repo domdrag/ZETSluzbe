@@ -156,3 +156,8 @@
 ['Petak, 18.8.2023.', 'broj sluzbe: 649', 'vozni red: 04.10', '16:56, Draškovićeva smjer Dubec', '23:50, PTD/PTT', 'ANTO KRAJNOVIĆ\n098-194-6778']
 ['Subota, 19.8.2023.', 'O']
 ['Nedjelja, 20.8.2023.', 'O']
+['Ponedjeljak, 21.8.2023.', 'I-GO']
+['Utorak, 22.8.2023.', 'I-GO']
+['Srijeda, 23.8.2023.', 'I-GO']
+['Cetvrtak, 24.8.2023.', 'I-GO']
+['Petak, 25.8.2023.', 'I-GO']
