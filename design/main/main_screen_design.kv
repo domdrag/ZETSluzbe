@@ -9,7 +9,7 @@
 <MainScreenDesign@Widget>
 	halign: 'center'
 	valign: 'center'
-	font_size: str(int(app.gridHeight[:-2])//10)+'dp' if int(app.gridHeight[:-2])//10 < 25 else '25dp'
+	font_size: str(int(app.gridHeight[:-2])//10)+'dp' if self.height > self.texture_size[1] else self.font_size
 	#font_size: str(int(1/2*((int(app.gridHeight[:-2])//10) + 30 - abs((int(app.gridHeight[:-2])//10)-30)))) + 'dp'
 	#font_size: int(app.gridHeight[:-2])//10 if int(app.gridHeight[:-2])//10 < 30 else 30
 	#font_size: int(app.gridHeight[:-2])//10 if self.height > self.texture_size[1] else (int(app.gridHeight[:-2])-10)//10
