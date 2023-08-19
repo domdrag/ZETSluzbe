@@ -6,7 +6,7 @@ from kivy.properties import ObjectProperty
 
 from src.screen.main.tabs.services_tab import ServicesTab
 from src.screen.main.tabs.shifts_tab import ShiftsTab
-from src.screen.main.tabs.hourly_rate_tab import HourlyRateTab
+from src.screen.main.tabs.statistics_tab import StatisticsTab
 from src.screen.share.calendar_dialog import CalendarDialog
 from src.screen.main.dialogs.notifications_dialog import NotificationsDialog
 from src.screen.main.dialogs.links_dialog import LinksDialog
@@ -49,7 +49,17 @@ class MainScreen(Screen):
         updateFontSize(int(value))
         self.app.gridHeight = str(int(value * GRID_HEIGHT_TO_FONT_SIZE_RATIO)) + 'dp'
 
-        
+    def increaseGridHeight(self):
+        oldValue = int(self.app.gridHeight[:-2])
+        self.app.gridHeight = str(oldValue + 12) + 'dp'
+        #oldValue = int(self.app.fontSize[:-2])
+        #self.app.fontSize = str(oldValue + 1) + 'dp'
+
+    def decreaseGridHeight(self):
+        oldValue = int(self.app.gridHeight[:-2])
+        self.app.gridHeight = str(oldValue - 12) + 'dp'
+        #oldValue = int(self.app.fontSize[:-2])
+        #self.app.fontSize = str(oldValue - 1) + 'dp'
         
 
 
