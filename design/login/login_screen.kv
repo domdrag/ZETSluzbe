@@ -9,12 +9,6 @@
 	
     MDFloatLayout:
 		md_bg_color: app.theme_cls.primary_dark
-
-		#LoginScreenSlider:
-		#	size_hint: 0.3, 0.2
-		#	pos_hint: {"x":0.35, "top": 1.04}
-		#	value: int(app.fontSize[:-2])
-		#	on_value_normalized: root.fontSizeSlider(self.value)
 			
         LoginScreenLabel:
 			id: offNumLabelId
@@ -48,3 +42,13 @@
 			size_hint: 0.4, 0.1
             text: 'Azuriraj'
             on_release: root.updateButton()
+			
+		MDIconButton:
+			icon: 'plus-box-outline'
+			pos_hint: {"x":0, "top": 0.11}
+			on_release: root.increaseFontSize()
+			
+		MDIconButton:
+			icon: 'minus-box-outline'
+			pos_hint: {"x":0, 'y': 0}
+			on_release: root.decreaseFontSize()
