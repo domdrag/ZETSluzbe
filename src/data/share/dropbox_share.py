@@ -56,7 +56,7 @@ def isDropboxSynchronizationNeeded():
         # pozovi setConfig fju ako mozes? - mozda mozes prebacit na cp?
         setConfig('LAST_RECORD_DATE', onlineDate)
         setConfig('MISSING_SERVICES', onlineMissingServices)
-        setConfig('SERVICES_HASH', currentServicesHash)
+        setConfig('SERVICES_HASH', onlineServicesHash)
         return True
 
 def dropbboxSynchronization():
