@@ -13,7 +13,7 @@ from src.data.admin.utils.delete_necessary_data import (
     )
 from src.data.admin.utils.search_links import searchLinks  
 from src.data.admin.utils.configure_days import configureDays
-from src.data.admin.utils.set_new_config import setNewConfig
+from src.data.share.set_new_config import setNewConfig
 from src.data.admin.rules.extract_rules_by_driver import (
     extractRulesByDriver
     )
@@ -62,7 +62,7 @@ class AdminDataCollector:
                 TRACE('[CP] DROPBOX_SYNCHRONIZATION')
                 setConfig('UPDATE_SUCCESSFUL', 0)
                 if isDropboxSynchronizationNeeded():
-                    TRACE('DROPBOX_SYNCHRONIZATION_NEEDED')
+                    TRACE('PERFORMING_DROPBOX_SYNCHRONIZATION')
                     self.synchronizationNeeded = True
                     dropbboxSynchronization()
                     TRACE('DROPBOX_SYNCHRONIZATION_DONE')
@@ -118,7 +118,7 @@ class AdminDataCollector:
                         setConfig('UPDATE_SUCCESSFUL', 1)
                         returnMessage['finished'] = True
                 else:
-                    TRACE('UPDATE_PERFORMING')
+                    TRACE('PERFORMING_UPDATE')
                     returnMessage['message'] = \
                                   'Brisanje potrebnih podataka'
 
@@ -160,7 +160,10 @@ class AdminDataCollector:
             # have a backup ready -> last step must be updating the backup.
             elif self.phase == cp.SET_NEW_CONFIG:
                 TRACE('[CP] SET_NEW_CONFIG')
-                setNewConfig(self.mondayDate, self.missingServices, self.servicesHash)
+                mondayDateList = [self.mondayDate.year,
+                                  self.mondayDate.month,
+                                  self.mondayDate.day]
+                setNewConfig(mondayDateList, self.missingServices, self.servicesHash)
                 returnMessage['message'] = 'Ucitavanje sluzbi na Internet'
 
             elif self.phase == cp.UPLOAD_DATA_TO_DROPBOX:
@@ -175,7 +178,6 @@ class AdminDataCollector:
                 # must not fail by canon
                 TRACE('[CP] UPDATE_BACKUP_DIRECTORY')
                 # must go before updateBackupDir() so backup gets it
-                # ISSUE WITH UPLOAD!!!
                 setConfig('UPDATE_SUCCESSFUL', 1)
                 updateBackupDir() 
                 returnMessage['success'] = True
