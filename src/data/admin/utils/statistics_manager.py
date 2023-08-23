@@ -1,18 +1,9 @@
 import json
 from decimal import Decimal
 
-STATISTICS = dict()
+from src.data.share.get_empty_statistics_month_dict import getEmptyStatisticsMonthDict
 
-def getEmptyMonthDict():
-    return {'SATNICA': {'ODRADENO': '0',
-                        'NOCNA': '0',
-                        'DRUGA': '0',
-                        'SUBOTA': '0',
-                        'NEDJELJA': '0',
-                        'UKUPNO': '0'},
-            'LINIJE': {},
-            'MJESTA_PRIMANJA': {},
-            'MJESTA_PUSTANJA': {}}
+STATISTICS = dict()
 
 def getMonthDict(offNum, month):
     global STATISTICS
@@ -24,7 +15,7 @@ def getMonthDict(offNum, month):
         STATISTICS[offNum] = dict()
     offNumDict = STATISTICS[offNum]
     if (month not in offNumDict):
-        offNumDict[month] = getEmptyMonthDict()
+        offNumDict[month] = getEmptyStatisticsMonthDict()
     return offNumDict[month]
 
 # using float sometimes results in very small decimal numbers (24.560000002 instead of 24.56)

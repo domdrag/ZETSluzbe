@@ -18,7 +18,6 @@ from src.data.share.read_links import readLinks
 
 class MainScreen(Screen):
     offNum = ''
-    mainScreenTabs = ObjectProperty()
     
     def __init__(self, **kwargs):
         super(MainScreen, self).__init__(**kwargs)
