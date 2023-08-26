@@ -3,13 +3,14 @@ import json
 from src.data.share.repair_all_files import repairAllFiles
 import src.share.trace as trace
 
+CONFIG_FILE_PATH = 'data/config.json'
 CURRENT_CONFIG = dict()
 
 # called by the app at the start
 def loadConfig():
     global CURRENT_CONFIG
     
-    with open('data/config.json', 'r') as configFile:
+    with open(CONFIG_FILE_PATH, 'r') as configFile:
         config = json.load(configFile)
     CURRENT_CONFIG = config
 
@@ -26,5 +27,5 @@ def getConfig():
 # for example: caller might send True/False, but we need to set that to 1/0
 def setConfig(configName, configValue):
     CURRENT_CONFIG[configName] = configValue
-    with open('data/config.json', 'w') as configFile:
+    with open(CONFIG_FILE_PATH, 'w') as configFile:
         json.dump(CURRENT_CONFIG, configFile, indent = 3)
