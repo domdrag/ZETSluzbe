@@ -9,10 +9,6 @@ from src.data.admin.admin_data_collector import AdminDataCollector
 from src.data.user.user_data_collector import UserDataCollector
 from src.screen.login.utils.update_dialog import UpdateDialog
 
-from src.data.share.read_services import readServices
-from src.data.share.read_shifts import readShifts
-from src.data.share.read_statistics import readStatistics
-from src.data.share.repair_all_files import repairAllFiles
 from src.data.share.get_warning_message_info import (
     getWarningMessageInfo
     )
@@ -53,34 +49,20 @@ class LoginScreen(Screen):
         self.warningMessage = warningMessageInfo['message']
         self.warningMessageColor = warningMessageInfo['color']
 
-    def loginButton(self):        
+    def loginButton(self):
         offNum = self.offNumTextFieldObj.text
-        servicesData = readServices(offNum)
-        shiftsData = readShifts(offNum)
-        statisticsData = readStatistics(offNum)
-        if (servicesData and shiftsData and statisticsData):
-            self.manager.updateTabs(offNum, servicesData, shiftsData, statisticsData)
-            self.manager.switchToMainScreen()
-            return
-
-        if (servicesData == None and shiftsData == None and statisticsData):
-            message = 'Sluzbeni broj ne postoji!'
-        elif (servicesData == [] and shiftsData == []):
-            message = 'Nema aktualnih sluzbi. Probajte azurirati sluzbe.'
-        else:
-            message = 'Greska u sustavu. Kontaktirati administratora.'
-
-        self.updateDialog = UpdateDialog()
-        self.updateDialog.text = message
-        self.updateDialog.open()
+        try:
+            self.manager.switchToMainScreen(offNum)
+        except Exception as e:
+            errorMessage = str(e)
+            TRACE(errorMessage)
+            self.updateDialog = UpdateDialog()
+            self.updateDialog.text = errorMessage
+            self.updateDialog.open()
 
     def updateButton(self):
         self.updateDialog = UpdateDialog()
         self.update()
-
-    def fontSizeSlider(self, value):
-        updateFontSize(int(value))
-        self.app.fontSize = str(int(value)) + 'dp'
 
     def increaseFontSize(self):
         oldValue = int(self.app.loginScreenFontSize[:-2])

@@ -16,17 +16,9 @@ class ZETScreenManager(ScreenManager):
         super(ZETScreenManager, self).__init__(**kwargs)
         Window.bind(on_keyboard=self.androidBackClick)
 
-    def loginFailure(self):
-        self.loginScreen.updateDialog.text = 'Greska kod dohvacanja sluzbi.'
-        self.loginScreen.updateDialog.open()
-            
-    def updateTabs(self, offNum, servicesData, shiftsData, statisticsData):
-        self.mainScreen.setOffNum(offNum)
-        self.mainScreen.servicesTab.servicesTabRecycleView.data = servicesData
-        self.mainScreen.shiftsTab.shiftsTabRecycleView.data = shiftsData
-        self.mainScreen.statisticsTab.statisticsTabRecycleView.data = statisticsData
+    def switchToMainScreen(self, offNum):
+        self.mainScreen.setup(offNum)
 
-    def switchToMainScreen(self):
         if self.current == 'loginScreen':
             self.transition.direction = 'down'
         else:

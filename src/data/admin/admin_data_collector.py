@@ -169,7 +169,6 @@ class AdminDataCollector:
             elif self.phase == cp.UPLOAD_DATA_TO_DROPBOX:
                 TRACE('[CP] UPLOAD_DATA_TO_DROPBOX')
                 # dodaj mockan UPD_SUCC da se salje
-                # razmisliti o scenariju da djelomicno faila upload
                 uploadDataToDropbox()
                 TRACE('DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY')
                 returnMessage['message'] = 'Stvaranje sigurnosne kopije'
