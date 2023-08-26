@@ -189,3 +189,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 190', 'vozni red: 14.06', '05:41, PTD', '12:24, Draškovićeva smjer Mihaljevac', 'DRAŽEN LAZAREVIĆ\n091-531-8104']
 ['Petak, 25.8.2023.', 'broj sluzbe: 490', 'vozni red: 14.06', '12:24, Draškovićeva smjer Mihaljevac', '19:16, PTD/PTT', 'IVO ANTUNOVIĆ\n091-582-9562']
 ['Petak, 25.8.2023.', 'empty']
+['Subota, 26.8.2023.', 'broj sluzbe: 49', 'vozni red: 04.10', '05:04, PTD', '11:43, Draškovićeva smjer Sav. most', 'DRAŽEN LAZAREVIĆ\n091-531-8104']
+['Subota, 26.8.2023.', 'broj sluzbe: 349', 'vozni red: 04.10', '11:43, Draškovićeva smjer Sav. most', '18:18, Draškovićeva smjer Dubec', 'ANON\nXXX-XXX-XXXX']
+['Subota, 26.8.2023.', 'broj sluzbe: 649', 'vozni red: 04.10', '18:18, Draškovićeva smjer Dubec', '00:50, PTD/PTT', 'DARIO OPETUK\n091-766-3254']
+['Nedjelja, 27.8.2023.', 'O']

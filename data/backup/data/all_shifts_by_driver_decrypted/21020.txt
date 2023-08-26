@@ -183,3 +183,7 @@
 ['Srijeda, 23.8.2023.', 'I-GO']
 ['Cetvrtak, 24.8.2023.', 'I-GO']
 ['Petak, 25.8.2023.', 'I-GO']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 190', 'vozni red: 14.06', '04:55, PTD', '10:48, Draškovićeva smjer Sav. most', 'NIKOLA SEDLIĆ\n098-961-1025']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 490', 'vozni red: 14.06', '10:48, Draškovićeva smjer Sav. most', '17:40, Draškovićeva smjer Mihaljevac', 'ANON\nXXX-XXX-XXXX']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 790', 'vozni red: 14.06', '17:40, Draškovićeva smjer Mihaljevac', '00:35, PTD/PTT', 'DRAŽEN KRIJAN\n092-253-5613']

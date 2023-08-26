@@ -171,3 +171,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 43', 'vozni red: 04.04', '04:22, PTD', '11:21, Vodnikova smjer Dubec', 'JOSIP ŠIMUNOVIĆ\n095-580-2522']
 ['Petak, 25.8.2023.', 'broj sluzbe: 343', 'vozni red: 04.04', '11:21, Vodnikova smjer Dubec', '18:15, Dubrava smjer Dubec', 'ANON\nXXX-XXX-XXXX']
 ['Petak, 25.8.2023.', 'broj sluzbe: 643', 'vozni red: 04.04', '18:15, Dubrava smjer Dubec', '00:28, PTD/PTT', 'SINIŠA BUZA\n091-204-4033']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 40', 'vozni red: 04.01', '04:56, PTD', '11:54, Dubrava smjer Dubec', 'JOZO ZETIĆ\n091-528-1963']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 340', 'vozni red: 04.01', '11:54, Dubrava smjer Dubec', '17:51, Dubrava smjer Sav. most', 'IVAN SABOLEK\n091-545-7990']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 640', 'vozni red: 04.01', '17:51, Dubrava smjer Sav. most', '00:47, PTD/PTT', 'SINIŠA BUZA\n091-204-4033']

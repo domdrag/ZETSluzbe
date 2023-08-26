@@ -87,3 +87,5 @@
 ['Srijeda, 23.8.2023.', 'broj sluzbe: 369', 'vozni red: 06.01', '10:48, Autobusni kol. smjer Črnomerec', '17:29, Autobusni kol. smjer Črnomerec']
 ['Cetvrtak, 24.8.2023.', 'O']
 ['Petak, 25.8.2023.', 'broj sluzbe: 369', 'vozni red: 06.01', '10:48, Autobusni kol. smjer Črnomerec', '17:29, Autobusni kol. smjer Črnomerec']
+['Subota, 26.8.2023.', 'broj sluzbe: 342', 'vozni red: 04.03', '11:11, Draškovićeva smjer Dubec', '18:04, Draškovićeva smjer Sav. most']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 340', 'vozni red: 04.01', '11:54, Dubrava smjer Dubec', '17:51, Dubrava smjer Sav. most']

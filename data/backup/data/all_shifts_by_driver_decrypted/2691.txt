@@ -187,3 +187,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 110', 'vozni red: 08.04', '04:18, PTD', '10:40, Autobusni kol. smjer Mihaljevac', 'MARIJANA BULIĆ\n099-214-7462']
 ['Petak, 25.8.2023.', 'broj sluzbe: 410', 'vozni red: 08.04', '10:40, Autobusni kol. smjer Mihaljevac', '17:24, Autobusni kol. smjer Mihaljevac', 'IVICA ŠAJNOVIĆ\n098-919-9869']
 ['Petak, 25.8.2023.', 'broj sluzbe: 710', 'vozni red: 08.04', '17:24, Autobusni kol. smjer Mihaljevac', '00:22, PTD/PTT', 'IVICA OROZ\n098-942-6805']
+['Subota, 26.8.2023.', 'broj sluzbe: 175', 'vozni red: 13.06', '04:33, PTD', '11:16, Držićeva smjer Žitnjak', 'EVICA GALIĆ\n091-583-5091']
+['Subota, 26.8.2023.', 'broj sluzbe: 475', 'vozni red: 13.06', '11:16, Držićeva smjer Žitnjak', '17:28, Držićeva smjer Kvat. trg', 'ANON\nXXX-XXX-XXXX']
+['Subota, 26.8.2023.', 'broj sluzbe: 775', 'vozni red: 13.06', '17:28, Držićeva smjer Kvat. trg', '23:57, PTD/PTT', 'IVICA OROZ\n098-942-6805']
+['Nedjelja, 27.8.2023.', 'O']

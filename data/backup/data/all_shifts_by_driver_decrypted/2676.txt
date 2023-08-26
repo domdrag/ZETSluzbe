@@ -175,3 +175,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 175', 'vozni red: 13.06', '04:31, PTD', '11:21, Držićeva smjer Žitnjak', 'MARKO NOVAK\n098-909-4204']
 ['Petak, 25.8.2023.', 'broj sluzbe: 475', 'vozni red: 13.06', '11:21, Držićeva smjer Žitnjak', '17:43, Držićeva smjer Kvat. trg', 'MIJO MIŠKULJIĆ\n092-285-6028']
 ['Petak, 25.8.2023.', 'broj sluzbe: 775', 'vozni red: 13.06', '17:43, Držićeva smjer Kvat. trg', '00:18, PTD/PTT', 'SREČKO ŽGELA\n098-940-9769']
+['Subota, 26.8.2023.', 'broj sluzbe: 91', 'vozni red: 07.03', '04:14, PTD', '10:42, DUBRAVA- TERMINAL', 'ANTE LOZO\n091-760-3511']
+['Subota, 26.8.2023.', 'broj sluzbe: 391', 'vozni red: 07.03', '10:42, DUBRAVA- TERMINAL', '17:09, DUBRAVA- TERMINAL', 'MIJO MIŠKULJIĆ\n092-285-6028']
+['Subota, 26.8.2023.', 'broj sluzbe: 691', 'vozni red: 07.03', '17:09, DUBRAVA- TERMINAL', '23:44, PTD/PTT', 'STANISLAV JURČIĆ\n091-298-6042']
+['Nedjelja, 27.8.2023.', 'O']

@@ -203,3 +203,5 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 193', 'vozni red: 14.09', '04:05, PTD', '10:46, TBJJ smjer Sav. most', 'ROBERT MIKLEC\n098-633-388']
 ['Petak, 25.8.2023.', 'broj sluzbe: 493', 'vozni red: 14.09', '10:46, TBJJ smjer Sav. most', '17:45, TBJJ smjer Sav. most', 'TOMISLAV ŽUŽIĆ\n098-844-877']
 ['Petak, 25.8.2023.', 'broj sluzbe: 793', 'vozni red: 14.09', '17:45, TBJJ smjer Sav. most', '00:44, PTD/PTT', 'IVICA KOLAR\n099-802-0724']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'O']

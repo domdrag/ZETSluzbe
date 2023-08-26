@@ -181,3 +181,5 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 192', 'vozni red: 14.08', '05:53, PTD', '12:41, Draškovićeva smjer Mihaljevac', 'ZORAN VUJICA\n095-846-5107']
 ['Petak, 25.8.2023.', 'broj sluzbe: 492', 'vozni red: 14.08', '12:41, Draškovićeva smjer Mihaljevac', '19:28, PTD/PTT', 'IVANA KOVAČIĆ\n098-845-042']
 ['Petak, 25.8.2023.', 'empty']
+['Subota, 26.8.2023.', 'Oz']
+['Nedjelja, 27.8.2023.', 'Oz']

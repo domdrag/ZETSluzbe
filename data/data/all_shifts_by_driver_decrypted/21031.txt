@@ -137,3 +137,5 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 142', 'vozni red: 11.13', '06:15, 13:31, PTD', '10:13, 17:24, PTD', 'ANON\nXXX-XXX-XXXX']
 ['Petak, 25.8.2023.', 'empty']
 ['Petak, 25.8.2023.', 'broj sluzbe: 742', 'vozni red: 11.13', '17:24, Dubrava smjer Dubec', '00:20, PTD/PTT', 'DRAŽEN ŠTIVIČIĆ\n091-730-9442']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'O']

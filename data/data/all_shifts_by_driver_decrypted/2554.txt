@@ -191,3 +191,5 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 91', 'vozni red: 07.03', '04:13, PTD', '10:55, DUBRAVA- TERMINAL', 'ANTE LOZO\n091-760-3511']
 ['Petak, 25.8.2023.', 'broj sluzbe: 391', 'vozni red: 07.03', '10:55, DUBRAVA- TERMINAL', '17:42, DUBRAVA- TERMINAL', 'ANTO BREKALO\n091-550-4899']
 ['Petak, 25.8.2023.', 'broj sluzbe: 691', 'vozni red: 07.03', '17:42, DUBRAVA- TERMINAL', '00:07, PTD/PTT', 'IVANKA LUKAČEK\n091-592-5794']
+['Subota, 26.8.2023.', 'Oz']
+['Nedjelja, 27.8.2023.', 'Oz']

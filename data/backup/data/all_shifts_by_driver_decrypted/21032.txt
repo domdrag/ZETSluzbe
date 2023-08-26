@@ -193,3 +193,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 99', 'vozni red: 07.11', '05:21, PTD', '12:04, DUBRAVA- TERMINAL', 'ANON\nXXX-XXX-XXXX']
 ['Petak, 25.8.2023.', 'broj sluzbe: 399', 'vozni red: 07.11', '12:04, DUBRAVA- TERMINAL', '18:56, PTD/PTT', 'ANON\nXXX-XXX-XXXX']
 ['Petak, 25.8.2023.', 'empty']
+['Subota, 26.8.2023.', 'broj sluzbe: 89', 'vozni red: 07.01', '03:50, PTD', '10:50, Držićeva smjer Arena Zagreb', 'ELIZABETA DELJAK\n091-580-7536']
+['Subota, 26.8.2023.', 'broj sluzbe: 389', 'vozni red: 07.01', '10:50, Držićeva smjer Arena Zagreb', '17:50, Sopot smjer Dubrava', 'ANON\nXXX-XXX-XXXX']
+['Subota, 26.8.2023.', 'broj sluzbe: 689', 'vozni red: 07.01', '17:50, Sopot smjer Dubrava', '00:50, PTD/PTT', 'DINKO FILAR\n095-880-3109']
+['Nedjelja, 27.8.2023.', 'O']

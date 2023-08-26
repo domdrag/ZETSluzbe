@@ -189,3 +189,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 73', 'vozni red: 06.05', '06:02, PTD', '13:01, Autobusni kol. smjer Črnomerec', 'DRAŽENKA OBAD\n098-365-659']
 ['Petak, 25.8.2023.', 'broj sluzbe: 373', 'vozni red: 06.05', '13:01, Autobusni kol. smjer Črnomerec', '19:34, PTD/PTT', 'SNJEŽANA HRENOVIĆ\n091-251-3868']
 ['Petak, 25.8.2023.', 'empty']
+['Subota, 26.8.2023.', 'broj sluzbe: 48', 'vozni red: 04.09', '06:43, PTD', '13:33, Glavni kolodvor smjer Sav. most', 'ANON\nXXX-XXX-XXXX']
+['Subota, 26.8.2023.', 'broj sluzbe: 348', 'vozni red: 04.09', '13:33, Glavni kolodvor smjer Sav. most', '20:29, PTD/PTT', 'SNJEŽANA HRENOVIĆ\n091-251-3868']
+['Subota, 26.8.2023.', 'empty']
+['Nedjelja, 27.8.2023.', 'O']

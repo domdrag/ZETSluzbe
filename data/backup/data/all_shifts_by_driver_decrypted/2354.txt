@@ -191,3 +191,5 @@
 ['Cetvrtak, 24.8.2023.', 'broj sluzbe: 350', 'vozni red: 04.11', '13:31, Dubrava smjer Sav. most', '20:12, PTD/PTT', 'JELENA MAROJEVIĆ\n098-600-350']
 ['Cetvrtak, 24.8.2023.', 'empty']
 ['Petak, 25.8.2023.', 'O']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'O']

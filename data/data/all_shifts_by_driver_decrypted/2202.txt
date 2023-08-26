@@ -185,3 +185,7 @@
 ['Srijeda, 23.8.2023.', 'I-GO']
 ['Cetvrtak, 24.8.2023.', 'I-GO']
 ['Petak, 25.8.2023.', 'I-GO']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 173', 'vozni red: 13.04', '06:02, PTD', '12:34, Držićeva smjer Žitnjak', 'KREŠIMIR FLIKAČ\n095-741-5677']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 473', 'vozni red: 13.04', '12:34, Držićeva smjer Žitnjak', '18:38, Držićeva smjer Kvat. trg', 'JADRANKO LOTH\n091-931-0702']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 773', 'vozni red: 13.04', '18:38, Držićeva smjer Kvat. trg', '00:37, PTD/PTT', 'SNJEŽANA KRANJEC\n091-796-3279']

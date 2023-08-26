@@ -87,3 +87,5 @@
 ['Srijeda, 23.8.2023.', 'I-DK']
 ['Cetvrtak, 24.8.2023.', 'I-DK']
 ['Petak, 25.8.2023.', 'Oz']
+['Subota, 26.8.2023.', 'Oz']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 185', 'vozni red: 14.01', '04:54, PTD', '11:20, Draškovićeva smjer Sav. most']

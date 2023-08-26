@@ -185,3 +185,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 108', 'vozni red: 08.02', '04:10, PTD', '10:52, Autobusni kol. smjer Heinzelova', 'IVAN LACKOVIĆ\n092-305-4011']
 ['Petak, 25.8.2023.', 'broj sluzbe: 408', 'vozni red: 08.02', '10:52, Autobusni kol. smjer Heinzelova', '17:38, Autobusni kol. smjer Heinzelova', 'FRANJO TOMIĆ\n098-939-2745']
 ['Petak, 25.8.2023.', 'broj sluzbe: 708', 'vozni red: 08.02', '17:38, Autobusni kol. smjer Heinzelova', '00:29, PTD/PTT', 'MARIJAN STUBLIĆ\n091-761-7616']
+['Subota, 26.8.2023.', 'broj sluzbe: 170', 'vozni red: 13.01', '03:57, PTD', '10:53, Vodnikova smjer Kvat. trg', 'IVAN LACKOVIĆ\n092-305-4011']
+['Subota, 26.8.2023.', 'broj sluzbe: 470', 'vozni red: 13.01', '10:53, Vodnikova smjer Kvat. trg', '17:50, ŽITNJAK- TERMINAL', 'ANON\nXXX-XXX-XXXX']
+['Subota, 26.8.2023.', 'broj sluzbe: 770', 'vozni red: 13.01', '17:50, ŽITNJAK- TERMINAL', '00:41, PTD/PTT', 'ANON\nXXX-XXX-XXXX']
+['Nedjelja, 27.8.2023.', 'O']

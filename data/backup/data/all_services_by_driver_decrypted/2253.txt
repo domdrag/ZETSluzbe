@@ -87,3 +87,5 @@
 ['Srijeda, 23.8.2023.', 'broj sluzbe: 140', 'vozni red: 11.11', '04:29, PTD', '11:27, Kvaternikov trg smjer Dubec']
 ['Cetvrtak, 24.8.2023.', 'broj sluzbe: 110', 'vozni red: 08.04', '04:18, PTD', '10:40, Autobusni kol. smjer Mihaljevac']
 ['Petak, 25.8.2023.', 'broj sluzbe: 170', 'vozni red: 13.01', '04:06, PTD', '10:51, Držićeva smjer Kvat. trg']
+['Subota, 26.8.2023.', 'broj sluzbe: 194', 'vozni red: 14.10', '04:19, PTD', '11:19, SAVSKI MOST']
+['Nedjelja, 27.8.2023.', 'O']

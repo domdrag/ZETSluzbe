@@ -87,3 +87,5 @@
 ['Srijeda, 23.8.2023.', 'I-BO']
 ['Cetvrtak, 24.8.2023.', 'I-BO']
 ['Petak, 25.8.2023.', 'I-BO']
+['Subota, 26.8.2023.', 'broj sluzbe: 791', 'vozni red: 14.07', '17:39, Gupčeva zvije. smjer Mihaljevac', '00:39, PTD/PTT']
+['Nedjelja, 27.8.2023.', 'O']

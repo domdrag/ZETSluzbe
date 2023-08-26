@@ -189,3 +189,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 171', 'vozni red: 13.02', '06:04, PTD', '12:57, Držićeva smjer Kvat. trg', 'ŽARKO BENDRA\n091-884-9634']
 ['Petak, 25.8.2023.', 'broj sluzbe: 471', 'vozni red: 13.02', '12:57, Držićeva smjer Kvat. trg', '19:44, PTD/PTT', 'KARLO KRHEN\n095-396-5474']
 ['Petak, 25.8.2023.', 'empty']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 176', 'vozni red: 13.07', '06:49, PTD', '13:21, Držićeva smjer Žitnjak', 'ŽARKO BENDRA\n091-884-9634']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 476', 'vozni red: 13.07', '13:21, Držićeva smjer Žitnjak', '20:16, PTD/PTT', 'NIKOLA MAROJEVIĆ\n098-807-920']
+['Nedjelja, 27.8.2023.', 'empty']

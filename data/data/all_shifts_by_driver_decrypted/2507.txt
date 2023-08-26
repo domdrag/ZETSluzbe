@@ -171,3 +171,7 @@
 ['Srijeda, 23.8.2023.', 'I-GO']
 ['Cetvrtak, 24.8.2023.', 'I-GO']
 ['Petak, 25.8.2023.', 'I-GO']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 175', 'vozni red: 13.06', '05:20, PTD', '11:49, Držićeva smjer Kvat. trg', 'MONIKA BARBARIĆ\n091-895-3544']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 475', 'vozni red: 13.06', '11:49, Držićeva smjer Kvat. trg', '17:19, Držićeva smjer Kvat. trg', 'RONALD FIĆKO\n092-190-9574']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 775', 'vozni red: 13.06', '17:19, Držićeva smjer Kvat. trg', '23:52, PTD/PTT', 'DARIJO LEŠČIĆ\n091-785-9895']

@@ -213,3 +213,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 50', 'vozni red: 04.11', '06:56, PTD', '13:31, Dubrava smjer Sav. most', 'ADAM CAPJAK\n091-724-0797']
 ['Petak, 25.8.2023.', 'broj sluzbe: 350', 'vozni red: 04.11', '13:31, Dubrava smjer Sav. most', '20:12, PTD/PTT', 'MATE CETINA\n095-196-2004']
 ['Petak, 25.8.2023.', 'empty']
+['Subota, 26.8.2023.', 'broj sluzbe: 41', 'vozni red: 04.02', '07:19, PTD', '14:08, Glavni kolodvor smjer Sav. most', 'ADAM CAPJAK\n091-724-0797']
+['Subota, 26.8.2023.', 'broj sluzbe: 341', 'vozni red: 04.02', '14:08, Glavni kolodvor smjer Sav. most', '21:07, PTD/PTT', 'VINKO MATIĆ\n097-796-6902']
+['Subota, 26.8.2023.', 'empty']
+['Nedjelja, 27.8.2023.', 'O']

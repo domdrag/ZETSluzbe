@@ -187,3 +187,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 77', 'vozni red: 06.09', '04:21, PTD', '11:21, Autobusni kol. smjer Žitnjak', 'MIRJANA POŠTA\n099-692-2662']
 ['Petak, 25.8.2023.', 'broj sluzbe: 377', 'vozni red: 06.09', '11:21, Autobusni kol. smjer Žitnjak', '18:05, Autobusni kol. smjer Žitnjak', 'ANTON KARIN\n098-174-4223']
 ['Petak, 25.8.2023.', 'broj sluzbe: 677', 'vozni red: 06.09', '18:05, Autobusni kol. smjer Žitnjak', '00:54, PTD/PTT', 'SEVADA FOJNICA\n091-579-8925']
+['Subota, 26.8.2023.', 'broj sluzbe: 42', 'vozni red: 04.03', '04:21, PTD', '11:11, Draškovićeva smjer Dubec', 'MIRJANA POŠTA\n099-692-2662']
+['Subota, 26.8.2023.', 'broj sluzbe: 342', 'vozni red: 04.03', '11:11, Draškovićeva smjer Dubec', '18:04, Draškovićeva smjer Sav. most', 'IVAN SABOLEK\n091-545-7990']
+['Subota, 26.8.2023.', 'broj sluzbe: 642', 'vozni red: 04.03', '18:04, Draškovićeva smjer Sav. most', '00:56, PTD/PTT', 'NIKOLA MAROJEVIĆ\n098-807-920']
+['Nedjelja, 27.8.2023.', 'O']

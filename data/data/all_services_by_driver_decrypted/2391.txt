@@ -87,3 +87,5 @@
 ['Srijeda, 23.8.2023.', 'Oz']
 ['Cetvrtak, 24.8.2023.', 'broj sluzbe: 409', 'vozni red: 08.03', '11:02, Draškovićeva smjer Heinzelova', '17:55, Autobusni kol. smjer Heinzelova']
 ['Petak, 25.8.2023.', 'broj sluzbe: 409', 'vozni red: 08.03', '11:02, Draškovićeva smjer Heinzelova', '17:55, Autobusni kol. smjer Heinzelova']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'O']

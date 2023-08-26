@@ -193,3 +193,5 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 93', 'vozni red: 07.05', '06:08, PTD', '12:47, DUBRAVA- TERMINAL', 'SREĆKO ATLIJA\n091-561-8110']
 ['Petak, 25.8.2023.', 'broj sluzbe: 393', 'vozni red: 07.05', '12:47, DUBRAVA- TERMINAL', '19:44, PTD/PTT', 'DAVOR ŠIPOŠ\n091-751-1114']
 ['Petak, 25.8.2023.', 'empty']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'O']

@@ -195,3 +195,5 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 175', 'vozni red: 13.06', '04:31, PTD', '11:21, Držićeva smjer Žitnjak', 'MARKO NOVAK\n098-909-4204']
 ['Petak, 25.8.2023.', 'broj sluzbe: 475', 'vozni red: 13.06', '11:21, Držićeva smjer Žitnjak', '17:43, Držićeva smjer Kvat. trg', 'MIJO MIŠKULJIĆ\n092-285-6028']
 ['Petak, 25.8.2023.', 'broj sluzbe: 775', 'vozni red: 13.06', '17:43, Držićeva smjer Kvat. trg', '00:18, PTD/PTT', 'SREČKO ŽGELA\n098-940-9769']
+['Subota, 26.8.2023.', 'Oz']
+['Nedjelja, 27.8.2023.', 'O']

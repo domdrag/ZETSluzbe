@@ -185,3 +185,5 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 78', 'vozni red: 06.10', '06:00, PTD', '13:00, Glavni kolodvor smjer Žitnjak', 'DANIELA VRDOLJAK\n091-890-8911']
 ['Petak, 25.8.2023.', 'broj sluzbe: 378', 'vozni red: 06.10', '13:00, Glavni kolodvor smjer Žitnjak', '19:21, PTD/PTT', 'DAVIDA HAĐUR\n091-466-6126']
 ['Petak, 25.8.2023.', 'empty']
+['Subota, 26.8.2023.', 'Oz']
+['Nedjelja, 27.8.2023.', 'Oz']

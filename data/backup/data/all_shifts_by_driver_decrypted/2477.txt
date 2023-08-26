@@ -191,3 +191,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 186', 'vozni red: 14.02', '05:53, 13:32, PTD', '09:38, 17:43, PTD', 'IVICA PETRAČ\n098-210-120']
 ['Petak, 25.8.2023.', 'empty']
 ['Petak, 25.8.2023.', 'broj sluzbe: 786', 'vozni red: 14.02', '17:43, Draškovićeva smjer Mihaljevac', '00:39, PTD/PTT', 'NEVENKA FRANJKOVIĆ\n098-919-8435']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 174', 'vozni red: 13.05', '05:02, PTD', '11:33, Držićeva smjer Kvat. trg', 'MARKO NOVAK\n098-909-4204']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 474', 'vozni red: 13.05', '11:33, Držićeva smjer Kvat. trg', '18:20, Držićeva smjer Žitnjak', 'ANON\nXXX-XXX-XXXX']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 774', 'vozni red: 13.05', '18:20, Držićeva smjer Žitnjak', '00:53, PTD/PTT', 'NEVENKA FRANJKOVIĆ\n098-919-8435']

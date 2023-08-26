@@ -191,3 +191,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 107', 'vozni red: 08.01', '03:54, PTD', '10:42, HEINZELOVA', 'MARIJAN SAMBOLEC\n098-815-845']
 ['Petak, 25.8.2023.', 'broj sluzbe: 407', 'vozni red: 08.01', '10:42, HEINZELOVA', '17:42, Autobusni kol. smjer Mihaljevac', 'VALENTINA ĆUK\n091-566-6337']
 ['Petak, 25.8.2023.', 'broj sluzbe: 707', 'vozni red: 08.01', '17:42, Autobusni kol. smjer Mihaljevac', '00:38, PTD/PTT', 'IVAN JURKOVIĆ\n098-998-3853']
+['Subota, 26.8.2023.', 'broj sluzbe: 72', 'vozni red: 06.04', '04:17, PTD', '10:58, ČRNOMEREC', 'NIKOLINA ČOSIĆ\n091-507-4991']
+['Subota, 26.8.2023.', 'broj sluzbe: 372', 'vozni red: 06.04', '10:58, ČRNOMEREC', '17:46, SOPOT- TERMINAL', 'VEČESLAV KOZJAK\n098-568-424']
+['Subota, 26.8.2023.', 'broj sluzbe: 672', 'vozni red: 06.04', '17:46, SOPOT- TERMINAL', '00:31, PTD/PTT', 'IVAN JURKOVIĆ\n098-998-3853']
+['Nedjelja, 27.8.2023.', 'Oz']

@@ -87,3 +87,5 @@
 ['Srijeda, 23.8.2023.', 'broj sluzbe: 370', 'vozni red: 06.02', '13:29, Glavni kolodvor smjer Žitnjak', '19:48, PTD/PTT']
 ['Cetvrtak, 24.8.2023.', 'broj sluzbe: 474', 'vozni red: 13.05', '13:01, Držićeva smjer Žitnjak', '19:58, PTD/PTT']
 ['Petak, 25.8.2023.', 'broj sluzbe: 373', 'vozni red: 06.05', '13:01, Autobusni kol. smjer Črnomerec', '19:34, PTD/PTT']
+['Subota, 26.8.2023.', 'broj sluzbe: 348', 'vozni red: 04.09', '13:33, Glavni kolodvor smjer Sav. most', '20:29, PTD/PTT']
+['Nedjelja, 27.8.2023.', 'O']

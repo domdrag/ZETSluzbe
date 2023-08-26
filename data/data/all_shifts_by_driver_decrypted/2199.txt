@@ -191,3 +191,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 185', 'vozni red: 14.01', '03:52, PTD', '10:51, MIHALJEVAC', 'MONIKA BARBARIĆ\n091-895-3544']
 ['Petak, 25.8.2023.', 'broj sluzbe: 485', 'vozni red: 14.01', '10:51, MIHALJEVAC', '17:49, MIHALJEVAC', 'JAKOV BILIĆ\n092-303-9514']
 ['Petak, 25.8.2023.', 'broj sluzbe: 785', 'vozni red: 14.01', '17:49, MIHALJEVAC', '00:28, PTD/PTT', 'KRUNOSLAV ČIŽMEK\n098-161-2654']
+['Subota, 26.8.2023.', 'broj sluzbe: 43', 'vozni red: 04.04', '06:19, PTD', '13:18, Draškovićeva smjer Dubec', 'PAVE BARIĆ\n091-504-9389']
+['Subota, 26.8.2023.', 'broj sluzbe: 343', 'vozni red: 04.04', '13:18, Draškovićeva smjer Dubec', '20:06, PTD/PTT', 'KRUNOSLAV ČIŽMEK\n098-161-2654']
+['Subota, 26.8.2023.', 'empty']
+['Nedjelja, 27.8.2023.', 'O']

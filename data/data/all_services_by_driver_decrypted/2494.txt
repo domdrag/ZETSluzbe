@@ -87,3 +87,5 @@
 ['Srijeda, 23.8.2023.', 'O']
 ['Cetvrtak, 24.8.2023.', 'broj sluzbe: 398', 'vozni red: 07.10', '11:31, Autobusni kol. smjer Dubrava', '17:28, Autobusni kol. smjer Sav. most']
 ['Petak, 25.8.2023.', 'broj sluzbe: 398', 'vozni red: 07.10', '11:31, Autobusni kol. smjer Dubrava', '17:28, Autobusni kol. smjer Sav. most']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'O']

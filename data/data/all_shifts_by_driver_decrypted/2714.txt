@@ -187,3 +187,7 @@
 ['Srijeda, 23.8.2023.', 'I-GO']
 ['Cetvrtak, 24.8.2023.', 'I-GO']
 ['Petak, 25.8.2023.', 'I-GO']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 136', 'vozni red: 11.07', '05:18, PTD', '12:18, PTD', 'SLAVICA JERKOVIĆ\n092-176-4108']
+['Nedjelja, 27.8.2023.', 'empty']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 736', 'vozni red: 11.07', '17:15, PTD', '00:15, PTD/PTT', 'ŽELJKO PTIČEK\n099-590-5928']

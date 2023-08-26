@@ -191,3 +191,5 @@
 ['Srijeda, 23.8.2023.', 'empty']
 ['Cetvrtak, 24.8.2023.', 'Oz']
 ['Petak, 25.8.2023.', 'Oz']
+['Subota, 26.8.2023.', 'Ob']
+['Nedjelja, 27.8.2023.', 'Ob']

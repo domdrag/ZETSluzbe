@@ -181,3 +181,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 40', 'vozni red: 04.01', '03:54, PTD', '10:51, Glavni kolodvor smjer Dubec', 'DARIO KOJIĆ\n099-594-2118']
 ['Petak, 25.8.2023.', 'broj sluzbe: 340', 'vozni red: 04.01', '10:51, Glavni kolodvor smjer Dubec', '17:39, Dubrava smjer Dubec', 'ANON\nXXX-XXX-XXXX']
 ['Petak, 25.8.2023.', 'broj sluzbe: 640', 'vozni red: 04.01', '17:39, Dubrava smjer Dubec', '00:01, PTD/PTT', 'ANON\nXXX-XXX-XXXX']
+['Subota, 26.8.2023.', 'broj sluzbe: 69', 'vozni red: 06.01', '03:55, PTD', '10:55, Glavni kolodvor smjer Sopot', 'DARIO KOJIĆ\n099-594-2118']
+['Subota, 26.8.2023.', 'broj sluzbe: 369', 'vozni red: 06.01', '10:55, Glavni kolodvor smjer Sopot', '17:52, TBJJ smjer Črnomerec', 'ANON\nXXX-XXX-XXXX']
+['Subota, 26.8.2023.', 'broj sluzbe: 669', 'vozni red: 06.01', '17:52, TBJJ smjer Črnomerec', '00:52, PTD/PTT', 'ANON\nXXX-XXX-XXXX']
+['Nedjelja, 27.8.2023.', 'O']

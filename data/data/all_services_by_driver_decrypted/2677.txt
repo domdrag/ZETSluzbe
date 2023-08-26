@@ -87,3 +87,5 @@
 ['Srijeda, 23.8.2023.', 'broj sluzbe: 473', 'vozni red: 13.04', '10:55, Držićeva smjer Žitnjak', '17:17, Držićeva smjer Kvat. trg']
 ['Cetvrtak, 24.8.2023.', 'broj sluzbe: 407', 'vozni red: 08.01', '10:42, HEINZELOVA', '17:42, Autobusni kol. smjer Mihaljevac']
 ['Petak, 25.8.2023.', 'O']
+['Subota, 26.8.2023.', 'broj sluzbe: 377', 'vozni red: 06.09', '10:57, SOPOT- TERMINAL', '17:33, TBJJ smjer Črnomerec']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 471', 'vozni red: 13.02', '12:03, Držićeva smjer Žitnjak', '18:06, Držićeva smjer Kvat. trg']

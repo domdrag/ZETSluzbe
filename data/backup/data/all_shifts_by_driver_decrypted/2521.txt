@@ -153,3 +153,5 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 176', 'vozni red: 13.07', '04:49, PTD', '11:33, Držićeva smjer Žitnjak', 'MARKO RUKAVINA\n091-550-8716']
 ['Petak, 25.8.2023.', 'broj sluzbe: 476', 'vozni red: 13.07', '11:33, Držićeva smjer Žitnjak', '17:56, Držićeva smjer Kvat. trg', 'IVICA BAJIĆ\n099-209-7491']
 ['Petak, 25.8.2023.', 'broj sluzbe: 776', 'vozni red: 13.07', '17:56, Držićeva smjer Kvat. trg', '00:36, PTD/PTT', 'VEDRAN GLAVAN\n091-547-3039']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'O']

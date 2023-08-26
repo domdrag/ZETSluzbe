@@ -189,3 +189,7 @@
 ['Srijeda, 23.8.2023.', 'I-BO']
 ['Cetvrtak, 24.8.2023.', 'I-BO']
 ['Petak, 25.8.2023.', 'I-BO']
+['Subota, 26.8.2023.', 'broj sluzbe: 46', 'vozni red: 04.07', '06:55, PTD', '13:53, Draškovićeva smjer Dubec', 'DANIELA HORVATIĆ\n091-788-0981']
+['Subota, 26.8.2023.', 'broj sluzbe: 346', 'vozni red: 04.07', '13:53, Draškovićeva smjer Dubec', '20:43, PTD/PTT', 'ANON\nXXX-XXX-XXXX']
+['Subota, 26.8.2023.', 'empty']
+['Nedjelja, 27.8.2023.', 'O']

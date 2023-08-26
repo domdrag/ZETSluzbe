@@ -199,3 +199,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 172', 'vozni red: 13.03', '04:23, PTD', '11:16, Držićeva smjer Kvat. trg', 'SANELA DOMIĆ\n098-135-8695']
 ['Petak, 25.8.2023.', 'broj sluzbe: 472', 'vozni red: 13.03', '11:16, Držićeva smjer Kvat. trg', '17:04, Držićeva smjer Kvat. trg', 'JOSIP DOMIĆ\n098-135-8696']
 ['Petak, 25.8.2023.', 'broj sluzbe: 772', 'vozni red: 13.03', '17:04, Držićeva smjer Kvat. trg', '23:41, PTD/PTT', 'IVAN MARIĆ\n099-412-0546']
+['Subota, 26.8.2023.', 'broj sluzbe: 176', 'vozni red: 13.07', '04:55, PTD', '11:30, Držićeva smjer Žitnjak', 'IVICA MARIĆ\n091-330-0123']
+['Subota, 26.8.2023.', 'broj sluzbe: 476', 'vozni red: 13.07', '11:30, Držićeva smjer Žitnjak', '17:42, Držićeva smjer Kvat. trg', 'ANON\nXXX-XXX-XXXX']
+['Subota, 26.8.2023.', 'broj sluzbe: 776', 'vozni red: 13.07', '17:42, Držićeva smjer Kvat. trg', '00:19, PTD/PTT', 'IVAN MARIĆ\n099-412-0546']
+['Nedjelja, 27.8.2023.', 'O']

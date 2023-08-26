@@ -189,3 +189,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 188', 'vozni red: 14.04', '06:08, 13:05, PTD', '09:51, 17:22, PTD', 'JADRANKA SEDLIĆ\n098-920-9554']
 ['Petak, 25.8.2023.', 'empty']
 ['Petak, 25.8.2023.', 'broj sluzbe: 788', 'vozni red: 14.04', '17:22, Zagrepčanka smjer Sav. most', '00:20, PTD/PTT', 'DARIJO LEŠČIĆ\n091-785-9895']
+['Subota, 26.8.2023.', 'Oz']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 43', 'vozni red: 04.04', '05:31, PTD', '11:10, Dubrava smjer Sav. most', 'JADRANKA SEDLIĆ\n098-920-9554']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 343', 'vozni red: 04.04', '11:10, Dubrava smjer Sav. most', '17:58, Dubrava smjer Dubec', 'ANON\nXXX-XXX-XXXX']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 643', 'vozni red: 04.04', '17:58, Dubrava smjer Dubec', '00:08, PTD/PTT', 'MARIJA KRAMAR\n091-926-7040']

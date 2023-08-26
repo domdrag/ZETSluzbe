@@ -87,3 +87,5 @@
 ['Srijeda, 23.8.2023.', 'broj sluzbe: 186', 'vozni red: 14.02', '05:53, 13:32, PTD', '09:38, 17:43, PTD']
 ['Cetvrtak, 24.8.2023.', 'broj sluzbe: 186', 'vozni red: 14.02', '05:53, 13:32, PTD', '09:38, 17:43, PTD']
 ['Petak, 25.8.2023.', 'broj sluzbe: 186', 'vozni red: 14.02', '05:53, 13:32, PTD', '09:38, 17:43, PTD']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'O']

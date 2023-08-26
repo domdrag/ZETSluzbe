@@ -187,3 +187,5 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 265', 'vozni red: PRIČUVA', '04:00, PTD', '11:30, PTD', 'STJEPAN ROGINIĆ\n091-693-0712']
 ['Petak, 25.8.2023.', 'broj sluzbe: 565', 'vozni red: PRIČUVA', '11:00, PTD', '18:30, PTD', 'ANON\nXXX-XXX-XXXX']
 ['Petak, 25.8.2023.', 'broj sluzbe: 865', 'vozni red: PRIČUVA', '16:00, PTD', '23:30, PTD', 'ANON\nXXX-XXX-XXXX']
+['Subota, 26.8.2023.', 'Oz']
+['Nedjelja, 27.8.2023.', 'Oz']

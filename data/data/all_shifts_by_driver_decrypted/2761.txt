@@ -179,3 +179,5 @@
 ['Cetvrtak, 24.8.2023.', 'broj sluzbe: 487', 'vozni red: 14.03', '11:00, MIHALJEVAC', '17:52, Draškovićeva smjer Mihaljevac', 'IVICA BAJIĆ\n099-209-7491']
 ['Cetvrtak, 24.8.2023.', 'broj sluzbe: 787', 'vozni red: 14.03', '17:52, Draškovićeva smjer Mihaljevac', '00:50, PTD/PTT', 'JOSIP ŽILIĆ\n098-239-366']
 ['Petak, 25.8.2023.', 'O']
+['Subota, 26.8.2023.', 'Ob']
+['Nedjelja, 27.8.2023.', 'Ob']

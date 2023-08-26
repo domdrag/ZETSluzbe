@@ -157,3 +157,7 @@
 ['Srijeda, 23.8.2023.', 'I-GO']
 ['Cetvrtak, 24.8.2023.', 'I-GO']
 ['Petak, 25.8.2023.', 'I-GO']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 92', 'vozni red: 07.04', '05:27, PTD', '11:50, DUBRAVA- TERMINAL', 'ŽELJKO STRBAD\n099-674-8610']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 392', 'vozni red: 07.04', '11:50, DUBRAVA- TERMINAL', '18:10, DUBRAVA- TERMINAL', 'KREŠIMIR KROT\n098-663-348']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 692', 'vozni red: 07.04', '18:10, DUBRAVA- TERMINAL', '00:41, PTD/PTT', 'ANKICA DRAGIJA\n098-948-5003']

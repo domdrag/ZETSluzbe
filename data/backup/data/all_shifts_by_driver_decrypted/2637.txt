@@ -183,3 +183,5 @@
 ['Srijeda, 23.8.2023.', 'broj sluzbe: 669', 'vozni red: 06.01', '17:29, Autobusni kol. smjer Črnomerec', '00:28, PTD/PTT', 'DARIO OPETUK\n091-766-3254']
 ['Cetvrtak, 24.8.2023.', 'I-DK']
 ['Petak, 25.8.2023.', 'I-DK']
+['Subota, 26.8.2023.', 'Oz']
+['Nedjelja, 27.8.2023.', 'Oz']

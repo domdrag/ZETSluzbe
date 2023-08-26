@@ -191,3 +191,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 42', 'vozni red: 04.03', '06:03, PTD', '13:03, Zagrepčanka smjer Dubec', 'MIRSAD BOLIĆ\n091-494-9088']
 ['Petak, 25.8.2023.', 'broj sluzbe: 342', 'vozni red: 04.03', '13:03, Zagrepčanka smjer Dubec', '20:03, PTD/PTT', 'PEZO-ROGIĆ LJILJANA\n098-160-0597']
 ['Petak, 25.8.2023.', 'empty']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'empty']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 375', 'vozni red: 06.07', '08:07, PTD', '15:00, Glavni kolodvor smjer Črnomerec', 'MIRSAD BOLIĆ\n091-494-9088']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 675', 'vozni red: 06.07', '15:00, Glavni kolodvor smjer Črnomerec', '21:56, PTD/PTT', 'MLADEN BELOŠEVIĆ\n091-182-0516']

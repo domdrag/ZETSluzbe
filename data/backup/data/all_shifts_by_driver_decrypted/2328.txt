@@ -153,3 +153,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 75', 'vozni red: 06.07', '06:15, PTD', '12:55, ŽITNJAK- TERMINAL', 'PAVE BARIĆ\n091-504-9389']
 ['Petak, 25.8.2023.', 'broj sluzbe: 375', 'vozni red: 06.07', '12:55, ŽITNJAK- TERMINAL', '19:49, PTD/PTT', 'GORAN KOŠKOVIĆ\n098-620-001']
 ['Petak, 25.8.2023.', 'empty']
+['Subota, 26.8.2023.', 'broj sluzbe: 43', 'vozni red: 04.04', '06:19, PTD', '13:18, Draškovićeva smjer Dubec', 'PAVE BARIĆ\n091-504-9389']
+['Subota, 26.8.2023.', 'broj sluzbe: 343', 'vozni red: 04.04', '13:18, Draškovićeva smjer Dubec', '20:06, PTD/PTT', 'KRUNOSLAV ČIŽMEK\n098-161-2654']
+['Subota, 26.8.2023.', 'empty']
+['Nedjelja, 27.8.2023.', 'O']

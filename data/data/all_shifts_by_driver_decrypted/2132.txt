@@ -197,3 +197,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 195', 'vozni red: 14.11', '04:18, PTD', '10:51, Draškovićeva smjer Sav. most', 'SNJEŽANA ŠARENIĆ\n091-908-9097']
 ['Petak, 25.8.2023.', 'broj sluzbe: 495', 'vozni red: 14.11', '10:51, Draškovićeva smjer Sav. most', '17:44, PTD/PTT', 'ALEN PAVLOVIĆ\n095-551-1663']
 ['Petak, 25.8.2023.', 'empty']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 44', 'vozni red: 04.05', '05:18, PTD', '11:22, Dubrava smjer Sav. most', 'MARIO ŠKRAPEC\n091-533-9016']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 344', 'vozni red: 04.05', '11:22, Dubrava smjer Sav. most', '18:10, Dubrava smjer Dubec', 'ALEN PAVLOVIĆ\n095-551-1663']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 644', 'vozni red: 04.05', '18:10, Dubrava smjer Dubec', '00:25, PTD/PTT', 'BRUNO SAMARDŽIĆ\n098-620-240']

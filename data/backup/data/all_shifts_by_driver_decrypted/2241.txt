@@ -171,3 +171,5 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 96', 'vozni red: 07.08', '04:52, PTD', '11:39, DUBRAVA- TERMINAL', 'ZLATKO STANIĆ\n091-197-0503']
 ['Petak, 25.8.2023.', 'broj sluzbe: 396', 'vozni red: 07.08', '11:39, DUBRAVA- TERMINAL', '18:31, DUBRAVA- TERMINAL', 'SINIŠA DRONJAK\n099-334-7855']
 ['Petak, 25.8.2023.', 'broj sluzbe: 696', 'vozni red: 07.08', '18:31, DUBRAVA- TERMINAL', '00:46, PTD/PTT', 'MIROSLAV KINDER\n098-921-8060']
+['Subota, 26.8.2023.', 'Ob']
+['Nedjelja, 27.8.2023.', 'Ob']

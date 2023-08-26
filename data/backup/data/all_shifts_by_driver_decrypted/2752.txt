@@ -189,3 +189,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 79', 'vozni red: 06.11', '04:34, PTD', '10:40, Autobusni kol. smjer Črnomerec', 'CMILJKO KRTIĆ\n091-510-1121']
 ['Petak, 25.8.2023.', 'broj sluzbe: 379', 'vozni red: 06.11', '10:40, Autobusni kol. smjer Črnomerec', '17:20, Autobusni kol. smjer Črnomerec', 'MARIJA KRAMAR\n091-926-7040']
 ['Petak, 25.8.2023.', 'broj sluzbe: 679', 'vozni red: 06.11', '17:20, Autobusni kol. smjer Črnomerec', '00:15, PTD/PTT', 'DENIS MOHARIĆ\n091-558-7757']
+['Subota, 26.8.2023.', 'Oz']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 43', 'vozni red: 04.04', '05:31, PTD', '11:10, Dubrava smjer Sav. most', 'JADRANKA SEDLIĆ\n098-920-9554']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 343', 'vozni red: 04.04', '11:10, Dubrava smjer Sav. most', '17:58, Dubrava smjer Dubec', 'ANON\nXXX-XXX-XXXX']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 643', 'vozni red: 04.04', '17:58, Dubrava smjer Dubec', '00:08, PTD/PTT', 'MARIJA KRAMAR\n091-926-7040']

@@ -173,3 +173,5 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 46', 'vozni red: 04.07', '04:22, PTD', '10:56, Dubrava smjer Sav. most', 'MILAN ANTUNOVIĆ\n098-919-3441']
 ['Petak, 25.8.2023.', 'broj sluzbe: 346', 'vozni red: 04.07', '10:56, Dubrava smjer Sav. most', '17:35, Glavni kolodvor smjer Sav. most', 'MIRKO BOŽIĆ\n098-197-3779']
 ['Petak, 25.8.2023.', 'broj sluzbe: 646', 'vozni red: 04.07', '17:35, Glavni kolodvor smjer Sav. most', '00:29, PTD/PTT', 'BRANKA MATEJAŠ\n091-891-0557']
+['Subota, 26.8.2023.', 'Og']
+['Nedjelja, 27.8.2023.', 'Og']

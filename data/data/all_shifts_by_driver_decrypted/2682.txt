@@ -183,3 +183,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 173', 'vozni red: 13.04', '04:13, PTD', '10:55, Držićeva smjer Žitnjak', 'IVICA MARIĆ\n091-330-0123']
 ['Petak, 25.8.2023.', 'broj sluzbe: 473', 'vozni red: 13.04', '10:55, Držićeva smjer Žitnjak', '17:17, Držićeva smjer Kvat. trg', 'DANIJEL ANTOLIĆ-MEZIN\n091-458-0493']
 ['Petak, 25.8.2023.', 'broj sluzbe: 773', 'vozni red: 13.04', '17:17, Držićeva smjer Kvat. trg', '23:59, PTD/PTT', 'ANTONIO JOSIPOVIĆ\n092-380-5423']
+['Subota, 26.8.2023.', 'broj sluzbe: 176', 'vozni red: 13.07', '04:55, PTD', '11:30, Držićeva smjer Žitnjak', 'IVICA MARIĆ\n091-330-0123']
+['Subota, 26.8.2023.', 'broj sluzbe: 476', 'vozni red: 13.07', '11:30, Držićeva smjer Žitnjak', '17:42, Držićeva smjer Kvat. trg', 'ANON\nXXX-XXX-XXXX']
+['Subota, 26.8.2023.', 'broj sluzbe: 776', 'vozni red: 13.07', '17:42, Držićeva smjer Kvat. trg', '00:19, PTD/PTT', 'IVAN MARIĆ\n099-412-0546']
+['Nedjelja, 27.8.2023.', 'O']

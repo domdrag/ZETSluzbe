@@ -187,3 +187,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 196', 'vozni red: 14.12', '05:40, PTD', '12:20, Draškovićeva smjer Sav. most', 'MARKO PASKA\n095-545-0623']
 ['Petak, 25.8.2023.', 'broj sluzbe: 496', 'vozni red: 14.12', '12:20, Draškovićeva smjer Sav. most', '19:13, PTD/PTT', 'ANON\nXXX-XXX-XXXX']
 ['Petak, 25.8.2023.', 'empty']
+['Subota, 26.8.2023.', 'broj sluzbe: 174', 'vozni red: 13.05', '06:41, PTD', '13:28, Držićeva smjer Kvat. trg', 'MATIJA DOMIĆ\n099-657-9100']
+['Subota, 26.8.2023.', 'broj sluzbe: 474', 'vozni red: 13.05', '13:28, Držićeva smjer Kvat. trg', '20:01, PTD/PTT', 'ANON\nXXX-XXX-XXXX']
+['Subota, 26.8.2023.', 'empty']
+['Nedjelja, 27.8.2023.', 'O']

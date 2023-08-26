@@ -87,3 +87,5 @@
 ['Srijeda, 23.8.2023.', 'broj sluzbe: 108', 'vozni red: 08.02', '04:10, PTD', '10:52, Autobusni kol. smjer Heinzelova']
 ['Cetvrtak, 24.8.2023.', 'broj sluzbe: 185', 'vozni red: 14.01', '03:52, PTD', '10:51, MIHALJEVAC']
 ['Petak, 25.8.2023.', 'broj sluzbe: 265', 'vozni red: PRIČUVA', '04:00, PTD', '11:30, PTD']
+['Subota, 26.8.2023.', 'Oz']
+['Nedjelja, 27.8.2023.', 'Oz']

@@ -87,3 +87,5 @@
 ['Srijeda, 23.8.2023.', 'broj sluzbe: 72', 'vozni red: 06.04', '04:23, PTD', '11:15, Autobusni kol. smjer Črnomerec']
 ['Cetvrtak, 24.8.2023.', 'broj sluzbe: 92', 'vozni red: 07.04', '04:26, PTD', '11:06, DUBRAVA- TERMINAL']
 ['Petak, 25.8.2023.', 'broj sluzbe: 107', 'vozni red: 08.01', '03:54, PTD', '10:42, HEINZELOVA']
+['Subota, 26.8.2023.', 'broj sluzbe: 190', 'vozni red: 14.06', '03:55, PTD', '10:32, Frankopanska smjer Sav. most']
+['Nedjelja, 27.8.2023.', 'O']

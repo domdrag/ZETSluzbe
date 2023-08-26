@@ -189,3 +189,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 44', 'vozni red: 04.05', '04:09, PTD', '10:57, Glavni kolodvor smjer Sav. most', 'DALIBOR ZAGORAC\n098-904-9114']
 ['Petak, 25.8.2023.', 'broj sluzbe: 344', 'vozni red: 04.05', '10:57, Glavni kolodvor smjer Sav. most', '17:55, Vodnikova smjer Dubec', 'ANON\nXXX-XXX-XXXX']
 ['Petak, 25.8.2023.', 'broj sluzbe: 644', 'vozni red: 04.05', '17:55, Vodnikova smjer Dubec', '00:42, PTD/PTT', 'ANKICA DRAGIJA\n098-948-5003']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 42', 'vozni red: 04.03', '05:13, PTD', '10:58, Dubrava smjer Sav. most', 'KREŠIMIR COMBAJ\n091-896-4488']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 342', 'vozni red: 04.03', '10:58, Dubrava smjer Sav. most', '17:46, Dubrava smjer Dubec', 'ANON\nXXX-XXX-XXXX']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 642', 'vozni red: 04.03', '17:46, Dubrava smjer Dubec', '23:49, PTD/PTT', 'STANISLAV JURČIĆ\n091-298-6042']

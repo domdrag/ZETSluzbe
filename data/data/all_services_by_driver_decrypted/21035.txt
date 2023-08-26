@@ -87,3 +87,5 @@
 ['Srijeda, 23.8.2023.', 'I-GO']
 ['Cetvrtak, 24.8.2023.', 'I-GO']
 ['Petak, 25.8.2023.', 'I-GO']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 346', 'vozni red: 04.07', '11:46, Dubrava smjer Sav. most', '18:35, Dubrava smjer Dubec']

@@ -125,3 +125,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 98', 'vozni red: 07.10', '05:12, PTD', '11:31, Autobusni kol. smjer Dubrava', 'GORDAN RIBIĆ\n099-681-6819']
 ['Petak, 25.8.2023.', 'broj sluzbe: 398', 'vozni red: 07.10', '11:31, Autobusni kol. smjer Dubrava', '17:28, Autobusni kol. smjer Sav. most', 'MLADEN BARIŠIĆ\n098-961-5988']
 ['Petak, 25.8.2023.', 'broj sluzbe: 698', 'vozni red: 07.10', '17:28, Autobusni kol. smjer Sav. most', '23:42, PTD/PTT', 'ANTONIO BILANOVIĆ\n099-441-1331']
+['Subota, 26.8.2023.', 'broj sluzbe: 171', 'vozni red: 13.02', '04:17, PTD', '10:53, Držićeva smjer Kvat. trg', 'KREŠIMIR COMBAJ\n091-896-4488']
+['Subota, 26.8.2023.', 'broj sluzbe: 471', 'vozni red: 13.02', '10:53, Držićeva smjer Kvat. trg', '17:51, Držićeva smjer Žitnjak', 'JADRANKO LOTH\n091-931-0702']
+['Subota, 26.8.2023.', 'broj sluzbe: 771', 'vozni red: 13.02', '17:51, Držićeva smjer Žitnjak', '00:38, PTD/PTT', 'ANTONIO BILANOVIĆ\n099-441-1331']
+['Nedjelja, 27.8.2023.', 'O']

@@ -217,3 +217,5 @@
 ['Cetvrtak, 24.8.2023.', 'broj sluzbe: 375', 'vozni red: 06.07', '12:55, ŽITNJAK- TERMINAL', '19:49, PTD/PTT', 'VERICA PATEK\n095-770-4754']
 ['Cetvrtak, 24.8.2023.', 'empty']
 ['Petak, 25.8.2023.', 'O']
+['Subota, 26.8.2023.', 'Oz']
+['Nedjelja, 27.8.2023.', 'Oz']

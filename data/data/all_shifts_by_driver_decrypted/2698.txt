@@ -193,3 +193,7 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 92', 'vozni red: 07.04', '04:26, PTD', '11:06, DUBRAVA- TERMINAL', 'MARIJAN COHA\n098-797-304']
 ['Petak, 25.8.2023.', 'broj sluzbe: 392', 'vozni red: 07.04', '11:06, DUBRAVA- TERMINAL', '17:25, Autobusni kol. smjer Dubrava', 'ANON\nXXX-XXX-XXXX']
 ['Petak, 25.8.2023.', 'broj sluzbe: 692', 'vozni red: 07.04', '17:25, Autobusni kol. smjer Dubrava', '00:20, PTD/PTT', 'ANON\nXXX-XXX-XXXX']
+['Subota, 26.8.2023.', 'broj sluzbe: 97', 'vozni red: 07.09', '05:13, PTD', '11:40, DUBRAVA- TERMINAL', 'MARIJAN COHA\n098-797-304']
+['Subota, 26.8.2023.', 'broj sluzbe: 397', 'vozni red: 07.09', '11:40, DUBRAVA- TERMINAL', '18:08, DUBRAVA- TERMINAL', 'VALENTINA ĆUK\n091-566-6337']
+['Subota, 26.8.2023.', 'broj sluzbe: 697', 'vozni red: 07.09', '18:08, DUBRAVA- TERMINAL', '00:40, PTD/PTT', 'DRAGAN GAVRIĆ\n098-926-7894']
+['Nedjelja, 27.8.2023.', 'O']

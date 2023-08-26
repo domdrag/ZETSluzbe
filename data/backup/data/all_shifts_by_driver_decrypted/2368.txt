@@ -185,3 +185,7 @@
 ['Srijeda, 23.8.2023.', 'I-GO']
 ['Cetvrtak, 24.8.2023.', 'I-GO']
 ['Petak, 25.8.2023.', 'I-GO']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 91', 'vozni red: 07.03', '05:13, PTD', '11:38, DUBRAVA- TERMINAL', 'DRAGUTIN DRAGOVIĆ\n091-524-2446']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 391', 'vozni red: 07.03', '11:38, DUBRAVA- TERMINAL', '17:58, DUBRAVA- TERMINAL', 'MARIJAN ĆUK\n091-150-8855']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 691', 'vozni red: 07.03', '17:58, DUBRAVA- TERMINAL', '00:28, PTD/PTT', 'MIRO BOŽIĆ\n099-213-3320']

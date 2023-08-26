@@ -175,3 +175,7 @@
 ['Srijeda, 23.8.2023.', 'I-GO']
 ['Cetvrtak, 24.8.2023.', 'I-GO']
 ['Petak, 25.8.2023.', 'I-GO']
+['Subota, 26.8.2023.', 'O']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 186', 'vozni red: 14.02', '05:06, PTD', '11:30, Draškovićeva smjer Sav. most', 'SINIŠA POPOVIĆ\n091-165-3029']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 486', 'vozni red: 14.02', '11:30, Draškovićeva smjer Sav. most', '17:33, Draškovićeva smjer Sav. most', 'NEDELJKO BUBNJEVIĆ\n091-500-1453']
+['Nedjelja, 27.8.2023.', 'broj sluzbe: 786', 'vozni red: 14.02', '17:33, Draškovićeva smjer Sav. most', '00:12, PTD/PTT', 'IVICA KOLAR\n099-802-0724']

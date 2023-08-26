@@ -187,3 +187,5 @@
 ['Petak, 25.8.2023.', 'broj sluzbe: 97', 'vozni red: 07.09', '05:02, PTD', '11:47, DUBRAVA- TERMINAL', 'ŠIMO MARIĆ\n098-180-0615']
 ['Petak, 25.8.2023.', 'broj sluzbe: 397', 'vozni red: 07.09', '11:47, DUBRAVA- TERMINAL', '18:13, Autobusni kol. smjer Dubrava', 'MARIO DJAKOVIĆ\n092-112-1514']
 ['Petak, 25.8.2023.', 'broj sluzbe: 697', 'vozni red: 07.09', '18:13, Autobusni kol. smjer Dubrava', '00:59, PTD/PTT', 'HRVOJE KRAJAČIĆ\n091-204-4803']
+['Subota, 26.8.2023.', 'Oz']
+['Nedjelja, 27.8.2023.', 'Oz']
