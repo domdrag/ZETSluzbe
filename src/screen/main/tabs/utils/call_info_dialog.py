@@ -1,3 +1,4 @@
+from kivymd.app import MDApp
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.button import MDFlatButton
 from kivymd.uix.button import MDRaisedButton
@@ -17,21 +18,23 @@ class CallInfoDialog(MDDialog):
         driverInfoList = driverInfo.split('\n')
         self.name = driverInfoList[0]
         self.phoneNumber = driverInfoList[1]
-        
+
+        app = MDApp.get_running_app()
         buttons=[
             MDRaisedButton(
                 text = 'SPREMI U IMENIK',
                 theme_text_color = 'Custom',
                 md_bg_color = getSecondaryColor(),
                 text_color = getWhiteColor(),
-                on_release = self.saveContact
+                on_release = self.saveContact,
+                font_size = app.mainScreenFontSize
             ),
             MDRaisedButton(
                 text = 'NAZOVI',
                 theme_text_color = 'Custom',
                 md_bg_color = getSecondaryColor(),
                 text_color = getWhiteColor(),
-                on_release = self.callNumber
+                font_size = app.mainScreenFontSize
             )]
 
         callInfoWidget = CallInfoWidget(self.name,

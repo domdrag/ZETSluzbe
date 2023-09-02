@@ -19,6 +19,9 @@ from src.data.share.design_manager import (updateFontSize,
 from src.data.share.read_notifications import readNotifications
 from src.data.share.read_links import readLinks
 
+MAIN_SCREEN_GRID_HEIGHT_DELTA = 12
+MAIN_SCREEN_FONT_SIZE_RATIO = 15
+
 class MainScreen(Screen):
     offNum = ''
     servicesTab = ObjectProperty() # left for clarity
@@ -71,16 +74,23 @@ class MainScreen(Screen):
         self.manager.switchToLoginScreen()
 
     def increaseGridHeight(self):
-        oldValue = int(self.app.gridHeight[:-2])
-        newValue = oldValue + 12
-        updateGridHeight(newValue)
-        self.app.gridHeight = str(oldValue + 12) + 'dp'
+        gridHeightOldValue = int(self.app.gridHeight[:-2])
+        gridHeightNewValue = gridHeightOldValue + MAIN_SCREEN_GRID_HEIGHT_DELTA
+        self.app.gridHeight = str(gridHeightNewValue) + 'dp'
+        updateGridHeight(gridHeightNewValue)
+
+        mainScreenFontSizeNewValue = int(gridHeightNewValue // MAIN_SCREEN_FONT_SIZE_RATIO)
+        self.app.mainScreenFontSize = str(mainScreenFontSizeNewValue) + 'dp'
+        updateFontSize('MAIN_SCREEN_FONT_SIZE', mainScreenFontSizeNewValue)
 
     def decreaseGridHeight(self):
-        oldValue = int(self.app.gridHeight[:-2])
-        newValue = oldValue - 12
-        updateGridHeight(newValue)
-        self.app.gridHeight = str(oldValue - 12) + 'dp'
-        
+        gridHeightOldValue = int(self.app.gridHeight[:-2])
+        gridHeightNewValue = gridHeightOldValue - MAIN_SCREEN_GRID_HEIGHT_DELTA
+        self.app.gridHeight = str(gridHeightNewValue) + 'dp'
+        updateGridHeight(gridHeightNewValue)
+
+        mainScreenFontSizeNewValue = int(gridHeightNewValue // MAIN_SCREEN_FONT_SIZE_RATIO)
+        self.app.mainScreenFontSize = str(mainScreenFontSizeNewValue) + 'dp'
+        updateFontSize('MAIN_SCREEN_FONT_SIZE', mainScreenFontSizeNewValue)
 
 
