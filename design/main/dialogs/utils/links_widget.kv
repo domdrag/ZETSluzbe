@@ -1,14 +1,13 @@
-#:include design/main/dialogs/notification.kv
+#:include design/main/dialogs/utils/link.kv
 
-<NotificationsWidget>:
+<LinksWidget>:
 	size_hint_y: None
 	height: dp(300) # WORKAROUND, content doesn't show well unless height is fixed
-	notificationsWidgetRecycleView: notificationsWidgetRecycleViewId
-	
+	linksWidgetRecycleView: linksWidgetRecycleViewId
 	
 	MDRecycleView:
-		viewclass: 'Notification'
-		id: notificationsWidgetRecycleViewId
+		viewclass: 'Link'
+		id: linksWidgetRecycleViewId
 		
 		RecycleBoxLayout:
 			default_size: None, str(int(app.gridHeight[:-2]) // 5) + 'dp'

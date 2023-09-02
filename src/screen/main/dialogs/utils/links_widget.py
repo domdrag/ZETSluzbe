@@ -1,7 +1,7 @@
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.properties import ObjectProperty
 
-from src.screen.main.dialogs.link import Link
+from src.screen.main.dialogs.utils.link import Link
 
 class LinksWidget(RelativeLayout):
     linksWidgetRecycleView = ObjectProperty(None)  # left for clarity

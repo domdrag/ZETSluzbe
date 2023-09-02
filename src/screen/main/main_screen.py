@@ -7,7 +7,7 @@ from kivy.properties import ObjectProperty
 from src.screen.main.tabs.services_tab import ServicesTab
 from src.screen.main.tabs.shifts_tab import ShiftsTab
 from src.screen.main.tabs.statistics_tab import StatisticsTab
-from src.screen.share.calendar_dialog import CalendarDialog
+from src.screen.main.dialogs.calendar_dialog import CalendarDialog
 from src.screen.main.dialogs.notifications_dialog import NotificationsDialog
 from src.screen.main.dialogs.links_dialog import LinksDialog
 

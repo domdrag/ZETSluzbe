@@ -1,6 +1,6 @@
 from kivymd.uix.dialog import MDDialog
 
-from src.screen.share.utils.calendar_widget import CalendarWidget
+from src.screen.main.dialogs.utils.calendar_widget import CalendarWidget
 
 from src.data.share.get_calendar_info import getCalendarInfo
 

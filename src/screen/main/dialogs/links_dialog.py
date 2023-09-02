@@ -1,6 +1,6 @@
 from kivymd.uix.dialog import MDDialog
 
-from src.screen.main.dialogs.links_widget import LinksWidget
+from src.screen.main.dialogs.utils.links_widget import LinksWidget
 
 class LinksDialog(MDDialog):
     def __init__(self, linksData):

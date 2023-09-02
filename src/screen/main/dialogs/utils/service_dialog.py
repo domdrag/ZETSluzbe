@@ -1,6 +1,7 @@
 from kivymd.uix.dialog import MDDialog
 from kivy.properties import ObjectProperty
 
+from src.screen.main.share.daily_service import DailyService
 class ServiceDialog(MDDialog):
     serviceDialogRecycleView = ObjectProperty(None)
     

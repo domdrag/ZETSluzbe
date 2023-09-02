@@ -12,23 +12,18 @@ from kivy.properties import StringProperty
 
 from src.screen.zet_screen_manager import ZETScreenManager
 from src.data.share.design_manager import (getLoginScreenFontSize,
-                                           getMainScreenFontSize,
                                            getGridHeight,
                                            getColors,
                                            getPrimaryColorString,
                                            getSecondaryColorString)
 class ZETApp(MDApp):
     loginScreenFontSize = StringProperty()
-    mainScreenFontSize = StringProperty()
     gridHeight = StringProperty()
 
     def build(self):
-        #self.fontSize = getFontSize()
-        #self.fontSize = '5dp'
         self.loginScreenFontSize = getLoginScreenFontSize()
-        self.mainScreenFontSize = getMainScreenFontSize()
         self.gridHeight = getGridHeight()
-        self.gridHeight = '200dp'
+        #self.gridHeight = '200dp'
         self.theme_cls.theme_style = 'Dark'
         self.theme_cls.colors = getColors()
         self.theme_cls.primary_palette = getPrimaryColorString()
