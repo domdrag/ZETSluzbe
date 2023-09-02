@@ -1,7 +1,6 @@
 {
-   "MAIN_SCREEN_FONT_SIZE": "17dp",
    "LOGIN_SCREEN_FONT_SIZE": "18dp",
-   "GRID_HEIGHT": "212dp",
+   "MAIN_GRID_HEIGHT": "224dp",
    "CUSTOM_COLORS": {
       "LIGHT_HUE": "200",
       "MAIN_HUE": "500",

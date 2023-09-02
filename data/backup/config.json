@@ -8,8 +8,8 @@
    "UPDATE_SUCCESSFUL": 1,
    "LAST_RECORD_DATE": [
       2023,
-      8,
-      28
+      9,
+      4
    ],
    "MISSING_SERVICES": [
       0,
@@ -20,5 +20,5 @@
       0,
       0
    ],
-   "SERVICES_HASH": 8929766949
+   "SERVICES_HASH": 8351671095
 }

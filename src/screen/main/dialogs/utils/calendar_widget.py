@@ -15,21 +15,34 @@ from kivymd.uix.screenmanager import MDScreenManager
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.button import MDFillRoundFlatButton
 from kivymd.uix.label import MDLabel
+from kivy.uix.label import Label
 from kivymd.uix.gridlayout import MDGridLayout
+from kivy.uix.widget import Widget
 
-from src.screen.share.utils.service_dialog import ServiceDialog
+from src.screen.main.dialogs.utils.service_dialog import ServiceDialog
 
-from src.screen.share.utils.calendar_data import (get_month_names,
-                                                  get_month_names_eng,
-                                                  get_days_abbrs,
-                                                  today_date_list,
-                                                  calc_quarter,
-                                                  get_quarter)
+from src.screen.main.dialogs.utils.calendar_data import (get_month_names,
+                                                         get_month_names_eng,
+                                                         get_days_abbrs,
+                                                         today_date_list,
+                                                         calc_quarter,
+                                                         get_quarter)
 from src.data.share.get_holidays import getHolidays
 from src.data.share.design_manager import (getPrimaryColor,
                                           getErrorColor,
                                           getWhiteColor)
 from src.share.trace import TRACE
+
+class MainCanvasAfter(Widget):
+    pass
+class MainScreenDesign(Widget):
+    pass
+class CalendarDayButton(Button, MainScreenDesign, MainCanvasAfter):
+    pass
+class CalendarDaysGridLayout(MDGridLayout):
+    pass
+class CalendarLabel(Label, MainScreenDesign):
+    pass
 
 class CalendarWidget(RelativeLayout):
     """ Basic calendar widget """    
@@ -43,33 +56,39 @@ class CalendarWidget(RelativeLayout):
         
     def init_ui(self):
         
-        self.left_arrow = ArrowButton(text="<", on_press=self.go_prev,
-                                      pos_hint={"top": 1, "left": 0})
+        self.left_arrow = MDFillRoundFlatButton(text="<", on_press=self.go_prev,
+                                                pos_hint={"top": 1, "left": 0})
         
-        self.right_arrow = ArrowButton(text=">", on_press=self.go_next,
-                                       pos_hint={"top": 1, "right": 1})
+        self.right_arrow = MDFillRoundFlatButton(text=">", on_press=self.go_next,
+                                                 pos_hint={"top": 1, "right": 1})
         
         self.add_widget(self.left_arrow)        
         self.add_widget(self.right_arrow)
         
         # Title        
-        self.title_label = MonthYearLabel(text=self.title)
-        self.add_widget(self.title_label)
+        self.monthYearLabel = CalendarLabel(text = self.title,
+                                            pos_hint = {'top': 1, 'center_x': .5},
+                                            size_hint = (0.5, 0.1),
+                                            halign = 'center')
+
+        self.add_widget(self.monthYearLabel)
 
         # Try - dayAbbr labels
         mTestGrid = MDGridLayout(rows = 1,
                                  size_hint = (1, 0.1),
                                  pos_hint = {"top": 0.85}) 
         for i in range(7):
+            l = CalendarLabel(text = self.days_abrs[i])
+            '''
             if i == 6:  # weekends
                 l = DayAbbrSundayLabel(text=self.days_abrs[i])
             else:  # work days
-                l = DayAbbrLabel(text=self.days_abrs[i])
+                l = DayAbbrLabel(text=self.days_abrs[i])'''
             mTestGrid.add_widget(l)
         self.add_widget(mTestGrid)
         
         # ScreenManager
-        self.sm = MonthsManager()
+        self.sm = MDScreenManager()
         self.add_widget(self.sm)
 
         try:
@@ -86,7 +105,7 @@ class CalendarWidget(RelativeLayout):
         scr.name = "%s-%s" % (m, self.active_date[2])  # like march-2015
 
         # Grid for days
-        grid_layout = ButtonsGrid()
+        grid_layout = CalendarDaysGridLayout()
         scr.add_widget(grid_layout)
         
         mMonth = self.active_date[1]
@@ -127,16 +146,14 @@ class CalendarWidget(RelativeLayout):
                 
                 # 2) button creation
                 if day[1] == 6:  # sunday
-                    tbtn = DayNumSundayButton(text=str(day[0]),
-                                              color = getErrorColor())
+                    tbtn = CalendarDayButton(text=str(day[0]), color = getErrorColor())
                     tbtn.background_color = getPrimaryColor()
                 else:  # work days
                     if (mIsHoliday):
                         mTextColor = getErrorColor() # red
                     else:
                         mTextColor = getWhiteColor() 
-                    tbtn = DayNumButton(text=str(day[0]),
-                                        color = mTextColor)
+                    tbtn = CalendarDayButton(text=str(day[0]), color = mTextColor)
                     tbtn.background_color = getPrimaryColor()
     
                 # 3) service binding
@@ -234,7 +251,7 @@ class CalendarWidget(RelativeLayout):
         self.title = "%s - %s" % (self.month_names[self.active_date[1] - 1], 
                                   self.active_date[2])
         
-        self.title_label.text = self.title
+        self.monthYearLabel.text = self.title
     
     def go_next(self, inst):
         if (self.mErrorOccured):
@@ -260,12 +277,12 @@ class CalendarWidget(RelativeLayout):
             
         self.sm.current = next_scr_name
         self.sm.transition.direction = "left"
-        
+
         self.get_quarter()
         self.title = "%s - %s" % (self.month_names[self.active_date[1] - 1], 
                                   self.active_date[2])
         
-        self.title_label.text = self.title
+        self.monthYearLabel.text = self.title
         
     def on_touch_move(self, touch):
         """ Switch months pages by touch move """
@@ -283,33 +300,4 @@ class CalendarWidget(RelativeLayout):
 
     def on_touch_up(self, touch):
         self.mLockSwitch = False
-
-class ArrowButton(MDFillRoundFlatButton):
-    pass
-
-class MonthYearLabel(MDLabel):
-    pass
-
-class MonthsManager(MDScreenManager):
-    pass
-
-class ButtonsGrid(MDGridLayout):
-    pass
-
-class DayAbbrLabel(MDLabel):
-    pass
-
-class DayAbbrSundayLabel(DayAbbrLabel):
-    pass
-
-# WORKAROUND, MD buttons doesn't fit size well
-class DayButton(Button):
-    pass
-
-class DayNumButton(DayButton):
-    pass
-
-class DayNumSundayButton(DayButton):
-    pass
-
 

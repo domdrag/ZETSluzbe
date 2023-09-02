@@ -5,11 +5,11 @@
    "OFFICIAL_NUMBER_STARTUP": "2621",
    "ADMIN": 1,
    "TRACES": 1,
-   "UPDATE_SUCCESSFUL": 1,
+   "UPDATE_SUCCESSFUL": 0,
    "LAST_RECORD_DATE": [
       2023,
-      8,
-      28
+      9,
+      4
    ],
    "MISSING_SERVICES": [
       0,
@@ -20,5 +20,5 @@
       0,
       0
    ],
-   "SERVICES_HASH": 8929766949
+   "SERVICES_HASH": 8351671095
 }

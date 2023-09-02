@@ -2,15 +2,16 @@ import json
 
 from kivymd.color_definitions import colors as kivyColors
 
+DESIGN_FILE_PATH = 'data/design.json'
 COLORS_IMPL = kivyColors
 DESIGN = dict()
 CUSTOM_COLORS = dict()
-GRID_HEIGHT_TO_FONT_SIZE_RATIO = 12
+
 def loadDesign():
     global DESIGN
     global CUSTOM_COLORS
 
-    with open('data/design.json', 'r') as designFile:
+    with open(DESIGN_FILE_PATH, 'r') as designFile:
         DESIGN = json.load(designFile)
     CUSTOM_COLORS = DESIGN['CUSTOM_COLORS']
 
@@ -20,20 +21,17 @@ def getFontSize():
 def getLoginScreenFontSize():
     return DESIGN['LOGIN_SCREEN_FONT_SIZE']
 
-def getMainScreenFontSize():
-    return DESIGN['MAIN_SCREEN_FONT_SIZE']
-
 def getGridHeight():
-    return DESIGN['GRID_HEIGHT']
+    return DESIGN['MAIN_GRID_HEIGHT']
 
 def updateFontSize(screen, value):
     DESIGN[screen] = str(value) + 'dp'
-    with open('data/design.json', 'w') as designFile:
+    with open(DESIGN_FILE_PATH, 'w') as designFile:
         json.dump(DESIGN, designFile, indent = 3)
 
 def updateGridHeight(value):
-    DESIGN['GRID_HEIGHT'] = str(value) + 'dp'
-    with open('data/design.json', 'w') as designFile:
+    DESIGN['MAIN_GRID_HEIGHT'] = str(value) + 'dp'
+    with open(DESIGN_FILE_PATH, 'w') as designFile:
         json.dump(DESIGN, designFile, indent = 3)
 
 def getColors():

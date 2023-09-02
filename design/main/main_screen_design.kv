@@ -10,25 +10,33 @@
 	halign: 'center'
 	valign: 'center'
 	font_size: str(int(app.gridHeight[:-2])//15)+'dp'
-	#font_size: str(int(1/2*((int(app.gridHeight[:-2])//10) + 30 - abs((int(app.gridHeight[:-2])//10)-30)))) + 'dp'
-	#font_size: int(app.gridHeight[:-2])//10 if int(app.gridHeight[:-2])//10 < 30 else 30
-	#font_size: int(app.gridHeight[:-2])//10 if self.height > self.texture_size[1] else (int(app.gridHeight[:-2])-10)//10
-	#font_size: self.font_size + ((1/2*(self.height - self.texture_size[1] + abs(self.height - self.texture_size[1]))) / (self.height #- self.texture_size[1] + 0.001))*(int(app.gridHeight[:-2])//10 - self.font_size)
 	text_size: self.width, None
 	text_color: 'white'
 	md_bg_color: app.theme_cls.primary_dark
-	
-<CallInfoLabel@MDLabel+MainScreenDesign>
-	
-# service/day/stats label
-<MainLabelWithBorder@MDLabel+MainScreenDesign+MainCanvasAfter>
-	
-<CallInfoButton@MDTextButton+MainScreenDesign+MainCanvasAfter> 
 
-<MainRecycleView@MDRecycleView>:
+<MainRecycleView@MDRecycleView>
 	RecycleBoxLayout:
 		default_size: None, app.gridHeight
 		default_size_hint: 1, None
 		size_hint_y: None
 		height: self.minimum_height
 		orientation: 'vertical'
+
+<MainLabelWithBorder@MDLabel+MainScreenDesign+MainCanvasAfter>
+
+# shifts
+<CallInfoButton@MDTextButton+MainScreenDesign+MainCanvasAfter>
+<CallInfoLabel@MDLabel+MainScreenDesign>
+
+# calendar
+<CalendarDayButton@Button+MainScreenDesign+MainCanvasAfter>
+    background_normal: ''
+
+# MDLabel not working for some reason (font not responding to change) (framework bug?)
+<CalendarLabel@Label+MainScreenDesign>
+
+<CalendarDaysGridLayout@MDGridLayout>
+    cols: 7
+    rows: 6
+	size_hint: 1, 0.75
+
