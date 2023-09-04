@@ -1,21 +1,7 @@
-import json
-
-from src.data.share.config_manager import getConfig
+from src.data.share.statistics_manager import getDriverMonthStatistics
 from src.data.share.utils.get_monthly_hours_fund import getMonthlyHoursFund
-from src.data.share.get_empty_statistics_month_dict import getEmptyStatisticsMonthDict
 
 HOURLY_RATE_SORTED_KEYS = ['ODRADENO', 'NOCNA', 'DRUGA', 'SUBOTA', 'NEDJELJA', 'O', 'UKUPNO']
-
-def getStatistics(offNum, month):
-    with open('data/data/statistics.json', 'r', encoding='utf-8') as statisticsFile:
-        STATISTICS = json.load(statisticsFile)
-
-    if (offNum not in STATISTICS):
-        return getEmptyStatisticsMonthDict()
-    offNumDict = STATISTICS[offNum]
-    if (month not in offNumDict):
-        return getEmptyStatisticsMonthDict()
-    return offNumDict[month]
 
 def fixKey(key):
     return (key.replace('_', ' ')).capitalize()
@@ -35,6 +21,7 @@ def appendStatisticData(statisticsData, dictionary, title, editKeys = False):
                            'statisticContentData': statisticContentData})
 
 def orderDict(dictionary, isHourlyRateDict = False):
+    # if I recall, python keeps the order of dict initialization
     if (isHourlyRateDict):
         hourlyRateKeys = list(dictionary.keys())
         leftovers = list(set(hourlyRateKeys) - set(HOURLY_RATE_SORTED_KEYS))
@@ -46,13 +33,8 @@ def orderDict(dictionary, isHourlyRateDict = False):
     else:
         return dict(sorted(dictionary.items()))
 
-def readStatistics(offNum):
-    config = getConfig()
-    lastRecordDate = config['LAST_RECORD_DATE']
-    year = lastRecordDate[0]
-    month = lastRecordDate[1]
-    monthFormat = str(month) + '-' + str(year)
-    monthDict = getStatistics(offNum, monthFormat)
+def readStatistics(offNum, monthFormat):
+    monthDict = getDriverMonthStatistics(offNum, monthFormat)
     monthlyHoursFundDict = getMonthlyHoursFund(monthFormat)
     statisticsData = []
 

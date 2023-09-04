@@ -11,6 +11,6 @@ class CalendarDialog(MDDialog):
         calendarWidget = CalendarWidget(calendarInfo) 
         super(CalendarDialog, self).__init__(title = 'Kalendar',
                                              type = 'custom',
-                                             size_hint = (0.8, None),
+                                             size_hint = (0.9, None),
                                              content_cls = calendarWidget)
 

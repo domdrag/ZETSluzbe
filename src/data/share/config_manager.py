@@ -29,3 +29,8 @@ def setConfig(configName, configValue):
     CURRENT_CONFIG[configName] = configValue
     with open(CONFIG_FILE_PATH, 'w') as configFile:
         json.dump(CURRENT_CONFIG, configFile, indent = 3)
+
+def setNewConfiguration(mondayDateList, missingServices, servicesHash):
+    setConfig('LAST_RECORD_DATE', mondayDateList)
+    setConfig('MISSING_SERVICES', missingServices)
+    setConfig('SERVICES_HASH', servicesHash)

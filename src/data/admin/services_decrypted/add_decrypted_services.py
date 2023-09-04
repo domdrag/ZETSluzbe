@@ -2,7 +2,7 @@ import ast
 
 from src.data.admin.utils.get_service_layout import getServiceLayoutAndUpdateStats
 from src.data.admin.utils.get_service_line import getServiceLine
-from src.data.admin.utils.statistics_manager import setStatistics
+from src.data.admin.utils.statistics_admin import setStatistics
 from src.data.admin.utils.count_previously_added_services import countPreviouslyAddedServices
 from src.data.share.config_manager import getConfig
 

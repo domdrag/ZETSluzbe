@@ -1,9 +1,8 @@
 from datetime import date
 
 from src.data.user.utils.user_collect_phase import UserCollectPhase
+from src.data.share.dropbox_synchronizer import DropboxSynchronizer
 
-from src.data.share.dropbox_share import (isDropboxSynchronizationNeeded,
-                                          dropbboxSynchronization)
 from src.data.share.get_warning_message_info import (
     getWarningMessageInfo
     )
@@ -29,8 +28,9 @@ class UserDataCollector:
             if self.phase == cp.DROPBOX_SYNCHRONIZATION:
                 TRACE('DROPBOX_SYNCHRONIZATION')
                 setConfig('UPDATE_SUCCESSFUL', 0)
-                if isDropboxSynchronizationNeeded():
-                    dropbboxSynchronization()
+                dropboxSynchronizer = DropboxSynchronizer()
+                if dropboxSynchronizer.isDropboxSynchronizationNeeded():
+                    dropboxSynchronizer.dropbboxSynchronization()
                     returnMessage['message'] = 'Stvaranje sigurnosne kopije'
                 else:
                     setConfig('UPDATE_SUCCESSFUL', 1)

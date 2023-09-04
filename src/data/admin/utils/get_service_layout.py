@@ -1,8 +1,10 @@
 import re
 from decimal import Decimal
 
-from src.data.admin.utils.statistics_manager import updateStatistics, updateStatisticsVac
+from src.data.admin.utils.statistics_admin import updateStatistics, updateStatisticsVac
 from src.data.share.get_holidays import getHolidays
+
+RELEASE_POINT_DICTIONARY = {}
 
 def isAlphaWithSpaces(x):
     if(x == ''):
@@ -66,7 +68,7 @@ def getServiceLayout(serviceLine, serviceNum, days, day, offNum = None):
     receptionTime = serviceLine[serviceStartIndex+3]
     releaseTime = serviceLine[serviceStartIndex+4]
 
-    if('\n' in receptionTime): # dvokratne
+    if ('\n' in receptionTime): # dvokratne
         startingTimes = re.split('\n| ', receptionTime)
         startingTimes = list(filter(('').__ne__, startingTimes))
         if(len(startingTimes[0]) == 1):
@@ -86,12 +88,13 @@ def getServiceLayout(serviceLine, serviceNum, days, day, offNum = None):
         receptionPoint = startingPlaces[0]
         releasePoint = startingPlaces[1]
 
-    elif(driveOrder == ''): # pricuva
+    elif (driveOrder == ''): # pricuva
         driveOrder = 'PRIČUVA'
         releasePoint = receptionPoint
         
     else:
-        releasePoint = 'PTD/PTT'
+        #releasePoint = 'PTD/PTT'
+        releasePoint = serviceLine[2]
         for element in serviceLine[serviceStartIndex+3:]:
             if(isAlphaWithSpaces(element)):
                 releasePoint = element.replace('\n',' ')

@@ -1,7 +1,7 @@
 import json
 from decimal import Decimal
 
-from src.data.share.get_empty_statistics_month_dict import getEmptyStatisticsMonthDict
+from src.data.share.statistics_manager import getEmptyStatisticsMonthDict
 
 STATISTICS = dict()
 
