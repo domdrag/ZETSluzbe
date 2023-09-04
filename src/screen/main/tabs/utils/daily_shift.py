@@ -1,6 +1,6 @@
 from kivy.uix.boxlayout import BoxLayout
 
-from src.screen.main.tabs.utils.call_info_dialog import CallInfoDialog
+from src.screen.main.dialogs.call_info_dialog import CallInfoDialog
 from src.share.trace import TRACE
 
 class DailyShift(BoxLayout):

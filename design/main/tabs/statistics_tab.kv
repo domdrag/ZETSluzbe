@@ -4,9 +4,20 @@
 	name: 'statisticsTab'
 	statisticsTabRecycleView: statisticsTabRecycleViewId
 	title: 'Statistika'
+	currentMonthFormat: ''
 	
-    MainRecycleView:
-        viewclass: 'StatisticComponent'
-        id: statisticsTabRecycleViewId
+	MDBoxLayout:
+		md_bg_color: app.theme_cls.primary_dark
+		orientation: 'vertical'
+	
+		StatisticsDropDown:
+			id: statisticsDropDownId
+			pos_hint: {'center_x': .5, 'center_y': .5}
+			text: root.currentMonthFormat
+			on_release: root.statisticsDropDown()
+		
+		MainRecycleView:
+			viewclass: 'StatisticComponent'
+			id: statisticsTabRecycleViewId
 
     

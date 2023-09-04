@@ -1,6 +1,7 @@
 from datetime import date
 
 from src.data.admin.utils.admin_collect_phase import AdminCollectPhase
+from src.data.share.dropbox_synchronizer import DropboxSynchronizer
 
 from src.data.admin.services_decrypted.add_decrypted_services import (
     addDecryptedServices
@@ -13,7 +14,6 @@ from src.data.admin.utils.delete_necessary_data import (
     )
 from src.data.admin.utils.search_links import searchLinks  
 from src.data.admin.utils.configure_days import configureDays
-from src.data.share.set_new_config import setNewConfig
 from src.data.admin.rules.extract_rules_by_driver import (
     extractRulesByDriver
     )
@@ -23,20 +23,19 @@ from src.data.admin.utils.upload_data_to_dropbox import (
     )
 from src.data.admin.utils.configure_missing_services import configureMissingServices
 from src.data.admin.utils.check_update_neeeded import checkUpdateNeeded
-from src.data.share.dropbox_share import (isDropboxSynchronizationNeeded,
-                                          dropbboxSynchronization)
+from src.data.admin.utils.restore_warnings import restoreWarnings
 from src.data.share.get_warning_message_info import (
     getWarningMessageInfo
     )
 from src.data.share.repair_all_files import repairAllFiles
 from src.share.trace import TRACE
-from src.data.share.config_manager import setConfig
+from src.data.share.config_manager import setConfig, setNewConfiguration
 from src.data.share.update_backup_dir import updateBackupDir
 
 cp = AdminCollectPhase
 
 class AdminDataCollector:
-    phase = cp.DROPBOX_SYNCHRONIZATION
+    phase = cp(0)
     days = []
     workDayLinks = ''
     saturdayLinks = ''
@@ -61,10 +60,11 @@ class AdminDataCollector:
             if self.phase == cp.DROPBOX_SYNCHRONIZATION:
                 TRACE('[CP] DROPBOX_SYNCHRONIZATION')
                 setConfig('UPDATE_SUCCESSFUL', 0)
-                if isDropboxSynchronizationNeeded():
+                dropboxSynchronizer = DropboxSynchronizer()
+                if dropboxSynchronizer.isDropboxSynchronizationNeeded():
                     TRACE('PERFORMING_DROPBOX_SYNCHRONIZATION')
                     self.synchronizationNeeded = True
-                    dropbboxSynchronization()
+                    dropboxSynchronizer.dropbboxSynchronization()
                     TRACE('DROPBOX_SYNCHRONIZATION_DONE')
                 returnMessage['message'] = 'Trazenje linkova'
                 
@@ -111,10 +111,7 @@ class AdminDataCollector:
                         self.phase = cp.UPLOAD_DATA_TO_DROPBOX 
                         returnMessage['message'] = 'Stvaranje sigurnosne kopije'
                     else:
-                        # quick fix
-                        import shutil
-                        shutil.copyfile('data/backup/data/warnings.txt',
-                                        'data/data/warnings.txt')
+                        restoreWarnings()
                         setConfig('UPDATE_SUCCESSFUL', 1)
                         returnMessage['finished'] = True
                 else:
@@ -163,7 +160,7 @@ class AdminDataCollector:
                 mondayDateList = [self.mondayDate.year,
                                   self.mondayDate.month,
                                   self.mondayDate.day]
-                setNewConfig(mondayDateList, self.missingServices, self.servicesHash)
+                setNewConfiguration(mondayDateList, self.missingServices, self.servicesHash)
                 returnMessage['message'] = 'Ucitavanje sluzbi na Internet'
 
             elif self.phase == cp.UPLOAD_DATA_TO_DROPBOX:
@@ -194,8 +191,6 @@ class AdminDataCollector:
                     'errorMessage': str(e)}
 
         self.phase = cp(self.phase.value + 1)
-        if self.phase == cp.END:
-            self.phase = cp.SEARCH_LINKS
         return returnMessage
 
 

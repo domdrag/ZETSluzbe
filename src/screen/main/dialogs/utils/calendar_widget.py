@@ -19,7 +19,7 @@ from kivy.uix.label import Label
 from kivymd.uix.gridlayout import MDGridLayout
 from kivy.uix.widget import Widget
 
-from src.screen.main.dialogs.utils.service_dialog import ServiceDialog
+from src.screen.main.dialogs.service_dialog import ServiceDialog
 
 from src.screen.main.dialogs.utils.calendar_data import (get_month_names,
                                                          get_month_names_eng,

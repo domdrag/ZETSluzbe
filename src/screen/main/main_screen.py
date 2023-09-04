@@ -11,13 +11,12 @@ from src.screen.main.dialogs.calendar_dialog import CalendarDialog
 from src.screen.main.dialogs.notifications_dialog import NotificationsDialog
 from src.screen.main.dialogs.links_dialog import LinksDialog
 
-from src.data.share.read_services import readServices
-from src.data.share.read_shifts import readShifts
-from src.data.share.read_statistics import readStatistics
 from src.data.share.design_manager import (updateFontSize,
                                            updateGridHeight)
 from src.data.share.read_notifications import readNotifications
 from src.data.share.read_links import readLinks
+from src.data.share.get_current_month_format import getCurrentMonthFormat
+from src.share.trace import TRACE
 
 MAIN_SCREEN_GRID_HEIGHT_DELTA = 12
 MAIN_SCREEN_FONT_SIZE_RATIO = 15
@@ -34,27 +33,10 @@ class MainScreen(Screen):
         self.lockSwitch = False
 
     def setup(self, offNum):
-        servicesData = readServices(offNum)
-        shiftsData = readShifts(offNum)
-        statisticsData = readStatistics(offNum)
-        if (servicesData and shiftsData and statisticsData):
-            self.offNum = offNum
-            self.servicesTab.servicesTabRecycleView.data = servicesData
-            self.shiftsTab.shiftsTabRecycleView.data = shiftsData
-            self.statisticsTab.statisticsTabRecycleView.data = statisticsData
-            return
-
-        if (servicesData == None and shiftsData == None and statisticsData):
-            errorMessage = 'Sluzbeni broj ne postoji!'
-        elif (servicesData == [] and shiftsData == []):
-            errorMessage = 'Nema aktualnih sluzbi. Probajte azurirati sluzbe.'
-        else:
-            errorMessage = 'Greska u sustavu. Kontaktirati administratora.'
-        raise Exception(errorMessage)
-
-
-    def setOffNum(self, offNum):
         self.offNum = offNum
+        self.servicesTab.setup(offNum)
+        self.shiftsTab.setup(offNum)
+        self.statisticsTab.setup(offNum)
 
     def calendarButton(self):
         calendarDialog = CalendarDialog(self.offNum)

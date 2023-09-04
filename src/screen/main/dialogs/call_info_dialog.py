@@ -6,7 +6,7 @@ from kivymd.uix.button import MDRaisedButton
 from jnius import autoclass
 from jnius import cast
 
-from src.screen.main.tabs.utils.call_info_widget import CallInfoWidget
+from src.screen.main.dialogs.utils.call_info_widget import CallInfoWidget
 
 from src.data.share.design_manager import (getSecondaryColor,
                                           getWhiteColor)
@@ -14,7 +14,8 @@ from src.data.share.design_manager import (getSecondaryColor,
 class CallInfoDialog(MDDialog):
     def __init__(self, driverInfo):
         if('\n' not in driverInfo):
-            raise Exception('Nema telefonskog broja u bazi')     
+            raise Exception('Nema telefonskog broja u bazi')
+        self.show_duration = 0
         driverInfoList = driverInfo.split('\n')
         self.name = driverInfoList[0]
         self.phoneNumber = driverInfoList[1]
