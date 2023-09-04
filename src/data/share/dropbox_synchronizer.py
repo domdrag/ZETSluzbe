@@ -39,13 +39,16 @@ class DropboxSynchronizer:
                             self.onlineMissingServices,
                             self.onlineServicesHash)
         downloadDropboxFile('data.zip')
+        removeExistingData()
         decompressData()
 
 ###########################################################################################
 ###########################################################################################
 
-def decompressData():
-    shutil.unpack_archive('data/dropbox/data.zip', 'data/data')
+def removeExistingData():
+    # remove complete directory
+    shutil.rmtree('data/data')
+
 def downloadDropboxFile(file):
     dbx = dropbox.Dropbox(app_key='9x72f19ngmg8mqo',
                           app_secret='msb8pniq2h76ym3',
@@ -59,6 +62,9 @@ def downloadDropboxFile(file):
             downloadComplete = True
         except:
             pass
+
+def decompressData():
+    shutil.unpack_archive('data/dropbox/data.zip', 'data/data')
 
 def getOnlineConfig():
     with open('data/dropbox/config.json', 'r') as configFile:

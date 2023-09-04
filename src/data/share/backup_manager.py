@@ -1,10 +1,22 @@
+import shutil
 import sys
 from distutils.dir_util import copy_tree
 
 import src.data.share.config_manager as configManager
 import src.share.trace as trace
 
-# Can update files produce some garbage which won't be removed by repair?
+def updateBackupConfig():
+    shutil.copyfile('data/config.json', 'data/backup/config.json')
+
+def removeExistingBackupData():
+    # remove complete directory
+    shutil.rmtree('data/backup/data')
+
+def updateBackupDir():
+    updateBackupConfig()
+    removeExistingBackupData()
+    copy_tree('data/data', 'data/backup/data')
+
 def repairAllFiles():
     trace.TRACE('REPAIRING DATA AND CONFIG')
     try:

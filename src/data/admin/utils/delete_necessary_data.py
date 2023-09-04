@@ -1,31 +1,14 @@
 import os
 
-def deleteExceeded(directory):
-    files = os.listdir('data/data/' + directory)
-    if(directory == 'all_services_by_driver_decrypted'):
-        maxExceed = 7
-    else:
-        maxExceed = 21
-
+def deleteNecessaryData():
+    files = os.listdir('data/data')
     for file in files:
-        if(file == '000keep.txt'): # gitHub ne dozvoljava prazan folder
-            continue
-        fileName = 'data/data/' + directory + '/' + file
-        fileR = open(fileName, 'r', encoding='utf-8')
-        lines = fileR.readlines()
-        fileR.close()
+        # need to delete these files so we don't end up with garbage files
+        # should be equivalent to the older function
+        if 'rules' in file:
+            os.remove('data/data/' + file)
 
-        if(len(lines) <= maxExceed):
-            continue
-
-        fileW = open(fileName, 'w', encoding='utf-8')
-        for i in range(len(lines)):
-            if(len(lines) - i > maxExceed):
-                pass
-            else:
-                fileW.write(lines[i])
-        fileW.close()
-        
+'''
 def deleteNecessaryData():
     files = os.listdir('data/data')
     for file in files:
@@ -54,6 +37,4 @@ def deleteNecessaryData():
         #############################################
         else:
             os.remove('data/data/' + file)
-
-    #deleteExceeded('all_services_by_driver_decrypted')
-    #deleteExceeded('all_shifts_by_driver_decrypted')
+'''

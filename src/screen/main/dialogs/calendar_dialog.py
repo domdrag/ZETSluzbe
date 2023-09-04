@@ -6,7 +6,7 @@ from src.data.share.get_calendar_info import getCalendarInfo
 
 class CalendarDialog(MDDialog):
     def __init__(self, offNum):
-        #self.show_duration = 0 # remove animation
+        self.show_duration = 0 # remove animation
         calendarInfo = getCalendarInfo(offNum)
         calendarWidget = CalendarWidget(calendarInfo) 
         super(CalendarDialog, self).__init__(title = 'Kalendar',

@@ -2,7 +2,7 @@ import os
 import logging
 
 from src.data.share.config_manager import getConfig
-from src.data.share.update_backup_dir import updateBackupConfig
+from src.data.share.backup_manager import updateBackupConfig
 from src.share.trace import TRACE
 
 def environmentSetup():
