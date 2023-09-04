@@ -15,7 +15,7 @@ class CallInfoDialog(MDDialog):
     def __init__(self, driverInfo):
         if('\n' not in driverInfo):
             raise Exception('Nema telefonskog broja u bazi')
-        #self.show_duration = 0
+        self.show_duration = 0
         driverInfoList = driverInfo.split('\n')
         self.name = driverInfoList[0]
         self.phoneNumber = driverInfoList[1]

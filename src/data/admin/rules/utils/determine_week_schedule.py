@@ -17,13 +17,13 @@ def charsRepresentDays(chars, idx):
         return False
 
 def addHolidays(firstStageHolidayList):
-    fileW = open('data/data/holidays.txt', 'a', encoding='utf-8')
+    fileA = open('data/data/holidays.txt', 'a', encoding='utf-8')
     for holiday in firstStageHolidayList:
         year = holiday.year
         month = holiday.month
         day = holiday.day
-        fileW.write(f"{[year, month, day]}\n")
-    fileW.close()
+        fileA.write(f"{[year, month, day]}\n")
+    fileA.close()
 
 def determineWeekSchedule(page, weekSchedule, mondayDate):
     # pdlplumber se gubi kada rect nije obojan u smislu

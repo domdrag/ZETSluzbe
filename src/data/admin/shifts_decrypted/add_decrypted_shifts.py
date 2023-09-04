@@ -74,7 +74,7 @@ def addDecryptedShifts(days,
     weekServicesALL = fileR.readlines()
     fileR.close()
 
-    fileR = open('data/data/all_drivers.txt', 'r', encoding='utf-8')
+    fileR = open('data/all_drivers.txt', 'r', encoding='utf-8')
     driversRaw = fileR.readlines()
     fileR.close()
     driverList = []

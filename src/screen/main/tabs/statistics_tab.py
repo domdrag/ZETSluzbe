@@ -9,6 +9,7 @@ from src.screen.main.tabs.utils.statistic_component import StatisticComponent
 from src.data.share.read_statistics import readStatistics
 from src.data.share.statistics_manager import getDriverStatistics
 from src.data.share.get_current_month_format import getCurrentMonthFormat
+from src.data.share.design_manager import getPrimaryColor
 
 class StatisticsTab(MDFloatLayout, MDTabsBase):
     statisticsTabRecycleView = ObjectProperty(None)  # left for clarity
@@ -39,10 +40,12 @@ class StatisticsTab(MDFloatLayout, MDTabsBase):
                                     'on_release': lambda arg = monthFormat: self.changeMonth(arg)})
         self.monthsMenu = MDDropdownMenu(caller = self.ids.statisticsDropDownId,
                                          items = monthsMenuItems,
+                                         background_color = getPrimaryColor(),
+                                         #md_bg_color = getPrimaryColor(), # latest 1.2.0
                                          position = 'bottom',
                                          ver_growth = 'down',
                                          hor_growth = 'right',
-                                         width_mult = 4)
+                                         width_mult = 2)
         self.monthsMenu.open()
 
     def changeMonth(self, monthFormat):

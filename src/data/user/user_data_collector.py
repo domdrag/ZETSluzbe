@@ -6,8 +6,7 @@ from src.data.share.dropbox_synchronizer import DropboxSynchronizer
 from src.data.share.get_warning_message_info import (
     getWarningMessageInfo
     )
-from src.data.share.update_backup_dir import updateBackupDir
-from src.data.share.repair_all_files import repairAllFiles
+from src.data.share.backup_manager import updateBackupDir, repairAllFiles
 from src.share.trace import TRACE
 from src.data.share.config_manager import setConfig
 

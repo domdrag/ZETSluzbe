@@ -27,10 +27,9 @@ from src.data.admin.utils.restore_warnings import restoreWarnings
 from src.data.share.get_warning_message_info import (
     getWarningMessageInfo
     )
-from src.data.share.repair_all_files import repairAllFiles
+from src.data.share.backup_manager import repairAllFiles, updateBackupDir
 from src.share.trace import TRACE
 from src.data.share.config_manager import setConfig, setNewConfiguration
-from src.data.share.update_backup_dir import updateBackupDir
 
 cp = AdminCollectPhase
 

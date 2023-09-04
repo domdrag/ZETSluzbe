@@ -1,6 +1,6 @@
 import json
 
-from src.data.share.repair_all_files import repairAllFiles
+from src.data.share.backup_manager import repairAllFiles
 import src.share.trace as trace
 
 CONFIG_FILE_PATH = 'data/config.json'
