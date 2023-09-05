@@ -1,0 +1,12 @@
+#:include design/login/login_screen_design.kv
+
+<OffNumWidget>:
+    height: dp(100)  # WORKAROUND, content doesn't show well unless height is fixed
+    size_hint_y: None
+	currentOffNum: ''
+	offNumChangeTextFieldObj: offNumChangeTextFieldId
+
+	LoginScreenTextField:
+		id: offNumChangeTextFieldId
+		focus: True
+		text: root.currentOffNum

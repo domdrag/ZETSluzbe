@@ -41,10 +41,10 @@ class CallInfoDialog(MDDialog):
         callInfoWidget = CallInfoWidget(self.name,
                                         self.phoneNumber)
         super(CallInfoDialog, self).__init__(title = 'Kolega',
-                                            type = 'custom',
-                                            size_hint = (0.8, None),
-                                            content_cls = callInfoWidget,
-                                            buttons = buttons)
+                                             type = 'custom',
+                                             size_hint = (0.8, None),
+                                             content_cls = callInfoWidget,
+                                             buttons = buttons)
             
     def callNumber(self, button):
         Intent = autoclass('android.content.Intent')        
