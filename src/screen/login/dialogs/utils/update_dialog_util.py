@@ -1,6 +1,6 @@
 import threading
 
-from src.screen.login.utils.dots_timer import DotsTimer
+from src.screen.login.dialogs.utils.dots_timer import DotsTimer
 
 def addDots(updateDialog):
     if('...' in updateDialog.text):

@@ -1,4 +1,5 @@
 #:include design/login/login_screen_design.kv
+#:include design/login/dialogs/off_num_dialog.kv
 
 <LoginScreen>:
 	name: 'loginScreen'
@@ -20,6 +21,11 @@
 			pos_hint: {"x": 0.3, "top": 0.8}
 			size_hint_x: 0.4
             text: root.offNum
+
+		MDIconButton:
+			icon: 'pencil-outline'
+			pos_hint: {"x": 0.7, "top": 0.78}
+			on_release: root.changeDefaultOffNum()
 			
 		LoginScreenLabel:
 			id: warningMessageLabelId

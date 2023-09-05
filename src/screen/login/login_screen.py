@@ -7,15 +7,14 @@ from kivy.properties import (ObjectProperty,
 
 from src.data.admin.admin_data_collector import AdminDataCollector
 from src.data.user.user_data_collector import UserDataCollector
-from src.screen.login.utils.update_dialog import UpdateDialog
+from src.screen.login.dialogs.update_dialog import UpdateDialog
+from src.screen.login.dialogs.off_num_dialog import OffNumDialog
+
 
 from src.data.share.get_warning_message_info import (
     getWarningMessageInfo
     )
-from src.screen.login.utils.update_dialog_util import showDialog
-from src.data.user.update_required_date_check import (
-    updateRequiredDateCheck
-    )
+from src.screen.login.dialogs.utils.update_dialog_util import showDialog
 from src.data.share.config_manager import getConfig
 from src.data.share.design_manager import updateFontSize
 from src.share.trace import TRACE
@@ -26,7 +25,7 @@ class LoginScreen(Screen):
     updateButtonObj = ObjectProperty(None) # object in kv
     warningMessage = StringProperty() # binding
     warningMessageColor = ColorProperty() # binding
-    offNum = StringProperty()# binding
+    offNum = StringProperty() # binding
     updateDone = BooleanProperty(False)
     
     
@@ -48,6 +47,14 @@ class LoginScreen(Screen):
         warningMessageInfo = getWarningMessageInfo()
         self.warningMessage = warningMessageInfo['message']
         self.warningMessageColor = warningMessageInfo['color']
+
+    def changeDefaultOffNum(self):
+        currentOffNum = self.offNumTextFieldObj.text
+        offNumDialog = OffNumDialog(currentOffNum, self)
+        offNumDialog.open()
+
+    def changeCurrentOffNum(self, newOffNum):
+        self.offNumTextFieldObj.text = newOffNum
 
     def loginButton(self):
         offNum = self.offNumTextFieldObj.text

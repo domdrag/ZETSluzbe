@@ -1,6 +1,7 @@
 from kivymd.uix.dialog import MDDialog
 
 from src.screen.main.dialogs.utils.calendar_widget import CalendarWidget
+from src.screen.main.dialogs.service_dialog import ServiceDialog
 
 from src.data.share.get_calendar_info import getCalendarInfo
 
@@ -14,3 +15,6 @@ class CalendarDialog(MDDialog):
                                              size_hint = (0.9, None),
                                              content_cls = calendarWidget)
 
+    def openServiceDialog(self, serviceFullDay, service, bgColor):
+        serviceDialog = ServiceDialog(serviceFullDay, service, bgColor)
+        serviceDialog.open()
