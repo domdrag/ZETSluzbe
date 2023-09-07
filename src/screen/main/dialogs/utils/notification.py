@@ -1,5 +1,5 @@
 import webbrowser
-import fitz
+#import fitz
 import requests
 
 from kivymd.uix.boxlayout import MDBoxLayout
