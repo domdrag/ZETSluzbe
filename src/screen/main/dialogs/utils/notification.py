@@ -16,6 +16,7 @@ from kivymd.uix.swiper import MDSwiper, MDSwiperItem
 from kivymd.uix.fitimage import FitImage
 from kivy.core.window import Window
 from kivy.uix.widget import Widget
+import pdfplumber
 
 from src.share.trace import TRACE
 
@@ -56,7 +57,7 @@ class Notification(MDBoxLayout):
         #import os
         #shutil.rmtree('data/temp')
         #os.mkdir('data/temp')
-
+        '''
         notificationPDF = downloadPDFFile(notificationLink, 'notification.pdf')
         dpi = 300  # choose desired dpi here
         zoom = dpi / 72  # zoom factor, standard: 72 dpi
@@ -69,6 +70,16 @@ class Notification(MDBoxLayout):
             pix.save(path)
             picList.append(path)
             #pix.save('data/temp/notification.jpg')
+        '''
+
+        notificationPDF = downloadPDFFile(notificationLink, 'notification.pdf')
+        picList = []
+        pdf = pdfplumber.open(notificationPDF)
+        for page in pdf.pages:
+            path = f'data/temp/page-{page.page_number}.png'
+            im = page.to_image(resolution=300)
+            im.save(path)
+            picList.append(path)
 
         #image = AsyncImage(source = 'data/temp/notification.jpg')
         #scatter.add_widget(image)
