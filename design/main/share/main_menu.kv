@@ -1,63 +1,38 @@
+#:include design/main/main_screen_design.kv
 
-<DrawerClickableItem@MDNavigationDrawerItem>
-    focus_color: "#e7e4c0"
-    text_color: "#4a4939"
-    icon_color: "#4a4939"
-    ripple_color: "#c5bdd2"
-    selected_color: "#0c6c4d"
-
-
-<DrawerLabelItem@MDNavigationDrawerItem>
-    text_color: "#4a4939"
-    icon_color: "#4a4939"
-    focus_behavior: False
-    selected_color: "#4a4939"
-    _no_ripple_effect: True
-
-<MainMenu>:
-	MDNavigationDrawer:
-		id: nav_drawer
-		anchor: 'right'
-		radius: (16,0,0,16)
-		size_hint_x: 0.5
+<MainMenu@MDNavigationLayout>:
+	anchor: 'right'
+	radius: (16, 0, 0, 16)
+	size_hint_x: 0.7
+	md_bg_color: app.theme_cls.primary_dark
+	
+	MDNavigationDrawerMenu:
+		do_scroll_y: False
+		do_scroll_x: False
 		
-		MDNavigationDrawerMenu:
-			MDNavigationDrawerHeader:
-				title: ''
-				title_color: "#4a4939"
-				text: "Izbornik"
-				spacing: "4dp"
-				padding: "12dp", 0, 0, "56dp"
-				
-			DrawerClickableItem:
-				icon: 'message'
-				text_right_color: "#4a4939"
-				text: 'Obavijesti'
-				on_release: root.notificationsButton()
-				
-			DrawerClickableItem:
-				icon: 'calendar'
-				text_right_color: "#4a4939"
-				text: 'Kalendar'
-				on_release: root.calendarButton()
-				
-			DrawerClickableItem:
-				icon: "link"
-				text_right_color: "#4a4939"
-				text: "Linkovi"
-				on_release: root.linksButton()
-				
-			DrawerClickableItem:
-				icon: "link"
-				text_right_color: "#4a4939"
-				text: "Font"
-				on_release: 
-					mainScreenSliderId.disabled = not mainScreenSliderId.disabled
-
-			MDNavigationDrawerDivider:
+		MenuHeader:
+			text: 'Izbornik'
+		
+		MDNavigationDrawerDivider:
 			
-			DrawerClickableItem:
-				icon: 'logout'
-				text_right_color: "#4a4939"
-				text: 'Odjavi se'
-				on_release: root.logoutButton()
+		MenuItem:
+			icon: 'bell-outline'
+			text: 'Obavijesti'
+			on_release: root.notificationsButton()
+			
+		MenuItem:
+			icon: 'calendar'
+			text: 'Kalendar'
+			on_release: root.calendarButton()
+			
+		MenuItem:
+			icon: "link"
+			text: "Linkovi"
+			on_release: root.linksButton()
+
+		MDNavigationDrawerDivider:
+		
+		MenuItem:
+			icon: 'logout'
+			text: 'Odjavi se'
+			on_release: root.logoutButton()
