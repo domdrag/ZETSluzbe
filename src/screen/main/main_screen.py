@@ -10,6 +10,7 @@ from src.screen.main.tabs.statistics_tab import StatisticsTab
 from src.screen.main.dialogs.calendar_dialog import CalendarDialog
 from src.screen.main.dialogs.notifications_dialog import NotificationsDialog
 from src.screen.main.dialogs.links_dialog import LinksDialog
+from src.screen.main.share.main_menu import MainMenu
 
 from src.data.share.design_manager import (updateFontSize,
                                            updateGridHeight)
@@ -26,6 +27,7 @@ class MainScreen(Screen):
     servicesTab = ObjectProperty() # left for clarity
     shiftsTab = ObjectProperty() # left for clarity
     statisticsTab = ObjectProperty() # left for clarity
+    mainMenu = ObjectProperty # left for clarity
     
     def __init__(self, **kwargs):
         super(MainScreen, self).__init__(**kwargs)
@@ -37,6 +39,9 @@ class MainScreen(Screen):
         self.servicesTab.setup(offNum)
         self.shiftsTab.setup(offNum)
         self.statisticsTab.setup(offNum)
+
+    def getOffNum(self):
+        return self.offNum
 
     def calendarButton(self):
         calendarDialog = CalendarDialog(self.offNum)
@@ -52,7 +57,7 @@ class MainScreen(Screen):
         linksDialog = LinksDialog(linksData)
         linksDialog.open()
     
-    def logoutButton(self):
+    def logout(self):
         self.manager.switchToLoginScreen()
 
     def increaseGridHeight(self):

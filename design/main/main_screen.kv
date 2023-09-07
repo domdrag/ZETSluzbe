@@ -11,6 +11,7 @@
 	servicesTab: servicesTabId
 	shiftsTab: shiftsTabId
 	statisticsTab: statisticsTabId
+	mainMenu: mainMenuId
 
 	MDBoxLayout:
 		orientation: 'vertical'
@@ -21,12 +22,8 @@
 			anchor_title: 'left'
 			
 			MDIconButton:
-				icon: 'calendar'
-				on_release: root.calendarButton()
-				
-			MDIconButton:
-				icon: 'logout'
-				on_release: root.logoutButton()
+				icon: 'menu'
+				on_release: mainMenuId.set_state('open')
 		
 		MDTabs:
 			tab_hint_x: True
@@ -48,6 +45,10 @@
 	MDIconButton:
 		icon: 'minus-box-outline'
 		on_release: root.decreaseGridHeight()
+		
+	MainMenu:
+		id: mainMenuId
+	
 	
 	
 	

@@ -7,4 +7,5 @@ class Link(MDBoxLayout):
         super(Link, self).__init__(*args, **kwargs)
 
     def openLink(self, linkURL):
-        webbrowser.open(linkURL)
+        loginPhrase = '&a=login&pojam=zetovci'
+        webbrowser.open(linkURL + loginPhrase)

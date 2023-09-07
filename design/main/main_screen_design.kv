@@ -5,6 +5,10 @@
 		Line:
 			width: 1
 			rectangle: self.x, self.y, self.width, self.height
+			
+<MoinLay@RelativeLayout+MainCanvasAfter>
+<MoinSwip@MDSwiper+MainCanvasAfter>
+<MoinScatt@ScatterLayout+MainCanvasAfter>
 
 <MainScreenDesign@Widget>
 	halign: 'center'
@@ -24,14 +28,14 @@
 
 <MainLabelWithBorder@MDLabel+MainScreenDesign+MainCanvasAfter>
 
-# statistics
+# Statistics
 <StatisticsDropDown@MDDropDownItem+MainScreenDesign>
 
-# shifts
+# Shifts
 <CallInfoButton@MDTextButton+MainScreenDesign+MainCanvasAfter>
 <CallInfoLabel@MDLabel+MainScreenDesign>
 
-# calendar
+# Calendar
 <CalendarDayButton@Button+MainScreenDesign+MainCanvasAfter>
     background_normal: ''
 
@@ -42,4 +46,10 @@
     cols: 7
     rows: 6
 	size_hint: 1, 0.75
-
+	
+# Menu
+<MenuItem@MDNavigationDrawerItem+MainScreenDesign>
+	selected_color: 'white'
+	
+<MenuHeader@MDNavigationDrawerHeader+MainScreenDesign>
+	padding: '12dp', 0, 0, '56dp'
