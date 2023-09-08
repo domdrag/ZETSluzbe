@@ -35,6 +35,7 @@ class CallInfoDialog(MDDialog):
                 theme_text_color = 'Custom',
                 md_bg_color = getSecondaryColor(),
                 text_color = getWhiteColor(),
+                on_release = self.callNumber,
                 font_size = app.mainScreenFontSize
             )]
 
