@@ -98,8 +98,8 @@ class Notification(MDBoxLayout):
         #self.add_widget(scatter)
         size = Window.size
         mdSwiper = MDSwiper()
-        mv = ModalView(size_hint_x = None,
-                       width = size[0],
+        mv = ModalView(size_hint_y = None,
+                       height = size[1] * 0.5,
                        background = '',
                        background_color = [0,0,0,0])
         for picPath in picList:
@@ -108,10 +108,9 @@ class Notification(MDBoxLayout):
             #                         do_rotation=False)
             from functools import partial
             im = MyImage(source = picPath,
-                                        allow_stretch= True,
-                                        keep_ratio= True,
-                                        on_release = partial(self.showPic,
-                                                       picPath))
+                        allow_stretch= True,
+                        keep_ratio= True,
+                        on_release = partial(self.showPic,picPath))
             mdSwiper.add_widget(MDSwiperItem(im))
 
         mv.add_widget(mdSwiper)
