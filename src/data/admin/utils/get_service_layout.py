@@ -93,8 +93,11 @@ def getServiceLayout(serviceLine, serviceNum, days, day, offNum = None):
         releasePoint = receptionPoint
         
     else:
-        #releasePoint = 'PTD/PTT'
         releasePoint = serviceLine[2]
+        if (releasePoint):
+            # makni sve poslije znaka '\n' ako je dvokratna
+            releasePoint = releasePoint.split()[0]
+
         for element in serviceLine[serviceStartIndex+3:]:
             if(isAlphaWithSpaces(element)):
                 releasePoint = element.replace('\n',' ')

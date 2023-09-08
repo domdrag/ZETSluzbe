@@ -32,7 +32,7 @@ def checkUpdateNeeded(mondayDate, missingServices, servicesHash, synchronization
                           lastRecordDateConfig[2])
 
     if (mondayDate != lastRecordDate):
-        TRACE('MONDAY_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED')
+        TRACE('MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED')
         return {'updateNeeded': True, 'updateCause': 'DATES_DIFFERENCE'}
 
     oldMissingServices = config['MISSING_SERVICES']
