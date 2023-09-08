@@ -3,7 +3,7 @@ import webbrowser
 import requests
 
 from kivymd.uix.boxlayout import MDBoxLayout
-from kivy.uix.scatterlayout import ScatterLayout
+from kivy.uix.scatterlayout import ScatterLayout, Scatter
 from kivy.uix.image import AsyncImage
 from kivy.uix.relativelayout import RelativeLayout
 from kivymd.uix.floatlayout import MDFloatLayout
@@ -91,15 +91,16 @@ class Notification(MDBoxLayout):
         for picPath in picList:
             print(picPath)
             scatter1 = ScatterLayout(do_translation=False,
-                                do_rotation=False,)
+                                     do_rotation=False)
             # FitImage nisam skuzio kak namjestit cijeli pdf
-            scatter1.add_widget(AsyncImage(source = picPath))
-            mdSwiperItem = MDSwiperItem()
-            mdSwiperItem.add_widget(scatter1)
-            mdSwiper.add_widget(mdSwiperItem)
-            #mdSwiper.add_widget(MDSwiperItem(scatter1))
+            #scatter = Scatter()
+            scatter1.add_widget(AsyncImage(source = picPath,
+                                           size_hint = (1,1)))
+
+            #mdSwiper.add_widget(scatter1)
+            mdSwiper.add_widget(MDSwiperItem(scatter1))
 
         relativeLayout.add_widget(mdSwiper)
         MDDialog(content_cls = relativeLayout,
                           type='custom',
-                          size_hint=(0.7, 1)).open()
+                          size_hint=(0.9, 0.9)).open()
