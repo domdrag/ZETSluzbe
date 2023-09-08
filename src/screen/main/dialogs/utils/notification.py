@@ -17,6 +17,11 @@ from kivymd.uix.fitimage import FitImage
 from kivy.core.window import Window
 from kivy.uix.widget import Widget
 import pdfplumber
+from kivymd.uix.screen import MDScreen
+from kivy.uix.screenmanager import Screen
+from kivy.uix.modalview import ModalView
+from kivy.uix.behaviors import ButtonBehavior
+from kivy.uix.image import Image
 
 from src.share.trace import TRACE
 
@@ -47,6 +52,8 @@ class MoinSwip(MDSwiper, MainCanvasAfter):
 class MoinScatt(ScatterLayout, MainCanvasAfter):
     pass
 class MoinScat(Scatter, MainCanvasAfter):
+    pass
+class MyImage(ButtonBehavior, Image):
     pass
 
 class Notification(MDBoxLayout):
@@ -85,24 +92,42 @@ class Notification(MDBoxLayout):
 
         #image = AsyncImage(source = 'data/temp/notification.jpg')
         #scatter.add_widget(image)
-        relativeLayout = RelativeLayout(size_hint_y = None,
-                                        height = Window.size[1])
+        #relativeLayout = RelativeLayout(size_hint_y = None,
+        #                                height = Window.size[1])
         #relativeLayout.add_widget(scatter)
         #self.add_widget(scatter)
-        mdSwiper = MoinSwip()
+        size = Window.size
+        mdSwiper = MDSwiper()
+        mv = ModalView(size_hint_x = None,
+                       width = size[0],
+                       background = '',
+                       background_color = [0,0,0,0])
         for picPath in picList:
             print(picPath)
-            scatter1 = ScatterLayout(do_translation=False,
-                                     do_rotation=False)
-            # FitImage nisam skuzio kak namjestit cijeli pdf
-            scatter = MoinScat()
-            scatter1.add_widget(AsyncImage(source = picPath,
-                                           fit_mode = 'contain'))
+            #scatter1 = ScatterLayout(do_translation=False,
+            #                         do_rotation=False)
+            from functools import partial
+            im = MyImage(source = picPath,
+                                        allow_stretch= True,
+                                        keep_ratio= True,
+                                        on_release = partial(self.showPic,
+                                                       picPath))
+            mdSwiper.add_widget(MDSwiperItem(im))
 
-            #mdSwiper.add_widget(scatter1)
-            mdSwiper.add_widget(MDSwiperItem(scatter1))
+        mv.add_widget(mdSwiper)
+        mv.open()
 
-        relativeLayout.add_widget(mdSwiper)
-        MDDialog(content_cls = relativeLayout,
-                          type='custom',
-                          size_hint=(0.9, 0.9)).open()
+    def showPic(self, picPath, imageDummy):
+        print('hi')
+        size = Window.size
+        mv = ModalView(size_hint_x=None,
+                       width=size[0],
+                       background='',
+                       background_color=[0, 0, 0, 1])
+        print(picPath)
+        scatter1 = ScatterLayout(do_translation=False,
+                                 do_rotation=False)
+        scatter1.add_widget(Image(source=picPath))
+        mv.add_widget(scatter1)
+        print('hi4')
+        mv.open()
