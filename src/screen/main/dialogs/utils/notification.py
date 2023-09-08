@@ -46,6 +46,8 @@ class MoinSwip(MDSwiper, MainCanvasAfter):
     pass
 class MoinScatt(ScatterLayout, MainCanvasAfter):
     pass
+class MoinScat(Scatter, MainCanvasAfter):
+    pass
 
 class Notification(MDBoxLayout):
     def __init__(self, *args, **kwargs):
@@ -93,9 +95,9 @@ class Notification(MDBoxLayout):
             scatter1 = ScatterLayout(do_translation=False,
                                      do_rotation=False)
             # FitImage nisam skuzio kak namjestit cijeli pdf
-            #scatter = Scatter()
+            scatter = MoinScat()
             scatter1.add_widget(AsyncImage(source = picPath,
-                                           size_hint = (1,1)))
+                                           fit_mode = 'contain'))
 
             #mdSwiper.add_widget(scatter1)
             mdSwiper.add_widget(MDSwiperItem(scatter1))
