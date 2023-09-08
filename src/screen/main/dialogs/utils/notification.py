@@ -125,8 +125,7 @@ class Notification(MDBoxLayout):
                        background='',
                        background_color=[0, 0, 0, 1])
         print(picPath)
-        scatter1 = ScatterLayout(do_translation=False,
-                                 do_rotation=False)
+        scatter1 = ScatterLayout(do_rotation=False)
         scatter1.add_widget(Image(source=picPath))
         mv.add_widget(scatter1)
         print('hi4')
