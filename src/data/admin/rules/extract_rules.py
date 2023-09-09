@@ -1,6 +1,6 @@
 import pdfplumber
 
-from src.data.admin.utils.download_pdf_file import downloadPDFFile
+from src.data.share.download_pdf_file import downloadPDFFile
 
 def determineWorkDayFileName(linkName):
     isOrdinal = lambda word: word[:-1].isdigit() and word[-1] == '.'
@@ -53,7 +53,7 @@ def determineRemovingRectsColor(typeOfDay):
 
 #### thanks to jsvine - owner of pdfplumber
 def extractRule(typeOfDay, URL, fileName):
-    PDFFile = downloadPDFFile(URL, fileName + '.pdf')
+    PDFFile = downloadPDFFile(URL, 'data/data/', fileName + '.pdf')
     with pdfplumber.open(PDFFile) as PDF:
         fileW = open('data/data/' + fileName + '.txt',
                      'w',

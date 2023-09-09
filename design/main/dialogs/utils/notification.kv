@@ -1,4 +1,4 @@
-#:include design/main/main_screen_design.kv
+#:include design/main/dialogs/utils/gallery.kv
 
 <Notification>:
 	notificationText: ''
@@ -7,4 +7,4 @@
 	MDRaisedButton:
 		md_bg_color: app.theme_cls.accent_dark
 		text: root.notificationText
-		on_release: root.openLink(root.notificationLink)
+		on_release: root.openNotification(root.notificationText, root.notificationLink)
