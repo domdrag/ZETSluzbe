@@ -9,6 +9,14 @@
 	
     MDFloatLayout:
 		md_bg_color: app.theme_cls.primary_dark
+		
+		MDIconButton:
+			icon: 'account-cog-outline'
+			pos_hint: {"x":0, "top": 1}
+			opacity: 1 if app.isAdmin else 0
+			on_release:
+				self.opacity = int(not self.opacity)
+				root.toggleAdmin()
 			
         LoginScreenLabel:
 			id: offNumLabelId

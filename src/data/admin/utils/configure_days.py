@@ -5,7 +5,7 @@ import ast
 from datetime import date
 from dateutil.relativedelta import relativedelta, FR
 
-from src.data.admin.utils.download_pdf_file import downloadPDFFile
+from src.data.share.download_pdf_file import downloadPDFFile
 from src.data.share.config_manager import getConfig
 
 firstURL = ("https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/"
@@ -47,7 +47,7 @@ def setDays(days, textFirstPDF):
     return mondayDate
 
 def configureDays(days):
-    PDFFile = downloadPDFFile(firstURL, 'tpd.pdf')
+    PDFFile = downloadPDFFile(firstURL, 'data/data/', 'tpd.pdf')
     with pdfplumber.open(PDFFile) as PDF:
         page = PDF.pages[0]
         textFirstPDF = page.extract_text()

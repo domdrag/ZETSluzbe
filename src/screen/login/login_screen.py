@@ -15,7 +15,7 @@ from src.data.share.get_warning_message_info import (
     getWarningMessageInfo
     )
 from src.screen.login.dialogs.utils.update_dialog_util import showDialog
-from src.data.share.config_manager import getConfig
+from src.data.share.config_manager import getConfig, setConfig
 from src.data.share.design_manager import updateFontSize
 from src.share.trace import TRACE
 
@@ -37,11 +37,11 @@ class LoginScreen(Screen):
         self.offNum = config['OFFICIAL_NUMBER_STARTUP']
         self.admin = config['ADMIN']
         self.setWarningMessage()
-        
-        '''
-        if not self.ADMIN and updateRequiredDateCheck():
-            TRACE('USER UPDATE REQUIRED DATE CHECK')
-            self.update()'''
+
+    def toggleAdmin(self):
+        self.admin = not self.admin
+        setConfig('ADMIN', int(self.admin))
+        self.app.isAdmin = self.admin
 
     def setWarningMessage(self):
         warningMessageInfo = getWarningMessageInfo()

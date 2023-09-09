@@ -43,6 +43,9 @@ def getColors():
 def getPrimaryColor():
     return COLORS_IMPL[CUSTOM_COLORS['PRIMARY_COLOR']][CUSTOM_COLORS['DARK_HUE']]
 
+def getPrimaryColorLight():
+    return COLORS_IMPL[CUSTOM_COLORS['PRIMARY_COLOR']][CUSTOM_COLORS['MAIN_HUE']]
+
 def getPrimaryColorString():
     return CUSTOM_COLORS['PRIMARY_COLOR']
 

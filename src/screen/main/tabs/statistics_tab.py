@@ -9,7 +9,7 @@ from src.screen.main.tabs.utils.statistic_component import StatisticComponent
 from src.data.share.read_statistics import readStatistics
 from src.data.share.statistics_manager import getDriverStatistics
 from src.data.share.get_current_month_format import getCurrentMonthFormat
-from src.data.share.design_manager import getPrimaryColor
+from src.data.share.design_manager import getPrimaryColorLight
 
 class StatisticsTab(MDFloatLayout, MDTabsBase):
     statisticsTabRecycleView = ObjectProperty(None)  # left for clarity
@@ -38,14 +38,23 @@ class StatisticsTab(MDFloatLayout, MDTabsBase):
             monthsMenuItems.append({'viewclass': 'OneLineListItem',
                                     'text': monthFormat,
                                     'on_release': lambda arg = monthFormat: self.changeMonth(arg)})
+
+        # disabled animation because of a bug (I believe); growth variables don't work
         self.monthsMenu = MDDropdownMenu(caller = self.ids.statisticsDropDownId,
                                          items = monthsMenuItems,
-                                         background_color = getPrimaryColor(),
-                                         #md_bg_color = getPrimaryColor(), # latest 1.2.0
+                                         background_color = getPrimaryColorLight(),
+                                         width_mult = 2,
+                                         opening_time = 0)
+        # should work well with 1.2.0
+        '''
+        self.monthsMenu = MDDropdownMenu(caller = self.ids.statisticsDropDownId,
+                                         items = monthsMenuItems,
+                                         md_bg_color = getPrimaryColorLight(),
                                          position = 'bottom',
                                          ver_growth = 'down',
                                          hor_growth = 'right',
                                          width_mult = 2)
+        '''
         self.monthsMenu.open()
 
     def changeMonth(self, monthFormat):

@@ -11,6 +11,8 @@ from kivy.lang import Builder
 from kivy.properties import StringProperty
 
 from src.screen.zet_screen_manager import ZETScreenManager
+
+from src.data.share.config_manager import getConfig
 from src.data.share.design_manager import (getLoginScreenFontSize,
                                            getMainScreenFontSize,
                                            getGridHeight,
@@ -23,6 +25,8 @@ class ZETApp(MDApp):
     mainScreenFontSize = StringProperty()
 
     def build(self):
+        config = getConfig()
+        self.isAdmin = config['ADMIN']
         self.gridHeight = getGridHeight()
         self.loginScreenFontSize = getLoginScreenFontSize()
         self.mainScreenFontSize = getMainScreenFontSize()

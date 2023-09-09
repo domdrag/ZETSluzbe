@@ -2,8 +2,8 @@ import requests
 
 from src.share.trace import TRACE
 
-def downloadPDFFile(url, fileName):
-    filePath = 'data/data/' + fileName
+def downloadPDFFile(url, dirPath, fileName):
+    filePath = dirPath + fileName
 
     downloadComplete = False
     while not downloadComplete:
