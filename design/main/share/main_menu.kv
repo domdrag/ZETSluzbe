@@ -1,38 +1,33 @@
 #:include design/main/main_screen_design.kv
 
-<MainMenu@MDNavigationLayout>:
-	anchor: 'right'
-	radius: (16, 0, 0, 16)
-	size_hint_x: 0.7
-	md_bg_color: app.theme_cls.primary_color
-	
+<MainMenu>:
 	MDNavigationDrawerMenu:
 		do_scroll_y: False
 		do_scroll_x: False
-		
+
 		MenuHeader:
 			text: 'Izbornik'
 			#title: 'Izbornik'
-		
+
 		MDNavigationDrawerDivider:
-			
+
 		MenuItem:
 			icon: 'bell-outline'
 			text: 'Obavijesti'
 			on_release: root.notificationsButton()
-			
+
 		MenuItem:
 			icon: 'calendar'
 			text: 'Kalendar'
 			on_release: root.calendarButton()
-			
+
 		MenuItem:
 			icon: "link"
 			text: "Linkovi"
 			on_release: root.linksButton()
 
 		MDNavigationDrawerDivider:
-		
+
 		MenuItem:
 			icon: 'logout'
 			text: 'Odjavi se'
