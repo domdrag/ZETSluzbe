@@ -1,19 +1,23 @@
 import json
 
-from kivymd.color_definitions import colors as kivyColors
-
 DESIGN_FILE_PATH = 'data/design.json'
-COLORS_IMPL = kivyColors
+COLORS_IMPL = dict()
 DESIGN = dict()
 CUSTOM_COLORS = dict()
 
 def loadDesign():
     global DESIGN
     global CUSTOM_COLORS
+    global COLORS_IMPL
 
     with open(DESIGN_FILE_PATH, 'r') as designFile:
         DESIGN = json.load(designFile)
     CUSTOM_COLORS = DESIGN['CUSTOM_COLORS']
+
+    # import problematic for kivy loggings in env. setup (needs to be postponed)
+    import kivymd.color_definitions as kivyColors
+    COLORS_IMPL = kivyColors.colors
+
 
 def getFontSize():
     return DESIGN['FONT_SIZE']

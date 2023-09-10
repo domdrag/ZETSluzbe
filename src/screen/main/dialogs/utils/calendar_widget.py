@@ -31,17 +31,6 @@ from src.data.share.design_manager import (getPrimaryColor,
                                           getWhiteColor)
 from src.share.trace import TRACE
 
-class MainCanvasAfter(Widget):
-    pass
-class MainScreenDesign(Widget):
-    pass
-class CalendarDayButton(Button, MainScreenDesign, MainCanvasAfter):
-    pass
-class CalendarDaysGridLayout(MDGridLayout):
-    pass
-class CalendarLabel(Label, MainScreenDesign):
-    pass
-
 class CalendarWidget(RelativeLayout):
     """ Basic calendar widget """    
     def __init__(self, mCalendarInfo = [], *args, **kwargs):
@@ -299,3 +288,16 @@ class CalendarWidget(RelativeLayout):
     def on_touch_up(self, touch):
         self.mLockSwitch = False
 
+class MainCanvasAfter:
+    pass
+class MainScreenDesign:
+    pass
+class CalendarDayButton(Button, MainScreenDesign, MainCanvasAfter):
+    background_normal = ''
+class CalendarDaysGridLayout(MDGridLayout):
+    cols = 7
+    rows = 6
+    size_hint = 1, 0.75
+# MDLabel not working for some reason (font not responding to change) (framework bug?)
+class CalendarLabel(Label, MainScreenDesign):
+    pass

@@ -27,8 +27,7 @@ class LoginScreen(Screen):
     warningMessageColor = ColorProperty() # binding
     offNum = StringProperty() # binding
     updateDone = BooleanProperty(False)
-    
-    
+
     def __init__(self, **kwargs):
         super(LoginScreen, self).__init__(**kwargs)
         self.app = MDApp.get_running_app()
@@ -40,8 +39,9 @@ class LoginScreen(Screen):
 
     def toggleAdmin(self):
         self.admin = not self.admin
-        setConfig('ADMIN', int(self.admin))
         self.app.isAdmin = self.admin
+
+        setConfig('ADMIN', int(self.admin))
 
     def setWarningMessage(self):
         warningMessageInfo = getWarningMessageInfo()
