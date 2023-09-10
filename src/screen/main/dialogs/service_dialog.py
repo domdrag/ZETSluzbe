@@ -1,7 +1,5 @@
 from kivymd.uix.dialog import MDDialog
 from kivy.properties import ObjectProperty
-
-from src.screen.main.share.daily_service import DailyService
 class ServiceDialog(MDDialog):
     serviceDialogRecycleView = ObjectProperty(None)
     
@@ -10,5 +8,3 @@ class ServiceDialog(MDDialog):
         super(ServiceDialog, self).__init__(size_hint = (0.8, 0.4))
         data = [{'day': day, 'service': service, 'bg_color': bgColor}]
         self.serviceDialogRecycleView.data = data
-
-

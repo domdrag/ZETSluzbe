@@ -4,8 +4,6 @@ from kivymd.uix.floatlayout import MDFloatLayout
 from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.list import OneLineListItem
 
-from src.screen.main.tabs.utils.statistic_component import StatisticComponent
-
 from src.data.share.read_statistics import readStatistics
 from src.data.share.statistics_manager import getDriverStatistics
 from src.data.share.get_current_month_format import getCurrentMonthFormat

@@ -1,7 +1,7 @@
 from kivymd.uix.dialog import MDDialog
 from kivy.uix.widget import Widget
 
-class LoginScreenDesign(Widget):
+class LoginScreenDesign:
     pass
 
 class UpdateDialog(MDDialog, LoginScreenDesign):

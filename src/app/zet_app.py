@@ -2,9 +2,10 @@ from src.data.share.config_manager import loadConfig
 from src.data.share.design_manager import loadDesign
 from src.app.utils.environment_setup import environmentSetup
 
+# order important
 loadConfig()
-loadDesign()
 environmentSetup()
+loadDesign()
 
 from kivymd.app import MDApp
 from kivy.lang import Builder

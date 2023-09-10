@@ -1,9 +1,9 @@
-from kivy.uix.boxlayout import BoxLayout
+from kivymd.uix.boxlayout import MDBoxLayout
 
 from src.screen.main.dialogs.call_info_dialog import CallInfoDialog
 from src.share.trace import TRACE
 
-class DailyShift(BoxLayout):
+class DailyShift(MDBoxLayout):
     def __init__(self, *args, **kwargs):
         super(DailyShift, self).__init__(*args, **kwargs)
                 

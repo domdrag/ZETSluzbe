@@ -1,4 +1,7 @@
+# design
 #:include design/login/login_screen_design.kv
+
+# dialogs
 #:include design/login/dialogs/off_num_dialog.kv
 
 <LoginScreen>:
@@ -15,8 +18,8 @@
 			pos_hint: {"x":0, "top": 1}
 			opacity: 1 if app.isAdmin else 0
 			on_release:
-				self.opacity = int(not self.opacity)
 				root.toggleAdmin()
+				self.opacity = 1 if app.isAdmin else 0
 			
         LoginScreenLabel:
 			id: offNumLabelId
