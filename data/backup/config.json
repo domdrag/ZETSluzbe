@@ -1,24 +1,24 @@
 {
-   "APP_ORIENTATION": "Portrait",
-   "LOGS": 1,
-   "DEBUG_LOGS": 0,
-   "OFFICIAL_NUMBER_STARTUP": "2621",
-   "ADMIN": 1,
-   "TRACES": 1,
-   "UPDATE_SUCCESSFUL": 1,
-   "LAST_RECORD_DATE": [
-      2023,
-      9,
-      11
-   ],
-   "MISSING_SERVICES": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-   ],
-   "SERVICES_HASH": 8733682142
+  "APP_ORIENTATION": "Portrait",
+  "LOGS": 1,
+  "DEBUG_LOGS": 0,
+  "OFFICIAL_NUMBER_STARTUP": "2621",
+  "ADMIN": 1,
+  "TRACES": 1,
+  "UPDATE_SUCCESSFUL": 1,
+  "LAST_RECORD_DATE": [
+    2023,
+    9,
+    18
+  ],
+  "MISSING_SERVICES": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "SERVICES_HASH": 8798433207
 }

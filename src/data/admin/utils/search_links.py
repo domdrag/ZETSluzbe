@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup, SoupStrainer
 
 from src.data.admin.utils.set_notifications import setNotifications
+from src.share.trace import TRACE
 
 def searchLinks():
     workDayURL = ''
@@ -44,7 +45,8 @@ def searchLinks():
                             #sundayURL = link
             searchComplete = True
             setNotifications(notifications)
-        except:
+        except Exception as e:
+            TRACE(e)
             pass
 
     assert len(workDayLinks) > 0, 'Nije nadjeno rasporeda za radne dane.'
