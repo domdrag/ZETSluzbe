@@ -31,5 +31,5 @@ class ZETScreenManager(ScreenManager):
         
     def androidBackClick(self, window, key, *largs):
         if (key == ANDROID_BACK_BUTTON_KEY and self.current == 'mainScreen'):
-            self.switchToLoginScreen()
+            self.mainScreen.logout()
             return True # stop the propagation
