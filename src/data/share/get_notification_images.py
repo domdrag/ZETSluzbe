@@ -14,4 +14,5 @@ def getNotificationImages(notificationName):
         imagesPathList.append(imagePath)
         imageNumber += 1
 
+    print(imagesPathList)
     return imagesPathList
