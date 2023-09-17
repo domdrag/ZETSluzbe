@@ -7,6 +7,9 @@ def getNotificationImages(notificationName):
     imagesPathList = []
 
     imageNumber = 1
+    print(imagePathPattern)
+    print(os.listdir('data/data/notificationsFiles'))
+
     while (os.path.isfile(imagePath := imagePathPattern +
                                        str(imageNumber) +
                                        '.png')):
