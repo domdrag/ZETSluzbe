@@ -1,5 +1,3 @@
-import copy
-
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import Screen
 from kivy.properties import ObjectProperty
