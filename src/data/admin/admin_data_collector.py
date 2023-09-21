@@ -24,12 +24,14 @@ from src.data.admin.utils.upload_data_to_dropbox import (
 from src.data.admin.utils.configure_missing_services import configureMissingServices
 from src.data.admin.utils.check_update_neeeded import checkUpdateNeeded
 from src.data.admin.utils.restore_warnings import restoreWarnings
+from src.data.admin.utils.prepare_data_for_transport import prepareDataForTransport
+from src.data.admin.utils.upload_client_data import uploadClientData
 from src.data.share.get_warning_message_info import (
     getWarningMessageInfo
     )
 from src.data.share.backup_manager import repairAllFiles, updateBackupDir
-from src.share.trace import TRACE
 from src.data.share.config_manager import setConfig, setNewConfiguration
+from src.share.trace import TRACE
 
 cp = AdminCollectPhase
 
@@ -150,7 +152,19 @@ class AdminDataCollector:
                                    self.mondayDate,
                                    self.workDayFileNames)
                 returnMessage['message'] = \
-                              'Spremanje nove konfiguracije'
+                              'Pripremanje podataka za transport'
+
+            elif self.phase == cp.PREPARE_DATA_FOR_TRANSPORT:
+                TRACE('[CP] PREPARE_DATA_FOR_TRANSPORT')
+                prepareDataForTransport()
+                returnMessage['message'] = \
+                    'Ucitavanje klijentskih podataka'
+
+            elif self.phase == cp.UPLOAD_CLIENT_DATA:
+                TRACE('[CP] UPLOAD_CLIENT_DATA')
+                uploadClientData()
+                returnMessage['message'] = \
+                    'Spremanje nove konfiguracije'
 
             # NEXT ORDER EXPLANATION: in case anything fails, we must have
             # have a backup ready -> last step must be updating the backup.

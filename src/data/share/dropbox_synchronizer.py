@@ -6,8 +6,6 @@ import shutil
 from src.data.share.config_manager import getConfig, setConfig, setNewConfiguration
 from src.share.trace import TRACE
 
-RFRSH_TOKEN = 'wIxEqmHW0_IAAAAAAAAAAXS9N4JdzmOIt8rV90Y-uOVCdhhvC23S7qYHSSDSd53a'
-
 class DropboxSynchronizer:
     def __init__(self):
         downloadDropboxFile('config.json')
@@ -50,24 +48,25 @@ def removeExistingData():
     shutil.rmtree('data/data')
 
 def downloadDropboxFile(file):
-    dbx = dropbox.Dropbox(app_key='9x72f19ngmg8mqo',
-                          app_secret='msb8pniq2h76ym3',
-                          oauth2_refresh_token=RFRSH_TOKEN)
+    config = getConfig()
+    dbx = dropbox.Dropbox(app_key = config['DROPBOX_APP_KEY'],
+                          app_secret = config['DROPBOX_APP_SECRET'],
+                          oauth2_refresh_token = config['DROPBOX_REFRESH_TOKEN'])
 
     downloadComplete = False
     while not downloadComplete:
         try:
-            dbx.files_download_to_file('data/dropbox/' + file,
+            dbx.files_download_to_file('data/temp/' + file,
                                        '/' + file)
             downloadComplete = True
         except:
             pass
 
 def decompressData():
-    shutil.unpack_archive('data/dropbox/data.zip', 'data/data')
+    shutil.unpack_archive('data/temp/data.zip', 'data/data')
 
 def getOnlineConfig():
-    with open('data/dropbox/config.json', 'r') as configFile:
+    with open('data/temp/config.json', 'r') as configFile:
         onlineConfig = json.load(configFile)
 
     return onlineConfig
