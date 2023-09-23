@@ -2,7 +2,7 @@ from kivy.properties import ObjectProperty
 from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import MDFloatLayout
 
-from src.data.share.read_services import readServices
+from src.data.retrieve.read_services import readServices
 
 class ServicesTab(MDFloatLayout, MDTabsBase):
     servicesTabRecycleView = ObjectProperty(None) # left for clarity

@@ -1,5 +1,5 @@
-from src.data.share.config_manager import loadConfig
-from src.data.share.design_manager import loadDesign
+from src.data.manager.config_manager import loadConfig
+from src.data.manager.design_manager import loadDesign
 from src.app.utils.environment_setup import environmentSetup
 
 # order important
@@ -13,13 +13,13 @@ from kivy.properties import StringProperty
 
 from src.screen.zet_screen_manager import ZETScreenManager
 
-from src.data.share.config_manager import getConfig
-from src.data.share.design_manager import (getLoginScreenFontSize,
-                                           getMainScreenFontSize,
-                                           getGridHeight,
-                                           getColors,
-                                           getPrimaryColorString,
-                                           getSecondaryColorString)
+from src.data.manager.config_manager import getConfig
+from src.data.manager.design_manager import (getLoginScreenFontSize,
+                                             getMainScreenFontSize,
+                                             getGridHeight,
+                                             getColors,
+                                             getPrimaryColorString,
+                                             getSecondaryColorString)
 class ZETApp(MDApp):
     gridHeight = StringProperty()
     loginScreenFontSize = StringProperty()
@@ -27,7 +27,6 @@ class ZETApp(MDApp):
 
     def build(self):
         config = getConfig()
-        self.isAdmin = config['ADMIN']
         self.gridHeight = getGridHeight()
         self.loginScreenFontSize = getLoginScreenFontSize()
         self.mainScreenFontSize = getMainScreenFontSize()

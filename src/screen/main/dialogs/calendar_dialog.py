@@ -3,7 +3,7 @@ from kivymd.uix.dialog import MDDialog
 from src.screen.main.dialogs.utils.calendar_widget import CalendarWidget
 from src.screen.main.dialogs.service_dialog import ServiceDialog
 
-from src.data.share.get_calendar_info import getCalendarInfo
+from src.data.retrieve.get_calendar_info import getCalendarInfo
 
 class CalendarDialog(MDDialog):
     def __init__(self, offNum):

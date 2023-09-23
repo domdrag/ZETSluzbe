@@ -2,16 +2,15 @@ from kivy.properties import ObjectProperty, StringProperty
 from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import MDFloatLayout
 from kivymd.uix.menu import MDDropdownMenu
-from kivymd.uix.list import OneLineListItem
 
-from src.data.share.read_statistics import readStatistics
-from src.data.share.statistics_manager import getDriverStatistics
-from src.data.share.get_current_month_format import getCurrentMonthFormat
-from src.data.share.design_manager import getPrimaryColorLight
+from src.data.retrieve.read_statistics import readStatistics
+from src.data.manager.statistics_manager import getDriverStatistics
+from src.data.manager.design_manager import getPrimaryColorLight
+from src.data.retrieve.get_current_month_format import getCurrentMonthFormat
 
 class StatisticsTab(MDFloatLayout, MDTabsBase):
     statisticsTabRecycleView = ObjectProperty(None)  # left for clarity
-    currentMonthFormat = StringProperty(None)
+    currentMonthFormat = StringProperty(None) # string in .kv
     offNum = ''
 
     def __init__(self, **kwargs):

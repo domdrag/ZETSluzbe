@@ -4,7 +4,7 @@ from kivy.properties import ObjectProperty
 
 from src.screen.main.tabs.utils.daily_shift import DailyShift
 
-from src.data.share.read_shifts import readShifts
+from src.data.retrieve.read_shifts import readShifts
 
 class ShiftsTab(MDFloatLayout, MDTabsBase):
     shiftsTabRecycleView = ObjectProperty(None) # left for clarity

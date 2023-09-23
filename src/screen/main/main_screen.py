@@ -10,12 +10,10 @@ from src.screen.main.dialogs.notifications_dialog import NotificationsDialog
 from src.screen.main.dialogs.links_dialog import LinksDialog
 from src.screen.main.share.main_menu import MainMenu
 
-from src.data.share.design_manager import (updateFontSize,
-                                           updateGridHeight)
-from src.data.share.read_notifications import readNotifications
-from src.data.share.read_links import readLinks
-from src.data.share.get_current_month_format import getCurrentMonthFormat
-from src.share.trace import TRACE
+from src.data.manager.design_manager import (updateFontSize,
+                                             updateGridHeight)
+from src.data.retrieve.read_notifications import readNotifications
+from src.data.retrieve.read_links import readLinks
 
 MAIN_SCREEN_GRID_HEIGHT_DELTA = 12
 MAIN_SCREEN_FONT_SIZE_RATIO = 15

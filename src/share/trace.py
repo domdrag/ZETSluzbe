@@ -1,4 +1,4 @@
-import src.data.share.config_manager as configManager
+import src.data.manager.config_manager as configManager
 
 def TRACE(traceObj):
     config = configManager.getConfig()

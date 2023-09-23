@@ -4,8 +4,8 @@ from kivymd.uix.button import MDRaisedButton
 
 from src.screen.login.dialogs.utils.off_num_widget import OffNumWidget
 
-from src.data.share.design_manager import getSecondaryColor, getWhiteColor
-from src.data.share.config_manager import setConfig
+from src.data.manager.design_manager import getSecondaryColor, getWhiteColor
+from src.data.manager.config_manager import setConfig
 
 class OffNumDialog(MDDialog):
     def __init__(self, currentOffNum, loginScreen):

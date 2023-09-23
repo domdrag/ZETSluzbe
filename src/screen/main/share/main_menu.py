@@ -5,8 +5,8 @@ from src.screen.main.dialogs.calendar_dialog import CalendarDialog
 from src.screen.main.dialogs.notifications_dialog import NotificationsDialog
 from src.screen.main.dialogs.links_dialog import LinksDialog
 
-from src.data.share.read_notifications import readNotifications
-from src.data.share.read_links import readLinks
+from src.data.retrieve.read_notifications import readNotifications
+from src.data.retrieve.read_links import readLinks
 
 class MainMenu(MDNavigationDrawer):
     def __init__(self, *args, **kwargs):
