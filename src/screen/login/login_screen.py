@@ -5,18 +5,18 @@ from kivy.properties import (ObjectProperty,
                              StringProperty,
                              ColorProperty)
 
-from src.data.admin.admin_data_collector import AdminDataCollector
-from src.data.user.user_data_collector import UserDataCollector
+from src.data.collect.data_collector import DataCollector
+
 from src.screen.login.dialogs.update_dialog import UpdateDialog
 from src.screen.login.dialogs.off_num_dialog import OffNumDialog
 
 
-from src.data.share.get_warning_message_info import (
+from src.data.retrieve.get_warning_message_info import (
     getWarningMessageInfo
     )
 from src.screen.login.dialogs.utils.update_dialog_util import showDialog
-from src.data.share.config_manager import getConfig, setConfig
-from src.data.share.design_manager import updateFontSize
+from src.data.manager.config_manager import getConfig
+from src.data.manager.design_manager import updateFontSize
 from src.share.trace import TRACE
 
 class LoginScreen(Screen):
@@ -34,14 +34,7 @@ class LoginScreen(Screen):
         
         config = getConfig()
         self.offNum = config['OFFICIAL_NUMBER_STARTUP']
-        self.admin = config['ADMIN']
         self.setWarningMessage()
-
-    def toggleAdmin(self):
-        self.admin = not self.admin
-        self.app.isAdmin = self.admin
-
-        setConfig('ADMIN', int(self.admin))
 
     def setWarningMessage(self):
         warningMessageInfo = getWarningMessageInfo()
@@ -85,10 +78,7 @@ class LoginScreen(Screen):
 
     @showDialog
     def update(self):
-        if self.admin:
-            dataCollector = AdminDataCollector()
-        else:
-            dataCollector = UserDataCollector()
+        dataCollector = DataCollector()
             
         finished = False
         updateResult = dict()
@@ -111,12 +101,7 @@ class LoginScreen(Screen):
             self.updateDialog.text = 'GRESKA! Dokumenti popravljeni.\n' \
                                     + errorMessage
         else:
-            if self.admin:
-                self.updateDialog.text = 'Sluzbe jos nisu izasle!'
-            else:
-                self.updateDialog.text = 'Nove sluzbe jos nisu izasle na web ' \
-                                        'stranici ZET-a ili jos nisu ' \
-                                        'registrirane u sustavu aplikacije.'
+            self.updateDialog.text = 'Sluzbe jos nisu izasle!'
 
         self.updateDialog.auto_dismiss = True
 

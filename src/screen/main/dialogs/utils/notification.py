@@ -3,7 +3,7 @@ from kivymd.uix.boxlayout import MDBoxLayout
 from src.screen.main.dialogs.utils.image_viewer import ImageViewer
 from src.screen.main.dialogs.utils.gallery import Gallery
 
-from src.data.share.get_notification_images import getNotificationImages
+from src.data.retrieve.get_notification_images import getNotificationImages
 from src.share.trace import TRACE
 
 class Notification(MDBoxLayout):

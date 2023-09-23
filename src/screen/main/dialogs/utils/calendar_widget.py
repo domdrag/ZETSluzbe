@@ -14,10 +14,8 @@ from kivy.uix.button import Button
 from kivymd.uix.screenmanager import MDScreenManager
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.button import MDFillRoundFlatButton
-from kivymd.uix.label import MDLabel
 from kivy.uix.label import Label
 from kivymd.uix.gridlayout import MDGridLayout
-from kivy.uix.widget import Widget
 
 from src.screen.main.dialogs.utils.calendar_data import (get_month_names,
                                                          get_month_names_eng,
@@ -25,10 +23,10 @@ from src.screen.main.dialogs.utils.calendar_data import (get_month_names,
                                                          today_date_list,
                                                          calc_quarter,
                                                          get_quarter)
-from src.data.share.get_holidays import getHolidays
-from src.data.share.design_manager import (getPrimaryColor,
-                                          getErrorColor,
-                                          getWhiteColor)
+from src.data.retrieve.get_holidays import getHolidays
+from src.data.manager.design_manager import (getPrimaryColor,
+                                             getErrorColor,
+                                             getWhiteColor)
 from src.share.trace import TRACE
 
 class CalendarWidget(RelativeLayout):

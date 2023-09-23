@@ -1,6 +1,5 @@
 from kivymd.app import MDApp
 from kivymd.uix.dialog import MDDialog
-from kivymd.uix.button import MDFlatButton
 from kivymd.uix.button import MDRaisedButton
 
 from jnius import autoclass
@@ -8,8 +7,8 @@ from jnius import cast
 
 from src.screen.main.dialogs.utils.call_info_widget import CallInfoWidget
 
-from src.data.share.design_manager import (getSecondaryColor,
-                                          getWhiteColor)
+from src.data.manager.design_manager import (getSecondaryColor,
+                                             getWhiteColor)
 
 class CallInfoDialog(MDDialog):
     def __init__(self, driverInfo):

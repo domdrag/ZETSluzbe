@@ -16,10 +16,6 @@
 		MDIconButton:
 			icon: 'account-cog-outline'
 			pos_hint: {"x":0, "top": 1}
-			opacity: 1 if app.isAdmin else 0
-			on_release:
-				root.toggleAdmin()
-				self.opacity = 1 if app.isAdmin else 0
 			
         LoginScreenLabel:
 			id: offNumLabelId
