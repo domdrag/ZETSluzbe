@@ -20,7 +20,6 @@ class DropboxSynchronizer:
         currentServicesHash = config['SERVICES_HASH']
 
         if (currentDate != self.onlineDate):
-            print(currentDate, self.onlineDate)
             TRACE('DATES_MISMATCH -> DROPBOX_SYNCHRONIZATION_NEEDED')
             return True
         elif (currentMissingServices != self.onlineMissingServices):

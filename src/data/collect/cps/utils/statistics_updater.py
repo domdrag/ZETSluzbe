@@ -3,10 +3,11 @@ from decimal import Decimal
 from src.data.manager.statistics_manager import (
     getEmptyStatisticsMonthDict,
     getMonthDict,
-    setStatistics
+    setStatistics,
+    initializeStatisticsDict
     )
 
-STATISTICS = dict()
+STATISTICS = initializeStatisticsDict()
 
 # using float sometimes results in very small decimal numbers (24.560000002 instead of 24.56)
 # saving str instead of float (Decimal not accepted to JSON) because of the same issue

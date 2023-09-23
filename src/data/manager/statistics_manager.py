@@ -10,11 +10,13 @@ def getEmptyStatisticsMonthDict():
             'MJESTA_PRIMANJA': {},
             'MJESTA_PUSTANJA': {}}
 
-def getMonthDict(STATISTICS, offNum, month):
-    if (not STATISTICS):
-        with open('data/data/statistics.json', 'r', encoding='utf-8') as statisticsFile:
-            STATISTICS = json.load(statisticsFile)
+def initializeStatisticsDict():
+    STATISTICS = dict()
+    with open('data/data/statistics.json', 'r', encoding='utf-8') as statisticsFile:
+        STATISTICS = json.load(statisticsFile)
+    return STATISTICS
 
+def getMonthDict(STATISTICS, offNum, month):
     if (offNum not in STATISTICS):
         STATISTICS[offNum] = dict()
     offNumDict = STATISTICS[offNum]
