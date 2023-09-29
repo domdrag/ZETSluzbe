@@ -2,7 +2,8 @@
 #:include design/login/login_screen_design.kv
 
 # dialogs
-#:include design/login/dialogs/off_num_dialog.kv
+#:include design/login/dialogs/off_num_change_dialog.kv
+#:include design/login/dialogs/logs_dialog.kv
 
 <LoginScreen>:
 	name: 'loginScreen'
@@ -16,6 +17,11 @@
 		MDIconButton:
 			icon: 'account-cog-outline'
 			pos_hint: {"x":0, "top": 1}
+		
+		MDIconButton:
+			icon: 'list-box-outline'
+			pos_hint: {"x":0, "top": 0.95}
+			on_release: root.showLogsButton()
 			
         LoginScreenLabel:
 			id: offNumLabelId
