@@ -27,6 +27,7 @@ def searchLinks():
                                           parse_only=SoupStrainer('a')):
                     if hasattr(line, "href"):
                         link = line['href']
+                        print(link)
                         # notifications
                         if ('dubrava/' in link):
                             notifications.append({'URL': link, 'name': line.text})
@@ -35,6 +36,7 @@ def searchLinks():
                             workDayLinks.append({'URL': link, 'name': line.text})
                             #workDayURL = link
                         if('SUB' in link or 'S_internet' in link or 'ubot' in line.text):
+                            print('what')
                             saturdayLinks.append({'URL': link, 'name': line.text})
                             #saturdayURL = link
                         if('NED' in link or 'N_internet' in link or 'edjelj' in line.text):

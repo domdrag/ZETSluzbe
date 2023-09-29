@@ -8,8 +8,8 @@ from kivy.properties import (ObjectProperty,
 from src.data.collect.data_collector import DataCollector
 
 from src.screen.login.dialogs.update_dialog import UpdateDialog
-from src.screen.login.dialogs.off_num_dialog import OffNumDialog
-
+from src.screen.login.dialogs.off_num_change_dialog import OffNumChangeDialog
+from src.screen.login.dialogs.logs_dialog import LogsDialog
 
 from src.data.retrieve.get_warning_message_info import (
     getWarningMessageInfo
@@ -17,6 +17,7 @@ from src.data.retrieve.get_warning_message_info import (
 from src.screen.login.dialogs.utils.update_dialog_util import showDialog
 from src.data.manager.config_manager import getConfig
 from src.data.manager.design_manager import updateFontSize
+from src.data.manager.logs_manager import getLogs
 from src.share.trace import TRACE
 
 class LoginScreen(Screen):
@@ -43,8 +44,8 @@ class LoginScreen(Screen):
 
     def changeDefaultOffNum(self):
         currentOffNum = self.offNumTextFieldObj.text
-        offNumDialog = OffNumDialog(currentOffNum, self)
-        offNumDialog.open()
+        offNumChangeDialog = OffNumChangeDialog(currentOffNum, self)
+        offNumChangeDialog.open()
 
     def changeCurrentOffNum(self, newOffNum):
         self.offNumTextFieldObj.text = newOffNum
@@ -75,6 +76,11 @@ class LoginScreen(Screen):
         newValue = oldValue - 1
         updateFontSize('LOGIN_SCREEN_FONT_SIZE', newValue)
         self.app.loginScreenFontSize = str(newValue) + 'dp'
+
+    def showLogsButton(self):
+        logs = getLogs()
+        logsDialog = LogsDialog(logs)
+        logsDialog.open()
 
     @showDialog
     def update(self):

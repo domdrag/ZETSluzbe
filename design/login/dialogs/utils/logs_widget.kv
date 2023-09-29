@@ -1,0 +1,13 @@
+
+<LogsWidget>:
+	size_hint_y: None
+	height: dp(300) # WORKAROUND, content doesn't show well unless height is fixed
+	logs: ''
+
+	ScrollView:
+	    MDBoxLayout:
+	        adaptive_height: True
+
+	        MDLabel:
+	            adaptive_height: True
+	            text: root.logs

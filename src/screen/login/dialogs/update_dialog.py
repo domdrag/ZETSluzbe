@@ -1,5 +1,4 @@
 from kivymd.uix.dialog import MDDialog
-from kivy.uix.widget import Widget
 
 class LoginScreenDesign:
     pass

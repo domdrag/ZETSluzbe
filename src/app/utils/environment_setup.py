@@ -1,12 +1,15 @@
 import os
 import logging
+import sys
 
 from src.data.manager.config_manager import getConfig
 from src.data.manager.backup_manager import updateBackupConfig
 from src.share.trace import TRACE
+from src.data.manager.logs_manager import beginLogging
 
 def environmentSetup():
     config = getConfig()
+    beginLogging()
     
     if (not config['LOGS']):
         TRACE('NO LOGS')
