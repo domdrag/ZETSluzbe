@@ -48,6 +48,9 @@ def searchLinks():
 
     assert len(workDayLinks) > 0, 'Nije nadjeno rasporeda za radne dane.'
     assert len(saturdayLinks) == 1, 'Nadjeno 0 ili vise subotnjih rasporeda.'
+    print(saturdayLinks)
+    if (len(saturdayLinks) == 1):
+        raise Exception('hlo')
     assert len(sundayLinks) == 1, 'Nadjeno 0 ili vise nedeljnih rasporeda.'
     return {'workDay': workDayLinks,
             'saturday': saturdayLinks,
