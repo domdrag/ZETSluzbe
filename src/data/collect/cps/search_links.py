@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup, SoupStrainer
 
+from src.share.assert_throw import ASSERT_THROW
+
 def searchLinks():
     workDayURL = ''
     workDayLinks = []
@@ -47,12 +49,8 @@ def searchLinks():
             TRACE(e)
 
     assert len(workDayLinks) > 0, 'Nije nadjeno rasporeda za radne dane.'
-    assert len(saturdayLinks) == 1, 'Nadjeno 0 ili vise subotnjih rasporeda.'
-    print(saturdayLinks)
-    if (len(saturdayLinks) == 1):
-        raise Exception('hlo')
-    if (len(saturdayLinks) == 2):
-        raise Exception('lola')
+    #assert len(saturdayLinks) == 1, 'Nadjeno 0 ili vise subotnjih rasporeda.'
+    ASSERT_THROW(len(saturdayLinks) == 1, 'Nadjeno 0 ili vise subotnjih rasporeda.')
     assert len(sundayLinks) == 1, 'Nadjeno 0 ili vise nedeljnih rasporeda.'
     return {'workDay': workDayLinks,
             'saturday': saturdayLinks,
