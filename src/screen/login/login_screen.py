@@ -7,9 +7,8 @@ from kivy.properties import (ObjectProperty,
 
 from src.data.collect.data_collector import DataCollector
 
-from src.screen.login.dialogs.info_dialog import InfoDialog
 from src.screen.login.dialogs.off_num_change_dialog import OffNumChangeDialog
-from src.screen.login.dialogs.logs_dialog import LogsDialog
+from src.screen.login.dialogs.info_dialog import InfoDialog
 
 from src.data.retrieve.get_warning_message_info import (
     getWarningMessageInfo
@@ -57,12 +56,11 @@ class LoginScreen(Screen):
         except Exception as e:
             errorMessage = str(e)
             TRACE(errorMessage)
-            self.infoDialog = InfoDialog()
-            self.infoDialog.text = errorMessage
+            self.infoDialog = InfoDialog(errorMessage, 'Greska')
             self.infoDialog.open()
 
     def updateButton(self):
-        self.infoDialog = InfoDialog()
+        self.infoDialog = InfoDialog('', 'Status')
         self.update()
 
     def increaseFontSize(self):
@@ -79,8 +77,15 @@ class LoginScreen(Screen):
 
     def showLogsButton(self):
         logs = getLogs()
-        logsDialog = LogsDialog(logs)
-        logsDialog.open()
+        infoDialog = InfoDialog(logs, 'Logovi')
+        infoDialog.open()
+
+    def showConfigButton(self):
+        config = getConfig()
+        configString = str(config)
+        configString = configString.replace(',', ',\n')
+        infoDialog = InfoDialog(configString, 'Konfiguracija')
+        infoDialog.open()
 
     @showDialog
     def update(self):

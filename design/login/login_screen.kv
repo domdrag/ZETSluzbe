@@ -3,7 +3,7 @@
 
 # dialogs
 #:include design/login/dialogs/off_num_change_dialog.kv
-#:include design/login/dialogs/logs_dialog.kv
+#:include design/login/dialogs/info_dialog.kv
 
 <LoginScreen>:
 	name: 'loginScreen'
@@ -15,8 +15,9 @@
 		md_bg_color: app.theme_cls.primary_dark
 		
 		MDIconButton:
-			icon: 'account-cog-outline'
+			icon: 'cog-outline'
 			pos_hint: {"x":0, "top": 1}
+			on_release: root.showConfigButton()
 		
 		MDIconButton:
 			icon: 'list-box-outline'

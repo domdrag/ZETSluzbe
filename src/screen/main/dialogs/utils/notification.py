@@ -10,8 +10,8 @@ class Notification(MDBoxLayout):
     def __init__(self, *args, **kwargs):
         super(Notification, self).__init__(*args, **kwargs)
 
-    def openNotification(self, notificationText, notificationURL):
-        imagesPathList = getNotificationImages(notificationText, notificationURL)
+    def openNotification(self, notificationText):
+        imagesPathList = getNotificationImages(notificationText)
 
         if (len(imagesPathList) == 1):
             imageViewer = ImageViewer(imagesPathList[0])
