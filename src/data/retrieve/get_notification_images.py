@@ -6,6 +6,9 @@ def searchImagesPaths(imagePathPattern):
     imagesPathList = []
     imageNumber = 1
 
+    path = 'data/data/notificationsFiles/'
+    print(os.listdir(path))
+
     while (os.path.isfile(imagePath := imagePathPattern +
                                        str(imageNumber) +
                                        '.png')):
@@ -18,6 +21,7 @@ def searchImagesPaths(imagePathPattern):
 def getNotificationImages(notificationName, notificationURL):
     imagePathPattern = 'data/data/notificationsFiles/' + notificationName + '_page-'
     imagesPathList = searchImagesPaths(imagePathPattern)
+    TRACE('Found images: ' + str(imagesPathList))
 
     # list may be empty due to only UTF-8 SDL support upon deploying
     return imagesPathList

@@ -7,7 +7,7 @@ from kivy.properties import (ObjectProperty,
 
 from src.data.collect.data_collector import DataCollector
 
-from src.screen.login.dialogs.update_dialog import UpdateDialog
+from src.screen.login.dialogs.info_dialog import InfoDialog
 from src.screen.login.dialogs.off_num_change_dialog import OffNumChangeDialog
 from src.screen.login.dialogs.logs_dialog import LogsDialog
 
@@ -57,12 +57,12 @@ class LoginScreen(Screen):
         except Exception as e:
             errorMessage = str(e)
             TRACE(errorMessage)
-            self.updateDialog = UpdateDialog()
-            self.updateDialog.text = errorMessage
-            self.updateDialog.open()
+            self.infoDialog = InfoDialog()
+            self.infoDialog.text = errorMessage
+            self.infoDialog.open()
 
     def updateButton(self):
-        self.updateDialog = UpdateDialog()
+        self.infoDialog = InfoDialog()
         self.update()
 
     def increaseFontSize(self):
@@ -88,28 +88,28 @@ class LoginScreen(Screen):
             
         finished = False
         updateResult = dict()
-        self.updateDialog.text = 'Dropbox sinkronizacija'
+        self.infoDialog.text = 'Dropbox sinkronizacija'
         while not finished:
             updateResult = dataCollector.keepCollectingData()
             finished = updateResult['finished']
-            self.updateDialog.text = updateResult['message']
+            self.infoDialog.text = updateResult['message']
    
-        self.updateDialog.dotsTimer.cancel()
+        self.infoDialog.dotsTimer.cancel()
         success = updateResult['success']
         error = updateResult['error']
         errorMessage = updateResult['errorMessage']
         
         if success:
             self.setWarningMessage()
-            self.updateDialog.text = 'Sluzbe azurirane!'
+            self.infoDialog.text = 'Sluzbe azurirane!'
             
         elif error:
-            self.updateDialog.text = 'GRESKA! Dokumenti popravljeni.\n' \
+            self.infoDialog.text = 'GRESKA! Dokumenti popravljeni.\n' \
                                     + errorMessage
         else:
-            self.updateDialog.text = 'Sluzbe jos nisu izasle!'
+            self.infoDialog.text = 'Sluzbe jos nisu izasle!'
 
-        self.updateDialog.auto_dismiss = True
+        self.infoDialog.auto_dismiss = True
 
 
 
