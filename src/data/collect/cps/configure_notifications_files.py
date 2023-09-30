@@ -13,26 +13,32 @@ def clearNotificationsFilesDir():
         shutil.rmtree(NOTIFICATIONS_FILES_PATH)
     os.mkdir(NOTIFICATIONS_FILES_PATH)
 
-def generateNotificationFiles(notificationName, notificationURL):
+def generateNotificationFiles(filesNamePattern, notificationURL):
     notificationPDF = downloadPDFFile(notificationURL,
                                       NOTIFICATIONS_FILES_PATH,
-                                      notificationName + '.pdf')
+                                      filesNamePattern + '.pdf')
 
     PDF = pdfplumber.open(notificationPDF)
-    imagePathPattern = NOTIFICATIONS_FILES_PATH + notificationName + '_page-'
+    imagesFileNamePattern = filesNamePattern + '_page-'
+    imagesPathPattern = NOTIFICATIONS_FILES_PATH + imagesFileNamePattern
     for page in PDF.pages:
-        imagePath = imagePathPattern + str(page.page_number) + '.png'
+        imagePath = imagesPathPattern + str(page.page_number) + '.png'
         image = page.to_image(resolution = GENERATED_IMAGE_RESOLUTION)
         image.save(imagePath)
-    return {'numOfPages': len(PDF.pages)}
+    return {'numOfPages': len(PDF.pages), 'imagesFileNamePattern': imagesFileNamePattern}
 
 def configureNotificationsFiles(notificationsLinks):
     NOTIFICATIONS = dict()
 
     clearNotificationsFilesDir()
+    fileId = 1
     for notification in notificationsLinks:
-        result = generateNotificationFiles(notification['name'], notification['URL'])
-        NOTIFICATIONS[notification['name']] = {'URL': notification['URL'],
-                                               'NUM_OF_PAGES': result['numOfPages']}
+        filesNamePattern = 'FILE-' + str(fileId)
+        result = generateNotificationFiles(filesNamePattern, notification['URL'])
+        notificationInfo = {'URL': notification['URL'],
+                            'IMAGES_FILE_NAME_PATTERN': result['imagesFileNamePattern'],
+                            'NUM_OF_PAGES': result['numOfPages']}
+        NOTIFICATIONS[notification['name']] = notificationInfo
+        fileId = fileId + 1
 
     setNotifications(NOTIFICATIONS)
