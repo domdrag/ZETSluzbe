@@ -4,6 +4,7 @@ from requests.structures import CaseInsensitiveDict
 
 from src.data.manager.config_manager import getConfig
 from src.share.trace import TRACE
+from src.share.assert_throw import ASSERT_THROW
 
 URL = 'https://api.github.com/repos/domdrag/ZETSluzbe-Client-Data/contents/data.zip'
 
@@ -18,7 +19,7 @@ def uploadClientData():
         try:
             responseGET = requests.get(URL, headers = headers)
             statusCodeGET = responseGET.status_code
-            assert statusCodeGET == 200, 'Unsuccessful client data check'
+            ASSERT_THROW(statusCodeGET == 200, 'Unsuccessful client data check')
             oldDataFileSHA = (responseGET.json())['sha']
 
             messageContent = {
@@ -29,7 +30,7 @@ def uploadClientData():
             }
             responsePUT = requests.put(URL, headers = headers,json = messageContent)
             statusCodePUT = responsePUT.status_code
-            assert statusCodePUT == 200 or statusCodePUT == 201, 'Unsuccessful client data upload'
+            ASSERT_THROW(statusCodePUT == 200 or statusCodePUT == 201, 'Unsuccessful client data upload')
             uploadComplete = True
         except Exception as e:
             TRACE(e)

@@ -3,6 +3,7 @@ import shutil
 
 from src.data.manager.config_manager import getConfig, setNewConfiguration, getTempConfig
 from src.share.trace import TRACE
+from src.share.assert_throw import ASSERT_THROW
 
 class DropboxSynchronizer:
     def __init__(self):
@@ -27,7 +28,7 @@ class DropboxSynchronizer:
             return True
         else:
             TRACE('DROPBOX_SYNCHRONIZATION_NOT_NEEDED')
-            assert currentServicesHash == self.onlineServicesHash, 'Neuskladjene sluzbe sa dropbox-om.'
+            ASSERT_THROW(currentServicesHash == self.onlineServicesHash, 'Neuskladjene sluzbe sa dropbox-om.')
             return False
 
     def dropbboxSynchronization(self):

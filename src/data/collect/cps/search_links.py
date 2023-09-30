@@ -48,10 +48,9 @@ def searchLinks():
         except Exception as e:
             TRACE(e)
 
-    assert len(workDayLinks) > 0, 'Nije nadjeno rasporeda za radne dane.'
-    #assert len(saturdayLinks) == 1, 'Nadjeno 0 ili vise subotnjih rasporeda.'
+    ASSERT_THROW(len(workDayLinks) > 0, 'Nije nadjeno rasporeda za radne dane.')
     ASSERT_THROW(len(saturdayLinks) == 1, 'Nadjeno 0 ili vise subotnjih rasporeda.')
-    assert len(sundayLinks) == 1, 'Nadjeno 0 ili vise nedeljnih rasporeda.'
+    ASSERT_THROW(len(sundayLinks) == 1, 'Nadjeno 0 ili vise nedeljnih rasporeda.')
     return {'workDay': workDayLinks,
             'saturday': saturdayLinks,
             'sunday': sundayLinks,

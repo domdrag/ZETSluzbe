@@ -1,6 +1,7 @@
 import pdfplumber
 
 from src.data.collect.cps.utils.download_pdf_file import downloadPDFFile
+from src.share.assert_throw import ASSERT_THROW
 
 def determineWorkDayFileName(linkName):
     isOrdinal = lambda word: word[:-1].isdigit() and word[-1] == '.'
@@ -34,11 +35,11 @@ def determineWorkDayFileName(linkName):
 
     if ('od' in linkName or 'Od' in linkName or 'OD' in linkName):
         if ('do' in linkName or 'Do' in linkName or 'DO' in linkName or '-' in linkName):
-            assert len(potentialDays) == 2, 'Sustav nije razumio linkove za radne dane.'
+            ASSERT_THROW(len(potentialDays) == 2, 'Sustav nije razumio linkove za radne dane.')
             daysRange = list(range(min(potentialDays), max(potentialDays) + 1))
             return 'rules_W' + str(daysRange)
         else:
-            assert len(potentialDays) == 1, 'Sustav nije razumio linkove za radne dane.'
+            ASSERT_THROW(len(potentialDays) == 1, 'Sustav nije razumio linkove za radne dane.')
             return 'rules_W'
     else:
         return 'rules_W' + str(potentialDays)

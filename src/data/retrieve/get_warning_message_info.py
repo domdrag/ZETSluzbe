@@ -1,4 +1,5 @@
 from src.data.manager.design_manager import getWhiteColor, getErrorColor
+from src.share.assert_throw import ASSERT_THROW
 
 def readWarningMessage():
     fileR = open('data/data/warnings.txt', 'r', encoding='utf-8')
@@ -24,6 +25,6 @@ def getWarningMessageInfo():
     for line in lines[1:]:
         message += line
 
-    assert isinstance(message, str)
+    ASSERT_THROW(isinstance(message, str), 'Warning message nije string.')
     return {'message': message, 'color': color}
 
