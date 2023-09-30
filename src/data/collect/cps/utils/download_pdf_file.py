@@ -1,6 +1,7 @@
 import requests
 
 from src.share.trace import TRACE
+from src.share.assert_throw import ASSERT_THROW
 
 def downloadPDFFile(url, dirPath, fileName):
     filePath = dirPath + fileName
@@ -9,8 +10,8 @@ def downloadPDFFile(url, dirPath, fileName):
     while not downloadComplete:
         try:
             with requests.get(url) as r:
-                assert r.status_code == 200, \
-                       f'error, status code is {r.status_code}'
+                ASSERT_THROW(r.status_code == 200,
+                             'Greska pri skidanju file-a: ' + fileName)
                 with open(filePath, 'wb') as f:
                     f.write(r.content)
             downloadComplete = True
