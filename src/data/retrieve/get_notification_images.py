@@ -1,27 +1,13 @@
-import os
-
+from src.data.manager.notifications_manager import getNotifications
 from src.share.trace import TRACE
 
-def searchImagesPaths(imagePathPattern):
-    imagesPathList = []
-    imageNumber = 1
-
-    path = 'data/data/notificationsFiles/'
-    print(os.listdir(path))
-
-    while (os.path.isfile(imagePath := imagePathPattern +
-                                       str(imageNumber) +
-                                       '.png')):
-        TRACE('(NOTIFICATION)_IMAGE_FOUND')
-        imagesPathList.append(imagePath)
-        imageNumber += 1
-
-    return imagesPathList
-
 def getNotificationImages(notificationName, notificationURL):
-    imagePathPattern = 'data/data/notificationsFiles/' + notificationName + '_page-'
-    imagesPathList = searchImagesPaths(imagePathPattern)
+    imagesPathPattern = 'data/data/notificationsFiles/' + notificationName + '_page-'
+    NOTIFICATIONS = getNotifications()
+    numOfPages = NOTIFICATIONS[notificationName]['NUM_OF_PAGES']
+    imagesPathList = [imagesPathPattern + str(pageNum) + '.png'
+                      for pageNum in range(1, numOfPages + 1)]
     TRACE('Found notification images: ' + str(imagesPathList))
-    print('čakalakačačLČČ')
+
     # list may be empty due to only UTF-8 SDL support upon deploying
     return imagesPathList
