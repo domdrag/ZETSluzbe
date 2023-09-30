@@ -24,13 +24,15 @@ def generateNotificationFiles(notificationName, notificationURL):
         imagePath = imagePathPattern + str(page.page_number) + '.png'
         image = page.to_image(resolution = GENERATED_IMAGE_RESOLUTION)
         image.save(imagePath)
+    return {'numOfPages': len(PDF.pages)}
 
 def configureNotificationsFiles(notificationsLinks):
     NOTIFICATIONS = dict()
 
     clearNotificationsFilesDir()
     for notification in notificationsLinks:
-        NOTIFICATIONS[notification['name']] = {'URL': notification['URL']}
-        generateNotificationFiles(notification['name'], notification['URL'])
+        result = generateNotificationFiles(notification['name'], notification['URL'])
+        NOTIFICATIONS[notification['name']] = {'URL': notification['URL'],
+                                               'NUM_OF_PAGES': result['numOfPages']}
 
     setNotifications(NOTIFICATIONS)
