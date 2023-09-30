@@ -1,10 +1,16 @@
 {
-   "Raspored rada za voza\u010de od 25.09.2023. do 01.10.2023.": {
-      "URL": "https://www.zet.hr/interno/UserDocsImages/tp dubrava/Slu\u017ebe za sve voza\u010de/tpd.pdf",
-	  "NUM_OF_PAGES": 6 
-   },
-   "Obavijest": {
-      "URL": "https://www.zet.hr/interno/UserDocsImages/tp dubrava/Obavijest/Obavijest.pdf",
-	  "NUM_OF_PAGES": 1
-   }
+	"Raspored rada za vozače od 02.10.2023. do 07.10.2023.": {
+		"URL": "https://www.zet.hr/interno/UserDocsImages/tp dubrava/Službe za sve vozače/tpd.pdf",
+		"IMAGES_FILE_NAME_PATTERN": "FILE-1_page-",
+		"NUM_OF_PAGES": 6
+	}, 
+	"Obavijest": {
+		"URL": "https://www.zet.hr/interno/UserDocsImages/tp dubrava/Obavijest/Obavijest.pdf",
+		"IMAGES_FILE_NAME_PATTERN": "FILE-2_page-",
+		"NUM_OF_PAGES": 1
+	},
+	"Obustava tramvajskog prometa Ilicom u subotu 30.09.2023. od 8:00 do 13:00 sati": {
+		"URL": "https://www.zet.hr/interno/UserDocsImages/tp dubrava/Obavijest/Obavijest 194 - Sektor 12 (Frankopanska).pdf", "IMAGES_FILE_NAME_PATTERN": "FILE-3_page-",
+		"NUM_OF_PAGES": 2
+	}
 }

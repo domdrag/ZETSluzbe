@@ -73,7 +73,7 @@ class DataCollector:
                 self.workDayLinks = foundLinks['workDay']
                 self.saturdayLinks = foundLinks['saturday']
                 self.sundayLinks = foundLinks['sunday']
-                self.notificationsLinks = foundLinks['notifications']
+                self.notificationsLinks = foundLinks['notificationsLinks']
                 returnMessage['message'] = 'Konfiguracija notifikacija'
 
             elif self.phase == cp.CONFIGURE_NOTIFICATION_FILES:

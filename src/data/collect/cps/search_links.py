@@ -24,7 +24,7 @@ def searchLinks():
                 r = s.get('https://www.zet.hr/interno/default.aspx?id=1041')
                 content = r.content
 
-                notifications = []
+                notificationsLinks = []
                 for line in BeautifulSoup(content,
                                           parse_only=SoupStrainer('a')):
                     if hasattr(line, "href"):
@@ -32,7 +32,7 @@ def searchLinks():
                         print(link)
                         # notifications
                         if ('dubrava/' in link):
-                            notifications.append({'URL': link, 'name': line.text})
+                            notificationsLinks.append({'URL': link, 'name': line.text})
 
                         if('RD' in link or 'Radni dan' in line.text or 'radni dan' in line.text):
                             workDayLinks.append({'URL': link, 'name': line.text})
@@ -54,4 +54,4 @@ def searchLinks():
     return {'workDay': workDayLinks,
             'saturday': saturdayLinks,
             'sunday': sundayLinks,
-            'notifications': notifications}
+            'notificationsLinks': notificationsLinks}

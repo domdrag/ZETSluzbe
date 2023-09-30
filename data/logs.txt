@@ -2,3 +2,8 @@
 Found notification images: ['data/data/notificationsFiles/Raspored rada za vozače od 25.09.2023. do 01.10.2023._page-1.png', 'data/data/notificationsFiles/Raspored rada za vozače od 25.09.2023. do 01.10.2023._page-2.png', 'data/data/notificationsFiles/Raspored rada za vozače od 25.09.2023. do 01.10.2023._page-3.png', 'data/data/notificationsFiles/Raspored rada za vozače od 25.09.2023. do 01.10.2023._page-4.png', 'data/data/notificationsFiles/Raspored rada za vozače od 25.09.2023. do 01.10.2023._page-5.png', 'data/data/notificationsFiles/Raspored rada za vozače od 25.09.2023. do 01.10.2023._page-6.png']
 {'Raspored rada za vozače od 25.09.2023. do 01.10.2023.': {'URL': 'https://www.zet.hr/interno/UserDocsImages/tp dubrava/Službe za sve vozače/tpd.pdf', 'NUM_OF_PAGES': 6}, 'Obavijest': {'URL': 'https://www.zet.hr/interno/UserDocsImages/tp dubrava/Obavijest/Obavijest.pdf', 'NUM_OF_PAGES': 1}}
 Found notification images: ['data/data/notificationsFiles/Obavijest_page-1.png']
+=============
+2023-09-30 14:05:13.056357
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
