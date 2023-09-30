@@ -21,7 +21,7 @@ def searchImagesPaths(imagePathPattern):
 def getNotificationImages(notificationName, notificationURL):
     imagePathPattern = 'data/data/notificationsFiles/' + notificationName + '_page-'
     imagesPathList = searchImagesPaths(imagePathPattern)
-    TRACE('Found images: ' + str(imagesPathList))
-
+    TRACE('Found notification images: ' + str(imagesPathList))
+    print('čakalakačačLČČ')
     # list may be empty due to only UTF-8 SDL support upon deploying
     return imagesPathList
