@@ -1,12 +1,15 @@
 import requests
 
 from src.share.trace import TRACE
-from src.share.assert_throw import ASSERT_THROW
+from src.share.asserts import ASSERT_THROW
+
+MAX_TRIES = 20
 
 def downloadPDFFile(url, dirPath, fileName):
     filePath = dirPath + fileName
 
     downloadComplete = False
+    attemptNumber = 1
     while not downloadComplete:
         try:
             with requests.get(url) as r:
@@ -16,6 +19,10 @@ def downloadPDFFile(url, dirPath, fileName):
                     f.write(r.content)
             downloadComplete = True
         except Exception as e:
-            TRACE(e)
+            if (attemptNumber == 1):
+                TRACE(e)
+            if (attemptNumber > MAX_TRIES):
+                raise e
+            attemptNumber += 1
         
     return filePath

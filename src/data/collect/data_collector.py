@@ -48,6 +48,7 @@ class DataCollector:
     missingServices = None
     servicesHash = None
     workDayFileNames = []
+    canUseOldWorkDayResources = False
     
     def keepCollectingData(self):
         returnMessage = { 'success': False,
@@ -126,14 +127,18 @@ class DataCollector:
 
             elif self.phase == cp.DELETE_NECESSARY_DATA:
                 TRACE('[CP] DELETE_NECESSARY_DATA')
-                deleteNecessaryData()
+                result = deleteNecessaryData(self.workDayLinks)
+                self.canUseOldWorkDayResources = result['canUseOldWorkDayResources']
+                TRACE('Old Work Day resources enabled: ' +
+                      str(self.canUseOldWorkDayResources))
                 returnMessage['message'] = 'Citanje svih sluzbi'
                 
             elif self.phase == cp.EXTRACT_RULES:
                 TRACE('[CP] EXTRACT_RULES')
                 fileNames = extractRules(self.workDayLinks,
                                          self.saturdayLinks,
-                                         self.sundayLinks)
+                                         self.sundayLinks,
+                                         self.canUseOldWorkDayResources)
                 self.workDayFileNames = fileNames['workDay']
                 returnMessage['message'] = 'Spremanje tjednih sluzbi'
                 

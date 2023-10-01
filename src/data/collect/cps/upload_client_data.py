@@ -4,7 +4,7 @@ from requests.structures import CaseInsensitiveDict
 
 from src.data.manager.config_manager import getConfig
 from src.share.trace import TRACE
-from src.share.assert_throw import ASSERT_THROW
+from src.share.asserts import ASSERT_THROW
 
 URL = 'https://api.github.com/repos/domdrag/ZETSluzbe-Client-Data/contents/data.zip'
 

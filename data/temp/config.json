@@ -3,7 +3,6 @@
    "LOGS": 1,
    "DEBUG_LOGS": 0,
    "OFFICIAL_NUMBER_STARTUP": "2621",
-   "TRACES": 1,
    "UPDATE_SUCCESSFUL": 1,
    "DROPBOX_APP_KEY": "9x72f19ngmg8mqo",
    "DROPBOX_APP_SECRET": "msb8pniq2h76ym3",
@@ -11,8 +10,8 @@
    "GITHUB_TOKEN": "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",
    "LAST_RECORD_DATE": [
       2023,
-      9,
-      25
+      10,
+      2
    ],
    "MISSING_SERVICES": [
       0,
@@ -21,7 +20,7 @@
       0,
       0,
       0,
-      0
+      1
    ],
-   "SERVICES_HASH": 8669981684
+   "SERVICES_HASH": 13205575542
 }

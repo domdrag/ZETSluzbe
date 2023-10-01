@@ -3,7 +3,7 @@ import shutil
 
 from src.data.manager.config_manager import getConfig, setNewConfiguration, getTempConfig
 from src.share.trace import TRACE
-from src.share.assert_throw import ASSERT_THROW
+from src.share.asserts import ASSERT_THROW
 
 class DropboxSynchronizer:
     def __init__(self):
