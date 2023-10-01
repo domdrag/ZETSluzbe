@@ -1,7 +1,8 @@
-import src.data.manager.config_manager as configManager
+import src.data.manager.logs_manager as logsManager
 
 def TRACE(traceObj):
-    config = configManager.getConfig()
-    
-    if (config['TRACES']):
-        print(traceObj)
+    print(traceObj)
+    logsManager.redirectOutput()
+    print(traceObj)
+    logsManager.resetOutput()
+

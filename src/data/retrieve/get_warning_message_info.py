@@ -1,5 +1,5 @@
 from src.data.manager.design_manager import getWhiteColor, getErrorColor
-from src.share.assert_throw import ASSERT_THROW
+from src.share.asserts import ASSERT_THROW
 
 def readWarningMessage():
     fileR = open('data/data/warnings.txt', 'r', encoding='utf-8')

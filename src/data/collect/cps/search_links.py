@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup, SoupStrainer
 
-from src.share.assert_throw import ASSERT_THROW
+from src.share.asserts import ASSERT_THROW, ASSERT_NO_THROW
 
 def searchLinks():
     workDayURL = ''
@@ -29,28 +29,32 @@ def searchLinks():
                                           parse_only=SoupStrainer('a')):
                     if hasattr(line, "href"):
                         link = line['href']
-                        print(link)
                         # notifications
                         if ('dubrava/' in link):
                             notificationsLinks.append({'URL': link, 'name': line.text})
 
-                        if('RD' in link or 'Radni dan' in line.text or 'radni dan' in line.text):
+                        if('RD' in link):
                             workDayLinks.append({'URL': link, 'name': line.text})
                             #workDayURL = link
-                        if('SUB' in link or 'S_internet' in link or 'ubot' in line.text):
-                            print('what')
+                        if('SUB' in link or 'S_internet' in link):
                             saturdayLinks.append({'URL': link, 'name': line.text})
                             #saturdayURL = link
-                        if('NED' in link or 'N_internet' in link or 'edjelj' in line.text):
+                        if('NED' in link or 'N_internet' in link):
                             sundayLinks.append({'URL': link, 'name': line.text})
                             #sundayURL = link
             searchComplete = True
         except Exception as e:
             TRACE(e)
 
-    ASSERT_THROW(len(workDayLinks) > 0, 'Nije nadjeno rasporeda za radne dane.')
-    ASSERT_THROW(len(saturdayLinks) == 1, 'Nadjeno 0 ili vise subotnjih rasporeda.')
-    ASSERT_THROW(len(sundayLinks) == 1, 'Nadjeno 0 ili vise nedeljnih rasporeda.')
+    ASSERT_THROW(len(saturdayLinks) < 2,  'Nadjeno vise linkova subotnjih rasporeda.')
+    ASSERT_THROW(len(sundayLinks) < 2, 'Nadjeno vise linkova nedeljnih rasporeda.')
+
+    # we tolerate no links because we may use old resources
+    ASSERT_NO_THROW(len(workDayLinks) < 2, 'Nadjeno vise linkova za raspored za radni dan.')
+    ASSERT_NO_THROW(len(workDayLinks) > 0, 'Nije nadjen link za raspored za radni dan.')
+    ASSERT_NO_THROW(len(saturdayLinks) == 1, 'Nije nadjen link za subotnji raspored.')
+    ASSERT_NO_THROW(len(sundayLinks) == 1, 'Nije nadjen link za nedeljni raspored.')
+
     return {'workDay': workDayLinks,
             'saturday': saturdayLinks,
             'sunday': sundayLinks,

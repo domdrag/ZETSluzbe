@@ -1,9 +1,14 @@
 import pdfplumber
 
 from src.data.collect.cps.utils.download_pdf_file import downloadPDFFile
-from src.share.assert_throw import ASSERT_THROW
+from src.data.collect.cps.utils.add_warning_message import addWarningMessage
+from src.share.asserts import ASSERT_THROW
+from src.share.trace import TRACE
 
-def determineWorkDayFileName(linkName):
+def determineWorkDayFileName(linkName, numOfWorkDayLinks):
+    if (numOfWorkDayLinks == 1):
+        return 'rules_W'
+
     isOrdinal = lambda word: word[:-1].isdigit() and word[-1] == '.'
     # we want to split every dot as well, but also keep the dot to be sure which numbers are dates
     linkName = linkName.replace('.', '. ')
@@ -52,9 +57,21 @@ def determineRemovingRectsColor(typeOfDay):
     else:
         return (1,0,0)
 
+# Custom exception for no links found or no PDF present on the link since
+# we want to use old resources if possible
+class PotentialException(Exception):
+    pass
+
+def duplicatesExist(container):
+    return len(container) != len(set(container))
+
 #### thanks to jsvine - owner of pdfplumber
 def extractRule(typeOfDay, URL, fileName):
-    PDFFile = downloadPDFFile(URL, 'data/data/', fileName + '.pdf')
+    try:
+        PDFFile = downloadPDFFile(URL, 'data/data/', fileName + '.pdf')
+    except Exception as e:
+        raise PotentialException(e)
+
     with pdfplumber.open(PDFFile) as PDF:
         fileW = open('data/data/' + fileName + '.txt',
                      'w',
@@ -74,20 +91,51 @@ def extractRule(typeOfDay, URL, fileName):
     fileW.close()
 ####
 
-def extractRules(workDayLinks, saturdayLinks, sundayLinks):
-    fileNames = {'workDay' : []}
+def extractRules(workDayLinks, saturdayLinks, sundayLinks, canUseOldWorkDayResources):
+    fileNames = {'workDay': []}
 
-    for link in workDayLinks:
-        fileName = 'rules_W'
+    # WORK DAY
+    try:
+        if (not workDayLinks):
+            raise PotentialException('No workDay links found')
         if (len(workDayLinks) > 1):
-            fileName = determineWorkDayFileName(link['name'])
-        extractRule('work_day', link['URL'], fileName)
-        fileNames['workDay'].append(fileName)
+            addWarningMessage('Nadjeno vise rasporeda za radni dan!')
+        for link in workDayLinks:
+            fileName = determineWorkDayFileName(link['name'], len(workDayLinks))
+            extractRule('work_day', link['URL'], fileName)
+            fileNames['workDay'].append(fileName)
+        if (duplicatesExist(fileNames['workDay'])):
+            raise Exception('Multiple work day files with the same name')
+    except PotentialException as p:
+        # No links found or PDF not present on the link
+        TRACE('Potential error: ' + str(p))
+        if (not canUseOldWorkDayResources):
+            raise Exception(p)
+        TRACE('Using old resources for Work Day')
+        addWarningMessage('Koristenje starih resursa za Radni Dan!')
 
-    for link in saturdayLinks:
-        extractRule('saturday', link['URL'], 'rules_ST')
+    # SATURDAY
+    try:
+        if (not saturdayLinks):
+            raise PotentialException('No saturday links found')
+        for link in saturdayLinks:
+            extractRule('saturday', link['URL'], 'rules_ST')
+    except PotentialException as p:
+        # No links found or PDF not present on the link
+        TRACE('Potential error: ' + str(p))
+        TRACE('Using old resources for Saturday')
+        addWarningMessage('Koristenje starih resursa za Subotu!')
 
-    for link in sundayLinks:
-        extractRule('sunday', link['URL'], 'rules_SN')
+    # SUNDAY
+    try:
+        if (not sundayLinks):
+            raise PotentialException('No sunday links found')
+        for link in sundayLinks:
+            extractRule('sunday', link['URL'], 'rules_SN')
+    except PotentialException as p:
+        # No links found or PDF not present on the link
+        TRACE('Potential error: ' + str(p))
+        TRACE('Using old resources for Sunday')
+        addWarningMessage('Koristenje starih resursa za Nedjelju!')
 
     return fileNames
