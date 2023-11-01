@@ -18,6 +18,7 @@ from src.screen.zet_screen_manager import ZETScreenManager
 from src.data.manager.config_manager import getConfig
 from src.data.manager.design_manager import (getLoginScreenFontSize,
                                              getMainScreenFontSize,
+                                             getLogsFontSize,
                                              getGridHeight,
                                              getColors,
                                              getPrimaryColorString,
@@ -32,6 +33,7 @@ class ZETApp(MDApp):
         self.gridHeight = getGridHeight()
         self.loginScreenFontSize = getLoginScreenFontSize()
         self.mainScreenFontSize = getMainScreenFontSize()
+        self.logsFontSize = getLogsFontSize()
         self.theme_cls.theme_style = 'Dark'
         self.theme_cls.colors = getColors()
         self.theme_cls.primary_palette = getPrimaryColorString()
