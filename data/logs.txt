@@ -191,3 +191,61 @@ DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY
 SERVICES_UPDATE_FINISHED_SUCCESSFULLY
 Found notification images: ['data/data/notificationsFiles/FILE-1_page-1.png', 'data/data/notificationsFiles/FILE-1_page-2.png', 'data/data/notificationsFiles/FILE-1_page-3.png', 'data/data/notificationsFiles/FILE-1_page-4.png', 'data/data/notificationsFiles/FILE-1_page-5.png', 'data/data/notificationsFiles/FILE-1_page-6.png']
 Found notification images: ['data/data/notificationsFiles/FILE-2_page-1.png']
+=============
+2023-11-01 09:58:35.706653
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+Found notification images: ['data/data/notificationsFiles/FILE-2_page-1.png']
+=============
+2023-11-01 09:58:56.818626
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+Found notification images: ['data/data/notificationsFiles/FILE-2_page-1.png']
+=============
+2023-11-01 16:50:47.164187
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-01 16:51:08.682812
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-01 16:55:12.055430
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-01 16:55:30.101159
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-01 16:55:40.029113
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-01 16:56:06.230112
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-01 17:03:13.014602
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-01 17:04:06.527883
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-01 17:04:19.097677
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+Sluzbeni broj ne postoji!

@@ -33,7 +33,7 @@ class InfoDialog(MDDialog):
                               md_bg_color=getSecondaryColor(),
                               text_color=getWhiteColor(),
                               on_release=self.deleteLogs,
-                              font_size=app.mainScreenFontSize)
+                              font_size=app.loginScreenFontSize)
 
     def deleteLogs(self, button):
         deleteLogs()

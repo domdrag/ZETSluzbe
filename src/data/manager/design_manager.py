@@ -28,6 +28,9 @@ def getLoginScreenFontSize():
 def getMainScreenFontSize():
     return DESIGN['MAIN_SCREEN_FONT_SIZE']
 
+def getLogsFontSize():
+    return DESIGN['LOGS_FONT_SIZE']
+
 def getGridHeight():
     return DESIGN['MAIN_GRID_HEIGHT']
 
