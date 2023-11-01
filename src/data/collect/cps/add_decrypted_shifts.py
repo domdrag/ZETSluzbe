@@ -67,7 +67,7 @@ def addDecryptedShifts(days,
                        missingServices,
                        updateCause,
                        mondayDate,
-                       workDayFileNames):
+                       fileNames):
     fileR = open('data/data/week_services_by_driver_encrypted.txt',
                  'r',
                  encoding='utf-8')
@@ -113,7 +113,7 @@ def addDecryptedShifts(days,
                 continue
 
             serviceNum = weekServices[i]
-            serviceLine = getServiceLine(serviceNum, i-1, weekSchedule, mondayDate, workDayFileNames)
+            serviceLine = getServiceLine(serviceNum, i-1, weekSchedule, mondayDate, fileNames)
             if(len(serviceLine) == 1):
                 serviceLayout = getServiceLayout(serviceLine,
                                                  serviceNum,

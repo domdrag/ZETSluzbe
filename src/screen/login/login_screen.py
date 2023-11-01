@@ -39,7 +39,6 @@ class LoginScreen(Screen):
     def setWarningMessage(self):
         warningMessageInfo = getWarningMessageInfo()
         self.warningMessage = warningMessageInfo['message']
-        self.warningMessageColor = warningMessageInfo['color']
 
     def changeDefaultOffNum(self):
         currentOffNum = self.offNumTextFieldObj.text

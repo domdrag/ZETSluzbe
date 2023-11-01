@@ -3,6 +3,7 @@ from datetime import date
 from src.data.collect.cps.collect_phase_enum import CollectPhaseEnum
 from src.data.collect.cps.dropbox_synchronizer import DropboxSynchronizer
 
+from src.data.collect.utils.create_empty_warning_message import createEmptyWarningMessage
 from src.data.collect.cps.add_decrypted_services import (
     addDecryptedServices
     )
@@ -38,6 +39,7 @@ class DataCollector:
     workDayLinks = ''
     saturdayLinks = ''
     sundayLinks = ''
+    specialDayLinks = ''
     notificationsLinks = ''
     mondayDate = date(2022,1,1)
     weekSchedule = ['W','W','W','W','W','W','W']
@@ -49,6 +51,9 @@ class DataCollector:
     servicesHash = None
     workDayFileNames = []
     canUseOldWorkDayResources = False
+
+    def __init__(self):
+        createEmptyWarningMessage()
     
     def keepCollectingData(self):
         returnMessage = { 'success': False,
@@ -61,6 +66,7 @@ class DataCollector:
                 TRACE('[CP] DROPBOX_SYNCHRONIZATION')
                 setConfig('UPDATE_SUCCESSFUL', 0)
                 dropboxSynchronizer = DropboxSynchronizer()
+                # should be always False atm since there's only 1 admin
                 if dropboxSynchronizer.isDropboxSynchronizationNeeded():
                     TRACE('PERFORMING_DROPBOX_SYNCHRONIZATION')
                     self.synchronizationNeeded = True
@@ -74,6 +80,7 @@ class DataCollector:
                 self.workDayLinks = foundLinks['workDay']
                 self.saturdayLinks = foundLinks['saturday']
                 self.sundayLinks = foundLinks['sunday']
+                self.specialDayLinks = foundLinks['specialDay']
                 self.notificationsLinks = foundLinks['notificationsLinks']
                 returnMessage['message'] = 'Konfiguracija notifikacija'
 
@@ -108,18 +115,12 @@ class DataCollector:
                 self.updateCause = result['updateCause']
                 if not updateNeeded:
                     TRACE('UPDATE_NOT_PERFORMING')
-                    # REMARK - if services haven't been added in Friday yet,
-                    # but admin still had synch with dropbox (he was inactive
-                    # for at least a week) we still got 'Sluzbe azurirane'
-                    # which may be misleading 
-                    if self.synchronizationNeeded:
-                        # will be + 1 after so UPDATE_BACKUP_DIRECTORY
-                        self.phase = cp.UPLOAD_DATA_TO_DROPBOX 
-                        returnMessage['message'] = 'Stvaranje sigurnosne kopije'
-                    else:
-                        restoreWarnings()
-                        setConfig('UPDATE_SUCCESSFUL', 1)
-                        returnMessage['finished'] = True
+                    # if sync occured, warnings will be restored from dropbox as
+                    # backup got updated during sync
+                    restoreWarnings()
+                    setConfig('UPDATE_SUCCESSFUL', 1)
+                    returnMessage['finished'] = True
+
                 else:
                     TRACE('PERFORMING_UPDATE')
                     returnMessage['message'] = \
@@ -127,7 +128,7 @@ class DataCollector:
 
             elif self.phase == cp.DELETE_NECESSARY_DATA:
                 TRACE('[CP] DELETE_NECESSARY_DATA')
-                result = deleteNecessaryData(self.workDayLinks)
+                result = deleteNecessaryData(self.workDayLinks, self.specialDayLinks)
                 self.canUseOldWorkDayResources = result['canUseOldWorkDayResources']
                 TRACE('Old Work Day resources enabled: ' +
                       str(self.canUseOldWorkDayResources))
@@ -135,11 +136,13 @@ class DataCollector:
                 
             elif self.phase == cp.EXTRACT_RULES:
                 TRACE('[CP] EXTRACT_RULES')
-                fileNames = extractRules(self.workDayLinks,
-                                         self.saturdayLinks,
-                                         self.sundayLinks,
-                                         self.canUseOldWorkDayResources)
-                self.workDayFileNames = fileNames['workDay']
+                self.fileNames = extractRules(self.workDayLinks,
+                                              self.saturdayLinks,
+                                              self.sundayLinks,
+                                              self.specialDayLinks,
+                                              self.weekSchedule,
+                                              self.mondayDate,
+                                              self.canUseOldWorkDayResources)
                 returnMessage['message'] = 'Spremanje tjednih sluzbi'
                 
             elif self.phase == cp.ADD_DECRYPTED_SERVICES:
@@ -149,7 +152,7 @@ class DataCollector:
                                      self.missingServices,
                                      self.updateCause,
                                      self.mondayDate,
-                                     self.workDayFileNames)
+                                     self.fileNames)
                 returnMessage['message'] = 'Spremanje tjednih smjena'
                 
             elif self.phase == cp.ADD_DECRYPTED_SHIFTS:
@@ -159,7 +162,7 @@ class DataCollector:
                                    self.missingServices,
                                    self.updateCause,
                                    self.mondayDate,
-                                   self.workDayFileNames)
+                                   self.fileNames)
                 returnMessage['message'] = \
                     'Spremanje nove konfiguracije'
 

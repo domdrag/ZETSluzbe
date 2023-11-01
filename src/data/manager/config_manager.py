@@ -38,11 +38,11 @@ def setNewConfiguration(mondayDateList, missingServices, servicesHash):
 
 TEMP_CONFIG_COPY_FILE_PATH = 'data/temp/config.json'
 
-def getTempConfig():
+def getTempConfigInfo():
     with open(TEMP_CONFIG_COPY_FILE_PATH, 'r') as configFile:
         tempConfig = json.load(configFile)
 
-    return tempConfig
+    return {'tempConfig': tempConfig, 'tempConfigPath': TEMP_CONFIG_COPY_FILE_PATH}
 
 def setTempConfig(tempConfig):
     with open(TEMP_CONFIG_COPY_FILE_PATH, 'w') as configFile:

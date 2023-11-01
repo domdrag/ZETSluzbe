@@ -1,15 +1,22 @@
 import requests
+import re
 from bs4 import BeautifulSoup, SoupStrainer
 
+from src.data.collect.cps.utils.regex_definitions import RegexDefinitions
 from src.share.asserts import ASSERT_THROW, ASSERT_NO_THROW
+from src.share.trace import TRACE
+
+def isValidRulesLink(linkName, linkURL):
+    dateMatch = re.search(RegexDefinitions.dateRegex, linkName)
+    return (bool(dateMatch) and
+            ('rada/' in linkURL or '/Oglasne'  in linkURL))
+
 
 def searchLinks():
-    workDayURL = ''
     workDayLinks = []
-    saturdayURL = ''
     saturdayLinks = []
-    sundayURL = ''
     sundayLinks = []
+    specialDayLinks = []
 
     payload = {
         'pojam': 'zetovci'
@@ -28,20 +35,28 @@ def searchLinks():
                 for line in BeautifulSoup(content,
                                           parse_only=SoupStrainer('a')):
                     if hasattr(line, "href"):
-                        link = line['href']
-                        # notifications
-                        if ('dubrava/' in link):
-                            notificationsLinks.append({'URL': link, 'name': line.text})
+                        linkURL = line['href']
+                        linkName = line.text
 
-                        if('RD' in link):
-                            workDayLinks.append({'URL': link, 'name': line.text})
-                            #workDayURL = link
-                        if('SUB' in link or 'S_internet' in link):
-                            saturdayLinks.append({'URL': link, 'name': line.text})
-                            #saturdayURL = link
-                        if('NED' in link or 'N_internet' in link):
-                            sundayLinks.append({'URL': link, 'name': line.text})
-                            #sundayURL = link
+                        # notifications
+                        if ('dubrava/' in linkURL):
+                            notificationsLinks.append({'URL': linkURL, 'name': linkName})
+                            continue
+
+                        if (not isValidRulesLink(linkName, linkURL)):
+                            continue
+
+                        TRACE('Rules link found: ' + linkName)
+
+                        if ('RD' in linkURL):
+                            workDayLinks.append({'URL': linkURL, 'name': linkName})
+                        elif ('SUB' in linkURL or 'S_internet' in linkURL):
+                            saturdayLinks.append({'URL': linkURL, 'name': linkName})
+                        elif ('NED' in linkURL or 'N_internet' in linkURL):
+                            sundayLinks.append({'URL': linkURL, 'name': linkName})
+                        else:
+                            specialDayLinks.append({'URL': linkURL, 'name': linkName})
+
             searchComplete = True
         except Exception as e:
             TRACE(e)
@@ -58,4 +73,5 @@ def searchLinks():
     return {'workDay': workDayLinks,
             'saturday': saturdayLinks,
             'sunday': sundayLinks,
+            'specialDay': specialDayLinks,
             'notificationsLinks': notificationsLinks}

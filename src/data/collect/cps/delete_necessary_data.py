@@ -3,17 +3,19 @@ import shutil
 
 DATA_DIR_PATH = 'data/data/'
 
-def multipleOldWorkDayPDFs():
+def UnusualOldRulesPDFsFound():
     dataDirsAndFiles = os.listdir(DATA_DIR_PATH)
-    numOfOldWorkDayPDFs = 0
     for item in dataDirsAndFiles:
-        if ('rules_W' in item and '.pdf' in item):
-            numOfOldWorkDayPDFs += 1
-    return numOfOldWorkDayPDFs > 1
+        if ('[' in item and ']' in item and '.pdf' in item):
+            return True
 
-def deleteNecessaryData(workDayLinks):
+    return False
+
+
+def deleteNecessaryData(workDayLinks, specialDayLinks):
     numOfWorkDayLinks = len(workDayLinks)
-    if ((not multipleOldWorkDayPDFs()) and (numOfWorkDayLinks < 2)):
+    numOfSpecialDayLinks = len(specialDayLinks)
+    if ((not UnusualOldRulesPDFsFound()) and (numOfWorkDayLinks < 2) and (numOfSpecialDayLinks == 0)):
         return {'canUseOldWorkDayResources': True}
 
     files = os.listdir('data/data')

@@ -32,10 +32,9 @@ def determineWeekSchedule(page, weekSchedule, mondayDate):
     weekScheduleDefault = True
     rects = page.rects
     chars = page.chars
-    # Special message formatting (0=STANDARD, 1=NON-STANDARD, 2=ERROR).
-    ### Check file: src/data/retrieve/get_warning_message.py
-    message0 = '0$Uobicajen vozni red.\n'
-    message1 = '1$Neuobicajen vozni red. Sugerira se samostalna' \
+
+    message0 = 'Uobicajen vozni red.\n'
+    message1 = 'Neuobicajen vozni red. Sugerira se samostalna' \
                ' provjera sluzbi.\n'
     errorMessage = '2$Greska! Provjeriti sluzbe rucno!\n'
     plausibleErrorMessage = 'Moguca greska! Upozoriti admina!\n'
@@ -63,11 +62,11 @@ def determineWeekSchedule(page, weekSchedule, mondayDate):
                         color = rect['non_stroking_color']
                         if color[1] >= 0.9 and color != (1,1,1): # green
                             nonWorkingDays[days[day]] = 'Subota'
-                            weekSchedule[day] = 'St'
+                            weekSchedule[day] = 'ST'
                             break
                         elif color[0] >= 0.9 and color != (1,1,1): # red
                             nonWorkingDays[days[day]] = 'Nedjelja'
-                            weekSchedule[day] = 'Sn'
+                            weekSchedule[day] = 'SN'
                             break
                         
             if 'Subota' not in nonWorkingDays:
@@ -125,7 +124,7 @@ def determineWeekSchedule(page, weekSchedule, mondayDate):
                 # Not found by colors, but present in holidays.txt
                 plausibleErrorOccured = True
             nonDefaultDays[days[mondayDiff]] = 'Nedjelja'
-            weekSchedule[mondayDiff] = 'Sn'
+            weekSchedule[mondayDiff] = 'SN'
 
     if (firstStageHolidayList):
         plausibleErrorOccured = True
@@ -143,7 +142,7 @@ def determineWeekSchedule(page, weekSchedule, mondayDate):
                 pass
         else:
             nonDefaultDays['Ponedjeljak'] = 'Subota'
-            weekSchedule[0] = 'St'
+            weekSchedule[0] = 'ST'
             
     # thursday merge
     if ('Cetvrtak' in nonDefaultDays and \
@@ -152,25 +151,25 @@ def determineWeekSchedule(page, weekSchedule, mondayDate):
             pass
         else:
             nonDefaultDays['Petak'] = 'Subota'
-            weekSchedule[4] = 'St'
+            weekSchedule[4] = 'ST'
 
-    fileW = open('data/data/warnings.txt', 'w', encoding='utf-8')
+    fileA = open('data/data/warnings.txt', 'a', encoding='utf-8')
     if not nonDefaultDays:
-        fileW.write(message0)
+        fileA.write(message0)
     else:
         if (errorOccured):
             message1 = errorMessage
         if (plausibleErrorOccured):
             message1 = message1 + plausibleErrorMessage
-        fileW.write(message1)
+        fileA.write(message1)
 
     messageAddOn = 'ni'
     for key,value in nonDefaultDays.items():
         if (value == 'Subota'):
             messageAddOn = 'nji'
-        fileW.write('Za {0} se gleda {1}{2} vozni red.\n'.\
+        fileA.write('Za {0} se gleda {1}{2} vozni red ili raspored za poseban dan tog tipa.\n'.\
                     format(key.lower(), (value[:-1]).lower(), messageAddOn))
-    fileW.close()
+    fileA.close()
 
 
 
