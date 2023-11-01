@@ -2,13 +2,14 @@ import os
 import shutil
 
 from src.data.manager.config_manager import TEMP_CONFIG_COPY_FILE_PATH
-from src.data.manager.config_manager import getTempConfig, setTempConfig
+from src.data.manager.config_manager import getTempConfigInfo, setTempConfig
 
 def compressData():
     shutil.make_archive('data/temp/data', 'zip', 'data/data')
 
 def setUpdateSuccessfulForUpload():
-    tempConfig = getTempConfig()
+    tempConfigInfo = getTempConfigInfo()
+    tempConfig = tempConfigInfo['tempConfig']
     tempConfig['UPDATE_SUCCESSFUL'] = 1
     setTempConfig(tempConfig)
 

@@ -9,15 +9,18 @@ def restoreWarnings():
     shutil.copyfile('data/backup/data/warnings.txt',
                     'data/data/warnings.txt')
 
-def updateBackupConfig():
-    shutil.copyfile('data/config.json', 'data/backup/config.json')
+def updateBackupConfig(sourceConfigPath = ''):
+    if (sourceConfigPath):
+        shutil.copyfile(sourceConfigPath, 'data/backup/config.json')
+    else:
+        shutil.copyfile('data/config.json', 'data/backup/config.json')
 
 def removeExistingBackupData():
     # remove complete directory
     shutil.rmtree('data/backup/data')
 
-def updateBackupDir():
-    updateBackupConfig()
+def updateBackupDir(sourceConfigPath = ''):
+    updateBackupConfig(sourceConfigPath)
     removeExistingBackupData()
     copy_tree('data/data', 'data/backup/data')
 

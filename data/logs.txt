@@ -1,194 +1,46 @@
-=============
-2023-10-01 15:23:44.770333
-=============
-NO DEBUG LOGS
-BACKUP CONFIG UPDATED
-Sluzbeni broj ne postoji!
-Sluzbeni broj ne postoji!
 [CP] DROPBOX_SYNCHRONIZATION
 DROPBOX_SYNCHRONIZATION_NOT_NEEDED
 [CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Svi sveti 1. 11. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
 [CP] CONFIGURE_NOTIFICATION_FILES
 [CP] CONFIGURE_DAYS
 [CP] EXTRACT_RULES_BY_DRIVER
 [CP] CONFIGURE_MISSING_SERVICES
-CONFIGURED_MISSING_SERVICES: [0, 0, 0, 0, 0, 0, 1]
+CONFIGURED_MISSING_SERVICES: [0, 0, 0, 0, 0, 0, 0]
 [CP] CHECKING_UPDATE_NEEDED
 MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
 PERFORMING_UPDATE
 [CP] DELETE_NECESSARY_DATA
-Old Work Day resources enabled: True
+Old Work Day resources enabled: False
 [CP] EXTRACT_RULES
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
+For file: rules_SP[1] determined typeOfDay: SN
+Extracting rules for file: rules_SP[1], typeOfDay: SN
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+'int' object has no attribute 'isnumeric'
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
 =============
-2023-10-01 15:32:54.997789
+2023-10-31 19:47:18.458284
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Svi sveti 1. 11. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
+[CP] CONFIGURE_NOTIFICATION_FILES
+[CP] CONFIGURE_DAYS
+[CP] EXTRACT_RULES_BY_DRIVER
+=============
+2023-10-31 19:48:04.148905
 =============
 REPAIR ALL FILES - ERROR IN LAST SESSION
 REPAIRING DATA AND CONFIG
@@ -198,343 +50,100 @@ BACKUP CONFIG UPDATED
 [CP] DROPBOX_SYNCHRONIZATION
 DROPBOX_SYNCHRONIZATION_NOT_NEEDED
 [CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Svi sveti 1. 11. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
 [CP] CONFIGURE_NOTIFICATION_FILES
 [CP] CONFIGURE_DAYS
 [CP] EXTRACT_RULES_BY_DRIVER
 [CP] CONFIGURE_MISSING_SERVICES
-CONFIGURED_MISSING_SERVICES: [0, 0, 0, 0, 0, 0, 1]
+CONFIGURED_MISSING_SERVICES: [0, 0, 0, 0, 0, 0, 0]
 [CP] CHECKING_UPDATE_NEEDED
 MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
 PERFORMING_UPDATE
 [CP] DELETE_NECESSARY_DATA
-Old Work Day resources enabled: True
+Old Work Day resources enabled: False
 [CP] EXTRACT_RULES
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
-Greska pri skidanju file-a: rules_ST.pdf
+For file: rules_SP[1] determined typeOfDay: SN
+Extracting rules for file: rules_SP[1], typeOfDay: SN
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+can only concatenate str (not "int") to str
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
 =============
-2023-10-01 15:34:41.584305
+2023-10-31 19:52:28.310316
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Svi sveti 1. 11. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
+[CP] CONFIGURE_NOTIFICATION_FILES
+[CP] CONFIGURE_DAYS
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CONFIGURE_MISSING_SERVICES
+CONFIGURED_MISSING_SERVICES: [0, 0, 0, 0, 0, 0, 0]
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: False
+[CP] EXTRACT_RULES
+For file: rules_SP[1] determined typeOfDay: SN
+Extracting rules for file: rules_SP[1], typeOfDay: SN
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+For dayIndex: 0 selected file: data/data/rules_W.txt
+list index out of range
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+=============
+2023-10-31 19:53:48.469398
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Svi sveti 1. 11. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
+[CP] CONFIGURE_NOTIFICATION_FILES
+[CP] CONFIGURE_DAYS
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CONFIGURE_MISSING_SERVICES
+CONFIGURED_MISSING_SERVICES: [0, 0, 0, 0, 0, 0, 0]
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: False
+[CP] EXTRACT_RULES
+For file: rules_SP[1] determined typeOfDay: SN
+Extracting rules for file: rules_SP[1], typeOfDay: SN
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+For dayIndex: 0 selected file: data/data/rules_W.txt
+For dayIndex: 1 selected file: data/data/rules_W.txt
+For dayIndex: 2 selected file: data/data/rules_SP[1].txt
+For dayIndex: 3 selected file: data/data/rules_W.txt
+For dayIndex: 4 selected file: data/data/rules_W.txt
+For dayIndex: 5 selected file: data/data/rules_ST.txt
+For dayIndex: 6 selected file: data/data/rules_SN.txt
+[CP] ADD_DECRYPTED_SERVICES
+[CP] ADD_DECRYPTED_SHIFTS
+=============
+2023-10-31 20:01:52.839047
 =============
 REPAIR ALL FILES - ERROR IN LAST SESSION
 REPAIRING DATA AND CONFIG
@@ -544,20 +153,33 @@ BACKUP CONFIG UPDATED
 [CP] DROPBOX_SYNCHRONIZATION
 DROPBOX_SYNCHRONIZATION_NOT_NEEDED
 [CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Svi sveti 1. 11. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
 [CP] CONFIGURE_NOTIFICATION_FILES
 [CP] CONFIGURE_DAYS
 [CP] EXTRACT_RULES_BY_DRIVER
 [CP] CONFIGURE_MISSING_SERVICES
-CONFIGURED_MISSING_SERVICES: [0, 0, 0, 0, 0, 0, 1]
+CONFIGURED_MISSING_SERVICES: [0, 0, 0, 0, 0, 0, 0]
 [CP] CHECKING_UPDATE_NEEDED
 MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
 PERFORMING_UPDATE
 [CP] DELETE_NECESSARY_DATA
-Old Work Day resources enabled: True
+Old Work Day resources enabled: False
 [CP] EXTRACT_RULES
-Greska pri skidanju file-a: rules_ST.pdf
-Potential error: Greska pri skidanju file-a: rules_ST.pdf
-Using old resources for Saturday
+For file: rules_SP[1] determined typeOfDay: SN
+Extracting rules for file: rules_SP[1], typeOfDay: SN
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+For date: 30-10-2023 selected file: data/data/rules_W.txt
+For date: 31-10-2023 selected file: data/data/rules_W.txt
+For date: 01-11-2023 selected file: data/data/rules_SP[1].txt
+For date: 02-11-2023 selected file: data/data/rules_W.txt
+For date: 03-11-2023 selected file: data/data/rules_W.txt
+For date: 04-11-2023 selected file: data/data/rules_ST.txt
+For date: 05-11-2023 selected file: data/data/rules_SN.txt
 [CP] ADD_DECRYPTED_SERVICES
 [CP] ADD_DECRYPTED_SHIFTS
 [CP] SET_NEW_CONFIG
@@ -567,19 +189,5 @@ Using old resources for Saturday
 DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY
 [CP] UPDATE_BACKUP_DIRECTORY
 SERVICES_UPDATE_FINISHED_SUCCESSFULLY
-Sluzbeni broj ne postoji!
-Sluzbeni broj ne postoji!
-Sluzbeni broj ne postoji!
-Sluzbeni broj ne postoji!
-Sluzbeni broj ne postoji!
-Sluzbeni broj ne postoji!
-Sluzbeni broj ne postoji!
-Sluzbeni broj ne postoji!
-Sluzbeni broj ne postoji!
 Found notification images: ['data/data/notificationsFiles/FILE-1_page-1.png', 'data/data/notificationsFiles/FILE-1_page-2.png', 'data/data/notificationsFiles/FILE-1_page-3.png', 'data/data/notificationsFiles/FILE-1_page-4.png', 'data/data/notificationsFiles/FILE-1_page-5.png', 'data/data/notificationsFiles/FILE-1_page-6.png']
-Found notification images: ['data/data/notificationsFiles/FILE-3_page-1.png', 'data/data/notificationsFiles/FILE-3_page-2.png']
 Found notification images: ['data/data/notificationsFiles/FILE-2_page-1.png']
-Sluzbeni broj ne postoji!
-Sluzbeni broj ne postoji!
-Sluzbeni broj ne postoji!
-Sluzbeni broj ne postoji!

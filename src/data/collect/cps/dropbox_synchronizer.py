@@ -1,14 +1,18 @@
 import dropbox
 import shutil
 
-from src.data.manager.config_manager import getConfig, setNewConfiguration, getTempConfig
+from src.data.manager.config_manager import getConfig, setNewConfiguration, getTempConfigInfo
+from src.data.manager.backup_manager import updateBackupDir
 from src.share.trace import TRACE
 from src.share.asserts import ASSERT_THROW
 
 class DropboxSynchronizer:
+    tempConfigPath = ''
     def __init__(self):
         downloadDropboxFile('config.json')
-        onlineConfig = getTempConfig()
+        tempConfigInfo = getTempConfigInfo()
+        self.tempConfigPath = tempConfigInfo['tempConfigPath']
+        onlineConfig = tempConfigInfo['tempConfig']
 
         self.onlineDate = onlineConfig['LAST_RECORD_DATE']
         self.onlineMissingServices = onlineConfig['MISSING_SERVICES']
@@ -38,6 +42,8 @@ class DropboxSynchronizer:
         downloadDropboxFile('data.zip')
         removeExistingData()
         decompressData()
+        updateBackupDir(self.tempConfigPath)
+        TRACE('UPDATED BACKUP DIRECTORY FROM DROPBOX DATA')
 
 ###########################################################################################
 ###########################################################################################
@@ -63,7 +69,6 @@ def downloadDropboxFile(file):
 
 def decompressData():
     shutil.unpack_archive('data/temp/data.zip', 'data/data')
-
 
 
 
