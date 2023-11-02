@@ -50,14 +50,14 @@ def updateStatistics(offNum, month, hourlyRateStats, driveOrder, receptionPoint,
     releasePointsDict[releasePoint] = releasePointsDict[releasePoint] + 1
 
 
-def updateStatisticsVac(offNum, month, vacationType, isHoliday):
+def updateStatisticsVac(offNum, month, vacationType, isHolidayOnWorkDay):
     monthDict = getMonthDict(STATISTICS, offNum, month)
     hourlyRateDict = monthDict['SATNICA']
     if (vacationType not in hourlyRateDict):
         hourlyRateDict[vacationType] = 0
     hourlyRateDict[vacationType] = hourlyRateDict[vacationType] + 1
 
-    if (vacationType == 'I-GO' or vacationType == 'I-BO' or isHoliday):
+    if (vacationType == 'I-GO' or vacationType == 'I-BO' or isHolidayOnWorkDay):
         hourlyRateDict['UKUPNO'] = addNumbers(hourlyRateDict['UKUPNO'], 8)
 
 def finishStatisticsUpdate():
