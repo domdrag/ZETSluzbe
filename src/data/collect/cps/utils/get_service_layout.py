@@ -28,18 +28,19 @@ def getServiceLayout(serviceLine, serviceNum, days, day, offNum = None):
 
             dateListInt = [int(dateList[0]), int(dateList[1]), int(dateList[2])]
             holidays = getHolidays()
-            isHoliday = False
-            for holiday in holidays:
-                holiday = holiday[::-1]
-                if ((holiday == dateListInt) or
-                    (holiday[2] == 0 and holiday[:2] == dateListInt[:2])):
-                    isHoliday = True
-                    break
+            isHolidayOnWorkDay = False
+            if day < 5:
+                for holiday in holidays:
+                    holiday = holiday[::-1]
+                    if ((holiday == dateListInt) or
+                        (holiday[2] == 0 and holiday[:2] == dateListInt[:2])):
+                        isHolidayOnWorkDay = True
+                        break
 
             updateStatisticsVac(offNum,
                                 monthFormat,
                                 serviceLine[0],
-                                isHoliday)
+                                isHolidayOnWorkDay)
         return [days[day], serviceLine[0]]
 
     nightHoursPossible = True
