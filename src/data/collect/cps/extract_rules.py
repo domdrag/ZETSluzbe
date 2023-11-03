@@ -128,16 +128,29 @@ def determineRulesFileName(linkName, fileNamePrefix):
 
     return fileNamePrefix + str(daysInTarget) if daysInTarget else fileNamePrefix
 
+# Custom exception
+# Uses:
+## 1) No rules link found - use old resources if possible
+## 2) No PDF present on the rules link - use old resources if possible
+## 3) Found old special day rules link - ignore it
+class ExtractRulesCustomException(Exception):
+    pass
+
 def determineTypeOfDayForSpecialDays(fileName, mondayDate, weekSchedule):
     rangeListStartIndex = fileName.index('[')
     specificDays = ast.literal_eval(fileName[rangeListStartIndex:])
     dayToFind = specificDays[0]  # any day should work
     dayIndex = 0
-    while True:
+    while dayIndex < 7:
         nextDate = mondayDate + timedelta(days=dayIndex)
         if (nextDate.day == dayToFind):
             break
         dayIndex += 1
+
+    if (dayIndex == 7):
+        TRACE('Found old rules file for special day')
+        raise ExtractRulesCustomException('Ignoring old special day rules file')
+
     TRACE('For file: ' + fileName + ' determined typeOfDay: ' + weekSchedule[dayIndex])
     return weekSchedule[dayIndex]
 
@@ -150,11 +163,6 @@ def determineRemovingRectsColor(typeOfDay):
     else:
         return (1,0,0)
 
-# Custom exception for no links found or no PDF present on the link since
-# we want to use old resources if possible
-class PotentialException(Exception):
-    pass
-
 def duplicatesExist(container):
     return len(container) != len(set(container))
 
@@ -163,7 +171,7 @@ def extractRule(typeOfDay, URL, fileName):
     try:
         PDFFile = downloadPDFFile(URL, 'data/data/', fileName + '.pdf')
     except Exception as e:
-        raise PotentialException(e)
+        raise ExtractRulesCustomException(e)
 
     with pdfplumber.open(PDFFile) as PDF:
         fileW = open('data/data/' + fileName + '.txt',
@@ -206,7 +214,12 @@ def extractRules(workDayLinks,
     for link in specialDayLinks:
         fileNameSPPrefix = 'rules_SP'
         fileNameSP = determineRulesFileName(link['name'], fileNameSPPrefix)
-        typeOfDaySP = determineTypeOfDayForSpecialDays(fileNameSP, mondayDate, weekSchedule)
+        try:
+            typeOfDaySP = determineTypeOfDayForSpecialDays(fileNameSP, mondayDate, weekSchedule)
+        except ExtractRulesCustomException as e:
+            TRACE(e)
+            continue
+
         fileNames.append(fileNameSP)
         TRACE('Extracting rules for file: ' + fileNameSP + ', typeOfDay: ' + typeOfDaySP)
         extractRule(typeOfDaySP, link['URL'], fileNameSP)
@@ -214,7 +227,7 @@ def extractRules(workDayLinks,
     # WORK DAY
     try:
         if (not workDayLinks):
-            raise PotentialException('No workDay links found')
+            raise ExtractRulesCustomException('No workDay links found')
         if (len(workDayLinks) > 1):
             addWarningMessage('Nadjeno vise rasporeda za radni dan!')
         typeOfDayW = 'W'
@@ -224,7 +237,7 @@ def extractRules(workDayLinks,
             fileNames.append(fileNameW)
             TRACE('Extracting rules for file: ' + fileNameW + ', typeOfDay: ' + typeOfDayW)
             extractRule(typeOfDayW, link['URL'], fileNameW)
-    except PotentialException as p:
+    except ExtractRulesCustomException as p:
         # No links found or PDF not present on the link
         TRACE('Potential error: ' + str(p))
         if (not canUseOldWorkDayResources):
@@ -235,14 +248,14 @@ def extractRules(workDayLinks,
     # SATURDAY
     try:
         if (not saturdayLinks):
-            raise PotentialException('No saturday links found')
+            raise ExtractRulesCustomException('No saturday links found')
         typeOfDayST = 'ST'
         for link in saturdayLinks:
             fileNameST = 'rules_ST'
             fileNames.append(fileNameST)
             TRACE('Extracting rules for file: ' + fileNameST + ', typeOfDay: ' + typeOfDayST)
             extractRule(typeOfDayST, link['URL'], fileNameST)
-    except PotentialException as p:
+    except ExtractRulesCustomException as p:
         # No links found or PDF not present on the link
         TRACE('Potential error: ' + str(p))
         TRACE('Using old resources for Saturday')
@@ -251,14 +264,14 @@ def extractRules(workDayLinks,
     # SUNDAY
     try:
         if (not sundayLinks):
-            raise PotentialException('No sunday links found')
+            raise ExtractRulesCustomException('No sunday links found')
         typeOfDaySN = 'SN'
         for link in sundayLinks:
             fileNameSN = 'rules_SN'
             fileNames.append(fileNameSN)
             TRACE('Extracting rules for file: ' + fileNameSN + ', typeOfDay: ' + typeOfDaySN)
             extractRule(typeOfDaySN, link['URL'], fileNameSN)
-    except PotentialException as p:
+    except ExtractRulesCustomException as p:
         # No links found or PDF not present on the link
         TRACE('Potential error: ' + str(p))
         TRACE('Using old resources for Sunday')
