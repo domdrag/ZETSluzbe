@@ -1,5 +1,5 @@
 {
-   "Raspored rada za voza\u010de od 30.10.2023. do 05.11.2023.": {
+   "Raspored rada za voza\u010de od 06.11.2023. do 12.11.2023.": {
       "URL": "https://www.zet.hr/interno/UserDocsImages/tp dubrava/Slu\u017ebe za sve voza\u010de/tpd.pdf",
       "IMAGES_FILE_NAME_PATTERN": "FILE-1_page-",
       "NUM_OF_PAGES": 6
@@ -9,14 +9,19 @@
       "IMAGES_FILE_NAME_PATTERN": "FILE-2_page-",
       "NUM_OF_PAGES": 1
    },
-   "Raspored rada redara 01.11.2023.": {
-      "URL": "https://www.zet.hr/interno/UserDocsImages/tp dubrava/Obavijest/Redari 1.11.2023.pdf",
+   "U subotu 04.11.2023. od 7:45 do 10:00 sati obustava prometa Frankopanskom": {
+      "URL": "https://www.zet.hr/interno/UserDocsImages/tp dubrava/Obavijest/subota 4.11.pdf",
       "IMAGES_FILE_NAME_PATTERN": "FILE-3_page-",
+      "NUM_OF_PAGES": 2
+   },
+   "U nedjelju 05.11.2023. od 18:45 do 20:15 sati obustava prometa preko TBJJ": {
+      "URL": "https://www.zet.hr/interno/UserDocsImages/tp dubrava/Obavijest/nedjelja 5.11.pdf",
+      "IMAGES_FILE_NAME_PATTERN": "FILE-4_page-",
       "NUM_OF_PAGES": 1
    },
    "Privremeno izmje\u0161tanje tramvajskog stajali\u0161ta Britanski trg jug": {
       "URL": "https://www.zet.hr/interno/UserDocsImages/tp dubrava/Obavijest/Rukovoditelji TPD. TPT i APP - privremeno izmje\u0161tanje tram. stajali\u0161ta Britanski trg jug.pdf",
-      "IMAGES_FILE_NAME_PATTERN": "FILE-4_page-",
+      "IMAGES_FILE_NAME_PATTERN": "FILE-5_page-",
       "NUM_OF_PAGES": 1
    }
 }

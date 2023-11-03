@@ -266,3 +266,54 @@ LAST_SERVICES_HASH: 9770925092
 NEW_SERVICES_HASH: 9770925092
 NO_UPDATE_NEEDED
 UPDATE_NOT_PERFORMING
+=============
+2023-11-03 15:06:54.004134
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-03 15:07:07.071411
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
+[CP] CONFIGURE_NOTIFICATION_FILES
+[CP] CONFIGURE_DAYS
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CONFIGURE_MISSING_SERVICES
+CONFIGURED_MISSING_SERVICES: [0, 0, 0, 0, 0, 0, 0]
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: False
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+For date: 06-11-2023 selected file: data/data/rules_W.txt
+For date: 07-11-2023 selected file: data/data/rules_W.txt
+For date: 08-11-2023 selected file: data/data/rules_W.txt
+For date: 09-11-2023 selected file: data/data/rules_W.txt
+For date: 10-11-2023 selected file: data/data/rules_W.txt
+For date: 11-11-2023 selected file: data/data/rules_ST.txt
+For date: 12-11-2023 selected file: data/data/rules_SN.txt
+[CP] ADD_DECRYPTED_SERVICES
+[CP] ADD_DECRYPTED_SHIFTS
+[CP] SET_NEW_CONFIG
+[CP] PREPARE_DATA_FOR_TRANSPORT
+[CP] UPLOAD_CLIENT_DATA
+[CP] UPLOAD_DATA_TO_DROPBOX
+DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY
+[CP] UPDATE_BACKUP_DIRECTORY
+SERVICES_UPDATE_FINISHED_SUCCESSFULLY
+=============
+2023-11-03 16:43:48.150859
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED

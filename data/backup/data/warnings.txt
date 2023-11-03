@@ -1,3 +1,1 @@
-Neuobicajen vozni red. Sugerira se samostalna provjera sluzbi.
-Za srijeda se gleda nedjeljni vozni red ili raspored za poseban dan tog tipa.
-Nadjene sluzbe za posebni/e datum/e.
+Uobicajen vozni red.
