@@ -7,3 +7,5 @@ errorSolving.txt
 .idea
 kakoTestirati.txt
 design_session
+__pycache__
+verification

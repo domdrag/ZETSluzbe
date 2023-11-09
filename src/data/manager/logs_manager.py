@@ -2,20 +2,23 @@ import sys
 
 from datetime import datetime
 
-from src.share.trace import TRACE
+import src.share.trace as trace
+
+CURRENT_STDOUT = sys.stdout
 
 def redirectOutput():
     sys.stdout = open('data/logs.txt', 'a', encoding='utf-8')
 
 def resetOutput():
+    global CURRENT_STDOUT
     sys.stdout.close()
-    sys.stdout = sys.__stdout__
+    sys.stdout = CURRENT_STDOUT
+
 
 def beginLogging():
-    #startLogging()
-    TRACE('=============')
-    TRACE(datetime.now())
-    TRACE('=============')
+    trace.TRACE('=============')
+    trace.TRACE(datetime.now())
+    trace.TRACE('=============')
 
 def getLogs():
     #haltLogging()

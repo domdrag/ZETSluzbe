@@ -20,6 +20,10 @@ class DropboxSynchronizer:
 
     def isDropboxSynchronizationNeeded(self):
         config = getConfig()
+        if (config['TEST_CONFIGURATION_ACTIVATED']):
+            TRACE('TEST_CONFIGURATION_ACTIVATED - dropbox synchronization not needed')
+            return False
+
         currentDate = config['LAST_RECORD_DATE']
         currentMissingServices = config['MISSING_SERVICES']
         currentServicesHash = config['SERVICES_HASH']
@@ -31,7 +35,6 @@ class DropboxSynchronizer:
             TRACE('MISSING_SERVICES_MISMATCH -> DROPBOX_SYNCHRONIZATION_NEEDED')
             return True
         else:
-            TRACE('DROPBOX_SYNCHRONIZATION_NOT_NEEDED')
             ASSERT_THROW(currentServicesHash == self.onlineServicesHash, 'Neuskladjene sluzbe sa dropbox-om.')
             return False
 

@@ -6,7 +6,10 @@ import src.share.trace as trace
 CONFIG_FILE_PATH = 'data/config.json'
 CURRENT_CONFIG = dict()
 
-# called by the app at the start or when DataCollector fails
+# called when:
+# 1) app start
+# 2) DataCollector fails
+# 3) DataCollector begins in test configuration
 def loadConfig():
     global CURRENT_CONFIG
     
