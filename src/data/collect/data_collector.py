@@ -28,12 +28,14 @@ from src.data.collect.cps.prepare_data_for_transport import prepareDataForTransp
 from src.data.collect.cps.upload_client_data import uploadClientData
 from src.data.collect.cps.configure_notifications_files import configureNotificationsFiles
 from src.data.manager.backup_manager import repairSystem, updateBackupDir, restoreWarnings
-from src.data.manager.config_manager import setConfig, setNewConfiguration, loadConfig
+from src.data.manager.config_manager import setConfig, setNewConfiguration, loadConfig, getConfig
 from src.share.trace import TRACE
+from src.share.asserts import ASSERT_THROW
 
 cp = CollectPhaseEnum
 
 class DataCollector:
+    config = dict()
     phase = cp(0)
     days = []
     workDayLinks = ''
@@ -54,6 +56,14 @@ class DataCollector:
 
     def __init__(self):
         createEmptyWarningMessage()
+        # check if test configuration activated - if so, load configuration
+        self.config = getConfig()
+        if (not self.config):
+            TRACE('LOADING CONFIGURATION - SHOULD ONLY OCCUR AT TEST VERIFICATION')
+            loadConfig()
+            self.config = getConfig()
+            errorMessage = 'ERROR - UNLOADED CONFIG AT THE START OF DATA COLLECTION'
+            ASSERT_THROW(self.config['TEST_CONFIGURATION_ACTIVATED'], errorMessage)
     
     def keepCollectingData(self):
         returnMessage = { 'success': False,
@@ -66,12 +76,13 @@ class DataCollector:
                 TRACE('[CP] DROPBOX_SYNCHRONIZATION')
                 setConfig('UPDATE_SUCCESSFUL', 0)
                 dropboxSynchronizer = DropboxSynchronizer()
-                # should be always False atm since there's only 1 admin
                 if dropboxSynchronizer.isDropboxSynchronizationNeeded():
                     TRACE('PERFORMING_DROPBOX_SYNCHRONIZATION')
                     self.synchronizationNeeded = True
                     dropboxSynchronizer.dropbboxSynchronization()
                     TRACE('DROPBOX_SYNCHRONIZATION_DONE')
+                else:
+                    TRACE('DROPBOX_SYNCHRONIZATION_NOT_NEEDED')
                 returnMessage['message'] = 'Trazenje linkova'
                 
             elif self.phase == cp.SEARCH_LINKS:
@@ -184,15 +195,21 @@ class DataCollector:
 
             elif self.phase == cp.UPLOAD_CLIENT_DATA:
                 TRACE('[CP] UPLOAD_CLIENT_DATA')
-                uploadClientData()
+                if (self.config['TEST_CONFIGURATION_ACTIVATED']):
+                    TRACE('TEST_CONFIGURATION_ACTIVATED - skipping uploading client data')
+                else:
+                    uploadClientData()
+                    TRACE('DATA_UPLOADED_TO_GITHUB_SUCCESSFULLY')
                 returnMessage['message'] = \
                     'Ucitavanje sluzbi na Dropbox'
 
             elif self.phase == cp.UPLOAD_DATA_TO_DROPBOX:
                 TRACE('[CP] UPLOAD_DATA_TO_DROPBOX')
-                # dodaj mockan UPD_SUCC da se salje
-                uploadDataToDropbox()
-                TRACE('DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY')
+                if (self.config['TEST_CONFIGURATION_ACTIVATED']):
+                    TRACE('TEST_CONFIGURATION_ACTIVATED - skipping uploading author data')
+                else:
+                    uploadDataToDropbox()
+                    TRACE('DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY')
                 returnMessage['message'] = 'Stvaranje sigurnosne kopije'
             
             elif self.phase == cp.UPDATE_BACKUP_DIRECTORY:
