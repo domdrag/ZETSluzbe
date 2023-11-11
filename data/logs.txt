@@ -454,3 +454,325 @@ DATA AND CONFIG REPAIRED
 =============
 NO DEBUG LOGS
 BACKUP CONFIG UPDATED
+=============
+2023-11-11 11:51:01.447367
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-11 12:43:38.191388
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: False
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+=============
+2023-11-11 12:45:10.766431
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+=============
+2023-11-11 12:45:58.235563
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-11 12:51:57.685978
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+For date: 13-11-2023 selected file: data/data/rules_W.txt
+For date: 14-11-2023 selected file: data/data/rules_W.txt
+For date: 15-11-2023 selected file: data/data/rules_W.txt
+For date: 16-11-2023 selected file: data/data/rules_W.txt
+For date: 17-11-2023 selected file: data/data/rules_W.txt
+For date: 18-11-2023 selected file: data/data/rules_SN.txt
+For date: 19-11-2023 selected file: data/data/rules_SN.txt
+[CP] ADD_DECRYPTED_SERVICES
+name 'TRACE' is not defined
+REPAIRING DATA AND CONFIG
+could not delete 'data\data\all_services_by_driver_decrypted\2641.txt': The process cannot access the file because it is being used by another process
+=============
+2023-11-11 12:52:49.469922
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+=============
+2023-11-11 12:54:17.851701
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-11 12:54:25.918469
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+TRACE() takes 1 positional argument but 2 were given
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+=============
+2023-11-11 12:54:51.151502
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'SN', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+For date: 13-11-2023 selected file: data/data/rules_W.txt
+For date: 14-11-2023 selected file: data/data/rules_W.txt
+For date: 15-11-2023 selected file: data/data/rules_W.txt
+For date: 16-11-2023 selected file: data/data/rules_W.txt
+For date: 17-11-2023 selected file: data/data/rules_W.txt
+For date: 18-11-2023 selected file: data/data/rules_SN.txt
+For date: 19-11-2023 selected file: data/data/rules_SN.txt
+[CP] ADD_DECRYPTED_SERVICES
+FOUND MISSING SERVICE/s
+FOUND MISSING SERVICE/s
+FOUND MISSING SERVICE/s
+FOUND MISSING SERVICE/s
+FOUND MISSING SERVICE/s
+=============
+2023-11-11 12:55:36.394579
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'SN', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+For date: 13-11-2023 selected file: data/data/rules_W.txt
+For date: 14-11-2023 selected file: data/data/rules_W.txt
+For date: 15-11-2023 selected file: data/data/rules_W.txt
+For date: 16-11-2023 selected file: data/data/rules_W.txt
+For date: 17-11-2023 selected file: data/data/rules_W.txt
+For date: 18-11-2023 selected file: data/data/rules_SN.txt
+For date: 19-11-2023 selected file: data/data/rules_SN.txt
+[CP] ADD_DECRYPTED_SERVICES
+FOUND MISSING SERVICE/s
+FOUND MISSING SERVICE/s
+FOUND MISSING SERVICE/s
+FOUND MISSING SERVICE/s
+FOUND MISSING SERVICE/s
+[CP] ADD_DECRYPTED_SHIFTS
+=============
+2023-11-11 14:21:02.242607
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-11 14:25:42.669664
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-11 14:25:55.378215
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'SN', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+For date: 13-11-2023 selected file: data/data/rules_W.txt
+For date: 14-11-2023 selected file: data/data/rules_W.txt
+For date: 15-11-2023 selected file: data/data/rules_W.txt
+For date: 16-11-2023 selected file: data/data/rules_W.txt
+For date: 17-11-2023 selected file: data/data/rules_W.txt
+For date: 18-11-2023 selected file: data/data/rules_SN.txt
+For date: 19-11-2023 selected file: data/data/rules_SN.txt
+[CP] ADD_DECRYPTED_SERVICES
+FOUND MISSING SERVICE/S
+[CP] ADD_DECRYPTED_SHIFTS
+=============
+2023-11-11 14:26:50.200374
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'SN', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+For date: 13-11-2023 selected file: data/data/rules_W.txt
+For date: 14-11-2023 selected file: data/data/rules_W.txt
+For date: 15-11-2023 selected file: data/data/rules_W.txt
+For date: 16-11-2023 selected file: data/data/rules_W.txt
+For date: 17-11-2023 selected file: data/data/rules_W.txt
+For date: 18-11-2023 selected file: data/data/rules_SN.txt
+For date: 19-11-2023 selected file: data/data/rules_SN.txt
+[CP] ADD_DECRYPTED_SERVICES
+FOUND MISSING SERVICE/S
+[CP] ADD_DECRYPTED_SHIFTS
+[CP] CONFIGURE_NOTIFICATION_FILES
+[CP] SET_NEW_CONFIG
+[CP] PREPARE_DATA_FOR_TRANSPORT
+[CP] UPLOAD_CLIENT_DATA
+DATA_UPLOADED_TO_GITHUB_SUCCESSFULLY
+[CP] UPLOAD_DATA_TO_DROPBOX
+DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY
+[CP] UPDATE_BACKUP_DIRECTORY
+SERVICES_UPDATE_FINISHED_SUCCESSFULLY
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'SN', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+LAST_SERVICES_HASH: 8040110908
+NEW_SERVICES_HASH: 8040110908
+NO_UPDATE_NEEDED
+UPDATE_NOT_PERFORMING
+=============
+2023-11-11 14:36:56.792300
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+=============
+2023-11-11 14:37:18.394937
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'SN', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+LAST_SERVICES_HASH: 8040110908
+NEW_SERVICES_HASH: 8040110908
+NO_UPDATE_NEEDED
+UPDATE_NOT_PERFORMING
+=============
+2023-11-11 14:38:32.357951
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'SN', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+LAST_SERVICES_HASH: 8040110908
+NEW_SERVICES_HASH: 8040110908
+NO_UPDATE_NEEDED
+UPDATE_NOT_PERFORMING

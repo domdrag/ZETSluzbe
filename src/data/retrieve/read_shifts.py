@@ -3,7 +3,7 @@ import ast
 from src.data.retrieve.utils.check_service_date_validity import (
     checkServiceDateValidity
     )
-from src.data.retrieve.utils.get_service_date import getServiceDate
+from src.data.utils.get_service_date import getServiceDate
 from src.data.manager.design_manager import (getPrimaryColor,
                                              getShiftColor,
                                              getFreeDayColor,

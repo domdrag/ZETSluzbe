@@ -1,1 +1,4 @@
-Uobicajen vozni red.
+Neuobicajen vozni red. Sugerira se samostalna provjera sluzbi.
+Moguca greska! Upozoriti admina!
+Za subota se gleda nedjeljni vozni red ili raspored za poseban dan tog tipa.
+Nadjena/e sluzba/e koje nedostaju.
