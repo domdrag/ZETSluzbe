@@ -14,7 +14,7 @@ from src.data.collect.cps.delete_necessary_data import (
     deleteNecessaryData
     )
 from src.data.collect.cps.search_links import searchLinks
-from src.data.collect.cps.configure_days import configureDays
+from src.data.collect.cps.configure_days_and_week_schedule import configureDaysAndWeekSchedule
 from src.data.collect.cps.extract_rules_by_driver import (
     extractRulesByDriver
     )
@@ -83,31 +83,17 @@ class DataCollector:
                     TRACE('DROPBOX_SYNCHRONIZATION_DONE')
                 else:
                     TRACE('DROPBOX_SYNCHRONIZATION_NOT_NEEDED')
-                returnMessage['message'] = 'Trazenje linkova'
-                
-            elif self.phase == cp.SEARCH_LINKS:
-                TRACE('[CP] SEARCH_LINKS')
-                foundLinks = searchLinks()
-                self.workDayLinks = foundLinks['workDay']
-                self.saturdayLinks = foundLinks['saturday']
-                self.sundayLinks = foundLinks['sunday']
-                self.specialDayLinks = foundLinks['specialDay']
-                self.notificationsLinks = foundLinks['notificationsLinks']
-                returnMessage['message'] = 'Konfiguracija notifikacija'
+                returnMessage['message'] = 'Konfiguracija dana i tjednog rasporeda'
 
-            elif self.phase == cp.CONFIGURE_NOTIFICATION_FILES:
-                TRACE('[CP] CONFIGURE_NOTIFICATION_FILES')
-                configureNotificationsFiles(self.notificationsLinks)
-                returnMessage['message'] = 'Setiranje dana'
-
-            elif self.phase == cp.CONFIGURE_DAYS:
-                TRACE('[CP] CONFIGURE_DAYS')
-                self.mondayDate = configureDays(self.days)
+            elif self.phase == cp.CONFIGURE_DAYS_AND_WEEK_SCHEDULE:
+                TRACE('[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE')
+                result = configureDaysAndWeekSchedule(self.weekSchedule, self.days)
+                self.mondayDate = result['mondayDate']
                 returnMessage['message'] = 'Citanje tjednih sluzbi'
 
             elif self.phase == cp.EXTRACT_RULES_BY_DRIVER:
                 TRACE('[CP] EXTRACT_RULES_BY_DRIVER')
-                result = extractRulesByDriver(self.weekSchedule, self.mondayDate)
+                result = extractRulesByDriver()
                 self.servicesHash = result['servicesHash']
                 returnMessage['message'] = 'Pretraga nedostajucih sluzbi'
 
@@ -126,8 +112,6 @@ class DataCollector:
                 self.updateCause = result['updateCause']
                 if not updateNeeded:
                     TRACE('UPDATE_NOT_PERFORMING')
-                    # if sync occured, warnings will be restored from dropbox as
-                    # backup got updated during sync
                     restoreWarnings()
                     setConfig('UPDATE_SUCCESSFUL', 1)
                     returnMessage['finished'] = True
@@ -136,6 +120,16 @@ class DataCollector:
                     TRACE('PERFORMING_UPDATE')
                     returnMessage['message'] = \
                                   'Brisanje potrebnih podataka'
+
+            elif self.phase == cp.SEARCH_LINKS:
+                TRACE('[CP] SEARCH_LINKS')
+                foundLinks = searchLinks()
+                self.workDayLinks = foundLinks['workDay']
+                self.saturdayLinks = foundLinks['saturday']
+                self.sundayLinks = foundLinks['sunday']
+                self.specialDayLinks = foundLinks['specialDay']
+                self.notificationsLinks = foundLinks['notificationsLinks']
+                returnMessage['message'] = 'Brisanje potrebnih podataka'
 
             elif self.phase == cp.DELETE_NECESSARY_DATA:
                 TRACE('[CP] DELETE_NECESSARY_DATA')
@@ -175,7 +169,12 @@ class DataCollector:
                                    self.mondayDate,
                                    self.fileNames)
                 returnMessage['message'] = \
-                    'Spremanje nove konfiguracije'
+                    'Konfiguracija notifikacija'
+
+            elif self.phase == cp.CONFIGURE_NOTIFICATION_FILES:
+                TRACE('[CP] CONFIGURE_NOTIFICATION_FILES')
+                configureNotificationsFiles(self.notificationsLinks)
+                returnMessage['message'] = 'Spremanje nove konfiguracije'
 
             # NEXT ORDER EXPLANATION: in case anything fails, we must have
             # have a backup ready -> last step must be updating the backup.

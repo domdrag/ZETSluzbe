@@ -4,6 +4,7 @@ import re
 from datetime import date
 
 from src.data.collect.cps.utils.download_pdf_file import downloadPDFFile
+from src.data.collect.cps.utils.configure_week_schedule import configureWeekSchedule
 
 firstURL = ("https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/"
             "Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf")
@@ -11,15 +12,17 @@ firstURL = ("https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/"
 def getStringDate(date):
     return str(date.day) + '.' + str(date.month) + '.' + str(date.year) + '.'
 
-def setDays(days, textFirstPDF):
+def getMondayDate(textFirstPDF):
     odIndex = textFirstPDF.find('od')
-    stringForMonth = textFirstPDF[odIndex:odIndex+50]
+    stringForMonth = textFirstPDF[odIndex:odIndex + 50]
     stringForMonthList = re.split(' |\.', stringForMonth)
     day = stringForMonthList[1]
     month = stringForMonthList[2]
     year = stringForMonthList[3]
     mondayDate = date(int(year), int(month), int(day))
+    return mondayDate
 
+def configureDays(days, mondayDate):
     monday = 'Ponedjeljak, ' + getStringDate(mondayDate)
     nextDate = mondayDate + datetime.timedelta(days = 1)
     tuesday = 'Utorak, ' + getStringDate(nextDate)
@@ -43,9 +46,14 @@ def setDays(days, textFirstPDF):
     days.append(sunday)
     return mondayDate
 
-def configureDays(days):
+def configureDaysAndWeekSchedule(weekSchedule, days):
     PDFFile = downloadPDFFile(firstURL, 'data/data/', 'tpd.pdf')
     with pdfplumber.open(PDFFile) as PDF:
         page = PDF.pages[0]
         textFirstPDF = page.extract_text()
-    return setDays(days, textFirstPDF)
+
+    mondayDate = getMondayDate(textFirstPDF)
+    configureDays(days, mondayDate)
+    configureWeekSchedule(page, weekSchedule, mondayDate)
+    return {'mondayDate': mondayDate}
+

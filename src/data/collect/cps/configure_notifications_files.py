@@ -17,15 +17,17 @@ def generateNotificationFiles(filesNamePattern, notificationURL):
     notificationPDF = downloadPDFFile(notificationURL,
                                       NOTIFICATIONS_FILES_PATH,
                                       filesNamePattern + '.pdf')
-
-    PDF = pdfplumber.open(notificationPDF)
     imagesFileNamePattern = filesNamePattern + '_page-'
     imagesPathPattern = NOTIFICATIONS_FILES_PATH + imagesFileNamePattern
-    for page in PDF.pages:
-        imagePath = imagesPathPattern + str(page.page_number) + '.png'
-        image = page.to_image(resolution = GENERATED_IMAGE_RESOLUTION)
-        image.save(imagePath)
-    return {'numOfPages': len(PDF.pages), 'imagesFileNamePattern': imagesFileNamePattern}
+
+    # cause of memory leak during verification
+    with pdfplumber.open(notificationPDF) as PDF:
+        numOfPages = len(PDF.pages)
+        for page in PDF.pages:
+            imagePath = imagesPathPattern + str(page.page_number) + '.png'
+            image = page.to_image(resolution = GENERATED_IMAGE_RESOLUTION)
+            image.save(imagePath)
+    return {'numOfPages': numOfPages, 'imagesFileNamePattern': imagesFileNamePattern}
 
 def configureNotificationsFiles(notificationsLinks):
     NOTIFICATIONS = dict()

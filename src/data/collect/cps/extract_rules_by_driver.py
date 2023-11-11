@@ -1,10 +1,6 @@
 import pdfplumber
 import zlib
 
-from src.data.collect.cps.utils.determine_week_schedule import (
-    determineWeekSchedule
-    )
-
 def calculateHash(serviceKeys):
     hash = 0
     sign = 1
@@ -13,10 +9,9 @@ def calculateHash(serviceKeys):
         sign = sign * -1
     return hash
 
-def extractRulesByDriver(weekSchedule, mondayDate):
-    PDFFile = 'data/data/tpd.pdf' # downloaded in configure_days utils
+def extractRulesByDriver():
+    PDFFile = 'data/data/tpd.pdf' # already downloaded in determine_week_schedule cp
     with pdfplumber.open(PDFFile) as PDF:
-        determineWeekSchedule(PDF.pages[0], weekSchedule, mondayDate)       
         fileW = open('data/data/week_services_by_driver_encrypted.txt',
                      'w',
                      encoding='utf-8')
