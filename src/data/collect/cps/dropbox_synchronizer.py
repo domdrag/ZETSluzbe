@@ -15,7 +15,6 @@ class DropboxSynchronizer:
         onlineConfig = tempConfigInfo['tempConfig']
 
         self.onlineDate = onlineConfig['LAST_RECORD_DATE']
-        self.onlineMissingServices = onlineConfig['MISSING_SERVICES']
         self.onlineServicesHash = onlineConfig['SERVICES_HASH']
 
     def isDropboxSynchronizationNeeded(self):
@@ -25,22 +24,20 @@ class DropboxSynchronizer:
             return False
 
         currentDate = config['LAST_RECORD_DATE']
-        currentMissingServices = config['MISSING_SERVICES']
         currentServicesHash = config['SERVICES_HASH']
 
         if (currentDate != self.onlineDate):
             TRACE('DATES_MISMATCH -> DROPBOX_SYNCHRONIZATION_NEEDED')
             return True
-        elif (currentMissingServices != self.onlineMissingServices):
-            TRACE('MISSING_SERVICES_MISMATCH -> DROPBOX_SYNCHRONIZATION_NEEDED')
+
+        if (currentServicesHash != self.onlineServicesHash):
+            TRACE('SERVICES_HASH_MISMATCH -> DROPBOX_SYNCHRONIZATION_NEEDED')
             return True
-        else:
-            ASSERT_THROW(currentServicesHash == self.onlineServicesHash, 'Neuskladjene sluzbe sa dropbox-om.')
-            return False
+
+        return False
 
     def dropbboxSynchronization(self):
         setNewConfiguration(self.onlineDate,
-                            self.onlineMissingServices,
                             self.onlineServicesHash)
         downloadDropboxFile('data.zip')
         removeExistingData()

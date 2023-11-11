@@ -5,6 +5,7 @@ from datetime import date
 
 from src.data.collect.cps.utils.download_pdf_file import downloadPDFFile
 from src.data.collect.cps.utils.configure_week_schedule import configureWeekSchedule
+from src.share.trace import TRACE
 
 firstURL = ("https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/"
             "Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf")
@@ -55,5 +56,6 @@ def configureDaysAndWeekSchedule(weekSchedule, days):
     mondayDate = getMondayDate(textFirstPDF)
     configureDays(days, mondayDate)
     configureWeekSchedule(page, weekSchedule, mondayDate)
+    TRACE('Configured week schedule: ' + str(weekSchedule))
     return {'mondayDate': mondayDate}
 

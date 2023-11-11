@@ -16,13 +16,12 @@ from src.data.collect.cps.delete_necessary_data import (
 from src.data.collect.cps.search_links import searchLinks
 from src.data.collect.cps.configure_days_and_week_schedule import configureDaysAndWeekSchedule
 from src.data.collect.cps.extract_rules_by_driver import (
-    extractRulesByDriver
+    extractRulesByDriverAndCalculateServicesHash
     )
 from src.data.collect.cps.extract_rules import extractRules
 from src.data.collect.cps.upload_data_to_dropbox import (
     uploadDataToDropbox
     )
-from src.data.collect.cps.configure_missing_services import configureMissingServices
 from src.data.collect.cps.check_update_neeeded import checkUpdateNeeded
 from src.data.collect.cps.prepare_data_for_transport import prepareDataForTransport
 from src.data.collect.cps.upload_client_data import uploadClientData
@@ -45,11 +44,7 @@ class DataCollector:
     notificationsLinks = ''
     mondayDate = date(2022,1,1)
     weekSchedule = ['W','W','W','W','W','W','W']
-    synchronizationNeeded = False
     warningMessage = ''
-    warningMessageColor = ''
-    updateCause = None
-    missingServices = None
     servicesHash = None
     workDayFileNames = []
     canUseOldWorkDayResources = False
@@ -78,7 +73,6 @@ class DataCollector:
                 dropboxSynchronizer = DropboxSynchronizer()
                 if dropboxSynchronizer.isDropboxSynchronizationNeeded():
                     TRACE('PERFORMING_DROPBOX_SYNCHRONIZATION')
-                    self.synchronizationNeeded = True
                     dropboxSynchronizer.dropbboxSynchronization()
                     TRACE('DROPBOX_SYNCHRONIZATION_DONE')
                 else:
@@ -93,23 +87,13 @@ class DataCollector:
 
             elif self.phase == cp.EXTRACT_RULES_BY_DRIVER:
                 TRACE('[CP] EXTRACT_RULES_BY_DRIVER')
-                result = extractRulesByDriver()
+                result = extractRulesByDriverAndCalculateServicesHash()
                 self.servicesHash = result['servicesHash']
-                returnMessage['message'] = 'Pretraga nedostajucih sluzbi'
-
-            elif self.phase == cp.CONFIGURE_MISSING_SERVICES:
-                TRACE('[CP] CONFIGURE_MISSING_SERVICES')
-                self.missingServices = configureMissingServices()
                 returnMessage['message'] = 'Odredivanje potrebe azuriranja'
 
             elif self.phase == cp.CHECK_UPDATE_NEEDED:
                 TRACE('[CP] CHECKING_UPDATE_NEEDED')
-                result = checkUpdateNeeded(self.mondayDate,
-                                           self.missingServices,
-                                           self.servicesHash,
-                                           self.synchronizationNeeded)
-                updateNeeded = result['updateNeeded']
-                self.updateCause = result['updateCause']
+                updateNeeded = checkUpdateNeeded(self.mondayDate, self.servicesHash)
                 if not updateNeeded:
                     TRACE('UPDATE_NOT_PERFORMING')
                     restoreWarnings()
@@ -154,8 +138,6 @@ class DataCollector:
                 TRACE('[CP] ADD_DECRYPTED_SERVICES')
                 addDecryptedServices(self.days,
                                      self.weekSchedule,
-                                     self.missingServices,
-                                     self.updateCause,
                                      self.mondayDate,
                                      self.fileNames)
                 returnMessage['message'] = 'Spremanje tjednih smjena'
@@ -164,8 +146,6 @@ class DataCollector:
                 TRACE('[CP] ADD_DECRYPTED_SHIFTS')
                 addDecryptedShifts(self.days,
                                    self.weekSchedule,
-                                   self.missingServices,
-                                   self.updateCause,
                                    self.mondayDate,
                                    self.fileNames)
                 returnMessage['message'] = \
@@ -183,7 +163,7 @@ class DataCollector:
                 mondayDateList = [self.mondayDate.year,
                                   self.mondayDate.month,
                                   self.mondayDate.day]
-                setNewConfiguration(mondayDateList, self.missingServices, self.servicesHash)
+                setNewConfiguration(mondayDateList, self.servicesHash)
                 returnMessage['message'] =  'Pripremanje podataka za transport'
 
             elif self.phase == cp.PREPARE_DATA_FOR_TRANSPORT:

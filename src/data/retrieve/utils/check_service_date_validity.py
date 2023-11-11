@@ -1,6 +1,6 @@
 from datetime import datetime, date
 
-from src.data.retrieve.utils.get_service_date import getServiceDate
+from src.data.utils.get_service_date import getServiceDate
 
 def getTodayDate():
     now = datetime.now()
