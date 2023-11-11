@@ -25,7 +25,7 @@ def addHolidays(firstStageHolidayList):
         fileA.write(f"{[year, month, day]}\n")
     fileA.close()
 
-def determineWeekSchedule(page, weekSchedule, mondayDate):
+def configureWeekSchedule(page, weekSchedule, mondayDate):
     # pdlplumber se gubi kada rect nije obojan u smislu
     # da izbacuje cudne atribute pozicija i velicina
     # program se pouzdava da se ne gubi kada je rect obojan
