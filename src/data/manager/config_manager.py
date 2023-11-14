@@ -48,4 +48,4 @@ def getTempConfigInfo():
 
 def setTempConfig(tempConfig):
     with open(TEMP_CONFIG_COPY_FILE_PATH, 'w') as configFile:
-        json.dump(tempConfig, configFile, indent = 3)
+        json.dump(tempConfig, configFile, indent = 2)

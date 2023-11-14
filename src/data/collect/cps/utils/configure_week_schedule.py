@@ -3,6 +3,25 @@ import pdfplumber
 from datetime import date, timedelta
 
 from src.data.retrieve.get_holidays import getHolidays
+from src.share.trace import TRACE
+
+X_COORDINATE_UNMARKED_DAY_CHECK_THRESHOLD = 300
+
+def getAllRectsInsideChar(char, rects):
+    charTop = char['top']
+    charBottom = char['bottom']
+    charLeft = char['x0']
+    charRight = char['x1']
+    foundRects = []
+    for rect in rects:
+        rectTop = rect['top']
+        rectBottom = rect['bottom']
+        rectLeft = rect['x0']
+        rectRight = rect['x1']
+        if (charTop > rectTop and charBottom < rectBottom and
+                charLeft > rectLeft and charRight < rectRight):
+            foundRects.append(rect)
+    return foundRects
 
 def charsRepresentDays(chars, idx):
     if(chars[idx]['text'] == 'P' and \
@@ -16,6 +35,26 @@ def charsRepresentDays(chars, idx):
     else:
         return False
 
+# should only happen when holiday falls on Saturday which remains green on top
+# haven't found a way to check which dayweek so not updating weekSchedule;
+# only checking for tracing -> author
+def checkForUnmarkedNonWorkingDayOnDaysRow(chars, rects, idxLast):
+    # start checking after found days on the right table
+    while (not charsRepresentDays(chars, idxLast)):
+        idxLast = idxLast + 1
+
+    idxLast = idxLast + 7
+    for idx in range(idxLast, X_COORDINATE_UNMARKED_DAY_CHECK_THRESHOLD):
+        insideRects = getAllRectsInsideChar(chars[idx], rects)
+        for insideRect in insideRects:
+            color = insideRect['non_stroking_color']
+            if color[1] >= 0.9 and color != (1, 1, 1):  # green
+                TRACE('Found green cell for holiday/nonWorkingDay which is not marked on days-row.')
+                return
+            elif color[0] >= 0.9 and color != (1, 1, 1):  # red
+                TRACE('Found red cell for holiday/nonWorkingDay which is not marked on days-row.')
+                return
+
 def addHolidays(firstStageHolidayList):
     fileA = open('data/data/holidays.txt', 'a', encoding='utf-8')
     for holiday in firstStageHolidayList:
@@ -24,6 +63,7 @@ def addHolidays(firstStageHolidayList):
         day = holiday.day
         fileA.write(f"{[year, month, day]}\n")
     fileA.close()
+
 
 def configureWeekSchedule(page, weekSchedule, mondayDate):
     # pdlplumber se gubi kada rect nije obojan u smislu
@@ -36,8 +76,8 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
     message0 = 'Uobicajen vozni red.\n'
     message1 = 'Neuobicajen vozni red. Sugerira se samostalna' \
                ' provjera sluzbi.\n'
-    errorMessage = '2$Greska! Provjeriti sluzbe rucno!\n'
-    plausibleErrorMessage = 'Moguca greska! Upozoriti admina!\n'
+    errorMessage = 'Greska! Pogledati logove!\n'
+    plausibleErrorMessage = 'Moguca greska! Pogledati logove!\n'
     nonWorkingDays = dict()
     days = ['Ponedjeljak', 'Utorak', 'Srijeda', \
             'Cetvrtak', 'Petak', 'Subota', 'Nedjelja']
@@ -48,29 +88,23 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
     for idx in range(len(chars)):
         if charsRepresentDays(chars, idx):
             for day in range(0,7):
-                charTop = chars[idx + day]['top']
-                charBottom = chars[idx + day]['bottom']
-                charLeft = chars[idx + day]['x0']
-                charRight = chars[idx + day]['x1']
-                for rect in rects:
-                    rectTop = rect['top']
-                    rectBottom = rect['bottom']
-                    rectLeft = rect['x0']
-                    rectRight = rect['x1']
-                    if(charTop > rectTop and charBottom < rectBottom and
-                       charLeft > rectLeft and charRight < rectRight):
-                        color = rect['non_stroking_color']
-                        if color[1] >= 0.9 and color != (1,1,1): # green
-                            nonWorkingDays[days[day]] = 'Subota'
-                            weekSchedule[day] = 'ST'
-                            break
-                        elif color[0] >= 0.9 and color != (1,1,1): # red
-                            nonWorkingDays[days[day]] = 'Nedjelja'
-                            weekSchedule[day] = 'SN'
-                            break
+                insideRects = getAllRectsInsideChar(chars[idx + day], rects)
+                for insideRect in insideRects:
+                    color = insideRect['non_stroking_color']
+                    if color[1] >= 0.9 and color != (1, 1, 1):  # green
+                        TRACE('Found green cell on days-row.')
+                        nonWorkingDays[days[day]] = 'Subota'
+                        weekSchedule[day] = 'ST'
+                        break
+                    elif color[0] >= 0.9 and color != (1, 1, 1):  # red
+                        TRACE('Found red cell on days-row.')
+                        nonWorkingDays[days[day]] = 'Nedjelja'
+                        weekSchedule[day] = 'SN'
+                        break
                         
             if 'Subota' not in nonWorkingDays:
                 # Saturday is not green nor red
+                TRACE('Saturday not marked green nor red on days-row.')
                 errorOccured = True 
             elif nonWorkingDays['Subota'] == 'Subota':
                 del nonWorkingDays['Subota']
@@ -78,9 +112,12 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
             if 'Nedjelja' not in nonWorkingDays or \
                nonWorkingDays['Nedjelja'] == 'Subota':
                 # Sunday is not red
+                TRACE('Sunday not marked red on days-row.')
                 errorOccured = True
             else:
                 del nonWorkingDays['Nedjelja']
+
+            checkForUnmarkedNonWorkingDayOnDaysRow(chars, rects, idx + 7)
             break
 
     nonDefaultDays = nonWorkingDays
@@ -117,16 +154,23 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
             dayToModify = days[mondayDiff]
             if (dayToModify in nonDefaultDays and
                 nonDefaultDays[dayToModify] == 'Subota'):
-                # Found day in holidays.txt, but remaked as green not red
+                # Found day in holidays.txt, but remarked as green not red
                 # If it had been red, it would been found in firstStage list
+                TRACE('Found holiday (' + str(holidayDate) + ') in database, '
+                      'but remarked as green on days-row.')
                 errorOccured = True
+                weekSchedule[mondayDiff] = 'ST'
             else:
                 # Not found by colors, but present in holidays.txt
+                TRACE('Found holiday (' + str(holidayDate) + ') in database, '
+                      'but not remarked as red on days-row.')
                 plausibleErrorOccured = True
-            nonDefaultDays[days[mondayDiff]] = 'Nedjelja'
-            weekSchedule[mondayDiff] = 'SN'
+                nonDefaultDays[dayToModify] = 'Nedjelja'
+                weekSchedule[mondayDiff] = 'SN'
 
     if (firstStageHolidayList):
+        TRACE('Found holidays/nonWorkingDays (' + str(firstStageHolidayList) + ') by colors on days-row, '
+              'but not present in database.')
         plausibleErrorOccured = True
         # In case the program found a holiday by looking colors in pdf
         # and the same holiday hasn't been found in holidays.txt, we decided
