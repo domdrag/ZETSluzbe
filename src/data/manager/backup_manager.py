@@ -1,6 +1,6 @@
 import shutil
 import sys
-from distutils.dir_util import copy_tree
+#from distutils.dir_util import copy_tree
 
 import src.data.manager.config_manager as configManager
 import src.share.trace as trace
@@ -22,22 +22,22 @@ def removeExistingBackupData():
 def updateBackupDir(sourceConfigPath = ''):
     updateBackupConfig(sourceConfigPath)
     removeExistingBackupData()
-    copy_tree('data/data', 'data/backup/data')
+    shutil.copytree('data/data', 'data/backup/data')
 
-def repairAllFiles():
+def repairData():
     trace.TRACE('REPAIRING DATA AND CONFIG')
     try:
         # repairing data + config
-        copy_tree('data/backup',
-                  'data')
+        shutil.rmtree('data/data')
+        shutil.copytree('data/backup', 'data')
     except Exception as e:
         trace.TRACE(e)
         # if repair failed -> make sure data gets proper repair in the next run and crash the app
-        # manual set needed because we don't know whether copy_tree copied backup config
+        # manual set needed because we don't know whether copytree copied backup config
         configManager.setConfig('UPDATE_SUCCESSFUL', 0)
         sys.exit()
     trace.TRACE('DATA AND CONFIG REPAIRED')
 
 def repairSystem():
-    repairAllFiles()
+    repairData()
     configManager.loadConfig()

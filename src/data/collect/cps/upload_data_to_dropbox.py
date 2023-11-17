@@ -17,7 +17,7 @@ def uploadDataToDropbox():
                                  '/data.zip',
                                  mode=dropbox.files.WriteMode.overwrite)
             dataSent = True
-        except:
+        except Exception as e:
             TRACE(e)
 
     configSent = False
@@ -28,5 +28,5 @@ def uploadDataToDropbox():
                                  '/config.json',
                                  mode=dropbox.files.WriteMode.overwrite)
             configSent = True
-        except:
+        except Exception as e:
             TRACE(e)
