@@ -796,3 +796,222 @@ BACKUP CONFIG UPDATED
 =============
 NO DEBUG LOGS
 BACKUP CONFIG UPDATED
+=============
+2023-11-17 18:11:50.437669
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+For date: 20-11-2023 selected file: data/data/rules_W.txt
+For date: 21-11-2023 selected file: data/data/rules_W.txt
+For date: 22-11-2023 selected file: data/data/rules_W.txt
+For date: 23-11-2023 selected file: data/data/rules_W.txt
+For date: 24-11-2023 selected file: data/data/rules_W.txt
+For date: 25-11-2023 selected file: data/data/rules_ST.txt
+For date: 26-11-2023 selected file: data/data/rules_SN.txt
+[CP] ADD_DECRYPTED_SERVICES
+[Errno 2] No such file or directory: 'data/data/all_services_by_driver_decrypted/7624.txt'
+REPAIRING DATA AND CONFIG
+[WinError 183] Cannot create a file when that file already exists: 'data'
+=============
+2023-11-17 18:24:42.839738
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+[WinError 3] The system cannot find the path specified: 'data/data'
+=============
+2023-11-17 18:25:24.311835
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+For date: 20-11-2023 selected file: data/data/rules_W.txt
+For date: 21-11-2023 selected file: data/data/rules_W.txt
+For date: 22-11-2023 selected file: data/data/rules_W.txt
+For date: 23-11-2023 selected file: data/data/rules_W.txt
+For date: 24-11-2023 selected file: data/data/rules_W.txt
+For date: 25-11-2023 selected file: data/data/rules_ST.txt
+For date: 26-11-2023 selected file: data/data/rules_SN.txt
+[CP] ADD_DECRYPTED_SERVICES
+[Errno 2] No such file or directory: 'data/data/all_services_by_driver_decrypted/7624.txt'
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+=============
+2023-11-17 18:27:10.692259
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-17 18:42:06.666238
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+For date: 20-11-2023 selected file: data/data/rules_W.txt
+For date: 21-11-2023 selected file: data/data/rules_W.txt
+For date: 22-11-2023 selected file: data/data/rules_W.txt
+For date: 23-11-2023 selected file: data/data/rules_W.txt
+For date: 24-11-2023 selected file: data/data/rules_W.txt
+For date: 25-11-2023 selected file: data/data/rules_ST.txt
+For date: 26-11-2023 selected file: data/data/rules_SN.txt
+[CP] ADD_DECRYPTED_SERVICES
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+New official number (new colleague) detected.
+[CP] ADD_DECRYPTED_SHIFTS
+=============
+2023-11-17 18:43:16.910458
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-11-17 18:47:57.741423
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023.
+Rules link found: Subota od 9. 9. 2023.
+Rules link found: Nedjelja od 10. 9. 2023.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+For date: 20-11-2023 selected file: data/data/rules_W.txt
+For date: 21-11-2023 selected file: data/data/rules_W.txt
+For date: 22-11-2023 selected file: data/data/rules_W.txt
+For date: 23-11-2023 selected file: data/data/rules_W.txt
+For date: 24-11-2023 selected file: data/data/rules_W.txt
+For date: 25-11-2023 selected file: data/data/rules_ST.txt
+For date: 26-11-2023 selected file: data/data/rules_SN.txt
+[CP] ADD_DECRYPTED_SERVICES
+New official number (new colleague) detected. OffNum: 7624
+New official number (new colleague) detected. OffNum: 21057
+New official number (new colleague) detected. OffNum: 21058
+New official number (new colleague) detected. OffNum: 21059
+New official number (new colleague) detected. OffNum: 21060
+New official number (new colleague) detected. OffNum: 21061
+New official number (new colleague) detected. OffNum: 21062
+New official number (new colleague) detected. OffNum: 21063
+New official number (new colleague) detected. OffNum: 21064
+New official number (new colleague) detected. OffNum: 21065
+New official number (new colleague) detected. OffNum: 21066
+New official number (new colleague) detected. OffNum: 21067
+New official number (new colleague) detected. OffNum: 21068
+New official number (new colleague) detected. OffNum: 21069
+New official number (new colleague) detected. OffNum: 21071
+New official number (new colleague) detected. OffNum: 21072
+New official number (new colleague) detected. OffNum: 21073
+New official number (new colleague) detected. OffNum: 21074
+New official number (new colleague) detected. OffNum: 21075
+New official number (new colleague) detected. OffNum: 21076
+New official number (new colleague) detected. OffNum: 21077
+New official number (new colleague) detected. OffNum: 21078
+New official number (new colleague) detected. OffNum: 21079
+New official number (new colleague) detected. OffNum: 21080
+[CP] ADD_DECRYPTED_SHIFTS
+[CP] CONFIGURE_NOTIFICATION_FILES
+[CP] SET_NEW_CONFIG
+[CP] PREPARE_DATA_FOR_TRANSPORT
+[CP] UPLOAD_CLIENT_DATA
+DATA_UPLOADED_TO_GITHUB_SUCCESSFULLY
+[CP] UPLOAD_DATA_TO_DROPBOX
+DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY
+[CP] UPDATE_BACKUP_DIRECTORY
+SERVICES_UPDATE_FINISHED_SUCCESSFULLY

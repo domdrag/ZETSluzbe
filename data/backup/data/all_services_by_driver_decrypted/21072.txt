@@ -1,0 +1,7 @@
+['Ponedjeljak, 20.11.2023.', 'O']
+['Utorak, 21.11.2023.', 'broj sluzbe: 383', 'vozni red: 06.15', '13:04, Zapruđe smjer Sopot', '19:58, PTD']
+['Srijeda, 22.11.2023.', 'broj sluzbe: 348', 'vozni red: 04.09', '13:10, Dubrava smjer Sav. most', '19:44, PTD']
+['Cetvrtak, 23.11.2023.', 'broj sluzbe: 397', 'vozni red: 07.09', '13:02, DUBRAVA- TERMINAL', '19:57, PTD']
+['Petak, 24.11.2023.', 'broj sluzbe: 441', 'vozni red: 11.12', '13:02, TBJJ smjer Dubec', '19:32, PTD']
+['Subota, 25.11.2023.', 'O']
+['Nedjelja, 26.11.2023.', 'O']

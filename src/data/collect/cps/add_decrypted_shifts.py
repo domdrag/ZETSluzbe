@@ -1,4 +1,5 @@
 import ast
+import os
 
 from src.data.collect.cps.utils.get_driver_info import (
     getDriverInfo
@@ -56,6 +57,7 @@ def deletePreviouslyAddedShifts(filePath, numOfPreviouslyAddedShiftInsts):
     for i in range(numOfKeptShifts):
         fileW.write(shifts[i])
     fileW.close()
+
 def addDecryptedShifts(days,
                        weekSchedule,
                        mondayDate,
@@ -81,14 +83,17 @@ def addDecryptedShifts(days,
                     + str(offNum) \
                     + '.txt'
 
-        validOldShiftsIndexed = configureValidOldShiftsIndexed(filePath,
-                                                               mondayDate)
-        numOfPreviouslyAddedShiftInsts = sum(len(shift) for shift in validOldShiftsIndexed if
-                                           shift != None)
-        if (numOfPreviouslyAddedShiftInsts):
-            deletePreviouslyAddedShifts(filePath, numOfPreviouslyAddedShiftInsts)
+        if (os.path.isfile(filePath)):
+            validOldShiftsIndexed = configureValidOldShiftsIndexed(filePath,
+                                                                   mondayDate)
+            numOfPreviouslyAddedShiftInsts = sum(len(shift) for shift in validOldShiftsIndexed if
+                                               shift != None)
+            if (numOfPreviouslyAddedShiftInsts):
+                deletePreviouslyAddedShifts(filePath, numOfPreviouslyAddedShiftInsts)
+            fileW = open(filePath, 'a', encoding='utf-8')
+        else:
+            fileW = open(filePath, 'w', encoding='utf-8')
 
-        fileW = open(filePath, 'a', encoding='utf-8')
         for i in range(1,8):
             if (validOldShiftsIndexed[i-1]):
                 validOldShift = validOldShiftsIndexed[i-1]

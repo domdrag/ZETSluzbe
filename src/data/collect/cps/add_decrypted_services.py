@@ -1,4 +1,5 @@
 import ast
+import os
 
 from src.data.collect.cps.utils.get_service_layout import getServiceLayoutAndUpdateStats
 from src.data.collect.cps.utils.get_service_line import getServiceLine
@@ -56,14 +57,18 @@ def addDecryptedServices(days, weekSchedule, mondayDate, fileNames):
                     + str(offNum) \
                     + '.txt'
 
-        validOldServicesIndexed = configureValidOldServicesIndexed(filePath,
-                                                                   mondayDate)
-        numOfPreviouslyAddedServices = sum(1 for service in validOldServicesIndexed if
-                                           service != None)
-        if (numOfPreviouslyAddedServices):
-            deletePreviouslyAddedServices(filePath, numOfPreviouslyAddedServices)
+        if (os.path.isfile(filePath)):
+            validOldServicesIndexed = configureValidOldServicesIndexed(filePath,
+                                                                       mondayDate)
+            numOfPreviouslyAddedServices = sum(1 for service in validOldServicesIndexed if
+                                               service != None)
+            if (numOfPreviouslyAddedServices):
+                deletePreviouslyAddedServices(filePath, numOfPreviouslyAddedServices)
+            fileW = open(filePath, 'a', encoding='utf-8')
+        else:
+            TRACE('New official number (new colleague) detected. OffNum: ' + str(offNum))
+            fileW = open(filePath, 'w', encoding='utf-8')
 
-        fileW = open(filePath, 'a', encoding='utf-8')
         for i in range(1,8):
             if (validOldServicesIndexed[i-1]):
                 # already contains newline
