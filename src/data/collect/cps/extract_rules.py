@@ -137,6 +137,7 @@ class ExtractRulesCustomException(Exception):
     pass
 
 def determineTypeOfDayForSpecialDays(fileName, mondayDate, weekSchedule):
+    ASSERT_THROW(fileName.find('[') != -1, 'Invalid specialDay fileName.')
     rangeListStartIndex = fileName.index('[')
     specificDays = ast.literal_eval(fileName[rangeListStartIndex:])
     dayToFind = specificDays[0]  # any day should work
