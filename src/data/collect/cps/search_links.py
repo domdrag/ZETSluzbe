@@ -60,11 +60,11 @@ def searchLinks():
 
                     TRACE('Rules link found: ' + linkName)
 
-                    if ('RD' in linkURL):
+                    if ('RD' in linkURL or 'Radni dan' in linkName):
                         workDayLinks.append({'URL': linkURL, 'name': linkName})
-                    elif ('SUB' in linkURL or 'S_internet' in linkURL):
+                    elif ('SUB' in linkURL or 'S_internet' in linkURL or 'Subota' in linkName):
                         saturdayLinks.append({'URL': linkURL, 'name': linkName})
-                    elif ('NED' in linkURL or 'N_internet' in linkURL):
+                    elif ('NED' in linkURL or 'N_internet' in linkURL or 'Nedjelja' in linkName):
                         sundayLinks.append({'URL': linkURL, 'name': linkName})
                     else:
                         specialDayLinks.append({'URL': linkURL, 'name': linkName})
@@ -73,14 +73,14 @@ def searchLinks():
         except Exception as e:
             TRACE(e)
 
-    ASSERT_THROW(len(saturdayLinks) < 2,  'Nadjeno vise linkova subotnjih rasporeda.')
-    ASSERT_THROW(len(sundayLinks) < 2, 'Nadjeno vise linkova nedeljnih rasporeda.')
+    ASSERT_THROW(len(saturdayLinks) < 2, "Found multiple saturday links.")
+    ASSERT_THROW(len(sundayLinks) < 2, "Found multiple sunday links.")
 
     # we tolerate no links because we may use old resources
-    ASSERT_NO_THROW(len(workDayLinks) < 2, 'Nadjeno vise linkova za raspored za radni dan.')
-    ASSERT_NO_THROW(len(workDayLinks) > 0, 'Nije nadjen link za raspored za radni dan.')
-    ASSERT_NO_THROW(len(saturdayLinks) == 1, 'Nije nadjen link za subotnji raspored.')
-    ASSERT_NO_THROW(len(sundayLinks) == 1, 'Nije nadjen link za nedeljni raspored.')
+    ASSERT_NO_THROW(len(workDayLinks) < 2, "Found multiple workDay's links.")
+    ASSERT_NO_THROW(len(workDayLinks) > 0, 'No workDay link found.')
+    ASSERT_NO_THROW(len(saturdayLinks) == 1, 'No saturday link found.')
+    ASSERT_NO_THROW(len(sundayLinks) == 1, 'No sunday link found.')
 
     return {'workDay': workDayLinks,
             'saturday': saturdayLinks,
