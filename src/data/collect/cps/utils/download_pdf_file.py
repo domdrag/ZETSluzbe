@@ -15,12 +15,18 @@ def downloadPDFFile(url, dirPath, fileName):
 
     config = getConfig()
     if (config['TEST_CONFIGURATION_ACTIVATED']):
-        TRACE('TEST_CONFIGURATION_ACTIVATED - skipping download of ' +
-              fileName + '; copying file from wanted_data instead')
         wantedDirPath = 'wanted_' + dirPath
-        shutil.copyfile(wantedDirPath + fileName, filePath)
+        try:
+            shutil.copyfile(wantedDirPath + fileName, filePath)
+            TRACE('TEST_CONFIGURATION_ACTIVATED - skipping download of ' +
+                  fileName + '; copying file from wanted_data instead')
+        except Exception as e:
+            TRACE('TEST_CONFIGURATION_ACTIVATED - testing old resource file for ' +
+                  fileName)
+            raise e
         return filePath
 
+    # following lines aren't currently tested
     while not downloadComplete:
         try:
             with requests.get(url) as r:

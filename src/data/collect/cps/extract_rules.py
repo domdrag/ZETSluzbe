@@ -4,7 +4,7 @@ import ast
 from datetime import date, timedelta
 
 from src.data.collect.cps.utils.download_pdf_file import downloadPDFFile
-from src.data.collect.cps.utils.add_warning_message import addWarningMessage
+from src.data.manager.warning_messages_manager import WarningMessagesManager
 from src.data.collect.cps.utils.regex_definitions import RegexDefinitions
 from src.data.collect.cps.utils.get_service_line import getServiceLine
 from src.share.asserts import ASSERT_THROW
@@ -211,7 +211,7 @@ def extractRules(workDayLinks,
 
     # SPECIAL DAY
     if (specialDayLinks):
-        addWarningMessage('Nadjene sluzbe za posebni/e datum/e.')
+        WarningMessagesManager.addWarningMessage('Nadjene sluzbe za posebni/e datum/e.')
     for link in specialDayLinks:
         fileNameSPPrefix = 'rules_SP'
         fileNameSP = determineRulesFileName(link['name'], fileNameSPPrefix)
@@ -230,7 +230,7 @@ def extractRules(workDayLinks,
         if (not workDayLinks):
             raise ExtractRulesCustomException('No workDay links found')
         if (len(workDayLinks) > 1):
-            addWarningMessage('Nadjeno vise rasporeda za radni dan!')
+            WarningMessagesManager.addWarningMessage('Nadjeno vise rasporeda za radni dan!')
         typeOfDayW = 'W'
         for link in workDayLinks:
             fileNameWPrefix = 'rules_W'
@@ -244,7 +244,7 @@ def extractRules(workDayLinks,
         if (not canUseOldWorkDayResources):
             raise Exception(p)
         TRACE('Using old resources for Work Day')
-        addWarningMessage('Koristenje starih resursa za Radni Dan!')
+        WarningMessagesManager.addWarningMessage('Koristenje starih resursa za Radni Dan!')
 
     # SATURDAY
     try:
@@ -260,7 +260,7 @@ def extractRules(workDayLinks,
         # No links found or PDF not present on the link
         TRACE('Potential error: ' + str(p))
         TRACE('Using old resources for Saturday')
-        addWarningMessage('Koristenje starih resursa za Subotu!')
+        WarningMessagesManager.addWarningMessage('Koristenje starih resursa za Subotu!')
 
     # SUNDAY
     try:
@@ -276,7 +276,7 @@ def extractRules(workDayLinks,
         # No links found or PDF not present on the link
         TRACE('Potential error: ' + str(p))
         TRACE('Using old resources for Sunday')
-        addWarningMessage('Koristenje starih resursa za Nedjelju!')
+        WarningMessagesManager.addWarningMessage('Koristenje starih resursa za Nedjelju!')
 
     if (duplicatesExist(fileNames)):
         raise Exception('Multiple work day files with the same name')
