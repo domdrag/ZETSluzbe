@@ -244,7 +244,7 @@ def extractRules(workDayLinks,
         if (not canUseOldWorkDayResources):
             raise Exception(p)
         TRACE('Using old resources for Work Day')
-        WarningMessagesManager.addWarningMessage('Koristenje starih resursa za Radni Dan!')
+        WarningMessagesManager.addWarningMessage('Koristenje starih resursa za Radni dan!')
 
     # SATURDAY
     try:
