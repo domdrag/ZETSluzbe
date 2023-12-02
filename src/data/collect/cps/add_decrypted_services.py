@@ -4,7 +4,7 @@ import os
 from src.data.collect.cps.utils.get_service_layout import getServiceLayoutAndUpdateStats
 from src.data.collect.cps.utils.get_service_line import getServiceLine
 from src.data.collect.cps.utils.statistics_updater import finishStatisticsUpdate
-from src.data.collect.cps.utils.add_warning_message import addWarningMessage
+from src.data.manager.warning_messages_manager import WarningMessagesManager
 from src.data.utils.get_service_date import getServiceDate
 from src.share.trace import TRACE
 
@@ -79,7 +79,7 @@ def addDecryptedServices(days, weekSchedule, mondayDate, fileNames):
             if (not serviceNum or serviceNum == ' '):
                 if (not alreadyFoundMissingService):
                     TRACE('FOUND MISSING SERVICE/S')
-                    addWarningMessage('Nadjena/e sluzba/e koje nedostaju.')
+                    WarningMessagesManager.addWarningMessage('Nadjena/e sluzba/e koje nedostaju.')
                     alreadyFoundMissingService = True
                 continue
 

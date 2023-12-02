@@ -3,7 +3,6 @@ from datetime import date
 from src.data.collect.cps.collect_phase_enum import CollectPhaseEnum
 from src.data.collect.cps.dropbox_synchronizer import DropboxSynchronizer
 
-from src.data.collect.utils.create_empty_warning_message import createEmptyWarningMessage
 from src.data.collect.cps.add_decrypted_services import (
     addDecryptedServices
     )
@@ -26,31 +25,29 @@ from src.data.collect.cps.check_update_neeeded import checkUpdateNeeded
 from src.data.collect.cps.prepare_data_for_transport import prepareDataForTransport
 from src.data.collect.cps.upload_client_data import uploadClientData
 from src.data.collect.cps.configure_notifications_files import configureNotificationsFiles
-from src.data.manager.backup_manager import repairSystem, updateBackupDir, restoreWarnings
+from src.data.manager.backup_manager import repairSystem, updateBackupDir
 from src.data.manager.config_manager import setConfig, setNewConfiguration, loadConfig, getConfig
+from src.data.manager.warning_messages_manager import WarningMessagesManager
 from src.share.trace import TRACE
 from src.share.asserts import ASSERT_THROW
 
 cp = CollectPhaseEnum
 
 class DataCollector:
-    config = dict()
-    phase = cp(0)
-    days = []
-    workDayLinks = ''
-    saturdayLinks = ''
-    sundayLinks = ''
-    specialDayLinks = ''
-    notificationsLinks = ''
-    mondayDate = date(2022,1,1)
-    weekSchedule = ['W','W','W','W','W','W','W']
-    warningMessage = ''
-    servicesHash = None
-    workDayFileNames = []
-    canUseOldWorkDayResources = False
-
     def __init__(self):
-        createEmptyWarningMessage()
+        self.phase = cp(0)
+        self.days = []
+        self.workDayLinks = ''
+        self.saturdayLinks = ''
+        self.sundayLinks = ''
+        self.specialDayLinks = ''
+        self.notificationsLinks = ''
+        self.mondayDate = date(2022, 1, 1)
+        self.weekSchedule = ['W', 'W', 'W', 'W', 'W', 'W', 'W']
+        self.servicesHash = None
+        self.workDayFileNames = []
+        self.canUseOldWorkDayResources = False
+
         # check if test configuration activated - if so, load configuration
         self.config = getConfig()
         if (not self.config):
@@ -96,7 +93,6 @@ class DataCollector:
                 updateNeeded = checkUpdateNeeded(self.mondayDate, self.servicesHash)
                 if not updateNeeded:
                     TRACE('UPDATE_NOT_PERFORMING')
-                    restoreWarnings()
                     setConfig('UPDATE_SUCCESSFUL', 1)
                     returnMessage['finished'] = True
 
@@ -158,12 +154,13 @@ class DataCollector:
 
             # NEXT ORDER EXPLANATION: in case anything fails, we must have
             # have a backup ready -> last step must be updating the backup.
-            elif self.phase == cp.SET_NEW_CONFIG:
-                TRACE('[CP] SET_NEW_CONFIG')
+            elif self.phase == cp.SET_NEW_CONFIG_AND_WARNINGS:
+                TRACE('[CP] SET_NEW_CONFIG_AND_WARNINGS')
                 mondayDateList = [self.mondayDate.year,
                                   self.mondayDate.month,
                                   self.mondayDate.day]
                 setNewConfiguration(mondayDateList, self.servicesHash)
+                WarningMessagesManager.setWarningMessages()
                 returnMessage['message'] =  'Pripremanje podataka za transport'
 
             elif self.phase == cp.PREPARE_DATA_FOR_TRANSPORT:
@@ -205,6 +202,8 @@ class DataCollector:
         except Exception as e:
             TRACE(e)
             repairSystem()
+            WarningMessagesManager.clearWarningMessages()
+
             return {'success': False,
                     'error': True,
                     'finished': True,

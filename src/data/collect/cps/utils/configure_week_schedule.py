@@ -3,6 +3,7 @@ import pdfplumber
 from datetime import date, timedelta
 
 from src.data.retrieve.get_holidays import getHolidays
+from src.data.manager.warning_messages_manager import WarningMessagesManager
 from src.share.trace import TRACE
 
 X_COORDINATE_UNMARKED_DAY_CHECK_THRESHOLD = 300
@@ -63,7 +64,6 @@ def addHolidays(firstStageHolidayList):
         day = holiday.day
         fileA.write(f"{[year, month, day]}\n")
     fileA.close()
-
 
 def configureWeekSchedule(page, weekSchedule, mondayDate):
     # pdlplumber se gubi kada rect nije obojan u smislu
@@ -197,23 +197,31 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
             nonDefaultDays['Petak'] = 'Subota'
             weekSchedule[4] = 'ST'
 
-    fileA = open('data/data/warnings.txt', 'a', encoding='utf-8')
     if not nonDefaultDays:
-        fileA.write(message0)
+        WarningMessagesManager.addWarningMessage(message0)
     else:
         if (errorOccured):
             message1 = errorMessage
         if (plausibleErrorOccured):
             message1 = message1 + plausibleErrorMessage
-        fileA.write(message1)
+        WarningMessagesManager.addWarningMessage(message1)
 
-    messageAddOn = 'ni'
-    for key,value in nonDefaultDays.items():
-        if (value == 'Subota'):
-            messageAddOn = 'nji'
-        fileA.write('Za {0} se gleda {1}{2} vozni red ili raspored za poseban dan tog tipa.\n'.\
-                    format(key.lower(), (value[:-1]).lower(), messageAddOn))
-    fileA.close()
+    for dayIndex in range(len(weekSchedule)):
+        warningMessage = ''
+        typeOfDay = weekSchedule[dayIndex]
+
+        if dayIndex < 5 and typeOfDay != 'W':
+            warningMessage = ('Za {0} se gleda se gleda vozni red za {1} ili poseban raspored.\n'.
+                              format(days[dayIndex]), 'Subotu' if typeOfDay == 'ST' else 'Nedjelju')
+        elif dayIndex == 5 and typeOfDay != 'ST':
+            warningMessage = ('Za Subotu se gleda se gleda vozni red za {0} ili poseban raspored.\n'.
+                              format('Nedjelju' if typeOfDay == 'SN' else 'Radni dan'))
+        elif dayIndex == 6 and typeOfDay != 'SN':
+            warningMessage = ('Za Nedjelju se gleda se gleda vozni red za {0} ili poseban raspored.\n'.
+                              format('Subotu' if typeOfDay == 'ST' else 'Radni dan'))
+
+        if (warningMessage):
+            WarningMessagesManager.addWarningMessage(warningMessage)
 
 
 

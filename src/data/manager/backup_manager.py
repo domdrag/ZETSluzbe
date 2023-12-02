@@ -1,14 +1,9 @@
 import os.path
 import shutil
 import sys
-#from distutils.dir_util import copy_tree
 
 import src.data.manager.config_manager as configManager
 import src.share.trace as trace
-
-def restoreWarnings():
-    shutil.copyfile('data/backup/data/warnings.txt',
-                    'data/data/warnings.txt')
 
 def updateBackupConfig(sourceConfigPath = ''):
     if (sourceConfigPath):
