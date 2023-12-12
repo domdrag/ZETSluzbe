@@ -1,14 +1,13 @@
-from src.data.manager.logs_manager import beginLogging
+from src.data.manager.logs_manager import LogsManager
 from src.data.manager.config_manager import loadConfig
 from src.data.manager.design_manager import loadDesign
 from src.app.utils.environment_setup import environmentSetup
 
 # order important
-beginLogging()
-loadConfig()
-environmentSetup()
-loadDesign()
-
+#LogsManager.beginLogging()
+#loadConfig()
+#environmentSetup()
+#loadDesign()
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.properties import StringProperty
@@ -29,6 +28,7 @@ class ZETApp(MDApp):
     mainScreenFontSize = StringProperty()
 
     def build(self):
+        print('again')
         config = getConfig()
         self.gridHeight = getGridHeight()
         self.loginScreenFontSize = getLoginScreenFontSize()

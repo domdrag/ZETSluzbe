@@ -10,6 +10,7 @@
 	offNumTextFieldObj: offNumTextFieldId
 	loginButtonObj: loginButtonId
 	updateButtonObj: updateButtonId
+	logsSheetObj: logsSheetId
 	
     MDFloatLayout:
 		md_bg_color: app.theme_cls.primary_dark
@@ -71,3 +72,36 @@
 			icon: 'minus-box-outline'
 			pos_hint: {"x":0, 'y': 0}
 			on_release: root.decreaseFontSize()
+
+    MDBottomSheet:
+        id: logsSheetId
+        bg_color: app.theme_cls.primary_color
+        #max_opening_height: self.height
+        #height: "600dp"
+        #size_hint_y: None
+        #default_opening_height: self.max_opening_height
+        adaptive_height: True
+        content: sheetLabelId
+
+        MDBottomSheetContent:
+            #size_hint_y: None
+            height: "600dp"
+            #adaptive_height: True
+
+            ScrollView:
+                size_hint: 1,1
+                MDBoxLayout:
+                    adaptive_height: True
+
+                    MDLabel:
+                        id: sheetLabelId
+                        #text: "Logovi \n"
+                        text: root.logs
+                        font_size: app.logsFontSize
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        adaptive_height: True
+
+    #LoginScreenBottomSheet:
+    #    id: logsSheetId
+    #    #size_hint_y: 0.5

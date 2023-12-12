@@ -73,11 +73,10 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
     rects = page.rects
     chars = page.chars
 
-    message0 = 'Uobicajen vozni red.\n'
-    message1 = 'Neuobicajen vozni red. Sugerira se samostalna' \
-               ' provjera sluzbi.\n'
-    errorMessage = 'Greska! Pogledati logove!\n'
-    plausibleErrorMessage = 'Moguca greska! Pogledati logove!\n'
+    message0 = 'Uobicajen vozni red.'
+    message1 = 'Neuobicajen vozni red. Sugerira se samostalna provjera sluzbi.'
+    errorMessage = 'Greska! Pogledati logove!'
+    plausibleErrorMessage = 'Moguca greska! Pogledati logove!'
     nonWorkingDays = dict()
     days = ['Ponedjeljak', 'Utorak', 'Srijeda', \
             'Cetvrtak', 'Petak', 'Subota', 'Nedjelja']
@@ -203,7 +202,7 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
         if (errorOccured):
             message1 = errorMessage
         if (plausibleErrorOccured):
-            message1 = message1 + plausibleErrorMessage
+            message1 = message1 + '\n' + plausibleErrorMessage
         WarningMessagesManager.addWarningMessage(message1)
 
     for dayIndex in range(len(weekSchedule)):
@@ -211,13 +210,13 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
         typeOfDay = weekSchedule[dayIndex]
 
         if dayIndex < 5 and typeOfDay != 'W':
-            warningMessage = ('Za {0} se gleda se gleda vozni red za {1} ili poseban raspored.\n'.
+            warningMessage = ('Za {0} se gleda se gleda vozni red za {1} ili poseban raspored.'.
                               format(days[dayIndex]), 'Subotu' if typeOfDay == 'ST' else 'Nedjelju')
         elif dayIndex == 5 and typeOfDay != 'ST':
-            warningMessage = ('Za Subotu se gleda se gleda vozni red za {0} ili poseban raspored.\n'.
+            warningMessage = ('Za Subotu se gleda se gleda vozni red za {0} ili poseban raspored.'.
                               format('Nedjelju' if typeOfDay == 'SN' else 'Radni dan'))
         elif dayIndex == 6 and typeOfDay != 'SN':
-            warningMessage = ('Za Nedjelju se gleda se gleda vozni red za {0} ili poseban raspored.\n'.
+            warningMessage = ('Za Nedjelju se gleda se gleda vozni red za {0} ili poseban raspored.'.
                               format('Subotu' if typeOfDay == 'ST' else 'Radni dan'))
 
         if (warningMessage):

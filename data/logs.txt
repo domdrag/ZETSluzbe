@@ -1,317 +1,166 @@
+=============
+2023-12-11 18:47:01.368599
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+=============
+2023-12-11 18:47:05.414009
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 18:48:02.307224
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+=============
+2023-12-11 18:48:06.297516
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 18:48:36.492370
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
 [CP] DROPBOX_SYNCHRONIZATION
 DROPBOX_SYNCHRONIZATION_NOT_NEEDED
-[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
-Found green cell on days-row.
-Found red cell on days-row.
-Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
-[CP] EXTRACT_RULES_BY_DRIVER
-[CP] CHECKING_UPDATE_NEEDED
-MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
-PERFORMING_UPDATE
-[CP] SEARCH_LINKS
-Rules link found: Radni dan od 4. 9. 2023.
-Rules link found: Subota od 2. 12. 2023.
-Rules link found: Nedjelja od 3. 12. 2023.
-Nije nadjen link za subotnji raspored.
-Nije nadjen link za nedeljni raspored.
-[CP] DELETE_NECESSARY_DATA
-Old Work Day resources enabled: False
-[CP] EXTRACT_RULES
-substring not found
+=============
+2023-12-11 18:48:43.052886
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
 REPAIRING DATA AND CONFIG
 DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 18:49:59.448657
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
 [CP] DROPBOX_SYNCHRONIZATION
 DROPBOX_SYNCHRONIZATION_NOT_NEEDED
-[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
-Found green cell on days-row.
-Found red cell on days-row.
-Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
-[CP] EXTRACT_RULES_BY_DRIVER
-[CP] CHECKING_UPDATE_NEEDED
-MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
-PERFORMING_UPDATE
-[CP] SEARCH_LINKS
-Rules link found: Radni dan od 4. 9. 2023.
-Rules link found: Subota od 2. 12. 2023.
-Rules link found: Nedjelja od 3. 12. 2023.
-Nije nadjen link za subotnji raspored.
-Nije nadjen link za nedeljni raspored.
-[CP] DELETE_NECESSARY_DATA
-Old Work Day resources enabled: False
-[CP] EXTRACT_RULES
-substring not found
+=============
+2023-12-11 18:50:03.666418
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
 REPAIRING DATA AND CONFIG
 DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
 =============
-2023-11-24 20:58:23.530737
+2023-12-11 18:50:44.372335
 =============
 NO DEBUG LOGS
 BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
 [CP] DROPBOX_SYNCHRONIZATION
 DROPBOX_SYNCHRONIZATION_NOT_NEEDED
-[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
-Found green cell on days-row.
-Found red cell on days-row.
-Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
-[CP] EXTRACT_RULES_BY_DRIVER
-[CP] CHECKING_UPDATE_NEEDED
-MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
-PERFORMING_UPDATE
-[CP] SEARCH_LINKS
-Rules link found: Radni dan od 4. 9. 2023.
-Rules link found: Subota od 2. 12. 2023.
-Rules link found: Nedjelja od 3. 12. 2023.
-Nije nadjen link za subotnji raspored.
-Nije nadjen link za nedeljni raspored.
-[CP] DELETE_NECESSARY_DATA
-Old Work Day resources enabled: False
-[CP] EXTRACT_RULES
-substring not found
+=============
+2023-12-11 18:50:50.358267
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
 REPAIRING DATA AND CONFIG
 DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
 =============
-2023-11-24 20:59:15.782727
+2023-12-11 18:51:17.174398
 =============
 NO DEBUG LOGS
 BACKUP CONFIG UPDATED
+=============
+2023-12-11 18:51:21.986722
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
 [CP] DROPBOX_SYNCHRONIZATION
 DROPBOX_SYNCHRONIZATION_NOT_NEEDED
-[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
-Found green cell on days-row.
-Found red cell on days-row.
-Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
-[CP] EXTRACT_RULES_BY_DRIVER
-[CP] CHECKING_UPDATE_NEEDED
-MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
-PERFORMING_UPDATE
-[CP] SEARCH_LINKS
-Rules link found: Radni dan od 4. 9. 2023.
-Rules link found: Subota od 2. 12. 2023.
-Rules link found: Nedjelja od 3. 12. 2023.
-Nije nadjen link za subotnji raspored.
-Nije nadjen link za nedeljni raspored.
-[CP] DELETE_NECESSARY_DATA
-Old Work Day resources enabled: False
-[CP] EXTRACT_RULES
-substring not found
+=============
+2023-12-11 18:51:30.396085
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
 REPAIRING DATA AND CONFIG
 DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
 =============
-2023-11-24 20:59:47.000294
+2023-12-11 18:53:18.224896
 =============
 NO DEBUG LOGS
 BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
 [CP] DROPBOX_SYNCHRONIZATION
 DROPBOX_SYNCHRONIZATION_NOT_NEEDED
-[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
-Found green cell on days-row.
-Found red cell on days-row.
-Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
-[CP] EXTRACT_RULES_BY_DRIVER
-[CP] CHECKING_UPDATE_NEEDED
-MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
-PERFORMING_UPDATE
-[CP] SEARCH_LINKS
-Rules link found: Radni dan od 4. 9. 2023.
-Rules link found: Subota od 2. 12. 2023.
-Rules link found: Nedjelja od 3. 12. 2023.
-Nije nadjen link za subotnji raspored.
-Nije nadjen link za nedeljni raspored.
-[CP] DELETE_NECESSARY_DATA
-Old Work Day resources enabled: False
-[CP] EXTRACT_RULES
-substring not found
+=============
+2023-12-11 18:53:22.348463
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
 REPAIRING DATA AND CONFIG
 DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
 =============
-2023-11-24 21:02:33.874217
+2023-12-11 18:54:59.744206
 =============
 NO DEBUG LOGS
 BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
 [CP] DROPBOX_SYNCHRONIZATION
 DROPBOX_SYNCHRONIZATION_NOT_NEEDED
-[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
-Found green cell on days-row.
-Found red cell on days-row.
-Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
-[CP] EXTRACT_RULES_BY_DRIVER
-[CP] CHECKING_UPDATE_NEEDED
-MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
-PERFORMING_UPDATE
-[CP] SEARCH_LINKS
-Rules link found: Radni dan od 4. 9. 2023.
-Rules link found: Subota od 2. 12. 2023.
-Rules link found: Nedjelja od 3. 12. 2023.
-Nije nadjen link za subotnji raspored.
-Nije nadjen link za nedeljni raspored.
-[CP] DELETE_NECESSARY_DATA
-Old Work Day resources enabled: False
-[CP] EXTRACT_RULES
-substring not found
+=============
+2023-12-11 18:55:03.227009
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
 REPAIRING DATA AND CONFIG
 DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
 =============
-2023-11-24 21:03:49.040760
+2023-12-11 19:00:51.922950
 =============
 NO DEBUG LOGS
 BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
 [CP] DROPBOX_SYNCHRONIZATION
 DROPBOX_SYNCHRONIZATION_NOT_NEEDED
-[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
-Found green cell on days-row.
-Found red cell on days-row.
-Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
-[CP] EXTRACT_RULES_BY_DRIVER
-[CP] CHECKING_UPDATE_NEEDED
-MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
-PERFORMING_UPDATE
-[CP] SEARCH_LINKS
-Rules link found: Radni dan od 4. 9. 2023.
-Rules link found: Subota od 2. 12. 2023.
-Rules link found: Nedjelja od 3. 12. 2023.
-Nije nadjen link za subotnji raspored.
-Nije nadjen link za nedeljni raspored.
-[CP] DELETE_NECESSARY_DATA
-Old Work Day resources enabled: False
-[CP] EXTRACT_RULES
-substring not found
+=============
+2023-12-11 19:02:42.130961
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
 REPAIRING DATA AND CONFIG
 DATA AND CONFIG REPAIRED
-=============
-2023-11-24 21:04:05.324485
-=============
 NO DEBUG LOGS
 BACKUP CONFIG UPDATED
-[CP] DROPBOX_SYNCHRONIZATION
-DROPBOX_SYNCHRONIZATION_NOT_NEEDED
-[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
-Found green cell on days-row.
-Found red cell on days-row.
-Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
-[CP] EXTRACT_RULES_BY_DRIVER
-[CP] CHECKING_UPDATE_NEEDED
-MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
-PERFORMING_UPDATE
-[CP] SEARCH_LINKS
-Rules link found: Radni dan od 4. 9. 2023.
-Rules link found: Subota od 2. 12. 2023.
-Rules link found: Nedjelja od 3. 12. 2023.
-Nije nadjen link za subotnji raspored.
-Nije nadjen link za nedeljni raspored.
-[CP] DELETE_NECESSARY_DATA
-Old Work Day resources enabled: False
-[CP] EXTRACT_RULES
-substring not found
-REPAIRING DATA AND CONFIG
-DATA AND CONFIG REPAIRED
-=============
-2023-11-24 21:05:45.565055
-=============
-NO DEBUG LOGS
-BACKUP CONFIG UPDATED
-[CP] DROPBOX_SYNCHRONIZATION
-DROPBOX_SYNCHRONIZATION_NOT_NEEDED
-[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
-Found green cell on days-row.
-Found red cell on days-row.
-Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
-[CP] EXTRACT_RULES_BY_DRIVER
-[CP] CHECKING_UPDATE_NEEDED
-MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
-PERFORMING_UPDATE
-[CP] SEARCH_LINKS
-Rules link found: Radni dan od 4. 9. 2023.
-Rules link found: Subota od 2. 12. 2023.
-Rules link found: Nedjelja od 3. 12. 2023.
-Nije nadjen link za subotnji raspored.
-Nije nadjen link za nedeljni raspored.
-[CP] DELETE_NECESSARY_DATA
-Old Work Day resources enabled: False
-[CP] EXTRACT_RULES
-Invalid specialDay fileName
-REPAIRING DATA AND CONFIG
-DATA AND CONFIG REPAIRED
-=============
-2023-11-24 21:10:53.059628
-=============
-NO DEBUG LOGS
-BACKUP CONFIG UPDATED
-[CP] DROPBOX_SYNCHRONIZATION
-DROPBOX_SYNCHRONIZATION_NOT_NEEDED
-[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
-Found green cell on days-row.
-Found red cell on days-row.
-Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
-[CP] EXTRACT_RULES_BY_DRIVER
-[CP] CHECKING_UPDATE_NEEDED
-MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
-PERFORMING_UPDATE
-[CP] SEARCH_LINKS
-Rules link found: Radni dan od 4. 9. 2023.
-Rules link found: Subota od 2. 12. 2023.
-Rules link found: Nedjelja od 3. 12. 2023.
-No saturday link found.
-No sunday link found.
-[CP] DELETE_NECESSARY_DATA
-Old Work Day resources enabled: False
-[CP] EXTRACT_RULES
-Invalid specialDay fileName.
-REPAIRING DATA AND CONFIG
-DATA AND CONFIG REPAIRED
-=============
-2023-11-24 21:16:07.813426
-=============
-NO DEBUG LOGS
-BACKUP CONFIG UPDATED
-[CP] DROPBOX_SYNCHRONIZATION
-DROPBOX_SYNCHRONIZATION_NOT_NEEDED
-[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
-Found green cell on days-row.
-Found red cell on days-row.
-Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
-[CP] EXTRACT_RULES_BY_DRIVER
-[CP] CHECKING_UPDATE_NEEDED
-MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
-PERFORMING_UPDATE
-[CP] SEARCH_LINKS
-Rules link found: Radni dan od 4. 9. 2023.
-Rules link found: Subota od 2. 12. 2023.
-Rules link found: Nedjelja od 3. 12. 2023.
-[CP] DELETE_NECESSARY_DATA
-Old Work Day resources enabled: True
-[CP] EXTRACT_RULES
-Extracting rules for file: rules_W, typeOfDay: W
-Extracting rules for file: rules_ST, typeOfDay: ST
-Extracting rules for file: rules_SN, typeOfDay: SN
-For date: 27-11-2023 selected file: data/data/rules_W.txt
-For date: 28-11-2023 selected file: data/data/rules_W.txt
-For date: 29-11-2023 selected file: data/data/rules_W.txt
-For date: 30-11-2023 selected file: data/data/rules_W.txt
-For date: 01-12-2023 selected file: data/data/rules_W.txt
-For date: 02-12-2023 selected file: data/data/rules_ST.txt
-For date: 03-12-2023 selected file: data/data/rules_SN.txt
-[CP] ADD_DECRYPTED_SERVICES
-New official number (new colleague) detected. OffNum: 21070
-[CP] ADD_DECRYPTED_SHIFTS
-[CP] CONFIGURE_NOTIFICATION_FILES
-[CP] SET_NEW_CONFIG
-[CP] PREPARE_DATA_FOR_TRANSPORT
-[CP] UPLOAD_CLIENT_DATA
-DATA_UPLOADED_TO_GITHUB_SUCCESSFULLY
-[CP] UPLOAD_DATA_TO_DROPBOX
-DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY
-[CP] UPDATE_BACKUP_DIRECTORY
-SERVICES_UPDATE_FINISHED_SUCCESSFULLY
-=============
-2023-11-24 21:21:50.921511
-=============
-NO DEBUG LOGS
-BACKUP CONFIG UPDATED
-=============
-2023-12-02 14:58:25.577379
-=============
-NO DEBUG LOGS
-BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
 [CP] DROPBOX_SYNCHRONIZATION
 DROPBOX_SYNCHRONIZATION_NOT_NEEDED
 [CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
@@ -330,26 +179,1466 @@ Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
 Old Work Day resources enabled: True
 [CP] EXTRACT_RULES
 Extracting rules for file: rules_W, typeOfDay: W
-Greska pri skidanju file-a: rules_W.pdf
-Potential error: Greska pri skidanju file-a: rules_W.pdf
-Using old resources for Work Day
+Extracting rules for file: rules_ST, typeOfDay: ST
+=============
+2023-12-11 19:03:13.323363
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 19:03:31.158402
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 19:03:47.602336
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 19:03:53.731353
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 19:04:00.426392
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 19:21:15.134886
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 19:21:49.630389
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 19:23:05.003125
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 19:23:22.913890
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 19:23:47.715975
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+LOADING CONFIGURATION - SHOULD ONLY OCCUR AT THE TEST VERIFICATION
+=============
+2023-12-11 19:28:45.485202
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+LOADING CONFIGURATION - SHOULD ONLY OCCUR AT THE TEST VERIFICATION
+=============
+2023-12-11 19:29:37.726132
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 19:29:41.019952
+=============
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+=============
+2023-12-11 19:30:19.793722
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 19:30:22.809502
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 19:30:44.660984
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 19:30:52.132370
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 19:31:31.072623
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 19:31:34.371408
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 19:31:51.548969
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 19:31:59.346410
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 19:32:01.372999
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 19:32:11.721655
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+[WinError 32] The process cannot access the file because it is being used by another process: 'data/data\\rules_W.pdf'
+=============
+2023-12-11 19:32:17.009358
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+[WinError 32] The process cannot access the file because it is being used by another process: 'data/data\\rules_W.txt'
+=============
+2023-12-11 19:32:21.106542
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 19:32:35.883041
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 21:11:58.309472
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:12:01.404482
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 21:12:36.500273
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:12:51.663271
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:14:03.520733
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:14:05.554331
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 21:17:27.390641
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:17:30.137189
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 21:18:19.746572
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:18:22.622506
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 21:18:31.872299
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+[WinError 32] The process cannot access the file because it is being used by another process: 'data/data\\rules_W.pdf'
+=============
+2023-12-11 21:32:01.612968
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:32:28.710148
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:32:37.250132
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:49:58.346855
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:50:13.329853
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:50:15.820853
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:50:52.095916
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:50:53.901889
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+=============
+2023-12-11 21:51:11.496889
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:51:13.704889
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 21:51:46.050926
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:51:50.137926
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 21:52:21.185927
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:52:24.030939
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 21:52:46.665971
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:52:49.806490
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+=============
+2023-12-11 21:54:19.242802
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:54:38.712197
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:54:53.128199
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:55:13.887193
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:55:18.090193
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 21:55:40.351842
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:55:44.872867
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
 Extracting rules for file: rules_ST, typeOfDay: ST
 Extracting rules for file: rules_SN, typeOfDay: SN
-For date: 04-12-2023 selected file: data/data/rules_W.txt
-For date: 05-12-2023 selected file: data/data/rules_W.txt
-For date: 06-12-2023 selected file: data/data/rules_W.txt
-For date: 07-12-2023 selected file: data/data/rules_W.txt
-For date: 08-12-2023 selected file: data/data/rules_W.txt
-For date: 09-12-2023 selected file: data/data/rules_ST.txt
-For date: 10-12-2023 selected file: data/data/rules_SN.txt
+For date: 11-12-2023 selected file: data/data/rules_W.txt
+For date: 12-12-2023 selected file: data/data/rules_W.txt
+For date: 13-12-2023 selected file: data/data/rules_W.txt
+For date: 14-12-2023 selected file: data/data/rules_W.txt
+For date: 15-12-2023 selected file: data/data/rules_W.txt
+For date: 16-12-2023 selected file: data/data/rules_ST.txt
+For date: 17-12-2023 selected file: data/data/rules_SN.txt
 [CP] ADD_DECRYPTED_SERVICES
 [CP] ADD_DECRYPTED_SHIFTS
-[CP] CONFIGURE_NOTIFICATION_FILES
-[CP] SET_NEW_CONFIG_AND_WARNINGS
-[CP] PREPARE_DATA_FOR_TRANSPORT
-[CP] UPLOAD_CLIENT_DATA
-DATA_UPLOADED_TO_GITHUB_SUCCESSFULLY
-[CP] UPLOAD_DATA_TO_DROPBOX
-DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY
-[CP] UPDATE_BACKUP_DIRECTORY
-SERVICES_UPDATE_FINISHED_SUCCESSFULLY
+=============
+2023-12-11 21:56:32.515852
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:56:37.066850
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 21:57:03.189676
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:57:33.892675
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:57:36.878675
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 21:58:09.245349
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:58:15.460361
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+=============
+2023-12-11 21:58:58.065415
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:59:03.147389
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-11 21:59:17.417524
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:59:36.896675
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:59:49.361674
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 21:59:52.273676
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+=============
+2023-12-11 21:59:59.292807
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 22:00:03.928809
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+=============
+2023-12-11 22:01:11.502760
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 22:01:16.239761
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+=============
+2023-12-11 22:02:18.091989
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 22:02:22.340991
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+=============
+2023-12-11 22:02:32.723990
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-11 22:02:37.455990
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+=============
+2023-12-12 18:01:01.862889
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+[WinError 32] The process cannot access the file because it is being used by another process: 'data/data\\all_shifts_by_driver_decrypted\\2159.txt'
+=============
+2023-12-12 18:01:10.049409
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 18:01:18.145408
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 18:01:21.667053
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+=============
+2023-12-12 18:45:41.472615
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 18:45:49.152020
+=============
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+=============
+2023-12-12 18:47:37.719056
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+LOADING CONFIGURATION - SHOULD ONLY OCCUR AT THE TEST VERIFICATION
+=============
+2023-12-12 18:49:30.007687
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 18:50:16.325662
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 18:51:12.805907
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+LOADING CONFIGURATION - SHOULD ONLY OCCUR AT THE TEST VERIFICATION
+=============
+2023-12-12 18:52:40.454392
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 18:52:56.261153
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 18:53:08.074279
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 18:53:22.120350
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 18:54:22.215246
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 18:54:39.461263
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 18:55:11.826383
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 18:55:48.785835
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 18:56:04.393052
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 18:56:19.897634
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 18:56:37.279785
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 19:02:23.307964
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 19:03:38.159917
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 19:10:07.241268
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 19:11:04.147547
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+=============
+2023-12-12 19:13:29.103090
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 19:13:47.834570
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+LOADING CONFIGURATION - SHOULD ONLY OCCUR AT THE TEST VERIFICATION
+=============
+2023-12-12 19:14:54.178477
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 19:15:06.561716
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 19:15:08.534771
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-12 19:15:55.787159
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 19:15:58.658158
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+=============
+2023-12-12 19:16:39.403009
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 19:16:42.194010
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+=============
+2023-12-12 19:17:05.158045
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 19:17:08.990044
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+=============
+2023-12-12 19:18:10.351691
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 19:18:15.200693
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+=============
+2023-12-12 19:18:33.823702
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 19:18:37.068701
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+=============
+2023-12-12 19:19:30.237704
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+=============
+2023-12-12 19:19:33.570703
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DROPBOX_SYNCHRONIZATION_NOT_NEEDED
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+=============
+2023-12-12 19:20:15.005820
+=============
+REPAIR ALL FILES - ERROR IN LAST SESSION
+REPAIRING DATA AND CONFIG
+DATA AND CONFIG REPAIRED
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
