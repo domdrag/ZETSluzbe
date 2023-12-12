@@ -3,6 +3,7 @@ from datetime import date
 from src.data.collect.cps.collect_phase_enum import CollectPhaseEnum
 from src.data.collect.cps.dropbox_synchronizer import DropboxSynchronizer
 
+from src.data.collect.utils.generate_URLs import generateURLs
 from src.data.collect.cps.add_decrypted_services import (
     addDecryptedServices
     )
@@ -34,7 +35,10 @@ from src.share.asserts import ASSERT_THROW
 cp = CollectPhaseEnum
 
 class DataCollector:
-    def __init__(self):
+    def __init__(self, queue):
+        from src.data.manager.logs_manager import LogsManager
+        LogsManager.activateLiveLogging(queue)
+        TRACE('CONFIGURING_DATA_COLLECTOR')
         self.phase = cp(0)
         self.days = []
         self.workDayLinks = ''
@@ -47,17 +51,28 @@ class DataCollector:
         self.servicesHash = None
         self.workDayFileNames = []
         self.canUseOldWorkDayResources = False
+        self.skipOnlineSyncsDueTestConfig = False
 
         # check if test configuration activated - if so, load configuration
         self.config = getConfig()
         if (not self.config):
-            TRACE('LOADING CONFIGURATION - SHOULD ONLY OCCUR AT TEST VERIFICATION')
+            # test configuration expected - loading configuration
+            TRACE('LOADING CONFIGURATION - SHOULD ONLY OCCUR AT THE TEST VERIFICATION')
             loadConfig()
             self.config = getConfig()
-            errorMessage = 'ERROR - UNLOADED CONFIG AT THE START OF DATA COLLECTION'
-            ASSERT_THROW(self.config['TEST_CONFIGURATION_ACTIVATED'], errorMessage)
+            errorMessage = 'ERROR - UNLOADED CONFIG AT THE START OF NON-TEST DATA COLLECTION'
+            ASSERT_THROW(self.config['ACTIVATED_TEST_PACK_NUM'], errorMessage)
+            self.skipOnlineSyncsDueTestConfig = True
+
+        # depends on whether test config is activated
+        URLs = generateURLs(self.config)
+        self.mainPageURL = URLs['mainPageURL']
+        self.allServicesURL = URLs['allServicesURL']
+
+        TRACE('DATA_COLLECTOR_CONFIGURED')
     
     def keepCollectingData(self):
+        print('hi')
         returnMessage = { 'success': False,
                           'error': False,
                           'finished': False,
@@ -68,7 +83,11 @@ class DataCollector:
                 TRACE('[CP] DROPBOX_SYNCHRONIZATION')
                 setConfig('UPDATE_SUCCESSFUL', 0)
                 dropboxSynchronizer = DropboxSynchronizer()
-                if dropboxSynchronizer.isDropboxSynchronizationNeeded():
+                dropboxSynchronizationNeeded = dropboxSynchronizer.isDropboxSynchronizationNeeded()
+
+                if (self.skipOnlineSyncsDueTestConfig):
+                    TRACE('TEST_PACK_NUM_ACTIVATED - dropbox synchronization not needed')
+                elif (dropboxSynchronizationNeeded):
                     TRACE('PERFORMING_DROPBOX_SYNCHRONIZATION')
                     dropboxSynchronizer.dropbboxSynchronization()
                     TRACE('DROPBOX_SYNCHRONIZATION_DONE')
@@ -78,7 +97,7 @@ class DataCollector:
 
             elif self.phase == cp.CONFIGURE_DAYS_AND_WEEK_SCHEDULE:
                 TRACE('[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE')
-                result = configureDaysAndWeekSchedule(self.weekSchedule, self.days)
+                result = configureDaysAndWeekSchedule(self.allServicesURL, self.weekSchedule, self.days)
                 self.mondayDate = result['mondayDate']
                 returnMessage['message'] = 'Citanje tjednih sluzbi'
 
@@ -103,7 +122,7 @@ class DataCollector:
 
             elif self.phase == cp.SEARCH_LINKS:
                 TRACE('[CP] SEARCH_LINKS')
-                foundLinks = searchLinks()
+                foundLinks = searchLinks(self.mainPageURL)
                 self.workDayLinks = foundLinks['workDay']
                 self.saturdayLinks = foundLinks['saturday']
                 self.sundayLinks = foundLinks['sunday']
@@ -171,21 +190,21 @@ class DataCollector:
 
             elif self.phase == cp.UPLOAD_CLIENT_DATA:
                 TRACE('[CP] UPLOAD_CLIENT_DATA')
-                if (self.config['TEST_CONFIGURATION_ACTIVATED']):
-                    TRACE('TEST_CONFIGURATION_ACTIVATED - skipping uploading client data')
-                else:
+                if (not self.skipOnlineSyncsDueTestConfig):
                     uploadClientData()
                     TRACE('DATA_UPLOADED_TO_GITHUB_SUCCESSFULLY')
+                else:
+                    TRACE('TEST_PACK_NUM_ACTIVATED - skipping uploading client data')
                 returnMessage['message'] = \
                     'Ucitavanje sluzbi na Dropbox'
 
             elif self.phase == cp.UPLOAD_DATA_TO_DROPBOX:
                 TRACE('[CP] UPLOAD_DATA_TO_DROPBOX')
-                if (self.config['TEST_CONFIGURATION_ACTIVATED']):
-                    TRACE('TEST_CONFIGURATION_ACTIVATED - skipping uploading author data')
-                else:
+                if (not self.skipOnlineSyncsDueTestConfig):
                     uploadDataToDropbox()
                     TRACE('DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY')
+                else:
+                    TRACE('TEST_PACK_NUM_ACTIVATED - skipping uploading author data')
                 returnMessage['message'] = 'Stvaranje sigurnosne kopije'
             
             elif self.phase == cp.UPDATE_BACKUP_DIRECTORY:
@@ -212,5 +231,4 @@ class DataCollector:
 
         self.phase = cp(self.phase.value + 1)
         return returnMessage
-
 

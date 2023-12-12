@@ -1,7 +1,6 @@
 import requests
 import shutil
 
-from src.data.manager.config_manager import getConfig
 from src.share.trace import TRACE
 from src.share.asserts import ASSERT_THROW
 
@@ -13,20 +12,6 @@ def downloadPDFFile(url, dirPath, fileName):
     downloadComplete = False
     attemptNumber = 1
 
-    config = getConfig()
-    if (config['TEST_CONFIGURATION_ACTIVATED']):
-        wantedDirPath = 'wanted_' + dirPath
-        try:
-            shutil.copyfile(wantedDirPath + fileName, filePath)
-            TRACE('TEST_CONFIGURATION_ACTIVATED - skipping download of ' +
-                  fileName + '; copying file from wanted_data instead')
-        except Exception as e:
-            TRACE('TEST_CONFIGURATION_ACTIVATED - testing old resource file for ' +
-                  fileName)
-            raise e
-        return filePath
-
-    # following lines aren't currently tested
     while not downloadComplete:
         try:
             with requests.get(url) as r:
