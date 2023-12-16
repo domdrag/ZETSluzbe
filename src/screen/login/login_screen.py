@@ -1,5 +1,4 @@
 from kivymd.app import MDApp
-from kivymd.uix.bottomsheet import MDListBottomSheet
 from kivy.uix.screenmanager import Screen
 from kivy.properties import (ObjectProperty,
                              BooleanProperty,
@@ -14,19 +13,17 @@ from src.screen.login.dialogs.info_dialog import InfoDialog
 from src.data.retrieve.get_warning_message_info import (
     getWarningMessageInfo
     )
-from src.screen.login.dialogs.utils.update_dialog_util import dataCollectionThreadWrapper
+from src.screen.login.dialogs.utils.update_dialog_util import showDialog
 from src.data.manager.config_manager import getConfig
 from src.data.manager.design_manager import updateFontSize
-from src.data.manager.logs_manager import LogsManager
+from src.data.manager.logs_manager import getLogs
 from src.share.trace import TRACE
 
 class LoginScreen(Screen):
     offNumTextFieldObj = ObjectProperty(None) # object in kv
     loginButtonObj = ObjectProperty(None) # object in kv
     updateButtonObj = ObjectProperty(None) # object in kv
-    logsSheetObj = ObjectProperty(None) # object in kv
     warningMessage = StringProperty() # binding
-    logs = StringProperty()
     warningMessageColor = ColorProperty() # binding
     offNum = StringProperty() # binding
     updateDone = BooleanProperty(False)
@@ -62,42 +59,8 @@ class LoginScreen(Screen):
             self.infoDialog.open()
 
     def updateButton(self):
-        # order important
-        self.statusInfoDialog = InfoDialog('', 'Status')
-        #self.statusInfoDialog.open()
-
-        #LogsManager.activateLiveLogging(self.logsSheetObj, self)
-        #self.logsSheetObj.open()
-
-        #self.logsInfoDialog.auto_dismiss = False
-
-
-        #self.update()
-        import multiprocessing
-        self.queue = multiprocessing.Queue()
-
-        self.logsInfoDialog = InfoDialog('', 'Logovi')
-        #LogsManager.activateLiveLogging(self.logsInfoDialog, queue)
-        self.logsInfoDialog.open()
-
-        from src.data.collect.start_process import tryout2
-        thread = multiprocessing.Process(target=tryout2, args = [self.queue], daemon=True)
-
-        from kivy.clock import Clock
-        Clock.schedule_interval(self.idle, 0)
-        thread.start()
-
-        #thread.join()
-
-    def idle(self, dt):
-        from queue import Empty
-        try:
-            while True:
-                msg = self.queue.get_nowait()
-                self.logsInfoDialog.infoWidget.logs += str(msg)
-                pass
-        except Empty:
-            pass
+        self.infoDialog = InfoDialog('', 'Status')
+        self.update()
 
     def increaseFontSize(self):
         oldValue = int(self.app.loginScreenFontSize[:-2])
@@ -112,7 +75,7 @@ class LoginScreen(Screen):
         self.app.loginScreenFontSize = str(newValue) + 'dp'
 
     def showLogsButton(self):
-        logs = LogsManager.getLogs()
+        logs = getLogs()
         infoDialog = InfoDialog(logs, 'Logovi')
         infoDialog.open()
 
@@ -123,46 +86,39 @@ class LoginScreen(Screen):
         infoDialog = InfoDialog(configString, 'Konfiguracija')
         infoDialog.open()
 
-    @dataCollectionThreadWrapper
+    @showDialog
     def update(self):
         dataCollector = DataCollector()
             
         finished = False
         updateResult = dict()
-        self.statusInfoDialog.text = 'Dropbox sinkronizacija'
+        self.infoDialog.text = 'Dropbox sinkronizacija'
         while not finished:
             updateResult = dataCollector.keepCollectingData()
             finished = updateResult['finished']
-            self.statusInfoDialog.text = updateResult['message']
-
-        self.statusInfoDialog.dotsTimer.cancel()
+            self.infoDialog.text = updateResult['message']
+   
+        self.infoDialog.dotsTimer.cancel()
         success = updateResult['success']
         error = updateResult['error']
         errorMessage = updateResult['errorMessage']
         
         if success:
             self.setWarningMessage()
-            self.statusInfoDialog.text = 'Sluzbe azurirane!'
+            self.infoDialog.text = 'Sluzbe azurirane!'
             
         elif error:
-            self.statusInfoDialog.text = 'GRESKA! Dokumenti popravljeni.\n' \
+            self.infoDialog.text = 'GRESKA! Dokumenti popravljeni.\n' \
                                     + errorMessage
         else:
-            self.statusInfoDialog.text = 'Sluzbe jos nisu izasle!'
+            self.infoDialog.text = 'Sluzbe jos nisu izasle!'
 
-        self.statusInfoDialog.auto_dismiss = True
-        self.logsInfoDialog.auto_dismiss = True
-        LogsManager.deactivateLiveLogging()
+        self.infoDialog.auto_dismiss = True
 
 
 
 
-def tryout(queue):
-    dataCollector = DataCollector(queue)
-    finished = False
-    while not finished:
-        updateResult = dataCollector.keepCollectingData()
-        finished = updateResult['finished']
+
 
 
 

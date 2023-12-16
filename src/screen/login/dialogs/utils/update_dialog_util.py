@@ -1,28 +1,27 @@
 import threading
-import multiprocessing
 
 from src.screen.login.dialogs.utils.dots_timer import DotsTimer
 
-def addDots(statusInfoDialog):
-    if('...' in statusInfoDialog.text):
-        statusInfoDialog.text = statusInfoDialog.text[:-3]
+def addDots(infoDialog):
+    if('...' in infoDialog.text):
+        infoDialog.text = infoDialog.text[:-3]
     else:
-        statusInfoDialog.text = statusInfoDialog.text + '.'
+        infoDialog.text = infoDialog.text + '.'
             
 
-def dataCollectionThreadWrapper(function):
+def showDialog(function):
     def wrap(loginScreen, *args, **kwargs):
-        loginScreen.statusInfoDialog.auto_dismiss = False
-        loginScreen.updateDone = False
-        loginScreen.bind(updateDone = loginScreen.statusInfoDialog.dismiss)
-        #loginScreen.statusInfoDialog.open()
+        loginScreen.infoDialog.auto_dismiss = False
+        loginScreen.updateDone = False  
+        loginScreen.bind(updateDone = loginScreen.infoDialog.dismiss)  
+        loginScreen.infoDialog.open()
         thread = threading.Thread(target=function,
                                   args = [loginScreen,
                                           *args],
-                                  kwargs=kwargs)
-        loginScreen.statusInfoDialog.dotsTimer = \
-                DotsTimer(0.5, lambda: addDots(loginScreen.statusInfoDialog))
-        loginScreen.statusInfoDialog.dotsTimer.start()
+                                  kwargs=kwargs)  
+        loginScreen.infoDialog.dotsTimer = \
+                DotsTimer(0.5, lambda: addDots(loginScreen.infoDialog))
+        loginScreen.infoDialog.dotsTimer.start()
         thread.start() 
         return thread
 
