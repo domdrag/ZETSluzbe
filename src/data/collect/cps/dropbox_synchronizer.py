@@ -19,6 +19,10 @@ class DropboxSynchronizer:
 
     def isDropboxSynchronizationNeeded(self):
         config = getConfig()
+        if (config['TEST_CONFIGURATION_ACTIVATED']):
+            TRACE('TEST_CONFIGURATION_ACTIVATED - dropbox synchronization not needed')
+            return False
+
         currentDate = config['LAST_RECORD_DATE']
         currentServicesHash = config['SERVICES_HASH']
 

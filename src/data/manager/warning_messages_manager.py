@@ -4,7 +4,7 @@ class WarningMessagesManager:
 
     @staticmethod
     def addWarningMessage(warningMessage):
-        WarningMessagesManager.warningMessages.append(warningMessage + '\n')
+        WarningMessagesManager.warningMessages.append(warningMessage)
 
     @staticmethod
     def clearWarningMessages():

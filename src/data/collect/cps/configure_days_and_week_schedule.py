@@ -7,6 +7,9 @@ from src.data.collect.cps.utils.download_pdf_file import downloadPDFFile
 from src.data.collect.cps.utils.configure_week_schedule import configureWeekSchedule
 from src.share.trace import TRACE
 
+firstURL = ("https://www.zet.hr/interno/UserDocsImages/tp%20dubrava/"
+            "Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf")
+
 def getStringDate(date):
     return str(date.day) + '.' + str(date.month) + '.' + str(date.year) + '.'
 
@@ -44,8 +47,8 @@ def configureDays(days, mondayDate):
     days.append(sunday)
     return mondayDate
 
-def configureDaysAndWeekSchedule(allServicesURL, weekSchedule, days):
-    PDFFile = downloadPDFFile(allServicesURL, 'data/data/', 'tpd.pdf')
+def configureDaysAndWeekSchedule(weekSchedule, days):
+    PDFFile = downloadPDFFile(firstURL, 'data/data/', 'tpd.pdf')
     with pdfplumber.open(PDFFile) as PDF:
         page = PDF.pages[0]
         textFirstPDF = page.extract_text()
