@@ -30,7 +30,7 @@ def getConfig():
 def setConfig(configName, configValue):
     CURRENT_CONFIG[configName] = configValue
     with open(CONFIG_FILE_PATH, 'w') as configFile:
-        json.dump(CURRENT_CONFIG, configFile, indent = 2)
+        json.dump(CURRENT_CONFIG, configFile, indent = 3)
 
 def setNewConfiguration(mondayDateList, servicesHash):
     setConfig('LAST_RECORD_DATE', mondayDateList)
@@ -48,4 +48,4 @@ def getTempConfigInfo():
 
 def setTempConfig(tempConfig):
     with open(TEMP_CONFIG_COPY_FILE_PATH, 'w') as configFile:
-        json.dump(tempConfig, configFile, indent = 2)
+        json.dump(tempConfig, configFile, indent = 3)

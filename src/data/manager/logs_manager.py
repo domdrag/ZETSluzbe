@@ -4,32 +4,42 @@ from datetime import datetime
 
 import src.share.trace as trace
 
-CURRENT_STDOUT = sys.stdout
+class LogsManager:
+    defaultStdOut = sys.stdout
+    @staticmethod
+    def trace(traceObj):
+        print(traceObj)
+        LogsManager.redirectOutput()
+        print(traceObj)
+        LogsManager.resetOutput()
 
-def redirectOutput():
-    sys.stdout = open('data/logs.txt', 'a', encoding='utf-8')
+    @staticmethod
+    def redirectOutput():
+        sys.stdout = open('data/logs.txt', 'a', encoding='utf-8')
 
-def resetOutput():
-    global CURRENT_STDOUT
-    sys.stdout.close()
-    sys.stdout = CURRENT_STDOUT
+    @staticmethod
+    def resetOutput():
+        sys.stdout.close()
+        sys.stdout = LogsManager.defaultStdOut
 
+    @staticmethod
+    def beginLogging():
+        trace.TRACE('=============')
+        trace.TRACE(datetime.now())
+        trace.TRACE('=============')
 
-def beginLogging():
-    trace.TRACE('=============')
-    trace.TRACE(datetime.now())
-    trace.TRACE('=============')
+    @staticmethod
+    def getLogs():
+        # haltLogging()
+        fileR = open('data/logs.txt', 'r', encoding='utf-8')
+        logs = fileR.read()
+        fileR.close()
+        # startLogging()
+        return logs
 
-def getLogs():
-    #haltLogging()
-    fileR = open('data/logs.txt', 'r', encoding='utf-8')
-    logs = fileR.read()
-    fileR.close()
-    #startLogging()
-    return logs
-
-def deleteLogs():
-    #haltLogging()
-    fileW = open('data/logs.txt', 'w', encoding='utf-8')
-    fileW.close()
-    #startLogging()
+    @staticmethod
+    def deleteLogs():
+        # haltLogging()
+        fileW = open('data/logs.txt', 'w', encoding='utf-8')
+        fileW.close()
+        # startLogging()
