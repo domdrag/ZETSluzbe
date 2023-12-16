@@ -1,10 +1,10 @@
-from src.data.manager.logs_manager import beginLogging
+from src.data.manager.logs_manager import LogsManager
 from src.data.manager.config_manager import loadConfig
 from src.data.manager.design_manager import loadDesign
 from src.app.utils.environment_setup import environmentSetup
 
 # order important
-beginLogging()
+LogsManager.beginLogging()
 loadConfig()
 environmentSetup()
 loadDesign()

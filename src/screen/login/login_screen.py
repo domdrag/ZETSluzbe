@@ -13,10 +13,10 @@ from src.screen.login.dialogs.info_dialog import InfoDialog
 from src.data.retrieve.get_warning_message_info import (
     getWarningMessageInfo
     )
-from src.screen.login.dialogs.utils.update_dialog_util import showDialog
+from src.screen.login.dialogs.utils.update_dialog_util import dataCollectionThreadWrapper
 from src.data.manager.config_manager import getConfig
 from src.data.manager.design_manager import updateFontSize
-from src.data.manager.logs_manager import getLogs
+from src.data.manager.logs_manager import LogsManager
 from src.share.trace import TRACE
 
 class LoginScreen(Screen):
@@ -58,10 +58,6 @@ class LoginScreen(Screen):
             self.infoDialog = InfoDialog(errorMessage, 'Greska')
             self.infoDialog.open()
 
-    def updateButton(self):
-        self.infoDialog = InfoDialog('', 'Status')
-        self.update()
-
     def increaseFontSize(self):
         oldValue = int(self.app.loginScreenFontSize[:-2])
         newValue = oldValue + 1
@@ -75,7 +71,7 @@ class LoginScreen(Screen):
         self.app.loginScreenFontSize = str(newValue) + 'dp'
 
     def showLogsButton(self):
-        logs = getLogs()
+        logs = LogsManager.getLogs()
         infoDialog = InfoDialog(logs, 'Logovi')
         infoDialog.open()
 
@@ -86,7 +82,11 @@ class LoginScreen(Screen):
         infoDialog = InfoDialog(configString, 'Konfiguracija')
         infoDialog.open()
 
-    @showDialog
+    def updateButton(self):
+        self.infoDialog = InfoDialog('', 'Status')
+        self.update()
+
+    @dataCollectionThreadWrapper
     def update(self):
         dataCollector = DataCollector()
             

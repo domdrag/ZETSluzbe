@@ -18,7 +18,7 @@ def isValidRulesLink(linkName, linkURL):
             ('rada/' in linkURL or '/Oglasne'  in linkURL))
 
 
-def searchLinks():
+def searchLinks(mainPageURL):
     workDayLinks = []
     saturdayLinks = []
     sundayLinks = []
@@ -32,16 +32,17 @@ def searchLinks():
     while not searchComplete:
         try:
             config = getConfig()
-            if (config['TEST_CONFIGURATION_ACTIVATED']):
-                TRACE('TEST_CONFIGURATION_ACTIVATED - searching links on custom html file')
-                with open('zet.html', 'r',encoding = 'utf-8') as fileR:
-                    content = fileR.read()
-            else:
-                with requests.Session() as s:
-                    p = s.post('https://www.zet.hr/interno/default.aspx?a=login',
-                               data=payload)
-                    r = s.get('https://www.zet.hr/interno/default.aspx?id=1041')
-                    content = r.content
+            zetLoginPageURL = config['ZET_LOGIN_PAGE_URL']
+            zetMainPageURL = config['ZET_MAIN_PAGE_URL']
+
+            with requests.Session() as session:
+                # reagrdless of configuration, we verify access to ZET page
+                session.post(zetLoginPageURL, data=payload)
+                ASSERT_THROW(200 <= session.get(zetMainPageURL).status_code < 300,
+                             'ERROR - UNSUCCESSFUL RESPONSE FROM ZET MAIN PAGE')
+
+                responseGET = session.get(mainPageURL)
+                content = responseGET.content
 
             notificationsLinks = []
             for line in BeautifulSoup(content,

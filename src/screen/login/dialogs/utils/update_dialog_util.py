@@ -9,7 +9,7 @@ def addDots(infoDialog):
         infoDialog.text = infoDialog.text + '.'
             
 
-def showDialog(function):
+def dataCollectionThreadWrapper(function):
     def wrap(loginScreen, *args, **kwargs):
         loginScreen.infoDialog.auto_dismiss = False
         loginScreen.updateDone = False  

@@ -4,7 +4,7 @@ from kivymd.uix.button import MDRaisedButton
 
 from src.screen.login.dialogs.utils.info_widget import InfoWidget
 from src.data.manager.design_manager import getSecondaryColor, getWhiteColor
-from src.data.manager.logs_manager import deleteLogs
+from src.data.manager.logs_manager import LogsManager
 
 class InfoDialog(MDDialog):
     infoWidget = None
@@ -36,5 +36,5 @@ class InfoDialog(MDDialog):
                               font_size=app.loginScreenFontSize)
 
     def deleteLogs(self, button):
-        deleteLogs()
+        LogsManager.deleteLogs()
         self.infoWidget.logs = ''

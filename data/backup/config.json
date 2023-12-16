@@ -1,8 +1,11 @@
 {
-  "TEST_CONFIGURATION_ACTIVATED": 0,
   "APP_ORIENTATION": "Portrait",
   "LOGS": 1,
   "DEBUG_LOGS": 0,
+  "ZET_DOMAIN": "https://www.zet.hr",
+  "ZET_LOGIN_PAGE_URL": "https://www.zet.hr/interno/default.aspx?a=login",
+  "ZET_MAIN_PAGE_URL": "https://www.zet.hr/interno/default.aspx?id=1041",
+  "COMMON_ALL_SERVICES_URL_FULL_PATH": "/interno/UserDocsImages/tp%20dubrava/Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf",
   "OFFICIAL_NUMBER_STARTUP": "2621",
   "UPDATE_SUCCESSFUL": 1,
   "DROPBOX_APP_KEY": "9x72f19ngmg8mqo",
@@ -14,5 +17,7 @@
     12,
     4
   ],
-  "SERVICES_HASH": 9382950441
+  "SERVICES_HASH": 9382950441,
+  "ACTIVATED_TEST_PACK_NUM": 0,
+  "TEST_DOMAIN": "https://domdrag.github.io"
 }
