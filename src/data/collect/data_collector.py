@@ -84,7 +84,7 @@ class DataCollector:
                 setConfig('UPDATE_SUCCESSFUL', 0)
                 dropboxSynchronizer = DropboxSynchronizer()
                 dropboxSynchronizationNeeded = dropboxSynchronizer.isDropboxSynchronizationNeeded()
-                dropboxSynchronizationNeeded = False
+
                 if (self.skipOnlineSyncsDueTestConfig):
                     TRACE('TEST_PACK_NUM_ACTIVATED - dropbox synchronization not needed')
                 elif (dropboxSynchronizationNeeded):
@@ -184,7 +184,6 @@ class DataCollector:
 
             elif self.phase == cp.PREPARE_DATA_FOR_TRANSPORT:
                 TRACE('[CP] PREPARE_DATA_FOR_TRANSPORT')
-                raise Exception('oh no you didnt')
                 prepareDataForTransport()
                 returnMessage['message'] = \
                     'Ucitavanje sluzbi na Github'
