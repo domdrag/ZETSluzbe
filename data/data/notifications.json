@@ -1,5 +1,5 @@
 {
-   "Raspored rada za voza\u010de od 04.12.2023. do 10.12.2023.": {
+   "Raspored rada za voza\u010de od 18.12.2023. do 24.12.2023.": {
       "URL": "https://www.zet.hr/interno/UserDocsImages/tp dubrava/Slu\u017ebe za sve voza\u010de/tpd.pdf",
       "IMAGES_FILE_NAME_PATTERN": "FILE-1_page-",
       "NUM_OF_PAGES": 6
@@ -9,14 +9,19 @@
       "IMAGES_FILE_NAME_PATTERN": "FILE-2_page-",
       "NUM_OF_PAGES": 1
    },
+   "Privremeno ukidanje tramvajskog stajali\u0161ta Gup\u010deva zvijezda u smjeru Mihaljevca": {
+      "URL": "https://www.zet.hr/interno/UserDocsImages/tp dubrava/Obavijest/Gup\u010deva zvijezda.pdf",
+      "IMAGES_FILE_NAME_PATTERN": "FILE-3_page-",
+      "NUM_OF_PAGES": 2
+   },
    "Zimski uvjeti u prometu": {
       "URL": "https://www.zet.hr/interno/UserDocsImages/tp dubrava/Obavijest/zimski uvjeti.pdf",
-      "IMAGES_FILE_NAME_PATTERN": "FILE-3_page-",
+      "IMAGES_FILE_NAME_PATTERN": "FILE-4_page-",
       "NUM_OF_PAGES": 1
    },
    "Advent u Zagrebu 2023.": {
       "URL": "https://www.zet.hr/interno/UserDocsImages/tp dubrava/Obavijest/Obavijest 245 - Advent u Zagrebu 2023.pdf",
-      "IMAGES_FILE_NAME_PATTERN": "FILE-4_page-",
+      "IMAGES_FILE_NAME_PATTERN": "FILE-5_page-",
       "NUM_OF_PAGES": 1
    }
 }

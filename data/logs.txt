@@ -398,3 +398,77 @@ Nema aktualnih sluzbi. Probajte azurirati sluzbe.
 =============
 NO DEBUG LOGS
 BACKUP CONFIG UPDATED
+=============
+2023-12-17 18:04:10.878303
+=============
+NO DEBUG LOGS
+BACKUP CONFIG UPDATED
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DATES_MISMATCH -> DROPBOX_SYNCHRONIZATION_NEEDED
+PERFORMING_DROPBOX_SYNCHRONIZATION
+Backup directory updated
+UPDATED BACKUP DIRECTORY FROM DROPBOX DATA
+DROPBOX_SYNCHRONIZATION_DONE
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+HTTPSConnectionPool(host='www.zet.hr', port=443): Max retries exceeded with url: /interno/UserDocsImages/tp%20dubrava/Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001AB223FA9D0>: Failed to resolve 'www.zet.hr' ([Errno 11001] getaddrinfo failed)"))
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+LAST_SERVICES_HASH: 8515903349
+NEW_SERVICES_HASH: 8515903349
+NO_UPDATE_NEEDED
+UPDATE_NOT_PERFORMING
+Managers loaded after update
+SERVICES_UPDATE_FINISHED_SUCCESSFULLY
+CONFIGURING_DATA_COLLECTOR
+GENERATING OFFICIAL ZET URLS
+DATA_COLLECTOR_CONFIGURED
+[CP] DROPBOX_SYNCHRONIZATION
+DATES_MISMATCH -> DROPBOX_SYNCHRONIZATION_NEEDED
+PERFORMING_DROPBOX_SYNCHRONIZATION
+Backup directory updated
+UPDATED BACKUP DIRECTORY FROM DROPBOX DATA
+DROPBOX_SYNCHRONIZATION_DONE
+[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE
+Found green cell on days-row.
+Found red cell on days-row.
+Configured week schedule: ['W', 'W', 'W', 'W', 'W', 'ST', 'SN']
+[CP] EXTRACT_RULES_BY_DRIVER
+[CP] CHECKING_UPDATE_NEEDED
+MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED
+PERFORMING_UPDATE
+[CP] SEARCH_LINKS
+Rules link found: Radni dan od 4. 9. 2023. Treated as workDay link.
+Rules link found: Subota od 2. 12. 2023. Treated as saturday link.
+Rules link found: Nedjelja od 3. 12. 2023. Treated as sunday link.
+[CP] DELETE_NECESSARY_DATA
+Old Work Day resources enabled: True
+[CP] EXTRACT_RULES
+Extracting rules for file: rules_W, typeOfDay: W
+Extracting rules for file: rules_ST, typeOfDay: ST
+Extracting rules for file: rules_SN, typeOfDay: SN
+For date: 18-12-2023 selected file: data/data/rules_W.txt
+For date: 19-12-2023 selected file: data/data/rules_W.txt
+For date: 20-12-2023 selected file: data/data/rules_W.txt
+For date: 21-12-2023 selected file: data/data/rules_W.txt
+For date: 22-12-2023 selected file: data/data/rules_W.txt
+For date: 23-12-2023 selected file: data/data/rules_ST.txt
+For date: 24-12-2023 selected file: data/data/rules_SN.txt
+[CP] ADD_DECRYPTED_SERVICES
+[CP] ADD_DECRYPTED_SHIFTS
+[CP] CONFIGURE_NOTIFICATION_FILES
+HTTPSConnectionPool(host='www.zet.hr', port=443): Max retries exceeded with url: /interno/UserDocsImages/tp%20dubrava/Slu%C5%BEbe%20za%20sve%20voza%C4%8De/tpd.pdf (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001AB22319F70>: Failed to resolve 'www.zet.hr' ([Errno 11001] getaddrinfo failed)"))
+[CP] SET_NEW_CONFIG_AND_WARNINGS
+[CP] PREPARE_DATA_FOR_TRANSPORT
+[CP] UPLOAD_CLIENT_DATA
+DATA_UPLOADED_TO_GITHUB_SUCCESSFULLY
+[CP] UPLOAD_DATA_TO_DROPBOX
+DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY
+Backup directory updated
+Managers loaded after update
+SERVICES_UPDATE_FINISHED_SUCCESSFULLY
