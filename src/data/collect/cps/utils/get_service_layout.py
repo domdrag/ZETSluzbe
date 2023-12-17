@@ -1,7 +1,7 @@
 import re
 from decimal import Decimal
 
-from src.data.collect.cps.utils.statistics_updater import updateStatistics, updateStatisticsVac
+from src.data.manager.statistics_manager import StatisticsManager
 from src.data.retrieve.get_holidays import getHolidays
 
 RELEASE_POINT_DICTIONARY = {}
@@ -37,10 +37,10 @@ def getServiceLayout(serviceLine, serviceNum, days, day, offNum = None):
                         isHolidayOnWorkDay = True
                         break
 
-            updateStatisticsVac(offNum,
-                                monthFormat,
-                                serviceLine[0],
-                                isHolidayOnWorkDay)
+            StatisticsManager.updateStatisticsVac(offNum,
+                                                  monthFormat,
+                                                  serviceLine[0],
+                                                  isHolidayOnWorkDay)
         return [days[day], serviceLine[0]]
 
     nightHoursPossible = True
@@ -134,7 +134,12 @@ def getServiceLayout(serviceLine, serviceNum, days, day, offNum = None):
                            'isSaturday': isSaturday,
                            'isSunday': isSunday}
 
-        updateStatistics(offNum, monthFormat, hourlyRateStats, driveOrder, receptionPoint, releasePoint)
+        StatisticsManager.updateStatistics(offNum,
+                                           monthFormat,
+                                           hourlyRateStats,
+                                           driveOrder,
+                                           receptionPoint,
+                                           releasePoint)
     
             
     # slaganje za layout

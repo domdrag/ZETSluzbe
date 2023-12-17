@@ -15,6 +15,7 @@ def updateBackupDir(sourceConfigPath = ''):
     updateBackupConfig(sourceConfigPath)
     shutil.rmtree('data/backup/data') # delete data dir as well as its content
     shutil.copytree('data/data', 'data/backup/data')
+    trace.TRACE('Backup directory updated')
 
 def repairData():
     trace.TRACE('REPAIRING DATA AND CONFIG')

@@ -3,8 +3,8 @@ from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import MDFloatLayout
 from kivymd.uix.menu import MDDropdownMenu
 
+from src.data.manager.statistics_manager import StatisticsManager
 from src.data.retrieve.read_statistics import readStatistics
-from src.data.manager.statistics_manager import getDriverStatistics
 from src.data.manager.design_manager import getPrimaryColorLight
 from src.data.retrieve.get_current_month_format import getCurrentMonthFormat
 
@@ -28,7 +28,7 @@ class StatisticsTab(MDFloatLayout, MDTabsBase):
         errorMessage = 'Greska u sustavu. Kontaktirati administratora.'
         raise Exception(errorMessage)
     def statisticsDropDown(self):
-        statistics = getDriverStatistics(self.offNum)
+        statistics = StatisticsManager.getDriverStatistics(self.offNum)
         monthsSortedList = list(statistics.keys())[::-1]
         monthsMenuItems = []
         for monthFormat in monthsSortedList:

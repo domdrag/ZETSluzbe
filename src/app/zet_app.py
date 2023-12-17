@@ -1,13 +1,13 @@
 from src.data.manager.logs_manager import LogsManager
-from src.data.manager.config_manager import loadConfig
-from src.data.manager.design_manager import loadDesign
+#from src.data.manager.config_manager import loadConfig
+#from src.data.manager.design_manager import loadDesign
+from src.data.manager.manager_utils import loadManagersAtStartup
 from src.app.utils.environment_setup import environmentSetup
 
 # order important
 LogsManager.beginLogging()
-loadConfig()
+loadManagersAtStartup()
 environmentSetup()
-loadDesign()
 
 from kivymd.app import MDApp
 from kivy.lang import Builder
