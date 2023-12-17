@@ -4,7 +4,7 @@ class WarningMessagesManager:
 
     @staticmethod
     def initializeUpdate():
-        __updatedWarningMessages__ = []
+        WarningMessagesManager.__updatedWarningMessages__ = []
 
     @staticmethod
     def addWarningMessage(warningMessage):
