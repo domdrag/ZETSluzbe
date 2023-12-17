@@ -1,22 +1,28 @@
 from decimal import Decimal
 
-from src.data.manager.statistics_manager import (
-    getEmptyStatisticsMonthDict,
-    getMonthDict,
-    setStatistics,
-    initializeStatisticsDict
-    )
+def getEmptyStatisticsMonthDict():
+    return {'SATNICA': {'ODRADENO': '0',
+                        'NOCNA': '0',
+                        'DRUGA': '0',
+                        'SUBOTA': '0',
+                        'NEDJELJA': '0',
+                        'UKUPNO': '0'},
+            'LINIJE': {},
+            'MJESTA_PRIMANJA': {},
+            'MJESTA_PUSTANJA': {}}
 
-STATISTICS = initializeStatisticsDict()
+def getMonthDict(statistics, offNum, month):
+    if (offNum not in statistics):
+        statistics[offNum] = dict()
+    offNumDict = statistics[offNum]
+    if (month not in offNumDict):
+        offNumDict[month] = getEmptyStatisticsMonthDict()
+    return offNumDict[month]
 
-# using float sometimes results in very small decimal numbers (24.560000002 instead of 24.56)
-# saving str instead of float (Decimal not accepted to JSON) because of the same issue
 def addNumbers(number1, number2):
     return str(Decimal(number1) + Decimal(number2))
 
-def updateStatistics(offNum, month, hourlyRateStats, driveOrder, receptionPoint, releasePoint):
-    monthDict = getMonthDict(STATISTICS, offNum, month)
-
+def updateStatisticsImpl(monthDict, hourlyRateStats, driveOrder, receptionPoint, releasePoint):
     serviceDuration = hourlyRateStats['serviceDuration']
     nightHours = hourlyRateStats['nightHours']
     secondShift = hourlyRateStats['secondShift']
@@ -48,17 +54,3 @@ def updateStatistics(offNum, month, hourlyRateStats, driveOrder, receptionPoint,
     if (releasePoint not in releasePointsDict):
         releasePointsDict[releasePoint] = 0
     releasePointsDict[releasePoint] = releasePointsDict[releasePoint] + 1
-
-
-def updateStatisticsVac(offNum, month, vacationType, isHolidayOnWorkDay):
-    monthDict = getMonthDict(STATISTICS, offNum, month)
-    hourlyRateDict = monthDict['SATNICA']
-    if (vacationType not in hourlyRateDict):
-        hourlyRateDict[vacationType] = 0
-    hourlyRateDict[vacationType] = hourlyRateDict[vacationType] + 1
-
-    if (vacationType == 'I-GO' or vacationType == 'I-BO' or isHolidayOnWorkDay):
-        hourlyRateDict['UKUPNO'] = addNumbers(hourlyRateDict['UKUPNO'], 8)
-
-def finishStatisticsUpdate():
-    setStatistics(STATISTICS)

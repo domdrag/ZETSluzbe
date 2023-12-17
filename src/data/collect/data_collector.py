@@ -29,6 +29,7 @@ from src.data.collect.cps.configure_notifications_files import configureNotifica
 from src.data.manager.backup_manager import repairSystem, updateBackupDir
 from src.data.manager.config_manager import setConfig, setNewConfiguration, loadConfig, getConfig
 from src.data.manager.warning_messages_manager import WarningMessagesManager
+from src.data.manager.manager_utils import initializeManagersForUpdate, loadManagersAfterUpdate
 from src.share.trace import TRACE
 from src.share.asserts import ASSERT_THROW
 
@@ -37,6 +38,9 @@ cp = CollectPhaseEnum
 class DataCollector:
     def __init__(self):
         TRACE('CONFIGURING_DATA_COLLECTOR')
+        initializeManagersForUpdate()
+
+        self.config = getConfig()
         self.phase = cp(0)
         self.days = []
         self.workDayLinks = ''
@@ -51,18 +55,9 @@ class DataCollector:
         self.canUseOldWorkDayResources = False
         self.skipOnlineSyncsDueToTestConfig = False
 
-        # check if test configuration activated - if so, load configuration
-        self.config = getConfig()
-        if (not self.config):
-            # test configuration expected - loading configuration
-            TRACE('LOADING CONFIGURATION - SHOULD ONLY OCCUR AT THE TEST VERIFICATION')
-            loadConfig()
-            self.config = getConfig()
-            errorMessage = 'ERROR - UNLOADED CONFIG AT THE START OF NON-TEST DATA COLLECTION'
-            ASSERT_THROW(self.config['ACTIVATED_TEST_PACK_NUM'], errorMessage)
+        if (self.config['ACTIVATED_TEST_PACK_NUM']):
             self.skipOnlineSyncsDueToTestConfig = True
 
-        # depends on whether test config is activated
         URLs = generateURLs(self.config)
         self.mainPageURL = URLs['mainPageURL']
         self.allServicesURL = URLs['allServicesURL']
@@ -109,7 +104,7 @@ class DataCollector:
                 updateNeeded = checkUpdateNeeded(self.mondayDate, self.servicesHash)
                 if not updateNeeded:
                     TRACE('UPDATE_NOT_PERFORMING')
-                    setConfig('UPDATE_SUCCESSFUL', 1)
+                    # setConfig('UPDATE_SUCCESSFUL', 1)
                     returnMessage['finished'] = True
 
                 else:
@@ -202,23 +197,23 @@ class DataCollector:
                     TRACE('DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY')
                 else:
                     TRACE('TEST_PACK_NUM_ACTIVATED - skipping uploading author data')
-                returnMessage['message'] = 'Stvaranje sigurnosne kopije'
-            
-            elif self.phase == cp.UPDATE_BACKUP_DIRECTORY:
-                # must not fail by canon
-                TRACE('[CP] UPDATE_BACKUP_DIRECTORY')
-                # must go before updateBackupDir() so backup gets it
-                setConfig('UPDATE_SUCCESSFUL', 1)
-                updateBackupDir() 
                 returnMessage['success'] = True
                 returnMessage['finished'] = True
                 returnMessage['message'] = 'Sluzbe azurirane!'
+
+            if (returnMessage['finished']):
+                # setConfig(...) must go before updateBackupDir() so backup gets it
+                setConfig('UPDATE_SUCCESSFUL', 1)
+
+                if (returnMessage['success']):
+                    updateBackupDir()
+
+                loadManagersAfterUpdate()
                 TRACE('SERVICES_UPDATE_FINISHED_SUCCESSFULLY')
                 
         except Exception as e:
             TRACE(e)
             repairSystem()
-            WarningMessagesManager.clearWarningMessages()
 
             return {'success': False,
                     'error': True,
