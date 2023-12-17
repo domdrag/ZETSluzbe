@@ -111,6 +111,7 @@ class LoginScreen(Screen):
             self.infoDialog.text = 'GRESKA! Dokumenti popravljeni.\n' \
                                     + errorMessage
         else:
+            self.setWarningMessage()
             self.infoDialog.text = 'Sluzbe jos nisu izasle!'
 
         self.infoDialog.auto_dismiss = True
