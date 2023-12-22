@@ -36,9 +36,9 @@ def charsRepresentDays(chars, idx):
     else:
         return False
 
-# should only happen when holiday falls on Saturday which remains green on top
+# should only matter when holiday falls on Saturday which remains green on top
 # haven't found a way to check which dayweek so not updating weekSchedule;
-# only checking for tracing -> author
+# only checking for tracing -> author. That's why we immediately return.
 def checkForUnmarkedNonWorkingDayOnDaysRow(chars, rects, idxLast):
     # start checking after found days on the right table
     while (not charsRepresentDays(chars, idxLast)):
@@ -129,7 +129,7 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
             mondayDiff = days.index(nonDefaultDay)
             holidayDate = mondayDate + timedelta(days = mondayDiff)
             firstStageHolidayList.append(holidayDate)
-            
+
     sundayDate = mondayDate + timedelta(days = 6)
     holidays = getHolidays()
     for holiday in holidays:
@@ -211,7 +211,7 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
 
         if dayIndex < 5 and typeOfDay != 'W':
             warningMessage = ('Za {0} se gleda se gleda vozni red za {1} ili poseban raspored.'.
-                              format(days[dayIndex]), 'Subotu' if typeOfDay == 'ST' else 'Nedjelju')
+                              format(days[dayIndex], 'Subotu' if typeOfDay == 'ST' else 'Nedjelju'))
         elif dayIndex == 5 and typeOfDay != 'ST':
             warningMessage = ('Za Subotu se gleda se gleda vozni red za {0} ili poseban raspored.'.
                               format('Nedjelju' if typeOfDay == 'SN' else 'Radni dan'))

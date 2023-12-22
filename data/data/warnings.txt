@@ -1,1 +1,3 @@
-Uobicajen vozni red.
+Neuobicajen vozni red. Sugerira se samostalna provjera sluzbi.
+Za Ponedjeljak se gleda se gleda vozni red za Nedjelju ili poseban raspored.
+Za Utorak se gleda se gleda vozni red za Nedjelju ili poseban raspored.
