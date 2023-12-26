@@ -1,7 +1,7 @@
 from src.data.manager.design_manager import DesignManager
 from src.data.manager.statistics_manager import StatisticsManager
 from src.data.manager.config_manager import ConfigManager
-from src.data.collect.data_collector import DataCollector, STARTING_OUTPUT_MESSAGE
+import src.data.collect.data_collector as dataCollector
 
 from src.data.manager.backup_manager import recoverDataFromBackup
 from src.share.trace import TRACE
@@ -13,8 +13,8 @@ def loadData():
     TRACE('DATA LOADED')
 
 def updateData(outputStream):
-    outputStream.message = STARTING_OUTPUT_MESSAGE
-    dataCollector = DataCollector()
+    outputStream.message = dataCollector.STARTING_OUTPUT_MESSAGE
+    dataCollector = dataCollector.DataCollector()
     finished = False
     while not finished:
         updateResult = dataCollector.keepCollectingData()
