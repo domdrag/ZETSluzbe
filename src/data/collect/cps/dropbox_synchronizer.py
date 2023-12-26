@@ -1,29 +1,22 @@
 import dropbox
 import shutil
 
-from src.data.manager.config_manager import getConfig, setNewConfiguration, getTempConfigInfo
+from src.data.manager.config_manager import ConfigManager
 from src.data.manager.backup_manager import updateBackupDir
 from src.share.trace import TRACE
 from src.share.asserts import ASSERT_THROW
 
 class DropboxSynchronizer:
-    tempConfigPath = ''
     def __init__(self):
         downloadDropboxFile('config.json')
-        tempConfigInfo = getTempConfigInfo()
-        self.tempConfigPath = tempConfigInfo['tempConfigPath']
-        onlineConfig = tempConfigInfo['tempConfig']
-
-        self.onlineDate = onlineConfig['LAST_RECORD_DATE']
-        self.onlineServicesHash = onlineConfig['SERVICES_HASH']
+        self.onlineLastRecordDate = ConfigManager.getTempConfig('LAST_RECORD_DATE')
+        self.onlineServicesHash = ConfigManager.getTempConfig('SERVICES_HASH')
 
     def isDropboxSynchronizationNeeded(self):
-        config = getConfig()
+        currentDate = ConfigManager.getConfig('LAST_RECORD_DATE')
+        currentServicesHash = ConfigManager.getConfig('SERVICES_HASH')
 
-        currentDate = config['LAST_RECORD_DATE']
-        currentServicesHash = config['SERVICES_HASH']
-
-        if (currentDate != self.onlineDate):
+        if (currentDate != self.onlineLastRecordDate):
             TRACE('DATES_MISMATCH -> DROPBOX_SYNCHRONIZATION_NEEDED')
             return True
 
@@ -34,12 +27,12 @@ class DropboxSynchronizer:
         return False
 
     def dropbboxSynchronization(self):
-        setNewConfiguration(self.onlineDate,
-                            self.onlineServicesHash)
+        # During update, synced data acts like current data
+        ConfigManager.updateConfig('LAST_RECORD_DATE', self.onlineLastRecordDate)
+        ConfigManager.updateConfig('SERVICES_HASH', self.onlineServicesHash)
         downloadDropboxFile('data.zip')
         removeExistingData()
         decompressData()
-        updateBackupDir(self.tempConfigPath)
         TRACE('UPDATED BACKUP DIRECTORY FROM DROPBOX DATA')
 
 ###########################################################################################
@@ -50,10 +43,9 @@ def removeExistingData():
     shutil.rmtree('data/data')
 
 def downloadDropboxFile(file):
-    config = getConfig()
-    dbx = dropbox.Dropbox(app_key = config['DROPBOX_APP_KEY'],
-                          app_secret = config['DROPBOX_APP_SECRET'],
-                          oauth2_refresh_token = config['DROPBOX_REFRESH_TOKEN'])
+    dbx = dropbox.Dropbox(app_key = ConfigManager.getConfig('DROPBOX_APP_KEY'),
+                          app_secret = ConfigManager.getConfig('DROPBOX_APP_SECRET'),
+                          oauth2_refresh_token = ConfigManager.getConfig('DROPBOX_REFRESH_TOKEN'))
 
     downloadComplete = False
     while not downloadComplete:

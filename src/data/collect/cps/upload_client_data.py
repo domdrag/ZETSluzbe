@@ -2,16 +2,15 @@ import requests
 import base64
 from requests.structures import CaseInsensitiveDict
 
-from src.data.manager.config_manager import getConfig
+from src.data.manager.config_manager import ConfigManager
 from src.share.trace import TRACE
 from src.share.asserts import ASSERT_THROW
 
 URL = 'https://api.github.com/repos/domdrag/ZETSluzbe-Client-Data/contents/data.zip'
 
 def uploadClientData():
-    config = getConfig()
     headers = CaseInsensitiveDict()
-    headers["Authorization"] = "token " + config['GITHUB_TOKEN']
+    headers["Authorization"] = "token " + ConfigManager.getConfig('GITHUB_TOKEN')
     data = open('data/temp/data.zip', 'rb').read()
 
     uploadComplete = False

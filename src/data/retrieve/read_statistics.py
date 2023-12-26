@@ -1,6 +1,5 @@
 from src.data.manager.statistics_manager import StatisticsManager
 from src.data.manager.monthly_hours_fund_manager import getMonthlyHoursFund
-from src.data.manager.config_manager import getConfig
 
 HOURLY_RATE_SORTED_KEYS = ['ODRADENO', 'NOCNA', 'DRUGA', 'SUBOTA', 'NEDJELJA', 'O', 'UKUPNO']
 

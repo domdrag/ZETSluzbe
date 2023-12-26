@@ -24,9 +24,7 @@ from src.screen.main.dialogs.utils.calendar_data import (get_month_names,
                                                          calc_quarter,
                                                          get_quarter)
 from src.data.retrieve.get_holidays import getHolidays
-from src.data.manager.design_manager import (getPrimaryColor,
-                                             getErrorColor,
-                                             getWhiteColor)
+from src.data.manager.design_manager import DesignManager
 from src.share.trace import TRACE
 
 class CalendarWidget(RelativeLayout):
@@ -131,15 +129,15 @@ class CalendarWidget(RelativeLayout):
                 
                 # 2) button creation
                 if day[1] == 6:  # sunday
-                    tbtn = CalendarDayButton(text=str(day[0]), color = getErrorColor())
-                    tbtn.background_color = getPrimaryColor()
+                    tbtn = CalendarDayButton(text=str(day[0]), color = DesignManager.getErrorColor())
+                    tbtn.background_color = DesignManager.getPrimaryColor()
                 else:  # work days
                     if (mIsHoliday):
-                        mTextColor = getErrorColor() # red
+                        mTextColor = DesignManager.getErrorColor() # red
                     else:
-                        mTextColor = getWhiteColor() 
+                        mTextColor = DesignManager.getWhiteColor()
                     tbtn = CalendarDayButton(text=str(day[0]), color = mTextColor)
-                    tbtn.background_color = getPrimaryColor()
+                    tbtn.background_color = DesignManager.getPrimaryColor()
     
                 # 3) service binding
                 if (mCurrentIndex >= len(mCalendarInfo)):

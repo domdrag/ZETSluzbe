@@ -26,10 +26,10 @@ from src.data.collect.cps.check_update_neeeded import checkUpdateNeeded
 from src.data.collect.cps.prepare_data_for_transport import prepareDataForTransport
 from src.data.collect.cps.upload_client_data import uploadClientData
 from src.data.collect.cps.configure_notifications_files import configureNotificationsFiles
-from src.data.manager.backup_manager import repairSystem, updateBackupDir
-from src.data.manager.config_manager import setConfig, setNewConfiguration, loadConfig, getConfig
+from src.data.manager.backup_manager import updateBackupDir
+from src.data.manager.config_manager import ConfigManager
 from src.data.manager.warning_messages_manager import WarningMessagesManager
-from src.data.manager.manager_utils import initializeManagersForUpdate, loadManagersAfterUpdate
+from src.data.data_handler import loadData, initializeDataForUpdate, finishDataUpdate, recoverData
 from src.share.trace import TRACE
 from src.share.asserts import ASSERT_THROW
 
@@ -38,9 +38,8 @@ cp = CollectPhaseEnum
 class DataCollector:
     def __init__(self):
         TRACE('CONFIGURING_DATA_COLLECTOR')
-        initializeManagersForUpdate()
+        initializeDataForUpdate()
 
-        self.config = getConfig()
         self.phase = cp(0)
         self.days = []
         self.workDayLinks = ''
@@ -52,13 +51,14 @@ class DataCollector:
         self.weekSchedule = ['W', 'W', 'W', 'W', 'W', 'W', 'W']
         self.servicesHash = None
         self.workDayFileNames = []
+        self.dropboxSynchronizationNeeded = False
         self.canUseOldWorkDayResources = False
         self.skipOnlineSyncsDueToTestConfig = False
 
-        if (self.config['ACTIVATED_TEST_PACK_NUM']):
+        if (ConfigManager.getConfig('ACTIVATED_TEST_PACK_NUM')):
             self.skipOnlineSyncsDueToTestConfig = True
 
-        URLs = generateURLs(self.config)
+        URLs = generateURLs()
         self.mainPageURL = URLs['mainPageURL']
         self.allServicesURL = URLs['allServicesURL']
 
@@ -73,13 +73,12 @@ class DataCollector:
         try:
             if self.phase == cp.DROPBOX_SYNCHRONIZATION:
                 TRACE('[CP] DROPBOX_SYNCHRONIZATION')
-                setConfig('UPDATE_SUCCESSFUL', 0)
                 dropboxSynchronizer = DropboxSynchronizer()
-                dropboxSynchronizationNeeded = dropboxSynchronizer.isDropboxSynchronizationNeeded()
+                self.dropboxSynchronizationNeeded = dropboxSynchronizer.isDropboxSynchronizationNeeded()
 
                 if (self.skipOnlineSyncsDueToTestConfig):
                     TRACE('TEST_PACK_NUM_ACTIVATED - dropbox synchronization not needed')
-                elif (dropboxSynchronizationNeeded):
+                elif (self.dropboxSynchronizationNeeded):
                     TRACE('PERFORMING_DROPBOX_SYNCHRONIZATION')
                     dropboxSynchronizer.dropbboxSynchronization()
                     TRACE('DROPBOX_SYNCHRONIZATION_DONE')
@@ -104,8 +103,10 @@ class DataCollector:
                 updateNeeded = checkUpdateNeeded(self.mondayDate, self.servicesHash)
                 if not updateNeeded:
                     TRACE('UPDATE_NOT_PERFORMING')
-                    # setConfig('UPDATE_SUCCESSFUL', 1)
+                    if (self.dropboxSynchronizationNeeded):
+                        returnMessage['success'] = True
                     returnMessage['finished'] = True
+                    self.phase = cp.END
 
                 else:
                     TRACE('PERFORMING_UPDATE')
@@ -170,7 +171,8 @@ class DataCollector:
                 mondayDateList = [self.mondayDate.year,
                                   self.mondayDate.month,
                                   self.mondayDate.day]
-                setNewConfiguration(mondayDateList, self.servicesHash)
+                ConfigManager.updateConfig('LAST_RECORD_DATE', mondayDateList)
+                ConfigManager.updateConfig('SERVICES_HASH', self.servicesHash)
                 WarningMessagesManager.setWarningMessages()
                 returnMessage['message'] =  'Pripremanje podataka za transport'
 
@@ -200,20 +202,11 @@ class DataCollector:
                 returnMessage['success'] = True
                 returnMessage['finished'] = True
                 returnMessage['message'] = 'Sluzbe azurirane!'
-
-            if (returnMessage['finished']):
-                # setConfig(...) must go before updateBackupDir() so backup gets it
-                setConfig('UPDATE_SUCCESSFUL', 1)
-
-                if (returnMessage['success']):
-                    updateBackupDir()
-
-                loadManagersAfterUpdate()
-                TRACE('SERVICES_UPDATE_FINISHED_SUCCESSFULLY')
                 
         except Exception as e:
             TRACE(e)
-            repairSystem()
+            recoverData()
+            ConfigManager.abandonUpdate()
 
             return {'success': False,
                     'error': True,
@@ -221,5 +214,13 @@ class DataCollector:
                     'message': 'GRESKA! Popravljanje dokumenata..\n',
                     'errorMessage': str(e)}
 
-        self.phase = cp(self.phase.value + 1)
+        if (self.phase != cp.END):
+            self.phase = cp(self.phase.value + 1)
+
+        if (self.phase == cp.END):
+            finishDataUpdate()
+            if (returnMessage['success']):
+                updateBackupDir()
+            TRACE('SERVICES_UPDATE_FINISHED_SUCCESSFULLY')
+
         return returnMessage

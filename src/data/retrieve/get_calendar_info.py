@@ -1,8 +1,6 @@
 import ast
 
-from src.data.manager.design_manager import (getPrimaryColor,
-                                             getServiceColor,
-                                             getFreeDayColor)
+from src.data.manager.design_manager import DesignManager
 
 def getCalendarInfo(offNum):
     filePath = 'data/data/all_services_by_driver_decrypted/' + offNum + '.txt'
@@ -30,11 +28,11 @@ def getCalendarInfo(offNum):
         year = int(date[secondDotIndex+1:thirdDotIndex])
                 
         if(len(weekService) == 2):
-            dayColor = getFreeDayColor()
+            dayColor = DesignManager.getFreeDayColor()
             if(weekService[1] == 'empty' or
                weekService[1] == '' or # za svaki slucaj case-vi
                weekService[1] == ' '):
-                dayColor = getPrimaryColor()
+                dayColor = DesignManager.getPrimaryColor()
             calendarInfoData.append({'day': day,
                                      'month': month,
                                      'year': year,
@@ -45,7 +43,7 @@ def getCalendarInfo(offNum):
             calendarInfoData.append({'day': day,
                                      'month': month,
                                      'year': year,
-                                     'dayColor': getServiceColor(),
+                                     'dayColor': DesignManager.getServiceColor(),
                                      'serviceFullDay': weekService[0],
                                      'service': '\n'.join(weekService[1:])})
     return calendarInfoData

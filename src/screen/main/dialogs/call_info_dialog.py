@@ -7,8 +7,7 @@ from jnius import cast
 
 from src.screen.main.dialogs.utils.call_info_widget import CallInfoWidget
 
-from src.data.manager.design_manager import (getSecondaryColor,
-                                             getWhiteColor)
+from src.data.manager.design_manager import DesignManager
 
 class CallInfoDialog(MDDialog):
     def __init__(self, driverInfo):
@@ -24,16 +23,16 @@ class CallInfoDialog(MDDialog):
             MDRaisedButton(
                 text = 'SPREMI U IMENIK',
                 theme_text_color = 'Custom',
-                md_bg_color = getSecondaryColor(),
-                text_color = getWhiteColor(),
+                md_bg_color = DesignManager.getSecondaryColor(),
+                text_color = DesignManager.getWhiteColor(),
                 on_release = self.saveContact,
                 font_size = app.mainScreenFontSize
             ),
             MDRaisedButton(
                 text = 'NAZOVI',
                 theme_text_color = 'Custom',
-                md_bg_color = getSecondaryColor(),
-                text_color = getWhiteColor(),
+                md_bg_color = DesignManager.getSecondaryColor(),
+                text_color = DesignManager.getWhiteColor(),
                 on_release = self.callNumber,
                 font_size = app.mainScreenFontSize
             )]
