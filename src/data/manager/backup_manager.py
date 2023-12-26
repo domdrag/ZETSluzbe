@@ -15,7 +15,7 @@ def updateBackupDir():
     trace.TRACE('BACKUP DIRECTORY UPDATED')
 
 def recoverDataFromBackup():
-    trace.TRACE('REPAIRING DATA AND CONFIG')
+    trace.TRACE('RECOVERING DATA AND CONFIG')
     try:
         # repairing data + config
         if (os.path.isdir(MAIN_DATA_DIR)):
@@ -29,5 +29,5 @@ def recoverDataFromBackup():
         # manual set needed because we don't know whether copytree copied backup config
         configManager.ConfigManager.prepareConfigForForcedSystemExit()
         sys.exit()
-    trace.TRACE('DATA AND CONFIG REPAIRED')
+    trace.TRACE('DATA RECOVERED')
 

@@ -5,12 +5,11 @@ from kivy.properties import (ObjectProperty,
                              StringProperty,
                              ColorProperty)
 
-from src.data.collect.data_collector import DataCollector
-
 from src.screen.login.dialogs.off_num_change_dialog import OffNumChangeDialog
-#from src.screen.login.dialogs.update_dialog import UpdateDialog
+from src.screen.login.dialogs.update_dialog import UpdateDialog
 from src.screen.login.dialogs.info_dialog import InfoDialog
 
+from src.data.data_handler import updateData
 from src.data.retrieve.get_warning_message_info import (
     getWarningMessageInfo
     )
@@ -80,39 +79,30 @@ class LoginScreen(Screen):
         infoDialog.open()
 
     def updateButton(self):
-        self.infoDialog = InfoDialog('', 'Status')
+        self.updateDialog = UpdateDialog()
         self.update()
 
     @dataCollectionThreadWrapper
     def update(self):
-        #import time
-        #time.sleep(5)
-        self.infoDialog.text = 'Dropbox sinkronizacija'
-        dataCollector = DataCollector()
-        finished = False
-        updateResult = dict()
-        while not finished:
-            updateResult = dataCollector.keepCollectingData()
-            finished = updateResult['finished']
-            self.infoDialog.text = updateResult['message']
-   
-        self.infoDialog.dotsTimer.cancel()
+        updateResult = updateData(self.updateDialog)
+        self.updateDialog.dotsTimer.cancel()
+
         success = updateResult['success']
         error = updateResult['error']
         errorMessage = updateResult['errorMessage']
         
         if success:
             self.setWarningMessage()
-            self.infoDialog.text = 'Sluzbe azurirane!'
+            self.updateDialog.text = 'Sluzbe azurirane!'
             
         elif error:
-            self.infoDialog.text = 'GRESKA! Dokumenti popravljeni.\n' \
+            self.updateDialog.text = 'GRESKA! Dokumenti popravljeni.\n' \
                                     + errorMessage
         else:
             self.setWarningMessage()
-            self.infoDialog.text = 'Sluzbe jos nisu izasle!'
+            self.updateDialog.text = 'Sluzbe jos nisu izasle!'
 
-        self.infoDialog.auto_dismiss = True
+        self.updateDialog.auto_dismiss = True
 
 
 
