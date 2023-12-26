@@ -1,8 +1,10 @@
 from datetime import date
 
 from src.data.collect.cps.collect_phase_enum import CollectPhaseEnum
+from src.data.collect.cps.collect_phase_enum import COLLECT_PHASE_OUTPUT_MESSAGE_MAP
 from src.data.collect.cps.dropbox_synchronizer import DropboxSynchronizer
 
+from src.data.collect.utils.setup_data import initializeDataForUpdate, finishDataUpdate
 from src.data.collect.utils.generate_URLs import generateURLs
 from src.data.collect.cps.add_decrypted_services import (
     addDecryptedServices
@@ -29,11 +31,12 @@ from src.data.collect.cps.configure_notifications_files import configureNotifica
 from src.data.manager.backup_manager import updateBackupDir
 from src.data.manager.config_manager import ConfigManager
 from src.data.manager.warning_messages_manager import WarningMessagesManager
-from src.data.data_handler import loadData, initializeDataForUpdate, finishDataUpdate, recoverData
+import src.data.data_handler as dataHandler
 from src.share.trace import TRACE
 from src.share.asserts import ASSERT_THROW
 
 cp = CollectPhaseEnum
+STARTING_OUTPUT_MESSAGE = COLLECT_PHASE_OUTPUT_MESSAGE_MAP[cp(0)]
 
 class DataCollector:
     def __init__(self):
@@ -41,6 +44,7 @@ class DataCollector:
         initializeDataForUpdate()
 
         self.phase = cp(0)
+        self.dataModified = False
         self.days = []
         self.workDayLinks = ''
         self.saturdayLinks = ''
@@ -84,19 +88,16 @@ class DataCollector:
                     TRACE('DROPBOX_SYNCHRONIZATION_DONE')
                 else:
                     TRACE('DROPBOX_SYNCHRONIZATION_NOT_NEEDED')
-                returnMessage['message'] = 'Konfiguracija dana i tjednog rasporeda'
 
             elif self.phase == cp.CONFIGURE_DAYS_AND_WEEK_SCHEDULE:
                 TRACE('[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE')
                 result = configureDaysAndWeekSchedule(self.allServicesURL, self.weekSchedule, self.days)
                 self.mondayDate = result['mondayDate']
-                returnMessage['message'] = 'Citanje tjednih sluzbi'
 
             elif self.phase == cp.EXTRACT_RULES_BY_DRIVER:
                 TRACE('[CP] EXTRACT_RULES_BY_DRIVER')
                 result = extractRulesByDriverAndCalculateServicesHash()
                 self.servicesHash = result['servicesHash']
-                returnMessage['message'] = 'Odredivanje potrebe azuriranja'
 
             elif self.phase == cp.CHECK_UPDATE_NEEDED:
                 TRACE('[CP] CHECKING_UPDATE_NEEDED')
@@ -104,14 +105,12 @@ class DataCollector:
                 if not updateNeeded:
                     TRACE('UPDATE_NOT_PERFORMING')
                     if (self.dropboxSynchronizationNeeded):
-                        returnMessage['success'] = True
-                    returnMessage['finished'] = True
+                        self.dataModified = True
+
                     self.phase = cp.END
 
                 else:
                     TRACE('PERFORMING_UPDATE')
-                    returnMessage['message'] = \
-                                  'Brisanje potrebnih podataka'
 
             elif self.phase == cp.SEARCH_LINKS:
                 TRACE('[CP] SEARCH_LINKS')
@@ -121,7 +120,6 @@ class DataCollector:
                 self.sundayLinks = foundLinks['sunday']
                 self.specialDayLinks = foundLinks['specialDay']
                 self.notificationsLinks = foundLinks['notificationsLinks']
-                returnMessage['message'] = 'Brisanje potrebnih podataka'
 
             elif self.phase == cp.DELETE_NECESSARY_DATA:
                 TRACE('[CP] DELETE_NECESSARY_DATA')
@@ -129,7 +127,6 @@ class DataCollector:
                 self.canUseOldWorkDayResources = result['canUseOldWorkDayResources']
                 TRACE('Old Work Day resources enabled: ' +
                       str(self.canUseOldWorkDayResources))
-                returnMessage['message'] = 'Citanje svih sluzbi'
                 
             elif self.phase == cp.EXTRACT_RULES:
                 TRACE('[CP] EXTRACT_RULES')
@@ -140,7 +137,6 @@ class DataCollector:
                                               self.weekSchedule,
                                               self.mondayDate,
                                               self.canUseOldWorkDayResources)
-                returnMessage['message'] = 'Spremanje tjednih sluzbi'
                 
             elif self.phase == cp.ADD_DECRYPTED_SERVICES:
                 TRACE('[CP] ADD_DECRYPTED_SERVICES')
@@ -148,7 +144,6 @@ class DataCollector:
                                      self.weekSchedule,
                                      self.mondayDate,
                                      self.fileNames)
-                returnMessage['message'] = 'Spremanje tjednih smjena'
                 
             elif self.phase == cp.ADD_DECRYPTED_SHIFTS:
                 TRACE('[CP] ADD_DECRYPTED_SHIFTS')
@@ -156,13 +151,10 @@ class DataCollector:
                                    self.weekSchedule,
                                    self.mondayDate,
                                    self.fileNames)
-                returnMessage['message'] = \
-                    'Konfiguracija notifikacija'
 
             elif self.phase == cp.CONFIGURE_NOTIFICATION_FILES:
                 TRACE('[CP] CONFIGURE_NOTIFICATION_FILES')
                 configureNotificationsFiles(self.notificationsLinks)
-                returnMessage['message'] = 'Spremanje nove konfiguracije'
 
             # NEXT ORDER EXPLANATION: in case anything fails, we must have
             # have a backup ready -> last step must be updating the backup.
@@ -174,13 +166,10 @@ class DataCollector:
                 ConfigManager.updateConfig('LAST_RECORD_DATE', mondayDateList)
                 ConfigManager.updateConfig('SERVICES_HASH', self.servicesHash)
                 WarningMessagesManager.setWarningMessages()
-                returnMessage['message'] =  'Pripremanje podataka za transport'
 
             elif self.phase == cp.PREPARE_DATA_FOR_TRANSPORT:
                 TRACE('[CP] PREPARE_DATA_FOR_TRANSPORT')
                 prepareDataForTransport()
-                returnMessage['message'] = \
-                    'Ucitavanje sluzbi na Github'
 
             elif self.phase == cp.UPLOAD_CLIENT_DATA:
                 TRACE('[CP] UPLOAD_CLIENT_DATA')
@@ -189,8 +178,6 @@ class DataCollector:
                     TRACE('DATA_UPLOADED_TO_GITHUB_SUCCESSFULLY')
                 else:
                     TRACE('TEST_PACK_NUM_ACTIVATED - skipping uploading client data')
-                returnMessage['message'] = \
-                    'Ucitavanje sluzbi na Dropbox'
 
             elif self.phase == cp.UPLOAD_DATA_TO_DROPBOX:
                 TRACE('[CP] UPLOAD_DATA_TO_DROPBOX')
@@ -199,13 +186,11 @@ class DataCollector:
                     TRACE('DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY')
                 else:
                     TRACE('TEST_PACK_NUM_ACTIVATED - skipping uploading author data')
-                returnMessage['success'] = True
-                returnMessage['finished'] = True
-                returnMessage['message'] = 'Sluzbe azurirane!'
+                self.dataModified = True
                 
         except Exception as e:
             TRACE(e)
-            recoverData()
+            dataHandler.recoverData()
             ConfigManager.abandonUpdate()
 
             return {'success': False,
@@ -216,11 +201,16 @@ class DataCollector:
 
         if (self.phase != cp.END):
             self.phase = cp(self.phase.value + 1)
+            returnMessage['message'] = COLLECT_PHASE_OUTPUT_MESSAGE_MAP[self.phase]
 
         if (self.phase == cp.END):
             finishDataUpdate()
-            if (returnMessage['success']):
+
+            if (self.dataModified):
                 updateBackupDir()
+                returnMessage['success'] = True
+
+            returnMessage['finished'] = True
             TRACE('SERVICES_UPDATE_FINISHED_SUCCESSFULLY')
 
         return returnMessage
