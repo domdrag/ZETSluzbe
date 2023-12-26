@@ -5,10 +5,11 @@ import re
 import warnings
 from bs4 import BeautifulSoup, SoupStrainer, GuessedAtParserWarning
 
+# verification purposes
 warnings.filterwarnings('ignore', category=GuessedAtParserWarning)
 
+from src.data.manager.config_manager import ConfigManager
 from src.data.collect.cps.utils.regex_definitions import RegexDefinitions
-from src.data.manager.config_manager import getConfig
 from src.share.asserts import ASSERT_THROW, ASSERT_NO_THROW
 from src.share.trace import TRACE
 
@@ -31,9 +32,8 @@ def searchLinks(mainPageURL):
     searchComplete = False
     while not searchComplete:
         try:
-            config = getConfig()
-            zetLoginPageURL = config['ZET_LOGIN_PAGE_URL']
-            zetMainPageURL = config['ZET_MAIN_PAGE_URL']
+            zetLoginPageURL = ConfigManager.getConfig('ZET_LOGIN_PAGE_URL')
+            zetMainPageURL = ConfigManager.getConfig('ZET_MAIN_PAGE_URL')
 
             with requests.Session() as session:
                 # reagrdless of configuration, we verify access to ZET page

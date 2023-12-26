@@ -5,35 +5,29 @@ import sys
 import src.data.manager.config_manager as configManager
 import src.share.trace as trace
 
-def updateBackupConfig(sourceConfigPath = ''):
-    if (sourceConfigPath):
-        shutil.copyfile(sourceConfigPath, 'data/backup/config.json')
-    else:
-        shutil.copyfile('data/config.json', 'data/backup/config.json')
+MAIN_DATA_DIR = 'data/data'
+BACKUP_MAIN_DATA_DIR = 'data/backup/data'
 
-def updateBackupDir(sourceConfigPath = ''):
-    updateBackupConfig(sourceConfigPath)
-    shutil.rmtree('data/backup/data') # delete data dir as well as its content
-    shutil.copytree('data/data', 'data/backup/data')
-    trace.TRACE('Backup directory updated')
+def updateBackupDir():
+    configManager.ConfigManager.updateBackupConfig()
+    shutil.rmtree(BACKUP_MAIN_DATA_DIR) # delete data dir as well as its content
+    shutil.copytree(MAIN_DATA_DIR, BACKUP_MAIN_DATA_DIR)
+    trace.TRACE('BACKUP DIRECTORY UPDATED')
 
-def repairData():
+def recoverDataFromBackup():
     trace.TRACE('REPAIRING DATA AND CONFIG')
     try:
         # repairing data + config
-        if (os.path.isdir('data/data')):
+        if (os.path.isdir(MAIN_DATA_DIR)):
             # delete data dir as well as its content
-            shutil.rmtree('data/data')
-        shutil.copytree('data/backup/data', 'data/data')
-        shutil.copyfile('data/backup/config.json', 'data/config.json')
+            shutil.rmtree(MAIN_DATA_DIR)
+        shutil.copytree(BACKUP_MAIN_DATA_DIR, MAIN_DATA_DIR)
+        configManager.ConfigManager.recoverConfig()
     except Exception as e:
         trace.TRACE(e)
         # if repair failed -> make sure data gets proper repair in the next run and crash the app
         # manual set needed because we don't know whether copytree copied backup config
-        configManager.setConfig('UPDATE_SUCCESSFUL', 0)
+        configManager.ConfigManager.prepareConfigForForcedSystemExit()
         sys.exit()
     trace.TRACE('DATA AND CONFIG REPAIRED')
 
-def repairSystem():
-    repairData()
-    configManager.loadConfig()

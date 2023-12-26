@@ -13,7 +13,7 @@ def dataCollectionThreadWrapper(function):
     def wrap(loginScreen, *args, **kwargs):
         loginScreen.infoDialog.auto_dismiss = False
         loginScreen.updateDone = False  
-        loginScreen.bind(updateDone = loginScreen.infoDialog.dismiss)  
+        loginScreen.bind(updateDone = loginScreen.infoDialog.dismiss)
         loginScreen.infoDialog.open()
         thread = threading.Thread(target=function,
                                   args = [loginScreen,

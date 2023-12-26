@@ -1,13 +1,13 @@
 import dropbox
 
-from src.data.manager.config_manager import getConfig
+from src.data.manager.config_manager import ConfigManager
 from src.share.trace import TRACE
 
 def uploadDataToDropbox():
     config = getConfig()
-    dbx = dropbox.Dropbox(app_key = config['DROPBOX_APP_KEY'],
-                          app_secret = config['DROPBOX_APP_SECRET'],
-                          oauth2_refresh_token = config['DROPBOX_REFRESH_TOKEN'])
+    dbx = dropbox.Dropbox(app_key = ConfigManager.getConfig('DROPBOX_APP_KEY'),
+                          app_secret = ConfigManager.getConfig('DROPBOX_APP_SECRET'),
+                          oauth2_refresh_token = ConfigManager.getConfig('DROPBOX_REFRESH_TOKEN'))
     # WORKAROUND - connection fails on PC during uploads for some reason
     dataSent = False
     while not dataSent:

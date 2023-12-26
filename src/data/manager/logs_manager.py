@@ -5,7 +5,8 @@ from datetime import datetime
 import src.share.trace as trace
 
 class LogsManager:
-    defaultStdOut = sys.stdout
+    __defaultStdOut__ = sys.stdout
+
     @staticmethod
     def trace(traceObj):
         print(traceObj)
@@ -20,7 +21,7 @@ class LogsManager:
     @staticmethod
     def resetOutput():
         sys.stdout.close()
-        sys.stdout = LogsManager.defaultStdOut
+        sys.stdout = LogsManager.__defaultStdOut__
 
     @staticmethod
     def beginLogging():

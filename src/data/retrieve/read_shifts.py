@@ -4,10 +4,7 @@ from src.data.retrieve.utils.check_service_date_validity import (
     checkServiceDateValidity
     )
 from src.data.utils.get_service_date import getServiceDate
-from src.data.manager.design_manager import (getPrimaryColor,
-                                             getShiftColor,
-                                             getFreeDayColor,
-                                             getErrorColor)
+from src.data.manager.design_manager import DesignManager
 
 def readShifts(offNum):
     filePath = 'data/data/all_shifts_by_driver_decrypted/' + offNum + '.txt'
@@ -35,17 +32,17 @@ def readShifts(offNum):
             nextService = ast.literal_eval(weekServices[currWeekService + 1])
             nextServiceDate = getServiceDate(nextService)
         if(currServiceDate != nextServiceDate): # slobodan dan
-            bgColor2 = getFreeDayColor()
+            bgColor2 = DesignManager.getFreeDayColor()
             if(weekService[1] == 'empty' or
                weekService[1] == '' or # za svaki slucaj case-vi
                weekService[1] == ' '):
-                bgColor2 = getErrorColor()
+                bgColor2 = DesignManager.getErrorColor()
                 
             weekServicesData.append({'firstItem': weekService[0],
                                      'firstDriver': '',
                                      'secondItem': '\n'.join(weekService[1:]),
                                      'secondDriver': '',
-                                     'bg_color1': getPrimaryColor(),
+                                     'bg_color1': DesignManager.getPrimaryColor(),
                                      'bg_color2': bgColor2})
             currWeekService = currWeekService + 1
         else:
@@ -84,13 +81,13 @@ def readShifts(offNum):
                                      'firstDriver': '',
                                      'secondItem': '\n'.join(firstShift[:-1]),
                                      'secondDriver': firstDriver,
-                                     'bg_color1': getPrimaryColor(),
-                                     'bg_color2': getShiftColor()})
+                                     'bg_color1': DesignManager.getPrimaryColor(),
+                                     'bg_color2': DesignManager.getShiftColor()})
             weekServicesData.append({'firstItem': '\n'.join(secondShift[:-1]),
                                      'firstDriver': secondDriver,
                                      'secondItem': '\n'.join(thirdShift[:-1]),
                                      'secondDriver': thirdDriver,
-                                     'bg_color1': getShiftColor(),
-                                     'bg_color2': getShiftColor()})
+                                     'bg_color1': DesignManager.getShiftColor(),
+                                     'bg_color2': DesignManager.getShiftColor()})
             currWeekService = currWeekService + 3
     return weekServicesData

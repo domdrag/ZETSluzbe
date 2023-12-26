@@ -5,7 +5,7 @@ from kivymd.uix.menu import MDDropdownMenu
 
 from src.data.manager.statistics_manager import StatisticsManager
 from src.data.retrieve.read_statistics import readStatistics
-from src.data.manager.design_manager import getPrimaryColorLight
+from src.data.manager.design_manager import DesignManager
 from src.data.retrieve.get_current_month_format import getCurrentMonthFormat
 
 class StatisticsTab(MDFloatLayout, MDTabsBase):
@@ -39,7 +39,7 @@ class StatisticsTab(MDFloatLayout, MDTabsBase):
         # disabled animation because of a bug (I believe); growth variables don't work
         self.monthsMenu = MDDropdownMenu(caller = self.ids.statisticsDropDownId,
                                          items = monthsMenuItems,
-                                         background_color = getPrimaryColorLight(),
+                                         background_color = DesignManager.getPrimaryColorLight(),
                                          width_mult = 2,
                                          opening_time = 0)
         # should work well with 1.2.0

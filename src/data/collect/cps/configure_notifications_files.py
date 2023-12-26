@@ -27,6 +27,7 @@ def generateNotificationFiles(filesNamePattern, notificationURL):
             imagePath = imagesPathPattern + str(page.page_number) + '.png'
             image = page.to_image(resolution = GENERATED_IMAGE_RESOLUTION)
             image.save(imagePath)
+
     return {'numOfPages': numOfPages, 'imagesFileNamePattern': imagesFileNamePattern}
 
 def configureNotificationsFiles(notificationsLinks):

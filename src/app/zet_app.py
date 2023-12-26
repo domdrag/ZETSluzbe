@@ -1,12 +1,18 @@
 from src.data.manager.logs_manager import LogsManager
-#from src.data.manager.config_manager import loadConfig
-#from src.data.manager.design_manager import loadDesign
-from src.data.manager.manager_utils import loadManagersAtStartup
+from src.data.data_handler import loadData, recoverData
 from src.app.utils.environment_setup import environmentSetup
+from src.share.trace import TRACE
 
 # order important
 LogsManager.beginLogging()
-loadManagersAtStartup()
+
+try:
+    loadData()
+except Exception as e:
+    TRACE(e)
+    recoverData()
+    loadData()
+
 environmentSetup()
 
 from kivymd.app import MDApp
@@ -14,29 +20,21 @@ from kivy.lang import Builder
 from kivy.properties import StringProperty
 
 from src.screen.zet_screen_manager import ZETScreenManager
+from src.data.manager.design_manager import DesignManager
 
-from src.data.manager.config_manager import getConfig
-from src.data.manager.design_manager import (getLoginScreenFontSize,
-                                             getMainScreenFontSize,
-                                             getLogsFontSize,
-                                             getGridHeight,
-                                             getColors,
-                                             getPrimaryColorString,
-                                             getSecondaryColorString)
 class ZETApp(MDApp):
     gridHeight = StringProperty()
     loginScreenFontSize = StringProperty()
     mainScreenFontSize = StringProperty()
 
     def build(self):
-        config = getConfig()
-        self.gridHeight = getGridHeight()
-        self.loginScreenFontSize = getLoginScreenFontSize()
-        self.mainScreenFontSize = getMainScreenFontSize()
-        self.logsFontSize = getLogsFontSize()
+        self.gridHeight = DesignManager.getGridHeight()
+        self.loginScreenFontSize = DesignManager.getLoginScreenFontSize()
+        self.mainScreenFontSize = DesignManager.getMainScreenFontSize()
+        self.logsFontSize = DesignManager.getLogsFontSize()
         self.theme_cls.theme_style = 'Dark'
-        self.theme_cls.colors = getColors()
-        self.theme_cls.primary_palette = getPrimaryColorString()
-        self.theme_cls.accent_palette = getSecondaryColorString()
+        self.theme_cls.colors = DesignManager.getColors()
+        self.theme_cls.primary_palette = DesignManager.getPrimaryColorString()
+        self.theme_cls.accent_palette = DesignManager.getSecondaryColorString()
         return Builder.load_file('design/zet_screen_manager.kv')
 

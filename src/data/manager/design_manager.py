@@ -1,79 +1,106 @@
 import json
 
 DESIGN_FILE_PATH = 'data/design.json'
-COLORS_IMPL = dict()
-DESIGN = dict()
-CUSTOM_COLORS = dict()
 
-def loadDesign():
-    global DESIGN
-    global CUSTOM_COLORS
-    global COLORS_IMPL
+class DesignManager:
+    __colorsImpl__ = dict()
+    __design__ = dict()
+    __customColors__ = dict()
 
-    with open(DESIGN_FILE_PATH, 'r') as designFile:
-        DESIGN = json.load(designFile)
-    CUSTOM_COLORS = DESIGN['CUSTOM_COLORS']
+    @staticmethod
+    def load():
+        with open(DESIGN_FILE_PATH, 'r') as designFile:
+            DesignManager.__design__ = json.load(designFile)
+        DesignManager.__customColors__ = DesignManager.__design__['CUSTOM_COLORS']
 
-    # import problematic for kivy loggings in env. setup (needs to be postponed)
-    import kivymd.color_definitions as kivyColors
-    COLORS_IMPL = kivyColors.colors
+        # import problematic for kivy loggings in env. setup (needs to be postponed)
+        import kivymd.color_definitions as kivyColors
+        DesignManager.__colorsImpl__ = kivyColors.colors
 
+    @staticmethod
+    def getLoginScreenFontSize():
+        return DesignManager.__design__['LOGIN_SCREEN_FONT_SIZE']
 
-def getFontSize():
-    return DESIGN['FONT_SIZE']
+    @staticmethod
+    def getMainScreenFontSize():
+        return DesignManager.__design__['MAIN_SCREEN_FONT_SIZE']
 
-def getLoginScreenFontSize():
-    return DESIGN['LOGIN_SCREEN_FONT_SIZE']
+    @staticmethod
+    def getLogsFontSize():
+        return DesignManager.__design__['LOGS_FONT_SIZE']
 
-def getMainScreenFontSize():
-    return DESIGN['MAIN_SCREEN_FONT_SIZE']
+    @staticmethod
+    def getGridHeight():
+        return DesignManager.__design__['MAIN_GRID_HEIGHT']
 
-def getLogsFontSize():
-    return DESIGN['LOGS_FONT_SIZE']
+    @staticmethod
+    def updateFontSize(screen, value):
+        DesignManager.__design__[screen] = str(value) + 'dp'
+        with open(DESIGN_FILE_PATH, 'w') as designFile:
+            json.dump(DesignManager.__design__, designFile, indent=3)
 
-def getGridHeight():
-    return DESIGN['MAIN_GRID_HEIGHT']
+    @staticmethod
+    def updateGridHeight(value):
+        DesignManager.__design__['MAIN_GRID_HEIGHT'] = str(value) + 'dp'
+        with open(DESIGN_FILE_PATH, 'w') as designFile:
+            json.dump(DesignManager.__design__, designFile, indent=3)
 
-def updateFontSize(screen, value):
-    DESIGN[screen] = str(value) + 'dp'
-    with open(DESIGN_FILE_PATH, 'w') as designFile:
-        json.dump(DESIGN, designFile, indent = 3)
+    @staticmethod
+    def getColors():
+        return DesignManager.__colorsImpl__
 
-def updateGridHeight(value):
-    DESIGN['MAIN_GRID_HEIGHT'] = str(value) + 'dp'
-    with open(DESIGN_FILE_PATH, 'w') as designFile:
-        json.dump(DESIGN, designFile, indent = 3)
+    @staticmethod
+    def getPrimaryColor():
+        colorsImpl = DesignManager.__colorsImpl__
+        customColors = DesignManager.__customColors__
+        return colorsImpl[customColors['PRIMARY_COLOR']][customColors['DARK_HUE']]
 
-def getColors():
-    return COLORS_IMPL
+    @staticmethod
+    def getPrimaryColorLight():
+        colorsImpl = DesignManager.__colorsImpl__
+        customColors = DesignManager.__customColors__
+        return colorsImpl[customColors['PRIMARY_COLOR']][customColors['MAIN_HUE']]
 
-def getPrimaryColor():
-    return COLORS_IMPL[CUSTOM_COLORS['PRIMARY_COLOR']][CUSTOM_COLORS['DARK_HUE']]
+    @staticmethod
+    def getPrimaryColorString():
+        return DesignManager.__customColors__['PRIMARY_COLOR']
 
-def getPrimaryColorLight():
-    return COLORS_IMPL[CUSTOM_COLORS['PRIMARY_COLOR']][CUSTOM_COLORS['MAIN_HUE']]
+    @staticmethod
+    def getSecondaryColor():
+        colorsImpl = DesignManager.__colorsImpl__
+        customColors = DesignManager.__customColors__
+        return colorsImpl[customColors['SECONDARY_COLOR']][customColors['DARK_HUE']]
 
-def getPrimaryColorString():
-    return CUSTOM_COLORS['PRIMARY_COLOR']
+    @staticmethod
+    def getSecondaryColorString():
+        return DesignManager.__customColors__['SECONDARY_COLOR']
 
-def getSecondaryColor():
-    return COLORS_IMPL[CUSTOM_COLORS['SECONDARY_COLOR']][CUSTOM_COLORS['DARK_HUE']]
+    @staticmethod
+    def getServiceColor():
+        colorsImpl = DesignManager.__colorsImpl__
+        customColors = DesignManager.__customColors__
+        return colorsImpl[customColors['SERVICE_COLOR']][customColors['DARK_HUE']]
 
-def getSecondaryColorString():
-    return CUSTOM_COLORS['SECONDARY_COLOR']
+    @staticmethod
+    def getShiftColor():
+        colorsImpl = DesignManager.__colorsImpl__
+        customColors = DesignManager.__customColors__
+        return colorsImpl[customColors['SHIFT_COLOR']][customColors['DARK_HUE']]
 
-def getServiceColor():
-    return COLORS_IMPL[CUSTOM_COLORS['SERVICE_COLOR']][CUSTOM_COLORS['DARK_HUE']]
+    @staticmethod
+    def getFreeDayColor():
+        colorsImpl = DesignManager.__colorsImpl__
+        customColors = DesignManager.__customColors__
+        return colorsImpl[customColors['FREE_DAY_COLOR']][customColors['MAIN_HUE']]
 
-def getShiftColor():
-    return COLORS_IMPL[CUSTOM_COLORS['SHIFT_COLOR']][CUSTOM_COLORS['DARK_HUE']]
+    @staticmethod
+    def getErrorColor():
+        colorsImpl = DesignManager.__colorsImpl__
+        customColors = DesignManager.__customColors__
+        return colorsImpl[customColors['ERROR_COLOR']][customColors['DARK_HUE']]
 
-def getFreeDayColor():
-    return COLORS_IMPL[CUSTOM_COLORS['FREE_DAY_COLOR']][CUSTOM_COLORS['MAIN_HUE']]
+    @staticmethod
+    def getWhiteColor():
+        return (1, 1, 1, 1)
 
-def getErrorColor():
-    return COLORS_IMPL[CUSTOM_COLORS['ERROR_COLOR']][CUSTOM_COLORS['DARK_HUE']]
-
-def getWhiteColor():
-    return (1, 1, 1, 1)
 

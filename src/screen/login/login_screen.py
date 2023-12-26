@@ -8,14 +8,15 @@ from kivy.properties import (ObjectProperty,
 from src.data.collect.data_collector import DataCollector
 
 from src.screen.login.dialogs.off_num_change_dialog import OffNumChangeDialog
+#from src.screen.login.dialogs.update_dialog import UpdateDialog
 from src.screen.login.dialogs.info_dialog import InfoDialog
 
 from src.data.retrieve.get_warning_message_info import (
     getWarningMessageInfo
     )
 from src.screen.login.dialogs.utils.update_dialog_util import dataCollectionThreadWrapper
-from src.data.manager.config_manager import getConfig
-from src.data.manager.design_manager import updateFontSize
+from src.data.manager.config_manager import ConfigManager
+from src.data.manager.design_manager import DesignManager
 from src.data.manager.logs_manager import LogsManager
 from src.share.trace import TRACE
 
@@ -31,9 +32,7 @@ class LoginScreen(Screen):
     def __init__(self, **kwargs):
         super(LoginScreen, self).__init__(**kwargs)
         self.app = MDApp.get_running_app()
-        
-        config = getConfig()
-        self.offNum = config['OFFICIAL_NUMBER_STARTUP']
+        self.offNum = ConfigManager.getConfig('OFFICIAL_NUMBER_STARTUP')
         self.setWarningMessage()
 
     def setWarningMessage(self):
@@ -61,13 +60,13 @@ class LoginScreen(Screen):
     def increaseFontSize(self):
         oldValue = int(self.app.loginScreenFontSize[:-2])
         newValue = oldValue + 1
-        updateFontSize('LOGIN_SCREEN_FONT_SIZE', newValue)
+        DesignManager.updateFontSize('LOGIN_SCREEN_FONT_SIZE', newValue)
         self.app.loginScreenFontSize = str(newValue) + 'dp'
 
     def decreaseFontSize(self):
         oldValue = int(self.app.loginScreenFontSize[:-2])
         newValue = oldValue - 1
-        updateFontSize('LOGIN_SCREEN_FONT_SIZE', newValue)
+        DesignManager.updateFontSize('LOGIN_SCREEN_FONT_SIZE', newValue)
         self.app.loginScreenFontSize = str(newValue) + 'dp'
 
     def showLogsButton(self):
@@ -76,9 +75,7 @@ class LoginScreen(Screen):
         infoDialog.open()
 
     def showConfigButton(self):
-        config = getConfig()
-        configString = str(config)
-        configString = configString.replace(',', ',\n')
+        configString = ConfigManager.getFullConfigString()
         infoDialog = InfoDialog(configString, 'Konfiguracija')
         infoDialog.open()
 
@@ -88,11 +85,12 @@ class LoginScreen(Screen):
 
     @dataCollectionThreadWrapper
     def update(self):
+        #import time
+        #time.sleep(5)
+        self.infoDialog.text = 'Dropbox sinkronizacija'
         dataCollector = DataCollector()
-            
         finished = False
         updateResult = dict()
-        self.infoDialog.text = 'Dropbox sinkronizacija'
         while not finished:
             updateResult = dataCollector.keepCollectingData()
             finished = updateResult['finished']

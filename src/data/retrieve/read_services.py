@@ -3,9 +3,7 @@ import ast
 from src.data.retrieve.utils.check_service_date_validity import (
     checkServiceDateValidity
     )
-from src.data.manager.design_manager import (getServiceColor,
-                                             getFreeDayColor,
-                                             getErrorColor)
+from src.data.manager.design_manager import DesignManager
 
 
 def readServices(offNum):
@@ -25,17 +23,17 @@ def readServices(offNum):
         if(not checkServiceDateValidity(weekService)):
             continue
         if(len(weekService) == 2):
-            bgColor = getFreeDayColor()
+            bgColor = DesignManager.getFreeDayColor()
             if(weekService[1] == 'empty' or
                weekService[1] == '' or # za svaki slucaj case-vi
                weekService[1] == ' '):
-                bgColor = getErrorColor()
+                bgColor = DesignManager.getErrorColor()
             weekServicesData.append({'day': weekService[0],
                                      'service': '\n'.join(weekService[1:]),
                                      'bg_color': bgColor})
         else:
             weekServicesData.append({'day': weekService[0],
                                      'service': '\n'.join(weekService[1:]),
-                                     'bg_color': getServiceColor()})
+                                     'bg_color': DesignManager.getServiceColor()})
     return weekServicesData
 

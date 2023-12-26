@@ -1,51 +1,113 @@
 import json
+import copy
+import shutil
 
-from src.data.manager.backup_manager import repairSystem
 import src.share.trace as trace
+from src.share.asserts import ASSERT_THROW
 
 CONFIG_FILE_PATH = 'data/config.json'
-CURRENT_CONFIG = dict()
-
-# called when:
-# 1) app start
-# 2) DataCollector fails
-# 3) DataCollector begins in test configuration
-def loadConfig():
-    global CURRENT_CONFIG
-    
-    with open(CONFIG_FILE_PATH, 'r') as configFile:
-        config = json.load(configFile)
-    CURRENT_CONFIG = config
-
-    # if some operation haven't stopped in the last session
-    if (not CURRENT_CONFIG['UPDATE_SUCCESSFUL']):
-        trace.TRACE('REPAIR ALL FILES - ERROR IN LAST SESSION')
-        repairSystem()
-
-def getConfig():
-    return CURRENT_CONFIG
-
-# configure setConfig so the caller doesn't need to know what values should he send
-# for example: caller might send True/False, but we need to set that to 1/0
-def setConfig(configName, configValue):
-    CURRENT_CONFIG[configName] = configValue
-    with open(CONFIG_FILE_PATH, 'w') as configFile:
-        json.dump(CURRENT_CONFIG, configFile, indent = 3)
-
-def setNewConfiguration(mondayDateList, servicesHash):
-    setConfig('LAST_RECORD_DATE', mondayDateList)
-    setConfig('SERVICES_HASH', servicesHash)
-
-#################################################################
-
+BACKUP_CONFIG_FILE_PATH = 'data/backup/config.json'
 TEMP_CONFIG_COPY_FILE_PATH = 'data/temp/config.json'
+UPDATE_UNSUCCESSFUL = 0
+UPDATE_SUCCESSFUL = 1
 
-def getTempConfigInfo():
-    with open(TEMP_CONFIG_COPY_FILE_PATH, 'r') as configFile:
-        tempConfig = json.load(configFile)
+class ConfigManager:
+    __currentConfig__ = dict()
+    __updatedConfig__ = dict()
+    __isUpdateOngoing__ = False
 
-    return {'tempConfig': tempConfig, 'tempConfigPath': TEMP_CONFIG_COPY_FILE_PATH}
+    @staticmethod
+    def load():
+        with open(CONFIG_FILE_PATH, 'r') as configFile:
+            config = json.load(configFile)
+        ConfigManager.__currentConfig__ = config
 
-def setTempConfig(tempConfig):
-    with open(TEMP_CONFIG_COPY_FILE_PATH, 'w') as configFile:
-        json.dump(tempConfig, configFile, indent = 3)
+        # if some operation haven't stopped in the last session
+        if (not ConfigManager.__currentConfig__['UPDATE_SUCCESSFUL']):
+            raise Exception('REPAIR ALL FILES - ERROR IN LAST SESSION')
+
+    @staticmethod
+    def initializeUpdate():
+        if (not ConfigManager.__currentConfig__):
+            ConfigManager.load() # verification purposes
+
+        # need to mark the flag for failure detection
+        ConfigManager.markUpdateSuccessfulFlag(UPDATE_UNSUCCESSFUL)
+
+        ConfigManager.__isUpdateOngoing__ = True
+        ConfigManager.__updatedConfig__ = copy.deepcopy(ConfigManager.__currentConfig__)
+
+    @staticmethod
+    def getConfig(attributeName):
+        # Dropbox sync CP may changed the config so we want to return updated one
+        ## since synced data is acting like current data during update
+        if (ConfigManager.__isUpdateOngoing__):
+            return ConfigManager.__updatedConfig__[attributeName]
+        else:
+            return ConfigManager.__currentConfig__[attributeName]
+
+    @staticmethod
+    def finishUpdate():
+        ConfigManager.__currentConfig__ = copy.deepcopy(ConfigManager.__updatedConfig__)
+        ConfigManager.abandonUpdate()
+
+    @staticmethod
+    # Common method for both success and failure update; in both cases pushes config
+    # If success, currentConfig will become updatedConfig; otherwise no new changes pushed
+    def abandonUpdate():
+        ConfigManager.__isUpdateOngoing__ = False
+        ConfigManager.markUpdateSuccessfulFlag(UPDATE_SUCCESSFUL)
+
+    @staticmethod
+    def markUpdateSuccessfulFlag(flag):
+        ASSERT_THROW(not ConfigManager.__isUpdateOngoing__,
+                     'ERROR - MARKING UPDATE SUCCESS FLAG WHILE UPDATING')
+        ConfigManager.updateConfig('UPDATE_SUCCESSFUL', flag)
+
+    @staticmethod
+    def updateConfig(attributeName, attributeValue):
+        # if updating config while no update in ongoing, push the new updates immediately
+        if (ConfigManager.__isUpdateOngoing__):
+            ConfigManager.__updatedConfig__[attributeName] = attributeValue
+        else:
+            ConfigManager.__currentConfig__[attributeName] = attributeValue
+            ConfigManager.pushNewUpdate()
+
+    @staticmethod
+    def pushNewUpdate():
+        ASSERT_THROW(not ConfigManager.__isUpdateOngoing__,
+                     'ERROR - PUSHING NEW CONFIG WHILE UPDATING')
+        with open(CONFIG_FILE_PATH, 'w', encoding='utf-8') as configFile:
+            json.dump(ConfigManager.__currentConfig__, configFile, indent=3)
+
+    @staticmethod
+    def updateBackupConfig():
+        shutil.copyfile(CONFIG_FILE_PATH, BACKUP_CONFIG_FILE_PATH)
+
+    @staticmethod
+    def recoverConfig():
+        shutil.copyfile(BACKUP_CONFIG_FILE_PATH, CONFIG_FILE_PATH)
+
+    @staticmethod
+    def prepareConfigForForcedSystemExit():
+        ConfigManager.updateConfig('UPDATE_SUCCESSFUL', UPDATE_UNSUCCESSFUL)
+
+    @staticmethod
+    def getFullConfigString():
+        return str(ConfigManager.__currentConfig__).replace(',', ',\n')
+
+    ##################################################################################
+    ########################### TEMP CONFIG METHODS ##################################
+    ##################################################################################
+    @staticmethod
+    def getTempConfig(attributeName):
+        with open(TEMP_CONFIG_COPY_FILE_PATH, 'r') as configFile:
+            tempConfig = json.load(configFile)
+        return tempConfig[attributeName]
+
+    @staticmethod
+    def prepareConfigToTransport():
+        configToTransport = copy.deepcopy(ConfigManager.__updatedConfig__)
+        configToTransport['UPDATE_SUCCESSFUL'] = UPDATE_SUCCESSFUL
+        with open(TEMP_CONFIG_COPY_FILE_PATH, 'w') as configFile:
+            json.dump(configToTransport, configFile, indent=3)

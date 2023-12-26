@@ -2,22 +2,19 @@ import os
 import logging
 import sys
 
-from src.data.manager.config_manager import getConfig
-from src.data.manager.backup_manager import updateBackupConfig
+from src.data.manager.config_manager import ConfigManager
 from src.share.trace import TRACE
 
 def environmentSetup():
-    config = getConfig()
-    
-    if (not config['LOGS']):
+    if (not ConfigManager.getConfig('LOGS')):
         TRACE('NO LOGS')
         os.environ['KIVY_NO_CONSOLELOG'] = '1'
-    if (not config['DEBUG_LOGS']):
+    if (not ConfigManager.getConfig('DEBUG_LOGS')):
         TRACE('NO DEBUG LOGS')
         logging.disable(logging.DEBUG)
-    if (config['UPDATE_SUCCESSFUL']): # mind at ease when changing config
+    if (ConfigManager.getConfig('UPDATE_SUCCESSFUL')): # mind at ease when changing config
         TRACE('BACKUP CONFIG UPDATED')
-        updateBackupConfig()
+        ConfigManager.updateBackupConfig()
         
-    os.environ['KIVY_ORIENTATION'] = config['APP_ORIENTATION']
+    os.environ['KIVY_ORIENTATION'] = ConfigManager.getConfig('APP_ORIENTATION')
 

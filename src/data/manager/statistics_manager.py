@@ -1,6 +1,9 @@
 import json
+import copy
 
 from src.data.manager.utils.statistics_manager_util import *
+
+STATISTICS_FILE_PATH = 'data/data/statistics.json'
 
 class StatisticsManager:
     __currentStatistics__ = dict()
@@ -8,14 +11,14 @@ class StatisticsManager:
 
     @staticmethod
     def load():
-        with open('data/data/statistics.json', 'r', encoding='utf-8') as statisticsFile:
+        with open(STATISTICS_FILE_PATH, 'r', encoding='utf-8') as statisticsFile:
             StatisticsManager.__currentStatistics__ = json.load(statisticsFile)
 
     @staticmethod
     def initializeUpdate():
         if (not StatisticsManager.__currentStatistics__):
-            StatisticsManager.load()
-        StatisticsManager.__updatedStatistics__ = StatisticsManager.__currentStatistics__
+            StatisticsManager.load() # verification purposes
+        StatisticsManager.__updatedStatistics__ = copy.deepcopy(StatisticsManager.__currentStatistics__)
 
     @staticmethod
     def getDriverStatistics(offNum):
@@ -35,16 +38,17 @@ class StatisticsManager:
         return offNumDict[month]
 
     @staticmethod
-    def finishStatisticsUpdate():
+    def finishUpdate():
         updatedStatistics = StatisticsManager.__updatedStatistics__
-        with open('data/data/statistics.json', 'w', encoding='utf-8') as statisticsFile:
+        with open(STATISTICS_FILE_PATH, 'w', encoding='utf-8') as statisticsFile:
             json.dump(updatedStatistics, statisticsFile, indent=3)
+        StatisticsManager.__currentStatistics__ = copy.deepcopy(StatisticsManager.__updatedStatistics__)
 
     @staticmethod
     def updateStatistics(offNum, month, hourlyRateStats, driveOrder, receptionPoint, releasePoint):
         updatedStatistics = StatisticsManager.__updatedStatistics__
         monthDict = getMonthDict(updatedStatistics, offNum, month)
-        updateStatisticsImpl(monthDict,  hourlyRateStats, driveOrder, receptionPoint, releasePoint)
+        updateStatisticsImpl(monthDict, hourlyRateStats, driveOrder, receptionPoint, releasePoint)
 
     @staticmethod
     def updateStatisticsVac(offNum, month, vacationType, isHolidayOnWorkDay):

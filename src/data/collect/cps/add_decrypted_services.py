@@ -88,6 +88,4 @@ def addDecryptedServices(days, weekSchedule, mondayDate, fileNames):
             fileW.write(f"{serviceLayout}\n")
         fileW.close()
 
-    StatisticsManager.finishStatisticsUpdate()
-
 
