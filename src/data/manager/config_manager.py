@@ -22,17 +22,13 @@ class ConfigManager:
             config = json.load(configFile)
         ConfigManager.__currentConfig__ = config
 
-        # if some operation haven't stopped in the last session
-        if (not ConfigManager.__currentConfig__['UPDATE_SUCCESSFUL']):
-            raise Exception('REPAIR ALL FILES - ERROR IN LAST SESSION')
-
     @staticmethod
     def initializeUpdate():
         if (not ConfigManager.__currentConfig__):
             ConfigManager.load() # verification purposes
 
         # need to mark the flag for failure detection
-        ConfigManager.markUpdateSuccessfulFlag(UPDATE_UNSUCCESSFUL)
+        #ConfigManager.markUpdateSuccessfulFlag(UPDATE_UNSUCCESSFUL)
 
         ConfigManager.__isUpdateOngoing__ = True
         ConfigManager.__updatedConfig__ = copy.deepcopy(ConfigManager.__currentConfig__)

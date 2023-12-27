@@ -102,6 +102,7 @@ class DataCollector:
             elif self.phase == cp.CHECK_UPDATE_NEEDED:
                 TRACE('[CP] CHECKING_UPDATE_NEEDED')
                 updateNeeded = checkUpdateNeeded(self.mondayDate, self.servicesHash)
+                updateNeeded = True
                 if not updateNeeded:
                     TRACE('UPDATE_NOT_PERFORMING')
                     if (self.dropboxSynchronizationNeeded):
@@ -123,8 +124,8 @@ class DataCollector:
 
             elif self.phase == cp.DELETE_NECESSARY_DATA:
                 TRACE('[CP] DELETE_NECESSARY_DATA')
-                result = deleteNecessaryData(self.workDayLinks, self.specialDayLinks)
-                self.canUseOldWorkDayResources = result['canUseOldWorkDayResources']
+                #result = deleteNecessaryData(self.workDayLinks, self.specialDayLinks)
+                #self.canUseOldWorkDayResources = result['canUseOldWorkDayResources']
                 TRACE('Old Work Day resources enabled: ' +
                       str(self.canUseOldWorkDayResources))
                 
@@ -174,7 +175,7 @@ class DataCollector:
             elif self.phase == cp.UPLOAD_CLIENT_DATA:
                 TRACE('[CP] UPLOAD_CLIENT_DATA')
                 if (not self.skipOnlineSyncsDueToTestConfig):
-                    uploadClientData()
+                    #uploadClientData()
                     TRACE('DATA_UPLOADED_TO_GITHUB_SUCCESSFULLY')
                 else:
                     TRACE('TEST_PACK_NUM_ACTIVATED - skipping uploading client data')
@@ -182,7 +183,7 @@ class DataCollector:
             elif self.phase == cp.UPLOAD_DATA_TO_DROPBOX:
                 TRACE('[CP] UPLOAD_DATA_TO_DROPBOX')
                 if (not self.skipOnlineSyncsDueToTestConfig):
-                    uploadDataToDropbox()
+                    #uploadDataToDropbox()
                     TRACE('DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY')
                 else:
                     TRACE('TEST_PACK_NUM_ACTIVATED - skipping uploading author data')
@@ -207,7 +208,7 @@ class DataCollector:
             finishDataUpdate()
 
             if (self.dataModified):
-                updateBackupDir()
+                #updateBackupDir()
                 returnMessage['success'] = True
 
             returnMessage['finished'] = True

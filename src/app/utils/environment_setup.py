@@ -12,9 +12,6 @@ def environmentSetup():
     if (not ConfigManager.getConfig('DEBUG_LOGS')):
         TRACE('NO DEBUG LOGS')
         logging.disable(logging.DEBUG)
-    if (ConfigManager.getConfig('UPDATE_SUCCESSFUL')): # mind at ease when changing config
-        TRACE('BACKUP CONFIG UPDATED')
-        ConfigManager.updateBackupConfig()
         
     os.environ['KIVY_ORIENTATION'] = ConfigManager.getConfig('APP_ORIENTATION')
 

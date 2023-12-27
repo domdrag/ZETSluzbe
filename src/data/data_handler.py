@@ -14,16 +14,17 @@ def loadData():
 
 def updateData(outputStream):
     outputStream.message = dataCollector.STARTING_OUTPUT_MESSAGE
-    dataCollector = dataCollector.DataCollector()
+    dataCollectorObj = dataCollector.DataCollector()
     finished = False
     while not finished:
-        updateResult = dataCollector.keepCollectingData()
+        updateResult = dataCollectorObj.keepCollectingData()
         finished = updateResult['finished']
         outputStream.message = updateResult['message']
 
     return updateResult
 
 def recoverData():
-    recoverDataFromBackup()
+    #recoverDataFromBackup()
+    pass
 
 

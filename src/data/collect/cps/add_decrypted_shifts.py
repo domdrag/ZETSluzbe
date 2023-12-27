@@ -1,5 +1,7 @@
 import ast
 import os
+import zipfile
+import shutil
 
 from src.data.collect.cps.utils.get_driver_info import (
     getDriverInfo
@@ -7,6 +9,8 @@ from src.data.collect.cps.utils.get_driver_info import (
 from src.data.collect.cps.utils.get_service_layout import getServiceLayout
 from src.data.collect.cps.utils.get_service_line import getServiceLine
 from src.data.utils.get_service_date import getServiceDate
+
+ARCHIVED_DATA_PATH = 'data.zip'
 
 def configureEmptyShifts():
     return [None] * 7
@@ -58,6 +62,18 @@ def deletePreviouslyAddedShifts(filePath, numOfPreviouslyAddedShiftInsts):
         fileW.write(shifts[i])
     fileW.close()
 
+def decompressShiftsFileForOffNum(offNum):
+    servicesFileInDataPath = 'all_shifts_by_driver_decrypted/' + offNum + '.txt'
+    with zipfile.ZipFile(ARCHIVED_DATA_PATH) as dataZIP:
+        with dataZIP.open(servicesFileInDataPath) as archivedServices:
+            with open('data/data/' + servicesFileInDataPath, 'wb') as servicesFile:
+                shutil.copyfileobj(archivedServices, servicesFile)
+
+def compressShiftsFileForOffNum(offNum):
+    servicesFileInDataPath = 'all_shifts_by_driver_decrypted/' + offNum + '.txt'
+    with zipfile.ZipFile('dataUpdated.zip', 'a', zipfile.ZIP_DEFLATED) as updatedDataZIP:
+        updatedDataZIP.write('data/data/' + servicesFileInDataPath, servicesFileInDataPath)
+
 def addDecryptedShifts(days,
                        weekSchedule,
                        mondayDate,
@@ -79,6 +95,7 @@ def addDecryptedShifts(days,
     for weekServicesRaw in weekServicesALL:
         weekServices = ast.literal_eval(weekServicesRaw)
         offNum = int(weekServices[0])
+        decompressShiftsFileForOffNum(str(offNum))
         filePath = 'data/data/all_shifts_by_driver_decrypted/' \
                     + str(offNum) \
                     + '.txt'
@@ -130,3 +147,5 @@ def addDecryptedShifts(days,
                 serviceLayout.append(driverInfo[0] + '\n' + driverInfo[1])
                 fileW.write(f"{serviceLayout}\n")
         fileW.close()
+        compressShiftsFileForOffNum(str(offNum))
+        os.remove(filePath)
