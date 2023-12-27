@@ -10,7 +10,9 @@ from src.data.manager.warning_messages_manager import WarningMessagesManager
 from src.data.utils.get_service_date import getServiceDate
 from src.share.trace import TRACE
 
-ARCHIVED_DATA_PATH = 'data.zip'
+CENTRAL_DATA_DIR = 'data/data/'
+COMPRESSED_SERVICES_PATH = CENTRAL_DATA_DIR + 'services.zip'
+COMPRESSED_UPDATED_SERVICES_PATH = CENTRAL_DATA_DIR + 'updated_services.zip'
 
 def configureEmptyServices():
     return [None] * 7
@@ -46,20 +48,20 @@ def deletePreviouslyAddedServices(filePath, numOfPreviouslyAddedServices):
         fileW.write(services[i])
     fileW.close()
 
-def decompressServicesFileForOffNum(offNum):
-    servicesFileInDataPath = 'all_services_by_driver_decrypted/' + offNum + '.txt'
-    with zipfile.ZipFile(ARCHIVED_DATA_PATH) as dataZIP:
-        with dataZIP.open(servicesFileInDataPath) as archivedServices:
-            with open('data/data/' + servicesFileInDataPath, 'wb') as servicesFile:
-                shutil.copyfileobj(archivedServices, servicesFile)
+def decompressServicesFile(servicesFile):
+    with zipfile.ZipFile(COMPRESSED_SERVICES_PATH) as servicesZIP:
+        with servicesZIP.open(servicesFile) as compressedServices:
+            with open(CENTRAL_DATA_DIR + servicesFile, 'wb') as services:
+                shutil.copyfileobj(compressedServices, services)
 
-def compressServicesFileForOffNum(offNum):
-    servicesFileInDataPath = 'all_services_by_driver_decrypted/' + offNum + '.txt'
-    with zipfile.ZipFile('dataUpdated.zip', 'a', zipfile.ZIP_DEFLATED) as updatedDataZIP:
-        updatedDataZIP.write('data/data/' + servicesFileInDataPath, servicesFileInDataPath)
+def compressServicesFile(servicesFile):
+    with zipfile.ZipFile(COMPRESSED_UPDATED_SERVICES_PATH,
+                         'a',
+                         zipfile.ZIP_DEFLATED) as updatedServicesZIP:
+        updatedServicesZIP.write(CENTRAL_DATA_DIR + servicesFile, servicesFile)
 
 def addDecryptedServices(days, weekSchedule, mondayDate, fileNames):
-    zipfile.ZipFile('dataUpdated.zip', 'w', zipfile.ZIP_DEFLATED)
+    zipfile.ZipFile(COMPRESSED_UPDATED_SERVICES_PATH, 'w', zipfile.ZIP_DEFLATED)
     fileR = open('data/data/week_services_by_driver_encrypted.txt',
                  'r',
                  encoding='utf-8')
@@ -70,10 +72,9 @@ def addDecryptedServices(days, weekSchedule, mondayDate, fileNames):
     for weekServicesRaw in weekServicesALL:
         weekServices = ast.literal_eval(weekServicesRaw)
         offNum = int(weekServices[0])
-        decompressServicesFileForOffNum(str(offNum))
-        filePath = 'data/data/all_services_by_driver_decrypted/' \
-                    + str(offNum) \
-                    + '.txt'
+        servicesFile = str(offNum) + '.txt'
+        decompressServicesFile(servicesFile)
+        filePath = CENTRAL_DATA_DIR + servicesFile
 
         if (os.path.isfile(filePath)):
             validOldServicesIndexed = configureValidOldServicesIndexed(filePath,
@@ -105,7 +106,7 @@ def addDecryptedServices(days, weekSchedule, mondayDate, fileNames):
             serviceLayout = getServiceLayoutAndUpdateStats(serviceLine, serviceNum, days, i-1, str(offNum))
             fileW.write(f"{serviceLayout}\n")
         fileW.close()
-        compressServicesFileForOffNum(str(offNum))
+        compressServicesFile(filePath)
         os.remove(filePath)
 
 

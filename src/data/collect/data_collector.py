@@ -2,7 +2,6 @@ from datetime import date
 
 from src.data.collect.cps.collect_phase_enum import CollectPhaseEnum
 from src.data.collect.cps.collect_phase_enum import COLLECT_PHASE_OUTPUT_MESSAGE_MAP
-from src.data.collect.cps.dropbox_synchronizer import DropboxSynchronizer
 
 from src.data.collect.utils.setup_data import initializeDataForUpdate, finishDataUpdate
 from src.data.collect.utils.generate_URLs import generateURLs
@@ -75,21 +74,7 @@ class DataCollector:
                           'message': '',
                           'errorMessage': ''}
         try:
-            if self.phase == cp.DROPBOX_SYNCHRONIZATION:
-                TRACE('[CP] DROPBOX_SYNCHRONIZATION')
-                dropboxSynchronizer = DropboxSynchronizer()
-                self.dropboxSynchronizationNeeded = dropboxSynchronizer.isDropboxSynchronizationNeeded()
-
-                if (self.skipOnlineSyncsDueToTestConfig):
-                    TRACE('TEST_PACK_NUM_ACTIVATED - dropbox synchronization not needed')
-                elif (self.dropboxSynchronizationNeeded):
-                    TRACE('PERFORMING_DROPBOX_SYNCHRONIZATION')
-                    dropboxSynchronizer.dropbboxSynchronization()
-                    TRACE('DROPBOX_SYNCHRONIZATION_DONE')
-                else:
-                    TRACE('DROPBOX_SYNCHRONIZATION_NOT_NEEDED')
-
-            elif self.phase == cp.CONFIGURE_DAYS_AND_WEEK_SCHEDULE:
+            if self.phase == cp.CONFIGURE_DAYS_AND_WEEK_SCHEDULE:
                 TRACE('[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE')
                 result = configureDaysAndWeekSchedule(self.allServicesURL, self.weekSchedule, self.days)
                 self.mondayDate = result['mondayDate']
@@ -102,7 +87,6 @@ class DataCollector:
             elif self.phase == cp.CHECK_UPDATE_NEEDED:
                 TRACE('[CP] CHECKING_UPDATE_NEEDED')
                 updateNeeded = checkUpdateNeeded(self.mondayDate, self.servicesHash)
-                updateNeeded = True
                 if not updateNeeded:
                     TRACE('UPDATE_NOT_PERFORMING')
                     if (self.dropboxSynchronizationNeeded):
@@ -124,8 +108,8 @@ class DataCollector:
 
             elif self.phase == cp.DELETE_NECESSARY_DATA:
                 TRACE('[CP] DELETE_NECESSARY_DATA')
-                #result = deleteNecessaryData(self.workDayLinks, self.specialDayLinks)
-                #self.canUseOldWorkDayResources = result['canUseOldWorkDayResources']
+                result = deleteNecessaryData(self.workDayLinks, self.specialDayLinks)
+                self.canUseOldWorkDayResources = result['canUseOldWorkDayResources']
                 TRACE('Old Work Day resources enabled: ' +
                       str(self.canUseOldWorkDayResources))
                 
@@ -145,6 +129,9 @@ class DataCollector:
                                      self.weekSchedule,
                                      self.mondayDate,
                                      self.fileNames)
+                print('goto')
+                import time
+                time.sleep(100)
                 
             elif self.phase == cp.ADD_DECRYPTED_SHIFTS:
                 TRACE('[CP] ADD_DECRYPTED_SHIFTS')

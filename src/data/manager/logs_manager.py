@@ -1,4 +1,5 @@
 import sys
+import logging
 
 from datetime import datetime
 
@@ -25,6 +26,7 @@ class LogsManager:
 
     @staticmethod
     def beginLogging():
+        logging.disable(logging.DEBUG)
         trace.TRACE('=============')
         trace.TRACE(datetime.now())
         trace.TRACE('=============')

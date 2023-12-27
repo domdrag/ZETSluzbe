@@ -5,14 +5,7 @@ from src.share.trace import TRACE
 
 # order important
 LogsManager.beginLogging()
-
-try:
-    loadData()
-except Exception as e:
-    TRACE(e)
-    recoverData()
-    loadData()
-
+loadData()
 environmentSetup()
 
 from kivymd.app import MDApp

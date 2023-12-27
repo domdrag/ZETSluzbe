@@ -1,19 +1,19 @@
 from datetime import date
 
-from src.data.manager.config_manager import ConfigManager
+from src.data.manager.update_info_manager import UpdateInfoManager
 from src.share.trace import TRACE
 
 def checkUpdateNeeded(mondayDate, servicesHash):
-    lastRecordDateConfig = ConfigManager.getConfig('LAST_RECORD_DATE')
-    lastRecordDate = date(lastRecordDateConfig[0],
-                          lastRecordDateConfig[1],
-                          lastRecordDateConfig[2])
+    lastRecordDateList = UpdateInfoManager.getUpdateInfo('LAST_RECORD_DATE')
+    lastRecordDate = date(lastRecordDateList[0],
+                          lastRecordDateList[1],
+                          lastRecordDateList[2])
 
     if (mondayDate != lastRecordDate):
         TRACE('MONDAY_ZET_ONLINE_DIFFERENT_FROM_LAST_RECORDED_MONDAY -> UPDATE_NEEDED')
         return True
 
-    lastServicesHash = ConfigManager.getConfig('SERVICES_HASH')
+    lastServicesHash = UpdateInfoManager.getUpdateInfo('LAST_SERVICES_HASH')
     TRACE('LAST_SERVICES_HASH: ' + str(lastServicesHash))
     TRACE('NEW_SERVICES_HASH: ' + str(servicesHash))
     if (lastServicesHash != servicesHash):
