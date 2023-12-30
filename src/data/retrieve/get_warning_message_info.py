@@ -1,6 +1,6 @@
 
 def getWarningMessageInfo():
-    fileR = open('data/data/warnings.txt', 'r', encoding='utf-8')
+    fileR = open('data/central_data/warnings.txt', 'r', encoding='utf-8')
     message = fileR.read()
     fileR.close()
 

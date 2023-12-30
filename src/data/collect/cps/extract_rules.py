@@ -170,12 +170,12 @@ def duplicatesExist(container):
 #### thanks to jsvine - owner of pdfplumber
 def extractRule(typeOfDay, URL, fileName):
     try:
-        PDFFile = downloadPDFFile(URL, 'data/data/', fileName + '.pdf')
+        PDFFile = downloadPDFFile(URL, 'data/central_data/', fileName + '.pdf')
     except Exception as e:
         raise ExtractRulesCustomException(e)
 
     with pdfplumber.open(PDFFile) as PDF:
-        fileW = open('data/data/' + fileName + '.txt',
+        fileW = open('data/central_data/' + fileName + '.txt',
                      'w',
                      encoding='utf-8')
         removingColor = determineRemovingRectsColor(typeOfDay)

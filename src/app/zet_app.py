@@ -1,11 +1,10 @@
 from src.data.manager.logs_manager import LogsManager
-from src.data.data_handler import loadData, recoverData
+from src.data.data_handler import loadDataAtStartup
 from src.app.utils.environment_setup import environmentSetup
 from src.share.trace import TRACE
 
-# order important
 LogsManager.beginLogging()
-loadData()
+loadDataAtStartup()
 environmentSetup()
 
 from kivymd.app import MDApp

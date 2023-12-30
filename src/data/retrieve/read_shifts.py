@@ -7,7 +7,7 @@ from src.data.utils.get_service_date import getServiceDate
 from src.data.manager.design_manager import DesignManager
 
 def readShifts(offNum):
-    filePath = 'data/data/all_shifts_by_driver_decrypted/' + offNum + '.txt'
+    filePath = 'data/central_data/all_shifts_by_driver_decrypted/' + offNum + '.txt'
     weekServices = ''
 
     try:

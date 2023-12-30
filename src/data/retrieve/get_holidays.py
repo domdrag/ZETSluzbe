@@ -1,7 +1,7 @@
 import ast
 
 def getHolidays():
-    filePath = 'data/data/holidays.txt'
+    filePath = 'data/central_data/holidays.txt'
     
     try:
         fileR = open(filePath, 'r', encoding='utf-8')

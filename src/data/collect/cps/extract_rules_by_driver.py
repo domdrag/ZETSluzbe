@@ -10,9 +10,9 @@ def calculateHash(serviceKeys):
     return hash
 
 def extractRulesByDriverAndCalculateServicesHash():
-    PDFFile = 'data/data/tpd.pdf' # already downloaded in ConfigureDaysAndWeekSchedule cp
+    PDFFile = 'data/central_data/tpd.pdf' # already downloaded in ConfigureDaysAndWeekSchedule cp
     with pdfplumber.open(PDFFile) as PDF:
-        fileW = open('data/data/week_services_by_driver_encrypted.txt',
+        fileW = open('data/central_data/week_services_by_driver_encrypted.txt',
                      'w',
                      encoding='utf-8')
 

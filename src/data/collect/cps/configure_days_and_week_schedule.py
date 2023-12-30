@@ -45,7 +45,7 @@ def configureDays(days, mondayDate):
     return mondayDate
 
 def configureDaysAndWeekSchedule(allServicesURL, weekSchedule, days):
-    PDFFile = downloadPDFFile(allServicesURL, 'data/data/', 'tpd.pdf')
+    PDFFile = downloadPDFFile(allServicesURL, 'data/central_data/', 'tpd.pdf')
     with pdfplumber.open(PDFFile) as PDF:
         page = PDF.pages[0]
         textFirstPDF = page.extract_text()

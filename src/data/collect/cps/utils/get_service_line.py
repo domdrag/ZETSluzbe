@@ -20,19 +20,19 @@ def getServiceLine(serviceNum, dayIndex, weekSchedule, mondayDate, fileNames, en
             rangeListStartIndex = fileName.index('[')
             specificDays = ast.literal_eval(fileName[rangeListStartIndex:])
             if (day in specificDays):
-                fileNamePath =  'data/data/' + fileName + '.txt'
+                fileNamePath =  'data/central_data/' + fileName + '.txt'
                 break
 
     if (not fileNamePath):
         if (weekSchedule[dayIndex] == 'W'):
             ASSERT_THROW('rules_W' in fileNames, 'No generic rules for WorkDays generated.')
-            fileNamePath = 'data/data/rules_W.txt'
+            fileNamePath = 'data/central_data/rules_W.txt'
         elif (weekSchedule[dayIndex] == 'ST'):
             ASSERT_THROW('rules_ST' in fileNames, 'No generic rules for Saturday generated.')
-            fileNamePath = 'data/data/rules_ST.txt'
+            fileNamePath = 'data/central_data/rules_ST.txt'
         else:
             ASSERT_THROW('rules_SN' in fileNames, 'No generic rules for Sunday generated.')
-            fileNamePath = 'data/data/rules_SN.txt'
+            fileNamePath = 'data/central_data/rules_SN.txt'
 
     if (enableTraces):
         formattedDateStr = getFormattedDateStr(date)

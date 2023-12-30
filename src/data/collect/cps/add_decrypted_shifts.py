@@ -3,14 +3,14 @@ import os
 import zipfile
 import shutil
 
-from src.data.collect.cps.utils.get_driver_info import (
-    getDriverInfo
-    )
+from src.data.collect.cps.utils.get_driver_info import getDriverInfo
 from src.data.collect.cps.utils.get_service_layout import getServiceLayout
 from src.data.collect.cps.utils.get_service_line import getServiceLine
 from src.data.utils.get_service_date import getServiceDate
 
-ARCHIVED_DATA_PATH = 'data.zip'
+CENTRAL_DATA_DIR = 'data/central_data/'
+COMPRESSED_SHIFTS_PATH = CENTRAL_DATA_DIR + 'shifts.zip'
+COMPRESSED_UPDATED_SHIFTS_PATH = CENTRAL_DATA_DIR + 'updated_shifts.zip'
 
 def configureEmptyShifts():
     return [None] * 7
@@ -62,23 +62,37 @@ def deletePreviouslyAddedShifts(filePath, numOfPreviouslyAddedShiftInsts):
         fileW.write(shifts[i])
     fileW.close()
 
-def decompressShiftsFileForOffNum(offNum):
-    servicesFileInDataPath = 'all_shifts_by_driver_decrypted/' + offNum + '.txt'
-    with zipfile.ZipFile(ARCHIVED_DATA_PATH) as dataZIP:
-        with dataZIP.open(servicesFileInDataPath) as archivedServices:
-            with open('data/data/' + servicesFileInDataPath, 'wb') as servicesFile:
-                shutil.copyfileobj(archivedServices, servicesFile)
+def decompressShiftsFile(shiftsFile):
+    with zipfile.ZipFile(COMPRESSED_SHIFTS_PATH, 'r', zipfile.ZIP_DEFLATED) as shiftsZIP:
+        shiftsFiles = shiftsZIP.namelist()
+        if (shiftsFile not in shiftsFiles):
+            # new colleague detected
+            return
+        with shiftsZIP.open(shiftsFile) as compressedShifts:
+            with open(CENTRAL_DATA_DIR + shiftsFile, 'wb') as shifts:
+                shutil.copyfileobj(compressedShifts, shifts)
 
-def compressShiftsFileForOffNum(offNum):
-    servicesFileInDataPath = 'all_shifts_by_driver_decrypted/' + offNum + '.txt'
-    with zipfile.ZipFile('dataUpdated.zip', 'a', zipfile.ZIP_DEFLATED) as updatedDataZIP:
-        updatedDataZIP.write('data/data/' + servicesFileInDataPath, servicesFileInDataPath)
+def compressShiftsFile(shiftsFile):
+    with zipfile.ZipFile(COMPRESSED_UPDATED_SHIFTS_PATH,
+                         'a',
+                         zipfile.ZIP_DEFLATED) as updatedShiftsZIP:
+        updatedShiftsZIP.write(CENTRAL_DATA_DIR + shiftsFile, shiftsFile)
+
+def addOldShiftsWithNoUpdate():
+    shiftsZIP = zipfile.ZipFile(COMPRESSED_SHIFTS_PATH, 'r', zipfile.ZIP_DEFLATED)
+    updatedShiftsZIP = zipfile.ZipFile(COMPRESSED_UPDATED_SHIFTS_PATH, 'r', zipfile.ZIP_DEFLATED)
+    shiftsWithNoUpdate = set(shiftsZIP.namelist()) - set(updatedShiftsZIP.namelist())
+    for shiftsFile in shiftsWithNoUpdate:
+        decompressShiftsFile(shiftsFile)
+        compressShiftsFile(shiftsFile)
+        os.remove(CENTRAL_DATA_DIR + shiftsFile)
 
 def addDecryptedShifts(days,
                        weekSchedule,
                        mondayDate,
                        fileNames):
-    fileR = open('data/data/week_services_by_driver_encrypted.txt',
+    zipfile.ZipFile(COMPRESSED_UPDATED_SHIFTS_PATH, 'w', zipfile.ZIP_DEFLATED)
+    fileR = open('data/central_data/week_services_by_driver_encrypted.txt',
                  'r',
                  encoding='utf-8')
     weekServicesALL = fileR.readlines()
@@ -95,10 +109,10 @@ def addDecryptedShifts(days,
     for weekServicesRaw in weekServicesALL:
         weekServices = ast.literal_eval(weekServicesRaw)
         offNum = int(weekServices[0])
-        decompressShiftsFileForOffNum(str(offNum))
-        filePath = 'data/data/all_shifts_by_driver_decrypted/' \
-                    + str(offNum) \
-                    + '.txt'
+        shiftsFile = str(offNum) + '.txt'
+        decompressShiftsFile(shiftsFile)
+        filePath = CENTRAL_DATA_DIR + shiftsFile
+        newColleague = False
 
         if (os.path.isfile(filePath)):
             validOldShiftsIndexed = configureValidOldShiftsIndexed(filePath,
@@ -109,10 +123,11 @@ def addDecryptedShifts(days,
                 deletePreviouslyAddedShifts(filePath, numOfPreviouslyAddedShiftInsts)
             fileW = open(filePath, 'a', encoding='utf-8')
         else:
+            newColleague = True
             fileW = open(filePath, 'w', encoding='utf-8')
 
         for i in range(1,8):
-            if (validOldShiftsIndexed[i-1]):
+            if (not newColleague and validOldShiftsIndexed[i-1]):
                 validOldShift = validOldShiftsIndexed[i-1]
                 for shiftInstance in validOldShift:
                     # already contains newline
@@ -147,5 +162,9 @@ def addDecryptedShifts(days,
                 serviceLayout.append(driverInfo[0] + '\n' + driverInfo[1])
                 fileW.write(f"{serviceLayout}\n")
         fileW.close()
-        compressShiftsFileForOffNum(str(offNum))
+        compressShiftsFile(shiftsFile)
         os.remove(filePath)
+
+    addOldShiftsWithNoUpdate()
+    os.remove(COMPRESSED_SHIFTS_PATH)
+    os.rename(COMPRESSED_UPDATED_SHIFTS_PATH, COMPRESSED_SHIFTS_PATH)

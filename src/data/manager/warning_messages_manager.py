@@ -3,7 +3,7 @@ class WarningMessagesManager:
     __updatedWarningMessages__ = []
 
     @staticmethod
-    def initializeUpdate():
+    def load():
         WarningMessagesManager.__updatedWarningMessages__ = []
 
     @staticmethod
@@ -12,7 +12,7 @@ class WarningMessagesManager:
 
     @staticmethod
     def setWarningMessages():
-        fileW = open('data/data/warnings.txt', 'w', encoding='utf-8')
+        fileW = open('data/central_data/warnings.txt', 'w', encoding='utf-8')
         for warningMessage in WarningMessagesManager.__updatedWarningMessages__:
             fileW.write(warningMessage)
         fileW.close()

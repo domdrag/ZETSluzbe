@@ -1,38 +1,26 @@
 from datetime import date
 
-from src.data.collect.cps.collect_phase_enum import CollectPhaseEnum
-from src.data.collect.cps.collect_phase_enum import COLLECT_PHASE_OUTPUT_MESSAGE_MAP
-
-from src.data.collect.utils.setup_data import initializeDataForUpdate, finishDataUpdate
-from src.data.collect.utils.generate_URLs import generateURLs
-from src.data.collect.cps.add_decrypted_services import (
-    addDecryptedServices
-    )
-from src.data.collect.cps.add_decrypted_shifts import (
-    addDecryptedShifts
-    )
-from src.data.collect.cps.delete_necessary_data import (
-    deleteNecessaryData
-    )
-from src.data.collect.cps.search_links import searchLinks
-from src.data.collect.cps.configure_days_and_week_schedule import configureDaysAndWeekSchedule
-from src.data.collect.cps.extract_rules_by_driver import (
-    extractRulesByDriverAndCalculateServicesHash
-    )
-from src.data.collect.cps.extract_rules import extractRules
-from src.data.collect.cps.upload_data_to_dropbox import (
-    uploadDataToDropbox
-    )
-from src.data.collect.cps.check_update_neeeded import checkUpdateNeeded
-from src.data.collect.cps.prepare_data_for_transport import prepareDataForTransport
-from src.data.collect.cps.upload_client_data import uploadClientData
-from src.data.collect.cps.configure_notifications_files import configureNotificationsFiles
-from src.data.manager.backup_manager import updateBackupDir
 from src.data.manager.config_manager import ConfigManager
 from src.data.manager.warning_messages_manager import WarningMessagesManager
-import src.data.data_handler as dataHandler
+from src.data.manager.update_info_manager import UpdateInfoManager
+from src.data.collect.cps.collect_phase_enum import CollectPhaseEnum
+
+from src.data.collect.utils.generate_URLs import generateURLs
+from src.data.collect.cps.github_synchronization import githubSynchronization
+from src.data.collect.cps.add_decrypted_services import addDecryptedServices
+from src.data.collect.cps.add_decrypted_shifts import addDecryptedShifts
+from src.data.collect.cps.delete_necessary_data import deleteNecessaryData
+from src.data.collect.cps.search_links import searchLinks
+from src.data.collect.cps.configure_days_and_week_schedule import configureDaysAndWeekSchedule
+from src.data.collect.cps.extract_rules_by_driver import extractRulesByDriverAndCalculateServicesHash
+from src.data.collect.cps.extract_rules import extractRules
+from src.data.collect.cps.check_update_neeeded import checkUpdateNeeded
+from src.data.collect.cps.prepare_data_for_transport import prepareDataForTransport
+from src.data.collect.cps.upload_central_data import uploadCentralData
+from src.data.collect.cps.configure_notifications_files import configureNotificationsFiles
+
+from src.data.collect.cps.collect_phase_enum import COLLECT_PHASE_OUTPUT_MESSAGE_MAP
 from src.share.trace import TRACE
-from src.share.asserts import ASSERT_THROW
 
 cp = CollectPhaseEnum
 STARTING_OUTPUT_MESSAGE = COLLECT_PHASE_OUTPUT_MESSAGE_MAP[cp(0)]
@@ -40,25 +28,24 @@ STARTING_OUTPUT_MESSAGE = COLLECT_PHASE_OUTPUT_MESSAGE_MAP[cp(0)]
 class DataCollector:
     def __init__(self):
         TRACE('CONFIGURING_DATA_COLLECTOR')
-        initializeDataForUpdate()
+        ConfigManager.initiateDataUpdate()
 
         self.phase = cp(0)
-        self.dataModified = False
+        self.servicesHash = 0
+        self.mondayDate = date(1,1,1)
+        self.workDayLinks = []
+        self.saturdayLinks = []
+        self.sundayLinks = []
+        self.specialDayLinks = []
+        self.notificationsLinks = []
         self.days = []
-        self.workDayLinks = ''
-        self.saturdayLinks = ''
-        self.sundayLinks = ''
-        self.specialDayLinks = ''
-        self.notificationsLinks = ''
-        self.mondayDate = date(2022, 1, 1)
+        self.fileNames = []
         self.weekSchedule = ['W', 'W', 'W', 'W', 'W', 'W', 'W']
-        self.servicesHash = None
-        self.workDayFileNames = []
-        self.dropboxSynchronizationNeeded = False
         self.canUseOldWorkDayResources = False
         self.skipOnlineSyncsDueToTestConfig = False
 
         if (ConfigManager.getConfig('ACTIVATED_TEST_PACK_NUM')):
+            TRACE('ACTIVATED TEST PACK NUM: ' + str(ConfigManager.getConfig('ACTIVATED_TEST_PACK_NUM')))
             self.skipOnlineSyncsDueToTestConfig = True
 
         URLs = generateURLs()
@@ -71,10 +58,17 @@ class DataCollector:
         returnMessage = { 'success': False,
                           'error': False,
                           'finished': False,
-                          'message': '',
-                          'errorMessage': ''}
+                          'message': ''}
         try:
-            if self.phase == cp.CONFIGURE_DAYS_AND_WEEK_SCHEDULE:
+            if self.phase == cp.GITHUB_SYNCHRONIZATION:
+                TRACE('[CP] GITHUB_SYNCHRONIZATION')
+                if (not self.skipOnlineSyncsDueToTestConfig):
+                    githubSynchronization()
+                    TRACE('CENTRAL_DATA_GATHERED')
+                else:
+                    TRACE('TEST_PACK_NUM_ACTIVATED - skipping gathering central data')
+
+            elif self.phase == cp.CONFIGURE_DAYS_AND_WEEK_SCHEDULE:
                 TRACE('[CP] CONFIGURE_DAYS_AND_WEEK_SCHEDULE')
                 result = configureDaysAndWeekSchedule(self.allServicesURL, self.weekSchedule, self.days)
                 self.mondayDate = result['mondayDate']
@@ -89,13 +83,17 @@ class DataCollector:
                 updateNeeded = checkUpdateNeeded(self.mondayDate, self.servicesHash)
                 if not updateNeeded:
                     TRACE('UPDATE_NOT_PERFORMING')
-                    if (self.dropboxSynchronizationNeeded):
-                        self.dataModified = True
-
                     self.phase = cp.END
-
                 else:
                     TRACE('PERFORMING_UPDATE')
+                    mondayDateList = [self.mondayDate.year,
+                                      self.mondayDate.month,
+                                      self.mondayDate.day]
+                    UpdateInfoManager.pushNewUpdateInfo(mondayDateList, self.servicesHash)
+
+            #########################################################################
+            #########################################################################
+            #########################################################################
 
             elif self.phase == cp.SEARCH_LINKS:
                 TRACE('[CP] SEARCH_LINKS')
@@ -129,9 +127,6 @@ class DataCollector:
                                      self.weekSchedule,
                                      self.mondayDate,
                                      self.fileNames)
-                print('goto')
-                import time
-                time.sleep(100)
                 
             elif self.phase == cp.ADD_DECRYPTED_SHIFTS:
                 TRACE('[CP] ADD_DECRYPTED_SHIFTS')
@@ -144,61 +139,41 @@ class DataCollector:
                 TRACE('[CP] CONFIGURE_NOTIFICATION_FILES')
                 configureNotificationsFiles(self.notificationsLinks)
 
-            # NEXT ORDER EXPLANATION: in case anything fails, we must have
-            # have a backup ready -> last step must be updating the backup.
-            elif self.phase == cp.SET_NEW_CONFIG_AND_WARNINGS:
-                TRACE('[CP] SET_NEW_CONFIG_AND_WARNINGS')
-                mondayDateList = [self.mondayDate.year,
-                                  self.mondayDate.month,
-                                  self.mondayDate.day]
-                ConfigManager.updateConfig('LAST_RECORD_DATE', mondayDateList)
-                ConfigManager.updateConfig('SERVICES_HASH', self.servicesHash)
+            elif self.phase == cp.SET_NEW_WARNINGS:
+                TRACE('[CP] SET_NEW_WARNINGS')
                 WarningMessagesManager.setWarningMessages()
 
             elif self.phase == cp.PREPARE_DATA_FOR_TRANSPORT:
                 TRACE('[CP] PREPARE_DATA_FOR_TRANSPORT')
                 prepareDataForTransport()
 
-            elif self.phase == cp.UPLOAD_CLIENT_DATA:
-                TRACE('[CP] UPLOAD_CLIENT_DATA')
+            elif self.phase == cp.UPLOAD_CENTRAL_DATA:
+                TRACE('[CP] UPLOAD_DATA')
                 if (not self.skipOnlineSyncsDueToTestConfig):
-                    #uploadClientData()
-                    TRACE('DATA_UPLOADED_TO_GITHUB_SUCCESSFULLY')
+                    uploadCentralData()
+                    TRACE('DATA_UPLOADED_SUCCESSFULLY')
                 else:
                     TRACE('TEST_PACK_NUM_ACTIVATED - skipping uploading client data')
 
-            elif self.phase == cp.UPLOAD_DATA_TO_DROPBOX:
-                TRACE('[CP] UPLOAD_DATA_TO_DROPBOX')
-                if (not self.skipOnlineSyncsDueToTestConfig):
-                    #uploadDataToDropbox()
-                    TRACE('DATA_UPLOADED_TO_DROPBOX_SUCCESSFULLY')
-                else:
-                    TRACE('TEST_PACK_NUM_ACTIVATED - skipping uploading author data')
-                self.dataModified = True
+            #########################################################################
+            #########################################################################
+            #########################################################################
+
+            if (self.phase != cp.END):
+                self.phase = cp(self.phase.value + 1)
+                returnMessage['message'] = COLLECT_PHASE_OUTPUT_MESSAGE_MAP[self.phase]
+
+            if (self.phase == cp.END):
+                returnMessage['finished'] = True
+                returnMessage['success'] = UpdateInfoManager.isDataUpdated()
+                ConfigManager.completeDataRecovery()
                 
         except Exception as e:
             TRACE(e)
-            dataHandler.recoverData()
-            ConfigManager.abandonUpdate()
 
             return {'success': False,
                     'error': True,
                     'finished': True,
-                    'message': 'GRESKA! Popravljanje dokumenata..\n',
-                    'errorMessage': str(e)}
-
-        if (self.phase != cp.END):
-            self.phase = cp(self.phase.value + 1)
-            returnMessage['message'] = COLLECT_PHASE_OUTPUT_MESSAGE_MAP[self.phase]
-
-        if (self.phase == cp.END):
-            finishDataUpdate()
-
-            if (self.dataModified):
-                #updateBackupDir()
-                returnMessage['success'] = True
-
-            returnMessage['finished'] = True
-            TRACE('SERVICES_UPDATE_FINISHED_SUCCESSFULLY')
+                    'message': 'GRESKA! Popravljanje dokumenata'}
 
         return returnMessage

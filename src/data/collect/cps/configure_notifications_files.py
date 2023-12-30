@@ -6,7 +6,7 @@ from src.data.manager.notifications_manager import setNotifications
 from src.data.collect.cps.utils.download_pdf_file import downloadPDFFile
 
 GENERATED_IMAGE_RESOLUTION = 300
-NOTIFICATIONS_FILES_PATH = 'data/data/notificationsFiles/'
+NOTIFICATIONS_FILES_PATH = 'data/central_data/notifications_files/'
 
 def clearNotificationsFilesDir():
     if (os.path.isdir(NOTIFICATIONS_FILES_PATH)):

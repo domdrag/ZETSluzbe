@@ -1,43 +1,44 @@
-import os
-import shutil
-
-from src.data.manager.design_manager import DesignManager
-from src.data.manager.statistics_manager import StatisticsManager
+from src.data.collect.data_collector import DataCollector, STARTING_OUTPUT_MESSAGE
 from src.data.manager.config_manager import ConfigManager
-from src.data.manager.update_info_manager import UpdateInfoManager
-import src.data.collect.data_collector as dataCollector
 
-from src.data.utils.gather_central_data import gatherCentralData
-from src.data.manager.backup_manager import recoverDataFromBackup
+from src.data.utils.gather_remote_central_data import gatherRemoteCentralData
+from src.data.utils.load_data_util import loadBasicData, loadCentralData
+
 from src.share.trace import TRACE
 
-CENTRAL_DATA_DIR = 'data/data'
-
-def loadData():
-    ConfigManager.load()
-    DesignManager.load()
-
-    if (os.path.isdir(CENTRAL_DATA_DIR)):
-        shutil.rmtree(CENTRAL_DATA_DIR)
-    gatherCentralData()
-
-    StatisticsManager.load()
-    UpdateInfoManager.load()
+def loadDataAtStartup():
+    loadBasicData()
+    if (ConfigManager.dataCorrupted()):
+        TRACE('ERROR IN LAST UPDATE - REPAIRING CENTRAL DATA')
+        recoverData()
+    loadCentralData()
     TRACE('DATA LOADED')
 
 def updateData(outputStream):
-    outputStream.message = dataCollector.STARTING_OUTPUT_MESSAGE
-    dataCollectorObj = dataCollector.DataCollector()
-    finished = False
-    while not finished:
-        updateResult = dataCollectorObj.keepCollectingData()
+    outputStream.message = STARTING_OUTPUT_MESSAGE
+    dataCollector = DataCollector()
+    updateResult = {'finished': False}
+    while not updateResult['finished']:
+        updateResult = dataCollector.keepCollectingData()
         finished = updateResult['finished']
         outputStream.message = updateResult['message']
 
+    if (updateResult['error']):
+        recoverData()
+    else:
+        TRACE('DATA UPDATE FINISHED SUCCESSFULLY')
+
+    loadCentralData()
     return updateResult
 
 def recoverData():
-    #recoverDataFromBackup()
-    pass
-
+    TRACE('RECOVERING CENTRAL DATA')
+    try:
+        ConfigManager.initiateDataRecovery()
+        gatherRemoteCentralData()
+        ConfigManager.completeDataRecovery()
+    except Exception as e:
+        TRACE(e)
+        raise Exception('Recovering data failed')
+    TRACE('CENTRAL DATA RECOVERED')
 

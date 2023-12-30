@@ -10,7 +10,7 @@ from src.data.manager.warning_messages_manager import WarningMessagesManager
 from src.data.utils.get_service_date import getServiceDate
 from src.share.trace import TRACE
 
-CENTRAL_DATA_DIR = 'data/data/'
+CENTRAL_DATA_DIR = 'data/central_data/'
 COMPRESSED_SERVICES_PATH = CENTRAL_DATA_DIR + 'services.zip'
 COMPRESSED_UPDATED_SERVICES_PATH = CENTRAL_DATA_DIR + 'updated_services.zip'
 
@@ -49,7 +49,11 @@ def deletePreviouslyAddedServices(filePath, numOfPreviouslyAddedServices):
     fileW.close()
 
 def decompressServicesFile(servicesFile):
-    with zipfile.ZipFile(COMPRESSED_SERVICES_PATH) as servicesZIP:
+    with zipfile.ZipFile(COMPRESSED_SERVICES_PATH, 'r', zipfile.ZIP_DEFLATED) as servicesZIP:
+        servicesFiles = servicesZIP.namelist()
+        if (servicesFile not in servicesFiles):
+            # new colleague detected
+            return
         with servicesZIP.open(servicesFile) as compressedServices:
             with open(CENTRAL_DATA_DIR + servicesFile, 'wb') as services:
                 shutil.copyfileobj(compressedServices, services)
@@ -60,9 +64,18 @@ def compressServicesFile(servicesFile):
                          zipfile.ZIP_DEFLATED) as updatedServicesZIP:
         updatedServicesZIP.write(CENTRAL_DATA_DIR + servicesFile, servicesFile)
 
+def addOldServicesWithNoUpdate():
+    servicesZIP = zipfile.ZipFile(COMPRESSED_SERVICES_PATH, 'r', zipfile.ZIP_DEFLATED)
+    updatedServicesZIP = zipfile.ZipFile(COMPRESSED_UPDATED_SERVICES_PATH, 'r', zipfile.ZIP_DEFLATED)
+    servicesWithNoUpdate = set(servicesZIP.namelist()) - set(updatedServicesZIP.namelist())
+    for serviceFile in servicesWithNoUpdate:
+        decompressServicesFile(serviceFile)
+        compressServicesFile(serviceFile)
+        os.remove(CENTRAL_DATA_DIR + serviceFile)
+
 def addDecryptedServices(days, weekSchedule, mondayDate, fileNames):
     zipfile.ZipFile(COMPRESSED_UPDATED_SERVICES_PATH, 'w', zipfile.ZIP_DEFLATED)
-    fileR = open('data/data/week_services_by_driver_encrypted.txt',
+    fileR = open('data/central_data/week_services_by_driver_encrypted.txt',
                  'r',
                  encoding='utf-8')
     weekServicesALL = fileR.readlines()
@@ -75,6 +88,7 @@ def addDecryptedServices(days, weekSchedule, mondayDate, fileNames):
         servicesFile = str(offNum) + '.txt'
         decompressServicesFile(servicesFile)
         filePath = CENTRAL_DATA_DIR + servicesFile
+        newColleague = False
 
         if (os.path.isfile(filePath)):
             validOldServicesIndexed = configureValidOldServicesIndexed(filePath,
@@ -86,10 +100,11 @@ def addDecryptedServices(days, weekSchedule, mondayDate, fileNames):
             fileW = open(filePath, 'a', encoding='utf-8')
         else:
             TRACE('New official number (new colleague) detected. OffNum: ' + str(offNum))
+            newColleague = True
             fileW = open(filePath, 'w', encoding='utf-8')
 
         for i in range(1,8):
-            if (validOldServicesIndexed[i-1]):
+            if (not newColleague and validOldServicesIndexed[i-1]):
                 # already contains newline
                 fileW.write(validOldServicesIndexed[i-1])
                 continue
@@ -106,8 +121,12 @@ def addDecryptedServices(days, weekSchedule, mondayDate, fileNames):
             serviceLayout = getServiceLayoutAndUpdateStats(serviceLine, serviceNum, days, i-1, str(offNum))
             fileW.write(f"{serviceLayout}\n")
         fileW.close()
-        compressServicesFile(filePath)
+        compressServicesFile(servicesFile)
         os.remove(filePath)
 
+    addOldServicesWithNoUpdate()
+    os.remove(COMPRESSED_SERVICES_PATH)
+    os.rename(COMPRESSED_UPDATED_SERVICES_PATH, COMPRESSED_SERVICES_PATH)
+    StatisticsManager.finishUpdate()
 
 

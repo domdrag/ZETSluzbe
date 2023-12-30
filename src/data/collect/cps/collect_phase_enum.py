@@ -1,22 +1,23 @@
 from enum import Enum
 
 class CollectPhaseEnum(Enum):
-    CONFIGURE_DAYS_AND_WEEK_SCHEDULE = 0
-    EXTRACT_RULES_BY_DRIVER = 1
-    CHECK_UPDATE_NEEDED = 2
-    SEARCH_LINKS = 3
-    DELETE_NECESSARY_DATA = 4
-    EXTRACT_RULES = 5
-    ADD_DECRYPTED_SERVICES = 6
-    ADD_DECRYPTED_SHIFTS = 7
-    CONFIGURE_NOTIFICATION_FILES = 8
-    SET_NEW_CONFIG_AND_WARNINGS = 9
-    PREPARE_DATA_FOR_TRANSPORT = 10
-    UPLOAD_CLIENT_DATA = 11
-    UPLOAD_DATA_TO_DROPBOX = 12
+    GITHUB_SYNCHRONIZATION = 0
+    CONFIGURE_DAYS_AND_WEEK_SCHEDULE = 1
+    EXTRACT_RULES_BY_DRIVER = 2
+    CHECK_UPDATE_NEEDED = 3
+    SEARCH_LINKS = 4
+    DELETE_NECESSARY_DATA = 5
+    EXTRACT_RULES = 6
+    ADD_DECRYPTED_SERVICES = 7
+    ADD_DECRYPTED_SHIFTS = 8
+    CONFIGURE_NOTIFICATION_FILES = 9
+    SET_NEW_WARNINGS = 10
+    PREPARE_DATA_FOR_TRANSPORT = 11
+    UPLOAD_CENTRAL_DATA = 12
     END = 13
 
 COLLECT_PHASE_OUTPUT_MESSAGE_MAP = {
+    CollectPhaseEnum.GITHUB_SYNCHRONIZATION: 'GitHub sinkronizacija',
     CollectPhaseEnum.CONFIGURE_DAYS_AND_WEEK_SCHEDULE: 'Konfiguracija dana i tjednog rasporeda',
     CollectPhaseEnum.EXTRACT_RULES_BY_DRIVER: 'Citanje tjednih sluzbi',
     CollectPhaseEnum.CHECK_UPDATE_NEEDED: 'Odredivanje potrebe azuriranja',
@@ -26,10 +27,9 @@ COLLECT_PHASE_OUTPUT_MESSAGE_MAP = {
     CollectPhaseEnum.ADD_DECRYPTED_SERVICES: 'Spremanje tjednih sluzbi',
     CollectPhaseEnum.ADD_DECRYPTED_SHIFTS: 'Spremanje tjednih smjena',
     CollectPhaseEnum.CONFIGURE_NOTIFICATION_FILES: 'Konfiguracija notifikacija',
-    CollectPhaseEnum.SET_NEW_CONFIG_AND_WARNINGS: 'Spremanje nove konfiguracije',
+    CollectPhaseEnum.SET_NEW_WARNINGS: 'Spremanje novih informacija',
     CollectPhaseEnum.PREPARE_DATA_FOR_TRANSPORT: 'Pripremanje podataka za transport',
-    CollectPhaseEnum.UPLOAD_CLIENT_DATA: 'Ucitavanje sluzbi na Github',
-    CollectPhaseEnum.UPLOAD_DATA_TO_DROPBOX: 'Ucitavanje sluzbi na Dropbox',
+    CollectPhaseEnum.UPLOAD_CENTRAL_DATA: 'Prijenos podataka na GitHub',
     CollectPhaseEnum.END: 'Sluzbe azurirane!'
 }
 

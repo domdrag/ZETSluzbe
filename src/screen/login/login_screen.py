@@ -1,3 +1,5 @@
+import sys
+
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import Screen
 from kivy.properties import (ObjectProperty,
@@ -84,25 +86,33 @@ class LoginScreen(Screen):
 
     @dataCollectionThreadWrapper
     def update(self):
-        updateResult = updateData(self.updateDialog)
+        try:
+            updateResult = updateData(self.updateDialog)
+        except Exception as e:
+            # Recovering data raised exception -> exit thread which will keep main thread freezed
+            # since updateDialog can't be dismissed by user
+            TRACE(e)
+            self.updateDialog.text = 'Neuspjeh kod popravka podataka. Ugasiti program!'
+            self.updateDialog.dotsTimer.cancel()
+            return
+
         self.updateDialog.dotsTimer.cancel()
 
         success = updateResult['success']
         error = updateResult['error']
-        errorMessage = updateResult['errorMessage']
         
         if success:
             self.setWarningMessage()
             self.updateDialog.text = 'Sluzbe azurirane!'
             
         elif error:
-            self.updateDialog.text = 'GRESKA! Dokumenti popravljeni.\n' \
-                                    + errorMessage
+            self.updateDialog.text = 'GRESKA! Dokumenti popravljeni.'
         else:
             self.setWarningMessage()
             self.updateDialog.text = 'Sluzbe jos nisu izasle!'
 
         self.updateDialog.auto_dismiss = True
+
 
 
 

@@ -3,7 +3,7 @@ import copy
 
 from src.data.manager.utils.statistics_manager_util import *
 
-STATISTICS_FILE_PATH = 'data/data/statistics.json'
+STATISTICS_FILE_PATH = 'data/central_data/statistics.json'
 
 class StatisticsManager:
     __currentStatistics__ = dict()
@@ -13,11 +13,6 @@ class StatisticsManager:
     def load():
         with open(STATISTICS_FILE_PATH, 'r', encoding='utf-8') as statisticsFile:
             StatisticsManager.__currentStatistics__ = json.load(statisticsFile)
-
-    @staticmethod
-    def initializeUpdate():
-        if (not StatisticsManager.__currentStatistics__):
-            StatisticsManager.load() # verification purposes
         StatisticsManager.__updatedStatistics__ = copy.deepcopy(StatisticsManager.__currentStatistics__)
 
     @staticmethod
@@ -42,7 +37,6 @@ class StatisticsManager:
         updatedStatistics = StatisticsManager.__updatedStatistics__
         with open(STATISTICS_FILE_PATH, 'w', encoding='utf-8') as statisticsFile:
             json.dump(updatedStatistics, statisticsFile, indent=3)
-        StatisticsManager.__currentStatistics__ = copy.deepcopy(StatisticsManager.__updatedStatistics__)
 
     @staticmethod
     def updateStatistics(offNum, month, hourlyRateStats, driveOrder, receptionPoint, releasePoint):

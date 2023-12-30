@@ -9,13 +9,17 @@ class DesignManager:
 
     @staticmethod
     def load():
+        # __colorsImpl__ require kivy so the load is postponed
         with open(DESIGN_FILE_PATH, 'r') as designFile:
             DesignManager.__design__ = json.load(designFile)
         DesignManager.__customColors__ = DesignManager.__design__['CUSTOM_COLORS']
 
-        # import problematic for kivy loggings in env. setup (needs to be postponed)
-        import kivymd.color_definitions as kivyColors
-        DesignManager.__colorsImpl__ = kivyColors.colors
+    @staticmethod
+    def getColors():
+        if (not DesignManager.__colorsImpl__):
+            import kivymd.color_definitions as kivyColors
+            DesignManager.__colorsImpl__ = kivyColors.colors
+        return DesignManager.__colorsImpl__
 
     @staticmethod
     def getLoginScreenFontSize():
@@ -46,18 +50,14 @@ class DesignManager:
             json.dump(DesignManager.__design__, designFile, indent=3)
 
     @staticmethod
-    def getColors():
-        return DesignManager.__colorsImpl__
-
-    @staticmethod
     def getPrimaryColor():
-        colorsImpl = DesignManager.__colorsImpl__
+        colorsImpl = getColors()
         customColors = DesignManager.__customColors__
         return colorsImpl[customColors['PRIMARY_COLOR']][customColors['DARK_HUE']]
 
     @staticmethod
     def getPrimaryColorLight():
-        colorsImpl = DesignManager.__colorsImpl__
+        colorsImpl = getColors()
         customColors = DesignManager.__customColors__
         return colorsImpl[customColors['PRIMARY_COLOR']][customColors['MAIN_HUE']]
 
@@ -67,7 +67,7 @@ class DesignManager:
 
     @staticmethod
     def getSecondaryColor():
-        colorsImpl = DesignManager.__colorsImpl__
+        colorsImpl = getColors()
         customColors = DesignManager.__customColors__
         return colorsImpl[customColors['SECONDARY_COLOR']][customColors['DARK_HUE']]
 
@@ -77,25 +77,25 @@ class DesignManager:
 
     @staticmethod
     def getServiceColor():
-        colorsImpl = DesignManager.__colorsImpl__
+        colorsImpl = getColors()
         customColors = DesignManager.__customColors__
         return colorsImpl[customColors['SERVICE_COLOR']][customColors['DARK_HUE']]
 
     @staticmethod
     def getShiftColor():
-        colorsImpl = DesignManager.__colorsImpl__
+        colorsImpl = getColors()
         customColors = DesignManager.__customColors__
         return colorsImpl[customColors['SHIFT_COLOR']][customColors['DARK_HUE']]
 
     @staticmethod
     def getFreeDayColor():
-        colorsImpl = DesignManager.__colorsImpl__
+        colorsImpl = getColors()
         customColors = DesignManager.__customColors__
         return colorsImpl[customColors['FREE_DAY_COLOR']][customColors['MAIN_HUE']]
 
     @staticmethod
     def getErrorColor():
-        colorsImpl = DesignManager.__colorsImpl__
+        colorsImpl = getColors()
         customColors = DesignManager.__customColors__
         return colorsImpl[customColors['ERROR_COLOR']][customColors['DARK_HUE']]
 

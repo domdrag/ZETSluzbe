@@ -7,7 +7,7 @@ from src.data.manager.design_manager import DesignManager
 
 
 def readServices(offNum):
-    filePath = 'data/data/all_services_by_driver_decrypted/' + offNum + '.txt'
+    filePath = 'data/central_data/all_services_by_driver_decrypted/' + offNum + '.txt'
     weekServices = ''
     
     try:

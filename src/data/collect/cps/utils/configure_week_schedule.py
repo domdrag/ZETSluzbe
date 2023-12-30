@@ -57,7 +57,7 @@ def checkForUnmarkedNonWorkingDayOnDaysRow(chars, rects, idxLast):
                 return
 
 def addHolidays(firstStageHolidayList):
-    fileA = open('data/data/holidays.txt', 'a', encoding='utf-8')
+    fileA = open('data/central_data/holidays.txt', 'a', encoding='utf-8')
     for holiday in firstStageHolidayList:
         year = holiday.year
         month = holiday.month
