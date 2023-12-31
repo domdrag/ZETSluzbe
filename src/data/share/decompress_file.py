@@ -9,7 +9,6 @@ def decompressServicesFile(servicesFile):
     with zipfile.ZipFile(COMPRESSED_SERVICES_PATH, 'r', zipfile.ZIP_DEFLATED) as servicesZIP:
         servicesFiles = servicesZIP.namelist()
         if (servicesFile not in servicesFiles):
-            # new colleague detected when adding services
             return
         with servicesZIP.open(servicesFile) as compressedServices:
             with open(CENTRAL_DATA_DIR + servicesFile, 'wb') as services:
@@ -19,7 +18,6 @@ def decompressShiftsFile(shiftsFile):
     with zipfile.ZipFile(COMPRESSED_SHIFTS_PATH, 'r', zipfile.ZIP_DEFLATED) as shiftsZIP:
         shiftsFiles = shiftsZIP.namelist()
         if (shiftsFile not in shiftsFiles):
-            # new colleague detected
             return
         with shiftsZIP.open(shiftsFile) as compressedShifts:
             with open(CENTRAL_DATA_DIR + shiftsFile, 'wb') as shifts:

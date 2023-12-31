@@ -18,7 +18,6 @@ class ZETScreenManager(ScreenManager):
 
     def switchToMainScreen(self, offNum):
         self.mainScreen.setup(offNum)
-
         if self.current == 'loginScreen':
             self.transition.direction = 'down'
         else:

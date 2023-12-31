@@ -54,5 +54,6 @@ def configureDaysAndWeekSchedule(allServicesURL, weekSchedule, days):
     configureDays(days, mondayDate)
     configureWeekSchedule(page, weekSchedule, mondayDate)
     TRACE('Configured week schedule: ' + str(weekSchedule))
+    TRACE('----------------------------------------')
     return {'mondayDate': mondayDate}
 

@@ -5,8 +5,9 @@ from datetime import date, timedelta
 from src.data.retrieve.get_holidays import getHolidays
 from src.data.manager.warning_messages_manager import WarningMessagesManager
 from src.share.trace import TRACE
+from src.share.asserts import ASSERT_NO_THROW
 
-X_COORDINATE_UNMARKED_DAY_CHECK_THRESHOLD = 300
+MAX_X_COORD_CHARS_GAP = 0.1
 
 def getAllRectsInsideChar(char, rects):
     charTop = char['top']
@@ -35,26 +36,6 @@ def charsRepresentDays(chars, idx):
         return True
     else:
         return False
-
-# should only matter when holiday falls on Saturday which remains green on top
-# haven't found a way to check which dayweek so not updating weekSchedule;
-# only checking for tracing -> author. That's why we immediately return.
-def checkForUnmarkedNonWorkingDayOnDaysRow(chars, rects, idxLast):
-    # start checking after found days on the right table
-    while (not charsRepresentDays(chars, idxLast)):
-        idxLast = idxLast + 1
-
-    idxLast = idxLast + 7
-    for idx in range(idxLast, X_COORDINATE_UNMARKED_DAY_CHECK_THRESHOLD):
-        insideRects = getAllRectsInsideChar(chars[idx], rects)
-        for insideRect in insideRects:
-            color = insideRect['non_stroking_color']
-            if color[1] >= 0.9 and color != (1, 1, 1):  # green
-                TRACE('Found green cell for holiday/nonWorkingDay which is not marked on days-row.')
-                return
-            elif color[0] >= 0.9 and color != (1, 1, 1):  # red
-                TRACE('Found red cell for holiday/nonWorkingDay which is not marked on days-row.')
-                return
 
 def addHolidays(firstStageHolidayList):
     fileA = open('data/central_data/holidays.txt', 'a', encoding='utf-8')
@@ -86,21 +67,60 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
     # check colors
     for idx in range(len(chars)):
         if charsRepresentDays(chars, idx):
+            # days row check
+            TRACE('----------------------------------------')
             for day in range(0,7):
                 insideRects = getAllRectsInsideChar(chars[idx + day], rects)
                 for insideRect in insideRects:
                     color = insideRect['non_stroking_color']
                     if color[1] >= 0.9 and color != (1, 1, 1):  # green
-                        TRACE('Found green cell on days-row.')
+                        TRACE('Found ' + days[day] + ' as green cell on days-row.')
                         nonWorkingDays[days[day]] = 'Subota'
                         weekSchedule[day] = 'ST'
                         break
                     elif color[0] >= 0.9 and color != (1, 1, 1):  # red
-                        TRACE('Found red cell on days-row.')
+                        TRACE('Found ' + days[day] + ' as red cell on days-row.')
                         nonWorkingDays[days[day]] = 'Nedjelja'
                         weekSchedule[day] = 'SN'
                         break
-                        
+
+            # below days row check, skip table on the right first
+            idx += 1 # chars no longer represent days
+            while (not charsRepresentDays(chars, idx)):
+                idx = idx + 1 # aiming for days row on table on the right
+            idx += 7 # reach uncolored day-numbers on table on the left
+            while (not (chars[idx]['text']).isalpha()):
+                idx = idx + 1 # aiming for first service
+
+            TRACE('----------------------------------------')
+            for day in range(0, 7):
+                insideRects = getAllRectsInsideChar(chars[idx + day], rects)
+                for insideRect in insideRects:
+                    color = insideRect['non_stroking_color']
+                    unMatchingColorsMessage = 'COLORS MISMATCH BETWEEN DAYS-ROW AND FIRST-SERVICES-ROW FOR '
+                    if color[1] >= 0.9 and color != (1, 1, 1):  # green
+                        TRACE('Found ' + days[day] + ' as green cell on first-services-row.')
+                        if (nonWorkingDays[days[day]] != 'Subota'):
+                            plausibleErrorOccured = True
+                            checkedDay = str(days[day])
+                            TRACE('COLORS MISMATCH BETWEEN DAYS-ROW AND FIRST-SERVICES-ROW FOR ' + checkedDay)
+                            nonWorkingDays[days[day]] = 'Subota'
+                            weekSchedule[day] = 'ST'
+                        break
+                    elif color[0] >= 0.9 and color != (1, 1, 1):  # red
+                        TRACE('Found ' + days[day] + ' as red cell on first-services-row.')
+                        if (nonWorkingDays[days[day]] != 'Nedjelja'):
+                            plausibleErrorOccured = True
+                            checkedDay = str(days[day])
+                            TRACE('COLORS MISMATCH BETWEEN DAYS-ROW AND FIRST-SERVICES-ROW FOR ' + checkedDay)
+                            nonWorkingDays[days[day]] = 'Nedjelja'
+                            weekSchedule[day] = 'SN'
+                        break
+
+                while (chars[idx + day]['x1'] + MAX_X_COORD_CHARS_GAP >= chars[idx + 1 + day]['x0']):
+                    idx = idx + 1
+            TRACE('----------------------------------------')
+
             if 'Subota' not in nonWorkingDays:
                 # Saturday is not green nor red
                 TRACE('Saturday not marked green nor red on days-row.')
@@ -116,7 +136,6 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
             else:
                 del nonWorkingDays['Nedjelja']
 
-            checkForUnmarkedNonWorkingDayOnDaysRow(chars, rects, idx + 7)
             break
 
     nonDefaultDays = nonWorkingDays

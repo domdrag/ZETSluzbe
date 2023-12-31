@@ -7,6 +7,7 @@ from src.data.collect.cps.utils.get_driver_info import getDriverInfo
 from src.data.collect.cps.utils.get_service_layout import getServiceLayout
 from src.data.collect.cps.utils.get_service_line import getServiceLine
 from src.data.utils.get_service_date import getServiceDate
+from src.data.share.decompress_file import decompressShiftsFile
 
 CENTRAL_DATA_DIR = 'data/central_data/'
 COMPRESSED_SHIFTS_PATH = CENTRAL_DATA_DIR + 'shifts.zip'
@@ -61,16 +62,6 @@ def deletePreviouslyAddedShifts(filePath, numOfPreviouslyAddedShiftInsts):
     for i in range(numOfKeptShifts):
         fileW.write(shifts[i])
     fileW.close()
-
-def decompressShiftsFile(shiftsFile):
-    with zipfile.ZipFile(COMPRESSED_SHIFTS_PATH, 'r', zipfile.ZIP_DEFLATED) as shiftsZIP:
-        shiftsFiles = shiftsZIP.namelist()
-        if (shiftsFile not in shiftsFiles):
-            # new colleague detected
-            return
-        with shiftsZIP.open(shiftsFile) as compressedShifts:
-            with open(CENTRAL_DATA_DIR + shiftsFile, 'wb') as shifts:
-                shutil.copyfileobj(compressedShifts, shifts)
 
 def compressShiftsFile(shiftsFile):
     with zipfile.ZipFile(COMPRESSED_UPDATED_SHIFTS_PATH,

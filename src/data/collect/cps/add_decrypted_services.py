@@ -8,6 +8,7 @@ from src.data.collect.cps.utils.get_service_line import getServiceLine
 from src.data.manager.statistics_manager import StatisticsManager
 from src.data.manager.warning_messages_manager import WarningMessagesManager
 from src.data.utils.get_service_date import getServiceDate
+from src.data.share.decompress_file import decompressServicesFile
 from src.share.trace import TRACE
 
 CENTRAL_DATA_DIR = 'data/central_data/'
@@ -47,16 +48,6 @@ def deletePreviouslyAddedServices(filePath, numOfPreviouslyAddedServices):
     for i in range(numOfKeptServices):
         fileW.write(services[i])
     fileW.close()
-
-def decompressServicesFile(servicesFile):
-    with zipfile.ZipFile(COMPRESSED_SERVICES_PATH, 'r', zipfile.ZIP_DEFLATED) as servicesZIP:
-        servicesFiles = servicesZIP.namelist()
-        if (servicesFile not in servicesFiles):
-            # new colleague detected
-            return
-        with servicesZIP.open(servicesFile) as compressedServices:
-            with open(CENTRAL_DATA_DIR + servicesFile, 'wb') as services:
-                shutil.copyfileobj(compressedServices, services)
 
 def compressServicesFile(servicesFile):
     with zipfile.ZipFile(COMPRESSED_UPDATED_SERVICES_PATH,
