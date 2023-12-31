@@ -153,7 +153,7 @@ class DataCollector:
                     uploadCentralData()
                     TRACE('DATA_UPLOADED_SUCCESSFULLY')
                 else:
-                    TRACE('TEST_PACK_NUM_ACTIVATED - skipping uploading client data')
+                    TRACE('TEST_PACK_NUM_ACTIVATED - skipping uploading central data')
 
             #########################################################################
             #########################################################################

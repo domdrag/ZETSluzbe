@@ -6,7 +6,7 @@ from src.data.manager.config_manager import ConfigManager
 from src.share.trace import TRACE
 from src.share.asserts import ASSERT_THROW
 
-URL = 'https://api.github.com/repos/domdrag/ZETSluzbe-Client-Data/contents/central_data.zip'
+URL = 'https://api.github.com/repos/domdrag/ZETSluzbe-Central-Data/contents/central_data.zip'
 
 def uploadCentralData():
     headers = CaseInsensitiveDict()
@@ -23,7 +23,7 @@ def uploadCentralData():
             oldDataFileSHA = (responseGET.json())['sha']
 
             messageContent = {
-                'message': 'Uploading client data',
+                'message': 'Uploading central data',
                 'content': base64.b64encode(data).decode(),
                 'branch': 'main',
                 'sha': oldDataFileSHA
