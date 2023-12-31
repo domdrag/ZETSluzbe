@@ -47,6 +47,8 @@ def decompressCentralData():
 def gatherRemoteCentralData():
     if (os.path.isdir(CENTRAL_DATA_DIR)):
         shutil.rmtree(CENTRAL_DATA_DIR)
+    if (os.path.isfile(COMPRESSED_CENTRAL_DATA_PATH)):
+        os.remove(COMPRESSED_CENTRAL_DATA_PATH)
 
     downloadCentralData()
     decompressCentralData()

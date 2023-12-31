@@ -1,20 +1,32 @@
 import ast
+import os
 
-from src.data.retrieve.utils.check_service_date_validity import (
-    checkServiceDateValidity
-    )
-from src.data.utils.get_service_date import getServiceDate
 from src.data.manager.design_manager import DesignManager
 
-def readShifts(offNum):
-    filePath = 'data/central_data/all_shifts_by_driver_decrypted/' + offNum + '.txt'
-    weekServices = ''
+from src.data.retrieve.utils.check_service_date_validity import checkServiceDateValidity
+from src.data.utils.get_service_date import getServiceDate
+from src.data.share.decompress_file import decompressShiftsFile
 
+from src.share.trace import TRACE
+
+CENTRAL_DATA_DIR = 'data/central_data/'
+
+def getShifts(offNum):
+    shiftsFile = str(offNum) + '.txt'
+    filePath = CENTRAL_DATA_DIR + shiftsFile
+    decompressShiftsFile(shiftsFile)
+    fileR = open(filePath, 'r', encoding='utf-8')
+    shifts = fileR.readlines()
+    fileR.close()
+    os.remove(filePath)
+    return shifts
+
+def readShifts(offNum):
+    weekServices = ''
     try:
-        fileR = open(filePath, 'r', encoding='utf-8')
-        weekServices = fileR.readlines()
-        fileR.close()
-    except:
+        weekServices = getShifts(offNum)
+    except Exception as e:
+        TRACE(e)
         return None
     
     weekServicesData = []

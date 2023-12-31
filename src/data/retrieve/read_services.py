@@ -1,20 +1,20 @@
 import ast
 
+from src.data.manager.design_manager import DesignManager
+
+from src.data.retrieve.utils.get_services import getServices
 from src.data.retrieve.utils.check_service_date_validity import (
     checkServiceDateValidity
     )
-from src.data.manager.design_manager import DesignManager
 
+from src.share.trace import TRACE
 
 def readServices(offNum):
-    filePath = 'data/central_data/all_services_by_driver_decrypted/' + offNum + '.txt'
     weekServices = ''
-    
     try:
-        fileR = open(filePath, 'r', encoding='utf-8')
-        weekServices = fileR.readlines()
-        fileR.close()
-    except:
+        weekServices = getServices(offNum)
+    except Exception as e:
+        TRACE(e)
         return None
     
     weekServicesData = []

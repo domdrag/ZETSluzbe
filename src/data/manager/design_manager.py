@@ -51,13 +51,13 @@ class DesignManager:
 
     @staticmethod
     def getPrimaryColor():
-        colorsImpl = getColors()
+        colorsImpl = DesignManager.getColors()
         customColors = DesignManager.__customColors__
         return colorsImpl[customColors['PRIMARY_COLOR']][customColors['DARK_HUE']]
 
     @staticmethod
     def getPrimaryColorLight():
-        colorsImpl = getColors()
+        colorsImpl = DesignManager.getColors()
         customColors = DesignManager.__customColors__
         return colorsImpl[customColors['PRIMARY_COLOR']][customColors['MAIN_HUE']]
 
@@ -67,7 +67,7 @@ class DesignManager:
 
     @staticmethod
     def getSecondaryColor():
-        colorsImpl = getColors()
+        colorsImpl = DesignManager.getColors()
         customColors = DesignManager.__customColors__
         return colorsImpl[customColors['SECONDARY_COLOR']][customColors['DARK_HUE']]
 
@@ -77,25 +77,25 @@ class DesignManager:
 
     @staticmethod
     def getServiceColor():
-        colorsImpl = getColors()
+        colorsImpl = DesignManager.getColors()
         customColors = DesignManager.__customColors__
         return colorsImpl[customColors['SERVICE_COLOR']][customColors['DARK_HUE']]
 
     @staticmethod
     def getShiftColor():
-        colorsImpl = getColors()
+        colorsImpl = DesignManager.getColors()
         customColors = DesignManager.__customColors__
         return colorsImpl[customColors['SHIFT_COLOR']][customColors['DARK_HUE']]
 
     @staticmethod
     def getFreeDayColor():
-        colorsImpl = getColors()
+        colorsImpl = DesignManager.getColors()
         customColors = DesignManager.__customColors__
         return colorsImpl[customColors['FREE_DAY_COLOR']][customColors['MAIN_HUE']]
 
     @staticmethod
     def getErrorColor():
-        colorsImpl = getColors()
+        colorsImpl = DesignManager.getColors()
         customColors = DesignManager.__customColors__
         return colorsImpl[customColors['ERROR_COLOR']][customColors['DARK_HUE']]
 

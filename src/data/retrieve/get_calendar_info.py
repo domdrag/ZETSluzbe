@@ -1,15 +1,12 @@
 import ast
 
+from src.data.retrieve.utils.get_services import getServices
 from src.data.manager.design_manager import DesignManager
 
 def getCalendarInfo(offNum):
-    filePath = 'data/central_data/all_services_by_driver_decrypted/' + offNum + '.txt'
     weekServices = ''
-    
     try:
-        fileR = open(filePath, 'r', encoding='utf-8')
-        weekServices = fileR.readlines()
-        fileR.close()
+        weekServices = getServices(offNum)
     except:
         return []
     
