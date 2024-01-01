@@ -28,7 +28,7 @@ def configureValidOldServicesIndexed(filePath, mondayDate):
 
     validOldServicesIndexed = configureEmptyServices()
     for service in validOldServicesUnordered:
-        serviceDate = getServiceDate(service)
+        serviceDate = getServiceDate(ast.literal_eval(service))
         validOldServicesIndexed[serviceDate.weekday()] = service
 
     return validOldServicesIndexed
