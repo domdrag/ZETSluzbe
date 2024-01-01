@@ -43,7 +43,7 @@ def configureValidOldShiftsIndexed(filePath, mondayDate):
     validOldShiftsUnordered = getValidOldShiftsUnordered(filePath, mondayDate)
     validOldShiftsIndexed = configureEmptyShifts()
     for shift in validOldShiftsUnordered:
-        shiftDate = getServiceDate(shift[0])
+        shiftDate = getServiceDate(ast.literal_eval(shift[0]))
         validOldShiftsIndexed[shiftDate.weekday()] = shift
 
     return validOldShiftsIndexed
