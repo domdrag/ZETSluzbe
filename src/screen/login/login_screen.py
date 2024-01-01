@@ -38,7 +38,7 @@ class LoginScreen(Screen):
         warningMessageInfo = getWarningMessageInfo()
         self.warningMessage = warningMessageInfo['message']
 
-    def changeDefaultOffNum(self):
+    def changeDefaultOffNumButton(self):
         currentOffNum = self.offNumTextFieldObj.text
         offNumChangeDialog = OffNumChangeDialog(currentOffNum, self)
         offNumChangeDialog.open()
