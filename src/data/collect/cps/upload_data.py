@@ -7,7 +7,7 @@ from requests.structures import CaseInsensitiveDict
 from src.data.manager.config_manager import ConfigManager
 from src.share.filenames import (CENTRAL_DATA_DIR, UPDATE_INFO_FILE, UPDATE_INFO_PATH, UPLOAD_DATA_DIR,
                                  UPLOADED_UPDATE_INFO_PATH, UPLOADED_CENTRAL_DATA_PATH,
-                                 UPLOADED_CENTRAL_DATA_PATH_NO_EXT)
+                                 UPLOADED_CENTRAL_DATA_PATH_NO_EXT, UPLOADED_CENTRAL_DATA_FILE)
 from src.share.trace import TRACE
 from src.share.asserts import ASSERT_THROW
 
@@ -57,5 +57,5 @@ def __uploadFile__(filePath, file):
 
 def uploadData():
     __prepareDataForTransport__()
-    __uploadFile__(UPLOADED_CENTRAL_DATA_PATH)
-    __uploadFile__(UPLOADED_UPDATE_INFO_PATH)
+    __uploadFile__(UPLOADED_CENTRAL_DATA_PATH, UPLOADED_CENTRAL_DATA_FILE)
+    __uploadFile__(UPLOADED_UPDATE_INFO_PATH, UPDATE_INFO_FILE)

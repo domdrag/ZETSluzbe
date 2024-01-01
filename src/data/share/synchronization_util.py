@@ -4,7 +4,7 @@ import requests
 
 from src.data.manager.config_manager import ConfigManager
 from src.share.filenames import (CENTRAL_DATA_DIR, DOWNLOAD_DATA_DIR, DOWNLOADED_CENTRAL_DATA_PATH,
-                                 DOWNLOADED_CENTRAL_DATA_FILE, DOWNLOADED_UPDATE_INFO_PATH)
+                                 DOWNLOADED_CENTRAL_DATA_FILE, DOWNLOADED_UPDATE_INFO_PATH, UPDATE_INFO_FILE)
 from src.share.asserts import ASSERT_THROW
 from src.share.trace import TRACE
 

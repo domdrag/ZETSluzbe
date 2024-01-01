@@ -1,7 +1,6 @@
 from src.data.share.synchronization_util import downloadRemoteUpdateInfo, gatherRemoteCentralData
 from src.data.handler.utils.load_data import loadCentralData
 from src.data.manager.update_info_manager import UpdateInfoManager
-
 from src.share.trace import TRACE
 
 def githubSynchronization():
