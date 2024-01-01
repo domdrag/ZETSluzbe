@@ -15,8 +15,7 @@ from src.data.collect.cps.configure_days_and_week_schedule import configureDaysA
 from src.data.collect.cps.extract_rules_by_driver import extractRulesByDriverAndCalculateServicesHash
 from src.data.collect.cps.extract_rules import extractRules
 from src.data.collect.cps.check_update_neeeded import checkUpdateNeeded
-from src.data.collect.cps.prepare_data_for_transport import prepareDataForTransport
-from src.data.collect.cps.upload_central_data import uploadCentralData
+from src.data.collect.cps.upload_data import uploadData
 from src.data.collect.cps.configure_notifications_files import configureNotificationsFiles
 
 from src.data.collect.cps.collect_phase_enum import COLLECT_PHASE_OUTPUT_MESSAGE_MAP
@@ -43,6 +42,7 @@ class DataCollector:
         self.weekSchedule = ['W', 'W', 'W', 'W', 'W', 'W', 'W']
         self.canUseOldWorkDayResources = False
         self.skipOnlineSyncsDueToTestConfig = False
+        self.missingServices = False
 
         if (ConfigManager.getConfig('ACTIVATED_TEST_PACK_NUM')):
             TRACE('ACTIVATED TEST PACK NUM: ' + str(ConfigManager.getConfig('ACTIVATED_TEST_PACK_NUM')))
@@ -86,10 +86,6 @@ class DataCollector:
                     self.phase = cp.END
                 else:
                     TRACE('PERFORMING_UPDATE')
-                    mondayDateList = [self.mondayDate.year,
-                                      self.mondayDate.month,
-                                      self.mondayDate.day]
-                    UpdateInfoManager.pushNewUpdateInfo(mondayDateList, self.servicesHash)
 
             #########################################################################
             #########################################################################
@@ -123,10 +119,11 @@ class DataCollector:
                 
             elif self.phase == cp.ADD_DECRYPTED_SERVICES:
                 TRACE('[CP] ADD_DECRYPTED_SERVICES')
-                addDecryptedServices(self.days,
-                                     self.weekSchedule,
-                                     self.mondayDate,
-                                     self.fileNames)
+                result = addDecryptedServices(self.days,
+                                              self.weekSchedule,
+                                              self.mondayDate,
+                                              self.fileNames)
+                self.missingServices = result['missingServices']
                 
             elif self.phase == cp.ADD_DECRYPTED_SHIFTS:
                 TRACE('[CP] ADD_DECRYPTED_SHIFTS')
@@ -143,14 +140,18 @@ class DataCollector:
                 TRACE('[CP] SET_NEW_WARNINGS')
                 WarningMessagesManager.setWarningMessages()
 
-            elif self.phase == cp.PREPARE_DATA_FOR_TRANSPORT:
-                TRACE('[CP] PREPARE_DATA_FOR_TRANSPORT')
-                prepareDataForTransport()
+            elif self.phase == cp.PUSH_NEW_UPDATE_INFO:
+                TRACE('[CP] PUSH_NEW_UPDATE_INFO')
+                mondayDateList = [self.mondayDate.year,
+                                  self.mondayDate.month,
+                                  self.mondayDate.day]
+                UpdateInfoManager.pushNewUpdateInfo(mondayDateList, self.servicesHash, self.missingServices)
+                UpdateInfoManager.setDataUpdated()
 
-            elif self.phase == cp.UPLOAD_CENTRAL_DATA:
+            elif self.phase == cp.UPLOAD_DATA:
                 TRACE('[CP] UPLOAD_DATA')
                 if (not self.skipOnlineSyncsDueToTestConfig):
-                    uploadCentralData()
+                    uploadData()
                     TRACE('DATA_UPLOADED_SUCCESSFULLY')
                 else:
                     TRACE('TEST_PACK_NUM_ACTIVATED - skipping uploading central data')

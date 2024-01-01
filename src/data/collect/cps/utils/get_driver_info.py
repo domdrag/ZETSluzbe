@@ -1,9 +1,9 @@
 import ast
 
+from src.share.filenames import WEEK_SERVICES_BY_DRIVER_ENCRYPTED_PATH
+
 def getDriverInfo(serviceNum, driverList, day):
-    fileR = open('data/central_data/week_services_by_driver_encrypted.txt',
-                 'r',
-                 encoding='utf-8')
+    fileR = open(WEEK_SERVICES_BY_DRIVER_ENCRYPTED_PATH, 'r', encoding='utf-8')
     weekServicesALL = fileR.readlines()
     fileR.close()
     wantedOffNum = -1

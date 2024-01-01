@@ -1,19 +1,16 @@
 import ast
 import os
 import zipfile
-import shutil
 
 from src.data.collect.cps.utils.get_service_layout import getServiceLayoutAndUpdateStats
 from src.data.collect.cps.utils.get_service_line import getServiceLine
 from src.data.manager.statistics_manager import StatisticsManager
 from src.data.manager.warning_messages_manager import WarningMessagesManager
-from src.data.utils.get_service_date import getServiceDate
-from src.data.share.decompress_file import decompressServicesFile
+from src.data.share.get_service_date import getServiceDate
+from src.data.share.decompress_services import decompressServicesFile
+from src.share.filenames import (CENTRAL_DATA_DIR, COMPRESSED_SERVICES_PATH, COMPRESSED_UPDATED_SERVICES_PATH,
+                                 WEEK_SERVICES_BY_DRIVER_ENCRYPTED_PATH)
 from src.share.trace import TRACE
-
-CENTRAL_DATA_DIR = 'data/central_data/'
-COMPRESSED_SERVICES_PATH = CENTRAL_DATA_DIR + 'services.zip'
-COMPRESSED_UPDATED_SERVICES_PATH = CENTRAL_DATA_DIR + 'updated_services.zip'
 
 def configureEmptyServices():
     return [None] * 7
@@ -66,9 +63,7 @@ def addOldServicesWithNoUpdate():
 
 def addDecryptedServices(days, weekSchedule, mondayDate, fileNames):
     zipfile.ZipFile(COMPRESSED_UPDATED_SERVICES_PATH, 'w', zipfile.ZIP_DEFLATED)
-    fileR = open('data/central_data/week_services_by_driver_encrypted.txt',
-                 'r',
-                 encoding='utf-8')
+    fileR = open(WEEK_SERVICES_BY_DRIVER_ENCRYPTED_PATH, 'r', encoding='utf-8')
     weekServicesALL = fileR.readlines()
     fileR.close()
 
@@ -119,5 +114,5 @@ def addDecryptedServices(days, weekSchedule, mondayDate, fileNames):
     os.remove(COMPRESSED_SERVICES_PATH)
     os.rename(COMPRESSED_UPDATED_SERVICES_PATH, COMPRESSED_SERVICES_PATH)
     StatisticsManager.finishUpdate()
-
+    return {'missingServices': alreadyFoundMissingService}
 

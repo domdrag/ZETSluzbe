@@ -1,8 +1,8 @@
 from src.data.collect.data_collector import DataCollector, STARTING_OUTPUT_MESSAGE
 from src.data.manager.config_manager import ConfigManager
 
-from src.data.utils.gather_remote_central_data import gatherRemoteCentralData
-from src.data.utils.load_data_util import loadBasicData, loadCentralData
+from src.data.share.synchronization_util import gatherRemoteCentralData
+from src.data.handler.utils.load_data import loadBasicData, loadCentralData
 
 from src.share.trace import TRACE
 

@@ -7,6 +7,9 @@ from src.data.collect.cps.utils.download_pdf_file import downloadPDFFile
 from src.data.manager.warning_messages_manager import WarningMessagesManager
 from src.data.collect.cps.utils.regex_definitions import RegexDefinitions
 from src.data.collect.cps.utils.get_service_line import getServiceLine
+from src.share.filenames import (CENTRAL_DATA_DIR, PRIMARY_WORK_DAY_RULES_FILE_PREFIX,
+                                 PRIMARY_SATURDAY_RULES_FILE_PREFIX, PRIMARY_SUNDAY_RULES_FILE_PREFIX,
+                                 PRIMARY_SPECIAL_RULES_FILE_PREFIX)
 from src.share.asserts import ASSERT_THROW
 from src.share.trace import TRACE
 
@@ -170,14 +173,12 @@ def duplicatesExist(container):
 #### thanks to jsvine - owner of pdfplumber
 def extractRule(typeOfDay, URL, fileName):
     try:
-        PDFFile = downloadPDFFile(URL, 'data/central_data/', fileName + '.pdf')
+        PDFFile = downloadPDFFile(URL, CENTRAL_DATA_DIR, fileName + '.pdf')
     except Exception as e:
         raise ExtractRulesCustomException(e)
 
     with pdfplumber.open(PDFFile) as PDF:
-        fileW = open('data/central_data/' + fileName + '.txt',
-                     'w',
-                     encoding='utf-8')
+        fileW = open(CENTRAL_DATA_DIR + fileName + '.txt', 'w', encoding='utf-8')
         removingColor = determineRemovingRectsColor(typeOfDay)
         for page in PDF.pages:
             filtered = (page.filter(
@@ -213,7 +214,7 @@ def extractRules(workDayLinks,
     if (specialDayLinks):
         WarningMessagesManager.addWarningMessage('Nadjene sluzbe za posebni/e datum/e.')
     for link in specialDayLinks:
-        fileNameSPPrefix = 'rules_SP'
+        fileNameSPPrefix = PRIMARY_SPECIAL_RULES_FILE_PREFIX
         fileNameSP = determineRulesFileName(link['name'], fileNameSPPrefix)
         try:
             typeOfDaySP = determineTypeOfDayForSpecialDays(fileNameSP, mondayDate, weekSchedule)
@@ -233,7 +234,7 @@ def extractRules(workDayLinks,
             WarningMessagesManager.addWarningMessage('Nadjeno vise rasporeda za radni dan!')
         typeOfDayW = 'W'
         for link in workDayLinks:
-            fileNameWPrefix = 'rules_W'
+            fileNameWPrefix = PRIMARY_WORK_DAY_RULES_FILE_PREFIX
             fileNameW = determineRulesFileName(link['name'], fileNameWPrefix)
             fileNames.append(fileNameW)
             TRACE('Extracting rules for file: ' + fileNameW + ', typeOfDay: ' + typeOfDayW)
@@ -252,7 +253,7 @@ def extractRules(workDayLinks,
             raise ExtractRulesCustomException('No saturday links found')
         typeOfDayST = 'ST'
         for link in saturdayLinks:
-            fileNameST = 'rules_ST'
+            fileNameST = PRIMARY_SATURDAY_RULES_FILE_PREFIX
             fileNames.append(fileNameST)
             TRACE('Extracting rules for file: ' + fileNameST + ', typeOfDay: ' + typeOfDayST)
             extractRule(typeOfDayST, link['URL'], fileNameST)
@@ -268,7 +269,7 @@ def extractRules(workDayLinks,
             raise ExtractRulesCustomException('No sunday links found')
         typeOfDaySN = 'SN'
         for link in sundayLinks:
-            fileNameSN = 'rules_SN'
+            fileNameSN = PRIMARY_SUNDAY_RULES_FILE_PREFIX
             fileNames.append(fileNameSN)
             TRACE('Extracting rules for file: ' + fileNameSN + ', typeOfDay: ' + typeOfDaySN)
             extractRule(typeOfDaySN, link['URL'], fileNameSN)

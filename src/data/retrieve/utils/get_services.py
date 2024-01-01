@@ -1,8 +1,7 @@
 import os
 
-from src.data.share.decompress_file import decompressServicesFile
-
-CENTRAL_DATA_DIR = 'data/central_data/'
+from src.data.share.decompress_services import decompressServicesFile
+from src.share.filenames import CENTRAL_DATA_DIR
 
 def getServices(offNum):
     servicesFile = str(offNum) + '.txt'

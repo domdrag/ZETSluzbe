@@ -1,18 +1,17 @@
 import os
 
+from src.share.filenames import CENTRAL_DATA_DIR, PRIMARY_WORK_DAY_RULES_FILE_PREFIX
 from src.share.trace import TRACE
 
-DATA_DIR_PATH = 'data/central_data/'
-
 def OldRulesFilesForSpecialDaysFoundAndDeleted():
-    dataDirsAndFiles = os.listdir(DATA_DIR_PATH)
+    dataDirsAndFiles = os.listdir(CENTRAL_DATA_DIR)
     specialDayOldFilesFound = False
     for item in dataDirsAndFiles:
         if ('[' in item and ']' in item):
             specialDayOldFilesFound = True
-            filePathToRemove = 'data/central_data/' + item
+            filePathToRemove = CENTRAL_DATA_DIR + item
             TRACE('Removing ' + filePathToRemove)
-            os.remove('data/central_data/' + item)
+            os.remove(CENTRAL_DATA_DIR + item)
 
     return specialDayOldFilesFound
 
@@ -26,10 +25,10 @@ def deleteNecessaryData(workDayLinks, specialDayLinks):
         (numOfSpecialDayLinks == 0)):
         return {'canUseOldWorkDayResources': True}
 
-    dataDirsAndFiles = os.listdir(DATA_DIR_PATH)
+    dataDirsAndFiles = os.listdir(CENTRAL_DATA_DIR)
     for item in dataDirsAndFiles:
         # need to delete these files so we don't end up with garbage files
         # should be equivalent to the older function
-        if 'rules_W' in item:
-            os.remove('data/central_data/' + item)
+        if PRIMARY_WORK_DAY_RULES_FILE_PREFIX in item:
+            os.remove(CENTRAL_DATA_DIR + item)
     return {'canUseOldWorkDayResources': False}

@@ -1,6 +1,9 @@
 import ast
 import datetime
 
+from src.share.filenames import (CENTRAL_DATA_DIR, PRIMARY_WORK_DAY_RULES_PATH, PRIMARY_SATURDAY_RULES_PATH,
+                                 PRIMARY_SUNDAY_RULES_FILE_PATH, PRIMARY_WORK_DAY_RULES_FILE_PREFIX,
+                                 PRIMARY_SATURDAY_RULES_FILE_PREFIX, PRIMARY_SUNDAY_RULES_FILE_PREFIX)
 from src.share.asserts import ASSERT_THROW
 from src.share.trace import TRACE
 
@@ -20,19 +23,22 @@ def getServiceLine(serviceNum, dayIndex, weekSchedule, mondayDate, fileNames, en
             rangeListStartIndex = fileName.index('[')
             specificDays = ast.literal_eval(fileName[rangeListStartIndex:])
             if (day in specificDays):
-                fileNamePath =  'data/central_data/' + fileName + '.txt'
+                fileNamePath = CENTRAL_DATA_DIR + fileName + '.txt'
                 break
 
     if (not fileNamePath):
         if (weekSchedule[dayIndex] == 'W'):
-            ASSERT_THROW('rules_W' in fileNames, 'No generic rules for WorkDays generated.')
-            fileNamePath = 'data/central_data/rules_W.txt'
+            ASSERT_THROW(PRIMARY_WORK_DAY_RULES_FILE_PREFIX in fileNames,
+                         'No generic rules for WorkDays generated.')
+            fileNamePath = PRIMARY_WORK_DAY_RULES_PATH
         elif (weekSchedule[dayIndex] == 'ST'):
-            ASSERT_THROW('rules_ST' in fileNames, 'No generic rules for Saturday generated.')
-            fileNamePath = 'data/central_data/rules_ST.txt'
+            ASSERT_THROW(PRIMARY_SATURDAY_RULES_FILE_PREFIX in fileNames,
+                         'No generic rules for Saturday generated.')
+            fileNamePath = PRIMARY_SATURDAY_RULES_PATH
         else:
-            ASSERT_THROW('rules_SN' in fileNames, 'No generic rules for Sunday generated.')
-            fileNamePath = 'data/central_data/rules_SN.txt'
+            ASSERT_THROW(PRIMARY_SUNDAY_RULES_FILE_PREFIX in fileNames,
+                         'No generic rules for Sunday generated.')
+            fileNamePath = PRIMARY_SUNDAY_RULES_FILE_PATH
 
     if (enableTraces):
         formattedDateStr = getFormattedDateStr(date)

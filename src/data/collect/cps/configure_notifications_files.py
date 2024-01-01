@@ -4,21 +4,21 @@ import pdfplumber
 
 from src.data.manager.notifications_manager import setNotifications
 from src.data.collect.cps.utils.download_pdf_file import downloadPDFFile
+from src.share.filenames import NOTIFICATIONS_FILES_DIR
 
 GENERATED_IMAGE_RESOLUTION = 300
-NOTIFICATIONS_FILES_PATH = 'data/central_data/notifications_files/'
 
 def clearNotificationsFilesDir():
-    if (os.path.isdir(NOTIFICATIONS_FILES_PATH)):
-        shutil.rmtree(NOTIFICATIONS_FILES_PATH)
-    os.mkdir(NOTIFICATIONS_FILES_PATH)
+    if (os.path.isdir(NOTIFICATIONS_FILES_DIR)):
+        shutil.rmtree(NOTIFICATIONS_FILES_DIR)
+    os.mkdir(NOTIFICATIONS_FILES_DIR)
 
 def generateNotificationFiles(filesNamePattern, notificationURL):
     notificationPDF = downloadPDFFile(notificationURL,
-                                      NOTIFICATIONS_FILES_PATH,
+                                      NOTIFICATIONS_FILES_DIR,
                                       filesNamePattern + '.pdf')
     imagesFileNamePattern = filesNamePattern + '_page-'
-    imagesPathPattern = NOTIFICATIONS_FILES_PATH + imagesFileNamePattern
+    imagesPathPattern = NOTIFICATIONS_FILES_DIR + imagesFileNamePattern
 
     # cause of memory leak during verification
     with pdfplumber.open(notificationPDF) as PDF:

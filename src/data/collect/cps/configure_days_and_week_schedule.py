@@ -5,6 +5,7 @@ from datetime import date
 
 from src.data.collect.cps.utils.download_pdf_file import downloadPDFFile
 from src.data.collect.cps.utils.configure_week_schedule import configureWeekSchedule
+from src.share.filenames import CENTRAL_DATA_DIR, WEEK_SERVICES_BY_DRIVER_ENCRYPTED_PDF_FILE
 from src.share.trace import TRACE
 
 def getStringDate(date):
@@ -45,7 +46,7 @@ def configureDays(days, mondayDate):
     return mondayDate
 
 def configureDaysAndWeekSchedule(allServicesURL, weekSchedule, days):
-    PDFFile = downloadPDFFile(allServicesURL, 'data/central_data/', 'tpd.pdf')
+    PDFFile = downloadPDFFile(allServicesURL, CENTRAL_DATA_DIR, WEEK_SERVICES_BY_DRIVER_ENCRYPTED_PDF_FILE)
     with pdfplumber.open(PDFFile) as PDF:
         page = PDF.pages[0]
         textFirstPDF = page.extract_text()

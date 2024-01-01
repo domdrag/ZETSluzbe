@@ -12,8 +12,8 @@ class CollectPhaseEnum(Enum):
     ADD_DECRYPTED_SHIFTS = 8
     CONFIGURE_NOTIFICATION_FILES = 9
     SET_NEW_WARNINGS = 10
-    PREPARE_DATA_FOR_TRANSPORT = 11
-    UPLOAD_CENTRAL_DATA = 12
+    PUSH_NEW_UPDATE_INFO = 11
+    UPLOAD_DATA = 12
     END = 13
 
 COLLECT_PHASE_OUTPUT_MESSAGE_MAP = {
@@ -27,9 +27,9 @@ COLLECT_PHASE_OUTPUT_MESSAGE_MAP = {
     CollectPhaseEnum.ADD_DECRYPTED_SERVICES: 'Spremanje tjednih sluzbi',
     CollectPhaseEnum.ADD_DECRYPTED_SHIFTS: 'Spremanje tjednih smjena',
     CollectPhaseEnum.CONFIGURE_NOTIFICATION_FILES: 'Konfiguracija notifikacija',
-    CollectPhaseEnum.SET_NEW_WARNINGS: 'Spremanje novih informacija',
-    CollectPhaseEnum.PREPARE_DATA_FOR_TRANSPORT: 'Pripremanje podataka za transport',
-    CollectPhaseEnum.UPLOAD_CENTRAL_DATA: 'Prijenos podataka na GitHub',
+    CollectPhaseEnum.SET_NEW_WARNINGS: 'Spremanje novih upozorenja',
+    CollectPhaseEnum.PUSH_NEW_UPDATE_INFO: 'Spremanje podataka azuriranja',
+    CollectPhaseEnum.UPLOAD_DATA: 'Prijenos podataka na GitHub',
     CollectPhaseEnum.END: 'Sluzbe azurirane!'
 }
 

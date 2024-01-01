@@ -3,6 +3,7 @@ import logging
 
 from datetime import datetime
 
+from src.share.filenames import LOGS_PATH
 import src.share.trace as trace
 
 class LogsManager:
@@ -17,7 +18,7 @@ class LogsManager:
 
     @staticmethod
     def redirectOutput():
-        sys.stdout = open('data/logs.txt', 'a', encoding='utf-8')
+        sys.stdout = open(LOGS_PATH, 'a', encoding='utf-8')
 
     @staticmethod
     def resetOutput():
@@ -32,16 +33,12 @@ class LogsManager:
 
     @staticmethod
     def getLogs():
-        # haltLogging()
-        fileR = open('data/logs.txt', 'r', encoding='utf-8')
+        fileR = open(LOGS_PATH, 'r', encoding='utf-8')
         logs = fileR.read()
         fileR.close()
-        # startLogging()
         return logs
 
     @staticmethod
     def deleteLogs():
-        # haltLogging()
-        fileW = open('data/logs.txt', 'w', encoding='utf-8')
+        fileW = open(LOGS_PATH, 'w', encoding='utf-8')
         fileW.close()
-        # startLogging()

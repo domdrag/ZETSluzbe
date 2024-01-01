@@ -4,12 +4,10 @@ import os
 from src.data.manager.design_manager import DesignManager
 
 from src.data.retrieve.utils.check_service_date_validity import checkServiceDateValidity
-from src.data.utils.get_service_date import getServiceDate
-from src.data.share.decompress_file import decompressShiftsFile
-
+from src.data.share.get_service_date import getServiceDate
+from src.data.share.decompress_services import decompressShiftsFile
+from src.share.filenames import CENTRAL_DATA_DIR
 from src.share.trace import TRACE
-
-CENTRAL_DATA_DIR = 'data/central_data/'
 
 def getShifts(offNum):
     shiftsFile = str(offNum) + '.txt'

@@ -1,6 +1,8 @@
 import pdfplumber
 import zlib
 
+from src.share.filenames import WEEK_SERVICES_BY_DRIVER_ENCRYPTED_PDF_PATH, WEEK_SERVICES_BY_DRIVER_ENCRYPTED_PATH
+
 def calculateHash(serviceKeys):
     hash = 0
     sign = 1
@@ -10,12 +12,10 @@ def calculateHash(serviceKeys):
     return hash
 
 def extractRulesByDriverAndCalculateServicesHash():
-    PDFFile = 'data/central_data/tpd.pdf' # already downloaded in ConfigureDaysAndWeekSchedule cp
+    # already downloaded in ConfigureDaysAndWeekSchedule cp
+    PDFFile = WEEK_SERVICES_BY_DRIVER_ENCRYPTED_PDF_PATH
     with pdfplumber.open(PDFFile) as PDF:
-        fileW = open('data/central_data/week_services_by_driver_encrypted.txt',
-                     'w',
-                     encoding='utf-8')
-
+        fileW = open(WEEK_SERVICES_BY_DRIVER_ENCRYPTED_PATH, 'w', encoding='utf-8')
         fullHash = 0
         for page in PDF.pages:            
             tables = page.dedupe_chars().find_tables()

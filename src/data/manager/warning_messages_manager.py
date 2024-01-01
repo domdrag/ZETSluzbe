@@ -1,3 +1,4 @@
+from src.share.filenames import WARNINGS_PATH
 
 class WarningMessagesManager:
     __updatedWarningMessages__ = []
@@ -12,7 +13,7 @@ class WarningMessagesManager:
 
     @staticmethod
     def setWarningMessages():
-        fileW = open('data/central_data/warnings.txt', 'w', encoding='utf-8')
+        fileW = open(WARNINGS_PATH, 'w', encoding='utf-8')
         for warningMessage in WarningMessagesManager.__updatedWarningMessages__:
             fileW.write(warningMessage)
         fileW.close()

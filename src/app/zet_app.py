@@ -1,7 +1,6 @@
 from src.data.manager.logs_manager import LogsManager
-from src.data.data_handler import loadDataAtStartup
+from src.data.handler.data_handler import loadDataAtStartup
 from src.app.utils.environment_setup import environmentSetup
-from src.share.trace import TRACE
 
 LogsManager.beginLogging()
 loadDataAtStartup()

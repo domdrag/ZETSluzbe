@@ -1,6 +1,7 @@
+from src.share.filenames import WARNINGS_PATH
 
 def getWarningMessageInfo():
-    fileR = open('data/central_data/warnings.txt', 'r', encoding='utf-8')
+    fileR = open(WARNINGS_PATH, 'r', encoding='utf-8')
     message = fileR.read()
     fileR.close()
 

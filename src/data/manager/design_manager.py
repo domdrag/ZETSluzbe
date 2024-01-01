@@ -1,6 +1,6 @@
 import json
 
-DESIGN_FILE_PATH = 'data/design.json'
+from src.share.filenames import DESIGN_PATH
 
 class DesignManager:
     __colorsImpl__ = dict()
@@ -10,7 +10,7 @@ class DesignManager:
     @staticmethod
     def load():
         # __colorsImpl__ require kivy so the load is postponed
-        with open(DESIGN_FILE_PATH, 'r') as designFile:
+        with open(DESIGN_PATH, 'r') as designFile:
             DesignManager.__design__ = json.load(designFile)
         DesignManager.__customColors__ = DesignManager.__design__['CUSTOM_COLORS']
 
@@ -40,13 +40,13 @@ class DesignManager:
     @staticmethod
     def updateFontSize(screen, value):
         DesignManager.__design__[screen] = str(value) + 'dp'
-        with open(DESIGN_FILE_PATH, 'w') as designFile:
+        with open(DESIGN_PATH, 'w') as designFile:
             json.dump(DesignManager.__design__, designFile, indent=3)
 
     @staticmethod
     def updateGridHeight(value):
         DesignManager.__design__['MAIN_GRID_HEIGHT'] = str(value) + 'dp'
-        with open(DESIGN_FILE_PATH, 'w') as designFile:
+        with open(DESIGN_PATH, 'w') as designFile:
             json.dump(DesignManager.__design__, designFile, indent=3)
 
     @staticmethod

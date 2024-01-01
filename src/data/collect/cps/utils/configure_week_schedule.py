@@ -4,6 +4,7 @@ from datetime import date, timedelta
 
 from src.data.retrieve.get_holidays import getHolidays
 from src.data.manager.warning_messages_manager import WarningMessagesManager
+from src.share.filenames import HOLIDAYS_PATH
 from src.share.trace import TRACE
 from src.share.asserts import ASSERT_NO_THROW
 
@@ -38,7 +39,7 @@ def charsRepresentDays(chars, idx):
         return False
 
 def addHolidays(firstStageHolidayList):
-    fileA = open('data/central_data/holidays.txt', 'a', encoding='utf-8')
+    fileA = open(HOLIDAYS_PATH, 'a', encoding='utf-8')
     for holiday in firstStageHolidayList:
         year = holiday.year
         month = holiday.month

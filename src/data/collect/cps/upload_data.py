@@ -1,17 +1,36 @@
+import os
+import shutil
 import requests
 import base64
 from requests.structures import CaseInsensitiveDict
 
 from src.data.manager.config_manager import ConfigManager
+from src.share.filenames import (CENTRAL_DATA_DIR, UPDATE_INFO_FILE, UPDATE_INFO_PATH, UPLOAD_DATA_DIR,
+                                 UPLOADED_UPDATE_INFO_PATH, UPLOADED_CENTRAL_DATA_PATH,
+                                 UPLOADED_CENTRAL_DATA_PATH_NO_EXT)
 from src.share.trace import TRACE
 from src.share.asserts import ASSERT_THROW
 
-URL = 'https://api.github.com/repos/domdrag/ZETSluzbe-Central-Data/contents/central_data.zip'
+def __compressCentralData__():
+    if (os.path.isfile(UPLOADED_CENTRAL_DATA_PATH)):
+        os.remove(UPLOADED_CENTRAL_DATA_PATH)
+    shutil.make_archive(UPLOADED_CENTRAL_DATA_PATH_NO_EXT, 'zip', CENTRAL_DATA_DIR)
 
-def uploadCentralData():
+def __prepareUpdateInfoFileForTransport__():
+    if (os.path.isfile(UPLOADED_UPDATE_INFO_PATH)):
+        os.remove(UPLOADED_UPDATE_INFO_PATH)
+    shutil.copyfile(UPDATE_INFO_PATH, UPLOADED_UPDATE_INFO_PATH)
+
+def __prepareDataForTransport__():
+    __compressCentralData__()
+    __prepareUpdateInfoFileForTransport__()
+
+def __uploadFile__(filePath, file):
     headers = CaseInsensitiveDict()
     headers["Authorization"] = "token " + ConfigManager.getConfig('GITHUB_TOKEN')
-    data = open('data/temp/central_data.zip', 'rb').read()
+    data = open(filePath, 'rb').read()
+    uploadURLPattern = ConfigManager.getConfig('GITHUB_UPLOAD_URL_PATTERN')
+    URL = uploadURLPattern + file
 
     uploadComplete = False
     while (not uploadComplete):
@@ -35,3 +54,8 @@ def uploadCentralData():
             uploadComplete = True
         except Exception as e:
             TRACE(e)
+
+def uploadData():
+    __prepareDataForTransport__()
+    __uploadFile__(UPLOADED_CENTRAL_DATA_PATH)
+    __uploadFile__(UPLOADED_UPDATE_INFO_PATH)

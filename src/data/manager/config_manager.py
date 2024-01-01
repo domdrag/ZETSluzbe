@@ -2,7 +2,8 @@ import json
 
 from functools import partial
 
-CONFIG_FILE_PATH = 'data/config.json'
+from src.share.filenames import CONFIG_PATH
+
 DATA_CORRUPTED = 1
 
 class ConfigManager:
@@ -10,7 +11,7 @@ class ConfigManager:
 
     @staticmethod
     def load():
-        with open(CONFIG_FILE_PATH, 'r') as configFile:
+        with open(CONFIG_PATH, 'r') as configFile:
             config = json.load(configFile)
         ConfigManager._config = config
 
@@ -23,9 +24,15 @@ class ConfigManager:
         return ConfigManager._config['DATA_CORRUPTED']
 
     @staticmethod
+    def setNewDefaultOffNumAtStartup(newDefaultOffNum):
+        ConfigManager._config['OFFICIAL_NUMBER_STARTUP'] = newDefaultOffNum
+        with open(CONFIG_PATH, 'w', encoding='utf-8') as configFile:
+            json.dump(ConfigManager._config, configFile, indent=3)
+
+    @staticmethod
     def __setDataCorruptedFlag__(FLAG):
         ConfigManager._config['DATA_CORRUPTED'] = FLAG
-        with open('data/config.json', 'w', encoding='utf-8') as configFile:
+        with open(CONFIG_PATH, 'w', encoding='utf-8') as configFile:
             json.dump(ConfigManager._config, configFile, indent=3)
 
     # aliases

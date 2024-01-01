@@ -1,17 +1,14 @@
 import ast
 import os
 import zipfile
-import shutil
 
 from src.data.collect.cps.utils.get_driver_info import getDriverInfo
 from src.data.collect.cps.utils.get_service_layout import getServiceLayout
 from src.data.collect.cps.utils.get_service_line import getServiceLine
-from src.data.utils.get_service_date import getServiceDate
-from src.data.share.decompress_file import decompressShiftsFile
-
-CENTRAL_DATA_DIR = 'data/central_data/'
-COMPRESSED_SHIFTS_PATH = CENTRAL_DATA_DIR + 'shifts.zip'
-COMPRESSED_UPDATED_SHIFTS_PATH = CENTRAL_DATA_DIR + 'updated_shifts.zip'
+from src.data.share.get_service_date import getServiceDate
+from src.data.share.decompress_services import decompressShiftsFile
+from src.share.filenames import (CENTRAL_DATA_DIR, COMPRESSED_SHIFTS_PATH, COMPRESSED_UPDATED_SHIFTS_PATH,
+                                 WEEK_SERVICES_BY_DRIVER_ENCRYPTED_PATH, ALL_DRIVERS_PATH)
 
 def configureEmptyShifts():
     return [None] * 7
@@ -83,13 +80,11 @@ def addDecryptedShifts(days,
                        mondayDate,
                        fileNames):
     zipfile.ZipFile(COMPRESSED_UPDATED_SHIFTS_PATH, 'w', zipfile.ZIP_DEFLATED)
-    fileR = open('data/central_data/week_services_by_driver_encrypted.txt',
-                 'r',
-                 encoding='utf-8')
+    fileR = open(WEEK_SERVICES_BY_DRIVER_ENCRYPTED_PATH, 'r', encoding='utf-8')
     weekServicesALL = fileR.readlines()
     fileR.close()
 
-    fileR = open('data/all_drivers.txt', 'r', encoding='utf-8')
+    fileR = open(ALL_DRIVERS_PATH, 'r', encoding='utf-8')
     driversRaw = fileR.readlines()
     fileR.close()
     driverList = []

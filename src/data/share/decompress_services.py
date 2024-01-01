@@ -1,9 +1,7 @@
 import zipfile
 import shutil
 
-CENTRAL_DATA_DIR = 'data/central_data/'
-COMPRESSED_SERVICES_PATH = CENTRAL_DATA_DIR + 'services.zip'
-COMPRESSED_SHIFTS_PATH = CENTRAL_DATA_DIR + 'shifts.zip'
+from src.share.filenames import CENTRAL_DATA_DIR, COMPRESSED_SERVICES_PATH, COMPRESSED_SHIFTS_PATH
 
 def decompressServicesFile(servicesFile):
     with zipfile.ZipFile(COMPRESSED_SERVICES_PATH, 'r', zipfile.ZIP_DEFLATED) as servicesZIP:

@@ -30,6 +30,6 @@ class OffNumChangeDialog(MDDialog):
 
     def saveDefaultOffNum(self, button):
         newDefaultOffNum = self.content_cls.offNumChangeTextFieldObj.text
-        ConfigManager.updateConfig('OFFICIAL_NUMBER_STARTUP', newDefaultOffNum)
+        ConfigManager.setNewDefaultOffNumAtStartup(newDefaultOffNum)
         self.loginScreen.changeCurrentOffNum(newDefaultOffNum)
         self.dismiss()

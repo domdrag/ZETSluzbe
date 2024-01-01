@@ -1,11 +1,19 @@
-from src.data.utils.gather_remote_central_data import gatherRemoteCentralData
-from src.data.utils.load_data_util import loadCentralData
+from src.data.share.synchronization_util import downloadRemoteUpdateInfo, gatherRemoteCentralData
+from src.data.handler.utils.load_data import loadCentralData
 from src.data.manager.update_info_manager import UpdateInfoManager
 
+from src.share.trace import TRACE
+
 def githubSynchronization():
-    localRecordDate = UpdateInfoManager.getUpdateInfo('RECORD_DATE')
-    gatherRemoteCentralData()
-    loadCentralData()
-    remoteRecordDate = UpdateInfoManager.getUpdateInfo('RECORD_DATE')
-    if (localRecordDate != remoteRecordDate):
+    downloadRemoteUpdateInfo()
+    remoteServicesHash = UpdateInfoManager.getDownloadedUpdateInfo('SERVICES_HASH')
+    localServicesHash = UpdateInfoManager.getUpdateInfo('SERVICES_HASH')
+    if (remoteServicesHash != localServicesHash):
+        TRACE('GITHUB SYNCHRONIZATION - SERVICES HASH MISMATCH')
+        TRACE('PERFORMING GITHUB SYNCHRONIZATION')
+        gatherRemoteCentralData()
+        loadCentralData()
         UpdateInfoManager.setDataUpdated()
+        TRACE('GITHUB SYNCHRONIZATION - DATA UPDATED')
+    else:
+        TRACE('NOT PERFORMING GITHUB SYNCHRONIZATION')

@@ -1,5 +1,3 @@
-import sys
-
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import Screen
 from kivy.properties import (ObjectProperty,
@@ -11,7 +9,7 @@ from src.screen.login.dialogs.off_num_change_dialog import OffNumChangeDialog
 from src.screen.login.dialogs.update_dialog import UpdateDialog
 from src.screen.login.dialogs.info_dialog import InfoDialog
 
-from src.data.data_handler import updateData
+from src.data.handler.data_handler import updateData
 from src.data.retrieve.get_warning_message_info import (
     getWarningMessageInfo
     )

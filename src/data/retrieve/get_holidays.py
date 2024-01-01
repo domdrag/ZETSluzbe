@@ -1,10 +1,10 @@
 import ast
 
+from src.share.filenames import HOLIDAYS_PATH
+
 def getHolidays():
-    filePath = 'data/central_data/holidays.txt'
-    
     try:
-        fileR = open(filePath, 'r', encoding='utf-8')
+        fileR = open(HOLIDAYS_PATH, 'r', encoding='utf-8')
         holidays = fileR.readlines()
         fileR.close()
     except:
