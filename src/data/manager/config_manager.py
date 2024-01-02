@@ -30,6 +30,10 @@ class ConfigManager:
             json.dump(ConfigManager._config, configFile, indent=3)
 
     @staticmethod
+    def getFullConfigString():
+        return (str(ConfigManager._config)[1:-1]).replace(',', ',\n')
+
+    @staticmethod
     def __setDataCorruptedFlag__(FLAG):
         ConfigManager._config['DATA_CORRUPTED'] = FLAG
         with open(CONFIG_PATH, 'w', encoding='utf-8') as configFile:
