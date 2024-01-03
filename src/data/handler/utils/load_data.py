@@ -4,7 +4,7 @@ from src.data.manager.config_manager import ConfigManager
 from src.data.manager.update_info_manager import UpdateInfoManager
 from src.data.manager.warning_messages_manager import WarningMessagesManager
 
-def loadBasicData():
+def loadPrimaryData():
     ConfigManager.load()
     DesignManager.load()
 

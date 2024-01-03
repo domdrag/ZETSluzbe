@@ -4,7 +4,6 @@ from datetime import date, timedelta
 
 from src.data.retrieve.get_holidays import getHolidays
 from src.data.manager.warning_messages_manager import WarningMessagesManager
-from src.share.filenames import HOLIDAYS_PATH
 from src.share.trace import TRACE
 from src.share.asserts import ASSERT_NO_THROW
 
@@ -37,15 +36,6 @@ def charsRepresentDays(chars, idx):
         return True
     else:
         return False
-
-def addHolidays(firstStageHolidayList):
-    fileA = open(HOLIDAYS_PATH, 'a', encoding='utf-8')
-    for holiday in firstStageHolidayList:
-        year = holiday.year
-        month = holiday.month
-        day = holiday.day
-        fileA.write(f"{[year, month, day]}\n")
-    fileA.close()
 
 def configureWeekSchedule(page, weekSchedule, mondayDate):
     # pdlplumber se gubi kada rect nije obojan u smislu
@@ -124,7 +114,7 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
 
             if 'Subota' not in nonWorkingDays:
                 # Saturday is not green nor red
-                TRACE('Saturday not marked green nor red on days-row.')
+                TRACE('Saturday not marked green nor red.')
                 errorOccured = True 
             elif nonWorkingDays['Subota'] == 'Subota':
                 del nonWorkingDays['Subota']
@@ -132,7 +122,7 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
             if 'Nedjelja' not in nonWorkingDays or \
                nonWorkingDays['Nedjelja'] == 'Subota':
                 # Sunday is not red
-                TRACE('Sunday not marked red on days-row.')
+                TRACE('Sunday not marked red.')
                 errorOccured = True
             else:
                 del nonWorkingDays['Nedjelja']
@@ -176,27 +166,21 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
                 # Found day in holidays.txt, but remarked as green not red
                 # If it had been red, it would been found in firstStage list
                 TRACE('Found holiday (' + str(holidayDate) + ') in database, '
-                      'but remarked as green on days-row.')
+                      'but remarked as green.')
                 errorOccured = True
                 weekSchedule[mondayDiff] = 'ST'
             else:
                 # Not found by colors, but present in holidays.txt
                 TRACE('Found holiday (' + str(holidayDate) + ') in database, '
-                      'but not remarked as red on days-row.')
+                      'but not remarked as red.')
                 plausibleErrorOccured = True
                 nonDefaultDays[dayToModify] = 'Nedjelja'
                 weekSchedule[mondayDiff] = 'SN'
 
     if (firstStageHolidayList):
-        TRACE('Found holidays/nonWorkingDays (' + str(firstStageHolidayList) + ') by colors on days-row, '
+        TRACE('Found holidays/nonWorkingDays (' + str(firstStageHolidayList) + ') by colors, '
               'but not present in database.')
         plausibleErrorOccured = True
-        # In case the program found a holiday by looking colors in pdf
-        # and the same holiday hasn't been found in holidays.txt, we decided
-        # to put the holiday in holidays.txt so the calendar can receive it.
-        # Anyhow, the plausible error message will be shown on login screen
-        ## and possible issue needs to be checked by the admin.
-        addHolidays(firstStageHolidayList)
 
     # add saturday line of traffic
     # tuesday merge

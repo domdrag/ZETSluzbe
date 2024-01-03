@@ -11,6 +11,7 @@ from src.share.trace import TRACE
 MAX_TRIES = 20
 
 def __downloadGithubFile__(filePath, file):
+    # file must be the same filename as in remote
     githubToken = ConfigManager.getConfig('GITHUB_TOKEN')
     githubURLMain = ConfigManager.getConfig('GITHUB_DOWNLOAD_URL_PATTERN')
     URL = githubURLMain + file + '?token=' + githubToken
