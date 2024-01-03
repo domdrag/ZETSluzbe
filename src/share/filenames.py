@@ -1,5 +1,5 @@
 
-DATA_DIR = 'data/'
+DATA_DIR = 'ZETSluzbe-Data/data/'
 ALL_DRIVERS_PATH = DATA_DIR + 'all_drivers.txt'
 CONFIG_PATH = DATA_DIR + 'config.json'
 DESIGN_PATH = DATA_DIR + 'design.json'
