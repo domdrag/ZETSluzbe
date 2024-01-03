@@ -2,12 +2,12 @@ from src.data.collect.data_collector import DataCollector, STARTING_OUTPUT_MESSA
 from src.data.manager.config_manager import ConfigManager
 
 from src.data.share.synchronization_util import gatherRemoteCentralData
-from src.data.handler.utils.load_data import loadBasicData, loadCentralData
+from src.data.handler.utils.load_data import loadPrimaryData, loadCentralData
 
 from src.share.trace import TRACE
 
 def loadDataAtStartup():
-    loadBasicData()
+    loadPrimaryData()
     if (ConfigManager.dataCorrupted()):
         TRACE('ERROR IN LAST UPDATE - REPAIRING CENTRAL DATA')
         recoverData()
