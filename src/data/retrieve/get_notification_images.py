@@ -9,6 +9,9 @@ def getNotificationImages(notificationName):
     imagesPathPattern = NOTIFICATIONS_FILES_DIR + imagesFileNamePattern
     imagesPathList = [imagesPathPattern + str(pageNum) + '.png'
                       for pageNum in range(1, numOfPages + 1)]
-    TRACE('Found notification images: ' + str(imagesPathList))
+    if (imagesPathList):
+        TRACE('Found notification images: ' + str(imagesPathList))
+    else:
+        TRACE('No notification images found.')
 
     return imagesPathList

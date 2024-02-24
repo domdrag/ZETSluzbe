@@ -5,6 +5,7 @@ import pdfplumber
 from src.data.manager.notifications_manager import setNotifications
 from src.data.collect.cps.utils.download_pdf_file import downloadPDFFile
 from src.share.filenames import NOTIFICATIONS_FILES_DIR
+from src.share.trace import TRACE
 
 GENERATED_IMAGE_RESOLUTION = 300
 
@@ -14,19 +15,26 @@ def clearNotificationsFilesDir():
     os.mkdir(NOTIFICATIONS_FILES_DIR)
 
 def generateNotificationFiles(filesNamePattern, notificationURL):
-    notificationPDF = downloadPDFFile(notificationURL,
-                                      NOTIFICATIONS_FILES_DIR,
-                                      filesNamePattern + '.pdf')
     imagesFileNamePattern = filesNamePattern + '_page-'
     imagesPathPattern = NOTIFICATIONS_FILES_DIR + imagesFileNamePattern
+    try:
+        notificationPDF = downloadPDFFile(notificationURL,
+                                          NOTIFICATIONS_FILES_DIR,
+                                          filesNamePattern + '.pdf')
 
-    # cause of memory leak during verification
-    with pdfplumber.open(notificationPDF) as PDF:
-        numOfPages = len(PDF.pages)
-        for page in PDF.pages:
-            imagePath = imagesPathPattern + str(page.page_number) + '.png'
-            image = page.to_image(resolution = GENERATED_IMAGE_RESOLUTION)
-            image.save(imagePath)
+        # cause of memory leak during verification
+        with pdfplumber.open(notificationPDF) as PDF:
+            numOfPages = len(PDF.pages)
+            for page in PDF.pages:
+                imagePath = imagesPathPattern + str(page.page_number) + '.png'
+                image = page.to_image(resolution = GENERATED_IMAGE_RESOLUTION)
+                image.save(imagePath)
+    except Exception as e:
+        # Should be the case when there is no PDF file uploaded for a notification.
+        # We don't want to terminate the update, so we just keep going.
+        TRACE('Error occured during generating following notification file: ' +
+              filesNamePattern + '\nReason: '+ str(e))
+        numOfPages = 0
 
     return {'numOfPages': numOfPages, 'imagesFileNamePattern': imagesFileNamePattern}
 

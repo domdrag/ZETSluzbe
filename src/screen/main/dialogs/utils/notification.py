@@ -20,6 +20,4 @@ class Notification(MDBoxLayout):
             gallery = Gallery(imagesPathList)
             gallery.open()
         else:
-            # unexpected error
-            TRACE('NO_NOTIFICATIONS_FOUND')
             pass
