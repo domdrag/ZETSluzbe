@@ -62,10 +62,12 @@ def searchLinks(mainPageURL):
                     if ('RD' in linkURL or 'Radni dan' in linkName):
                         workDayLinks.append({'URL': linkURL, 'name': linkName})
                         TRACE('Rules link found: ' + linkName + ' Treated as workDay link.')
-                    elif ('SUB' in linkURL or 'S_internet' in linkURL or 'Subota' in linkName):
+                    # TR - special days for saturday and sunday listed 'Subota' i 'Nedjelja' in linkNames
+                    ## Decided to fix it by first checking if 'od' is in linkName as a condition
+                    elif ('od' in linkName and ('SUB' in linkURL or 'S_internet' in linkURL or 'Subota' in linkName)):
                         saturdayLinks.append({'URL': linkURL, 'name': linkName})
                         TRACE('Rules link found: ' + linkName + ' Treated as saturday link.')
-                    elif ('NED' in linkURL or 'N_internet' in linkURL or 'Nedjelja' in linkName):
+                    elif ('od' in linkName and ('NED' in linkURL or 'N_internet' in linkURL or 'Nedjelja' in linkName)):
                         sundayLinks.append({'URL': linkURL, 'name': linkName})
                         TRACE('Rules link found: ' + linkName + ' Treated as sunday link.')
                     else:
