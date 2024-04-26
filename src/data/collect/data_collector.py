@@ -41,6 +41,8 @@ class DataCollector:
         self.fileNames = []
         self.weekSchedule = ['W', 'W', 'W', 'W', 'W', 'W', 'W']
         self.canUseOldWorkDayResources = False
+        self.canUseOldSaturdayResources = False
+        self.canUseOldSundayResources = False
         self.skipOnlineSyncsDueToTestConfig = False
         self.missingServices = False
 
@@ -102,10 +104,13 @@ class DataCollector:
 
             elif self.phase == cp.DELETE_NECESSARY_DATA:
                 TRACE('[CP] DELETE_NECESSARY_DATA')
-                result = deleteNecessaryData(self.workDayLinks, self.specialDayLinks)
+                result = deleteNecessaryData()
                 self.canUseOldWorkDayResources = result['canUseOldWorkDayResources']
-                TRACE('Old Work Day resources enabled: ' +
-                      str(self.canUseOldWorkDayResources))
+                self.canUseOldSaturdayResources = result['canUseOldSaturdayResources']
+                self.canUseOldSundayResources = result['canUseOldSundayResources']
+                TRACE('Old Work Day resources enabled: ' + str(self.canUseOldWorkDayResources))
+                TRACE('Old Saturday resources enabled: ' + str(self.canUseOldSaturdayResources))
+                TRACE('Old Sunday resources enabled: ' + str(self.canUseOldSundayResources))
                 
             elif self.phase == cp.EXTRACT_RULES:
                 TRACE('[CP] EXTRACT_RULES')
@@ -115,7 +120,9 @@ class DataCollector:
                                               self.specialDayLinks,
                                               self.weekSchedule,
                                               self.mondayDate,
-                                              self.canUseOldWorkDayResources)
+                                              self.canUseOldWorkDayResources,
+                                              self.canUseOldSaturdayResources,
+                                              self.canUseOldSundayResources)
                 
             elif self.phase == cp.ADD_DECRYPTED_SERVICES:
                 TRACE('[CP] ADD_DECRYPTED_SERVICES')

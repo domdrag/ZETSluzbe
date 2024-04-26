@@ -27,17 +27,20 @@ def getServiceLine(serviceNum, dayIndex, weekSchedule, mondayDate, fileNames, en
                 break
 
     if (not fileNamePath):
+        # We don't need to have generic rules available in case we got old valid service already
+        ## written for that specific day -> that's why we don't throw if enableTraces since
+        ## enableTraces walks through every day regardless
         if (weekSchedule[dayIndex] == 'W'):
-            ASSERT_THROW(PRIMARY_WORK_DAY_RULES_FILE_PREFIX in fileNames,
-                         'No generic rules for WorkDays generated.')
+            ASSERT_THROW(enableTraces or PRIMARY_WORK_DAY_RULES_FILE_PREFIX in fileNames,
+                         'No generic rules for WorkDays available.')
             fileNamePath = PRIMARY_WORK_DAY_RULES_PATH
         elif (weekSchedule[dayIndex] == 'ST'):
-            ASSERT_THROW(PRIMARY_SATURDAY_RULES_FILE_PREFIX in fileNames,
-                         'No generic rules for Saturday generated.')
+            ASSERT_THROW(enableTraces or PRIMARY_SATURDAY_RULES_FILE_PREFIX in fileNames,
+                         'No generic rules for Saturday available.')
             fileNamePath = PRIMARY_SATURDAY_RULES_PATH
         else:
-            ASSERT_THROW(PRIMARY_SUNDAY_RULES_FILE_PREFIX in fileNames,
-                         'No generic rules for Sunday generated.')
+            ASSERT_THROW(enableTraces or PRIMARY_SUNDAY_RULES_FILE_PREFIX in fileNames,
+                         'No generic rules for Sunday available.')
             fileNamePath = PRIMARY_SUNDAY_RULES_FILE_PATH
 
     if (enableTraces):

@@ -37,6 +37,14 @@ def charsRepresentDays(chars, idx):
     else:
         return False
 
+def charsRepresentWorker(chars, rects, idx):
+    insideRects = getAllRectsInsideChar(chars[idx], rects)
+    for insideRect in insideRects:
+        color = insideRect['non_stroking_color']
+        if color != (1, 1, 1):  # white
+            return True
+    return False
+
 def configureWeekSchedule(page, weekSchedule, mondayDate):
     # pdlplumber se gubi kada rect nije obojan u smislu
     # da izbacuje cudne atribute pozicija i velicina
@@ -80,8 +88,9 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
             while (not charsRepresentDays(chars, idx)):
                 idx = idx + 1 # aiming for days row on table on the right
             idx += 7 # reach uncolored day-numbers on table on the left
-            while (not (chars[idx]['text']).isalpha()):
-                idx = idx + 1 # aiming for first service
+            while (not charsRepresentWorker(chars, rects, idx)):
+                idx = idx + 1 # aiming for first driver
+            idx = idx + 5 # aiming for firt service
 
             TRACE('----------------------------------------')
             for day in range(0, 7):
@@ -91,7 +100,7 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
                     unMatchingColorsMessage = 'COLORS MISMATCH BETWEEN DAYS-ROW AND FIRST-SERVICES-ROW FOR '
                     if color[1] >= 0.9 and color != (1, 1, 1):  # green
                         TRACE('Found ' + days[day] + ' as green cell on first-services-row.')
-                        if (nonWorkingDays[days[day]] != 'Subota'):
+                        if (days[day] not in nonWorkingDays or nonWorkingDays[days[day]] != 'Subota'):
                             plausibleErrorOccured = True
                             checkedDay = str(days[day])
                             TRACE('COLORS MISMATCH BETWEEN DAYS-ROW AND FIRST-SERVICES-ROW FOR ' + checkedDay)
@@ -100,7 +109,7 @@ def configureWeekSchedule(page, weekSchedule, mondayDate):
                         break
                     elif color[0] >= 0.9 and color != (1, 1, 1):  # red
                         TRACE('Found ' + days[day] + ' as red cell on first-services-row.')
-                        if (nonWorkingDays[days[day]] != 'Nedjelja'):
+                        if (days[day] not in nonWorkingDays or nonWorkingDays[days[day]] != 'Nedjelja'):
                             plausibleErrorOccured = True
                             checkedDay = str(days[day])
                             TRACE('COLORS MISMATCH BETWEEN DAYS-ROW AND FIRST-SERVICES-ROW FOR ' + checkedDay)

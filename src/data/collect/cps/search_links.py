@@ -78,12 +78,12 @@ def searchLinks(mainPageURL):
         except Exception as e:
             TRACE(e)
 
+    ASSERT_THROW(len(workDayLinks) < 2, "Found multiple workDay links.")
     ASSERT_THROW(len(saturdayLinks) < 2, "Found multiple saturday links.")
     ASSERT_THROW(len(sundayLinks) < 2, "Found multiple sunday links.")
 
     # we tolerate no links because we may use old resources
-    ASSERT_NO_THROW(len(workDayLinks) < 2, "Found multiple workDay's links.")
-    ASSERT_NO_THROW(len(workDayLinks) > 0, 'No workDay link found.')
+    ASSERT_NO_THROW(len(workDayLinks) == 1, 'No workDay link found.')
     ASSERT_NO_THROW(len(saturdayLinks) == 1, 'No saturday link found.')
     ASSERT_NO_THROW(len(sundayLinks) == 1, 'No sunday link found.')
 
