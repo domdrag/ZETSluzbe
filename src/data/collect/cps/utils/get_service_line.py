@@ -4,7 +4,7 @@ import datetime
 from src.share.filenames import (CENTRAL_DATA_DIR, PRIMARY_WORK_DAY_RULES_PATH, PRIMARY_SATURDAY_RULES_PATH,
                                  PRIMARY_SUNDAY_RULES_FILE_PATH, PRIMARY_WORK_DAY_RULES_FILE_PREFIX,
                                  PRIMARY_SATURDAY_RULES_FILE_PREFIX, PRIMARY_SUNDAY_RULES_FILE_PREFIX)
-from src.share.asserts import ASSERT_THROW
+from src.share.asserts import ASSERT_THROW, ASSERT_NO_THROW
 from src.share.trace import TRACE
 
 def getFormattedDateStr(date):
@@ -51,9 +51,28 @@ def getServiceLine(serviceNum, dayIndex, weekSchedule, mondayDate, fileNames, en
     fileR = open(fileNamePath, 'r', encoding='utf-8')
     serviceLines = fileR.readlines()
     fileR.close()
+
+    foundServiceLines = []
     for serviceLine in serviceLines:
         serviceLine = ast.literal_eval(serviceLine)
         if (serviceNum in serviceLine):
-            return serviceLine
+            foundServiceLines.append(serviceLine)
 
-    return []
+    if (len(foundServiceLines) == 0):
+        return []
+    if (len(foundServiceLines) == 1):
+        return foundServiceLines[0]
+
+    fixedServiceLine = foundServiceLines[0]
+    serviceStartIndexes = [0, 8, 15]
+    for nextFoundServiceLine in foundServiceLines[1:]:
+        for serviceStartIndex in serviceStartIndexes:
+            ASSERT_NO_THROW(fixedServiceLine[serviceStartIndex] == nextFoundServiceLine[serviceStartIndex],
+                            "Two service lines share a same service number, but not all 3 of them")
+
+            receptionPointIndex = serviceStartIndex + 2
+            if (nextFoundServiceLine[receptionPointIndex] != ''):
+                for id in range(serviceStartIndex + 1, serviceStartIndex + 8):
+                    fixedServiceLine[id] = nextFoundServiceLine[id]
+    return fixedServiceLine
+
