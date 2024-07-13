@@ -202,6 +202,26 @@ def getTracesForGetServiceLineMethod(weekSchedule, mondayDate, fileNames):
     for dayIndex in range(0, 7):
         getServiceLine(serviceNumDummy, dayIndex, weekSchedule, mondayDate, fileNames, enableTraces)
 
+def getFormattedDateStr(date):
+    dateStr = str(date)
+    return '-'.join(reversed(dateStr.split('-')))
+
+def mustUseOldResources(weekSchedule, typeOfDay, specialDays, mondayDate, potentialErrorMessage):
+    mustUse = False
+
+    for dayIndex in range(len(weekSchedule)):
+        if weekSchedule[dayIndex] != typeOfDay:
+            continue
+
+        date = mondayDate + timedelta(days=dayIndex)
+        if (date.day not in specialDays):
+            formattedDateStr = getFormattedDateStr(date)
+            TRACE('Potential error: ' + potentialErrorMessage)
+            TRACE('Will use fallback to old resources for ' + formattedDateStr)
+            mustUse = True
+
+    return mustUse
+
 def extractRules(workDayLinks,
                  saturdayLinks,
                  sundayLinks,
@@ -212,6 +232,7 @@ def extractRules(workDayLinks,
                  canUseOldSaturdayResources,
                  canUseOldSundayResources):
     fileNames = []
+    specialDays = set()
 
     # SPECIAL DAY
     if (specialDayLinks):
@@ -226,78 +247,85 @@ def extractRules(workDayLinks,
             continue
 
         fileNames.append(fileNameSP)
+        rangeListStartIndex = fileNameSP.index('[')
+        specialDays.update(ast.literal_eval(fileNameSP[rangeListStartIndex:]))
+
         TRACE('Extracting rules for file: ' + fileNameSP + ', typeOfDay: ' + typeOfDaySP)
         extractRule(typeOfDaySP, link['URL'], fileNameSP)
 
     # WORK DAY
     try:
+        typeOfDayW = 'W'
+        fileNameWPrefix = PRIMARY_WORK_DAY_RULES_FILE_PREFIX
+
         if (not workDayLinks):
             raise ExtractRulesCustomException('No workDay links found')
-        # if (len(workDayLinks) > 1):
-        #     WarningMessagesManager.addWarningMessage('Nadjeno vise rasporeda za radni dan!')
-        typeOfDayW = 'W'
+
         # Currently only 1 workDay link supported, if ever opt for multiple need to refactor
         ## ExtractRulesCustomException handling since extractRule might raise e.g. for only one
         ## workDay link
         for link in workDayLinks:
-            fileNameWPrefix = PRIMARY_WORK_DAY_RULES_FILE_PREFIX
             fileNameW = determineRulesFileName(link['name'], fileNameWPrefix)
             TRACE('Extracting rules for file: ' + fileNameW + ', typeOfDay: ' + typeOfDayW)
             extractRule(typeOfDayW, link['URL'], fileNameW)
             fileNames.append(fileNameW)
     except ExtractRulesCustomException as p:
         # No links found or PDF not present on the link
-        if (canUseOldWorkDayResources):
-            fileNames.append(fileNameW)
-            TRACE('Potential error: ' + str(p))
-            TRACE('Will use fallback to old resources for WorkDay if needed')
-            WarningMessagesManager.addWarningMessage('Potencijalno koristenje starih resursa za Radni dan!')
+        if (not mustUseOldResources(weekSchedule, typeOfDayW, specialDays, mondayDate, str(p))):
+            pass
+        elif (canUseOldWorkDayResources):
+            fileNames.append(fileNameWPrefix)
+            WarningMessagesManager.addWarningMessage('Koristenje starih resursa za Radni dan!')
         else:
             raise Exception(p)
 
     # SATURDAY
     try:
+        typeOfDayST = 'ST'
+        fileNameST = PRIMARY_SATURDAY_RULES_FILE_PREFIX
+
         if (not saturdayLinks):
             raise ExtractRulesCustomException('No saturday links found')
-        typeOfDayST = 'ST'
+
         # Currently only 1 Saturday link supported, if ever opt for multiple need to refactor
         ## ExtractRulesCustomException handling since extractRule might raise e.g. for only one
         ## Saturday link
         for link in saturdayLinks:
-            fileNameST = PRIMARY_SATURDAY_RULES_FILE_PREFIX
             TRACE('Extracting rules for file: ' + fileNameST + ', typeOfDay: ' + typeOfDayST)
             extractRule(typeOfDayST, link['URL'], fileNameST)
             fileNames.append(fileNameST)
     except ExtractRulesCustomException as p:
         # No links found or PDF not present on the link
-        if (canUseOldSaturdayResources):
+        if (not mustUseOldResources(weekSchedule, typeOfDayST, specialDays, mondayDate, str(p))):
+            pass
+        elif (canUseOldSaturdayResources):
             fileNames.append(fileNameST)
-            TRACE('Potential error: ' + str(p))
-            TRACE('Will use fallback to old resources for Saturday if needed')
-            WarningMessagesManager.addWarningMessage('Potencijalno koristenje starih resursa za Subotu!')
+            WarningMessagesManager.addWarningMessage('Koristenje starih resursa za Subotu!')
         else:
             raise Exception(p)
 
     # SUNDAY
     try:
+        typeOfDaySN = 'SN'
+        fileNameSN = PRIMARY_SUNDAY_RULES_FILE_PREFIX
+
         if (not sundayLinks):
             raise ExtractRulesCustomException('No sunday links found')
-        typeOfDaySN = 'SN'
+
         # Currently only 1 Sunday link supported, if ever opt for multiple need to refactor
         ## ExtractRulesCustomException handling since extractRule might raise e.g. for only one
         ## Sunday link
         for link in sundayLinks:
-            fileNameSN = PRIMARY_SUNDAY_RULES_FILE_PREFIX
             TRACE('Extracting rules for file: ' + fileNameSN + ', typeOfDay: ' + typeOfDaySN)
             extractRule(typeOfDaySN, link['URL'], fileNameSN)
             fileNames.append(fileNameSN)
     except ExtractRulesCustomException as p:
         # No links found or PDF not present on the link
-        if (canUseOldSundayResources):
+        if (not mustUseOldResources(weekSchedule, typeOfDaySN, specialDays, mondayDate, str(p))):
+            pass
+        elif (canUseOldSundayResources):
             fileNames.append(fileNameSN)
-            TRACE('Potential error: ' + str(p))
-            TRACE('Will use fallback to old resources for Sunday if needed')
-            WarningMessagesManager.addWarningMessage('Potencijalno koristenje starih resursa za Nedjelju!')
+            WarningMessagesManager.addWarningMessage('Koristenje starih resursa za Nedjelju!')
         else:
             raise Exception(p)
 
