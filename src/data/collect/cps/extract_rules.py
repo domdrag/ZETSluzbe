@@ -49,7 +49,7 @@ def getDaysFromDates(dates):
 
 def determineRulesFileName(linkName, fileNamePrefix):
     numOfDashes = linkName.count('-')
-    numOfTills = linkName.count('do')
+    numOfTills = linkName.count(' do ')
     ASSERT_THROW(numOfDashes + numOfTills < 2,
                  'Invalid rules linkName: ' + linkName)
 
