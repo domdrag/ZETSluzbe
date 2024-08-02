@@ -146,6 +146,7 @@ def determineTypeOfDayForSpecialDays(fileName, mondayDate, weekSchedule):
     dayToFind = specificDays[0]  # any day should work
     dayIndex = -3 # usually we are updating in Friday -> need to consider extra 3 days in case special days are
                   ## referring to old Friday, old Saturday and/or old Sunday
+    
     while dayIndex < 7:
         nextDate = mondayDate + timedelta(days=dayIndex)
         if (nextDate.day == dayToFind):
