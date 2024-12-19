@@ -22,7 +22,7 @@ def configureValidOldServicesIndexed(filePath, mondayDate):
 
     currServiceIndex = -1
     validOldServicesUnordered = []
-    while (getServiceDate(ast.literal_eval(services[currServiceIndex])) >= mondayDate):
+    while (abs(currServiceIndex) <= len(services) and getServiceDate(ast.literal_eval(services[currServiceIndex])) >= mondayDate):
         validOldServicesUnordered.append(services[currServiceIndex])
         currServiceIndex -= 1
 

@@ -21,8 +21,8 @@ def getValidOldShiftsUnordered(filePath, mondayDate):
     validOldShiftsUnordered = []
     numOfShifts = len(shifts)
     currentIndex = numOfShifts - 1
-    # REMARK: assumed currentIndex >> 0
-    while(getServiceDate(ast.literal_eval(shifts[currentIndex])) >= mondayDate):
+
+    while(currentIndex >= 0 and getServiceDate(ast.literal_eval(shifts[currentIndex])) >= mondayDate):
         shiftInst = shifts[currentIndex]
         shiftInstBefore = shifts[currentIndex-1]
         if (ast.literal_eval(shiftInst)[0] == ast.literal_eval(shiftInstBefore)[0]):
