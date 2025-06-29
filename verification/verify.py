@@ -48,3 +48,18 @@ for testPackDir in testPacksDirs:
                                               verifScriptDestDir),
                     tracesEnabled],
                    cwd = verifScriptDestDir)
+
+customPrint('TEST RESULTS')
+for testPackDir in testPacksDirs:
+    verifScriptDestDir = TEST_PACKS_DIR + testPackDir
+    fileR = open(verifScriptDestDir + '/out.txt', 'r')
+    testResult = fileR.read()
+    fileR.close()
+
+    if testResult == '1':
+        print(testPackDir.upper() + ': SUCCESSFUL')
+    elif testResult == '0':
+        print(testPackDir.upper() + ': FAILED DUE TO DATA COLLECTION COMPARISON')
+    else:
+        print(testPackDir.upper() + ': FAILED DUE TO COMPILATION ERROR')
+customPrint('TEST END')

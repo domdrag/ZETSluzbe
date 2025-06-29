@@ -35,6 +35,11 @@ def verifyTestPack():
     fixCollectedData()
     return areDirTreesEqual('ZETSluzbe-Data/data', 'wanted_data')
 
+def updateOut(strValue):
+    fileW = open('out.txt', 'w')
+    fileW.write(strValue)
+    fileW.close()
+
 from io import StringIO
 
 try:
@@ -50,13 +55,15 @@ try:
         customPrint('PASSED')
         # suppress memory leak from pdfium
         sys.stderr = StringIO()
+        updateOut('1')
     else:
-        raise Exception('Data collection generated wrong data')
+        updateOut('0')
 except Exception as e:
     sys.stdout = normalStdout
-    customPrint('LOGS: ')
-    print(logs.getvalue())
+    #customPrint('LOGS: ')
+    #print(logs.getvalue())
     customPrint('Test data verification failed due to: ' + str(e))
     customPrint('FAILED')
+    updateOut('-1')
     
     

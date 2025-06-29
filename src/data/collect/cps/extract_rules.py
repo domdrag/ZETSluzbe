@@ -92,10 +92,13 @@ def determineRulesFileName(linkName, fileNamePrefix):
             daysRangeDiffMonthStr = daysRangeDiffMonthMatch.group(0)
             matchIndexStart = linkName.find(daysRangeDiffMonthStr)
             matchIndexEnd = matchIndexStart + len(daysRangeDiffMonthStr)
-            rangeSeparatorIndex = max(linkName.find('do', matchIndexStart, matchIndexEnd),
-                                      linkName.find('-', matchIndexStart, matchIndexEnd))
-            rangeSeparator = linkName[rangeSeparatorIndex]
-            actualDateStrings = daysRangeDiffMonthStr.split(rangeSeparator)
+            tillStrIndex = linkName.find('do', matchIndexStart, matchIndexEnd)
+            dashStrIndex = linkName.find('-', matchIndexStart, matchIndexEnd)
+            if (tillStrIndex > dashStrIndex):
+                rangeSeparatorStr = 'do'
+            else:
+                rangeSeparatorStr = '-'
+            actualDateStrings = daysRangeStr.split(rangeSeparatorStr)
             startDateStr = actualDateStrings[0] + year + '.'
             endDateStr = actualDateStrings[1]
             daysInTarget = getDaysInRange(startDateStr, endDateStr)
@@ -105,10 +108,13 @@ def determineRulesFileName(linkName, fileNamePrefix):
             daysRangeStr = daysRangeRegexMatch.group(0)
             matchIndexStart = linkName.find(daysRangeStr)
             matchIndexEnd = matchIndexStart + len(daysRangeStr)
-            rangeSeparatorIndex = max(linkName.find('do', matchIndexStart, matchIndexEnd),
-                                      linkName.find('-', matchIndexStart, matchIndexEnd))
-            rangeSeparator = linkName[rangeSeparatorIndex]
-            actualDateStrings = daysRangeStr.split(rangeSeparator)
+            tillStrIndex = linkName.find('do', matchIndexStart, matchIndexEnd)
+            dashStrIndex = linkName.find('-', matchIndexStart, matchIndexEnd)
+            if (tillStrIndex > dashStrIndex):
+                rangeSeparatorStr = 'do'
+            else:
+                rangeSeparatorStr = '-'
+            actualDateStrings = daysRangeStr.split(rangeSeparatorStr)
             startDateStr = actualDateStrings[0] + month + '.' + year + '.'
             endDateStr = actualDateStrings[1]
             daysInTarget = getDaysInRange(startDateStr, endDateStr)
