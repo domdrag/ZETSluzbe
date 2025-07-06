@@ -1,14 +1,16 @@
 import ast
 import os
 import zipfile
+import re
 
 from src.data.collect.cps.utils.get_driver_info import getDriverInfo
 from src.data.collect.cps.utils.get_service_layout import getServiceLayout
 from src.data.collect.cps.utils.get_service_line import getServiceLine
+from src.data.manager.config_manager import ConfigManager
 from src.data.share.get_service_date import getServiceDate
 from src.data.share.decompress_services import decompressShiftsFile
 from src.share.filenames import (CENTRAL_DATA_DIR, COMPRESSED_SHIFTS_PATH, COMPRESSED_UPDATED_SHIFTS_PATH,
-                                 WEEK_SERVICES_BY_DRIVER_ENCRYPTED_PATH, ALL_DRIVERS_PATH)
+                                 WEEK_SERVICES_BY_DRIVER_ENCRYPTED_PATH, ALL_DRIVERS_PATH, ALL_DRIVERS_PATH_TEST)
 
 def configureEmptyShifts():
     return [None] * 7
@@ -84,12 +86,18 @@ def addDecryptedShifts(days,
     weekServicesALL = fileR.readlines()
     fileR.close()
 
-    fileR = open(ALL_DRIVERS_PATH, 'r', encoding='utf-8')
+    testConfig = ConfigManager.getConfig('ACTIVATED_TEST_PACK_NUM')
+    if (testConfig):
+        fileR = open(ALL_DRIVERS_PATH_TEST, 'r', encoding='utf-8')
+    else:
+        fileR = open(ALL_DRIVERS_PATH, 'r', encoding='utf-8')
     driversRaw = fileR.readlines()
     fileR.close()
     driverList = []
     for driverRaw in driversRaw:
-        driver = driverRaw.split()
+        driver = re.split(' +|\t', driverRaw)
+        # Not sure if below needed, copied from solution online
+        driver = [driverItem.strip() for driverItem in driver]
         driverList.append(driver)
 
     for weekServicesRaw in weekServicesALL:
@@ -144,7 +152,7 @@ def addDecryptedShifts(days,
                 if(serviceLayout[1] == 'empty'):
                     fileW.write(f"{serviceLayout}\n")
                     continue
-                driverInfo = getDriverInfo(wantedServiceNum, driverList, i)
+                driverInfo = getDriverInfo(wantedServiceNum, driverList, i, testConfig)
                 serviceLayout.append(driverInfo[0] + '\n' + driverInfo[1])
                 fileW.write(f"{serviceLayout}\n")
         fileW.close()

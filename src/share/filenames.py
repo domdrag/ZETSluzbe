@@ -1,6 +1,7 @@
 
 DATA_DIR = 'ZETSluzbe-Data/data/'
-ALL_DRIVERS_PATH = DATA_DIR + 'all_drivers.txt'
+ALL_DRIVERS_PATH = DATA_DIR + 'all_drivers_2.txt'
+ALL_DRIVERS_PATH_TEST = DATA_DIR + 'all_drivers.txt'
 CONFIG_PATH = DATA_DIR + 'config.json'
 DESIGN_PATH = DATA_DIR + 'design.json'
 LINKS_PATH = DATA_DIR + 'links.json'
