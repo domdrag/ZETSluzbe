@@ -7,7 +7,8 @@ from requests.structures import CaseInsensitiveDict
 from src.data.manager.config_manager import ConfigManager
 from src.share.filenames import (CENTRAL_DATA_DIR, UPDATE_INFO_FILE, UPDATE_INFO_PATH, UPLOAD_DATA_DIR,
                                  UPLOADED_UPDATE_INFO_PATH, UPLOADED_CENTRAL_DATA_PATH,
-                                 UPLOADED_CENTRAL_DATA_PATH_NO_EXT, UPLOADED_CENTRAL_DATA_FILE)
+                                 UPLOADED_CENTRAL_DATA_PATH_NO_EXT, UPLOADED_CENTRAL_DATA_FILE, LOGS_FILE,
+                                 LOGS_PATH, UPLOADED_LOGS_PATH)
 from src.share.trace import TRACE
 from src.share.asserts import ASSERT_THROW
 
@@ -20,6 +21,7 @@ def __prepareUpdateInfoFileForTransport__():
     if (os.path.isfile(UPLOADED_UPDATE_INFO_PATH)):
         os.remove(UPLOADED_UPDATE_INFO_PATH)
     shutil.copyfile(UPDATE_INFO_PATH, UPLOADED_UPDATE_INFO_PATH)
+    shutil.copyfile(LOGS_PATH, UPLOADED_LOGS_PATH)
 
 def __prepareDataForTransport__():
     __compressCentralData__()
@@ -38,7 +40,7 @@ def __uploadFile__(filePath, file):
             responseGET = requests.get(URL, headers = headers)
             statusCodeGET = responseGET.status_code
             ASSERT_THROW(statusCodeGET == 200,
-                         'Unsuccessful central data check')
+                         'Unsuccessful online data check')
             oldDataFileSHA = (responseGET.json())['sha']
 
             messageContent = {
@@ -59,3 +61,4 @@ def uploadData():
     __prepareDataForTransport__()
     __uploadFile__(UPLOADED_CENTRAL_DATA_PATH, UPLOADED_CENTRAL_DATA_FILE)
     __uploadFile__(UPLOADED_UPDATE_INFO_PATH, UPDATE_INFO_FILE)
+    __uploadFile__(UPLOADED_LOGS_PATH, LOGS_FILE)

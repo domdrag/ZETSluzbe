@@ -16,7 +16,7 @@ from src.share.trace import TRACE
 def isValidRulesLink(linkName, linkURL):
     dateMatch = re.search(RegexDefinitions.dateRegex, linkName)
     return (bool(dateMatch) and
-            ('rada/' in linkURL or '/Oglasne'  in linkURL))
+            ('rada/' in linkURL or '/Oglasne'  in linkURL or '/Oglasna' in linkURL))
 
 
 def searchLinks(mainPageURL):
